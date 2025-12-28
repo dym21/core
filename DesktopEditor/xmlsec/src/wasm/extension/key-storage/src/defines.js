@@ -39,6 +39,7 @@ export const c_oAscKeyStorageType = {
 
 export const c_oAscCryptoRsaType = {};
 c_oAscCryptoRsaType[c_oAscKeyStorageType.RSAOAEPKeyGenParams] = "RSA-OAEP";
+c_oAscCryptoRsaType[c_oAscKeyStorageType.RSAOAEPImportParams] = "RSA-OAEP";
 
 export const c_oAscCryptoAesType = {};
 c_oAscCryptoAesType[c_oAscKeyStorageType.AesGCMKeyGenParams] = "AES-GCM";

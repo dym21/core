@@ -12,6 +12,7 @@ const encryptedDataDiv = document.getElementById('encrypted-data');
 const decryptedDataDiv = document.getElementById('decrypted-data');
 const saveStorageButton = document.getElementById('save-storage-button');
 const loadStorageButton = document.getElementById('load-storage-button');
+const changePasswordButton = document.getElementById('change-password-button');
 
 let selectedKey = null;
 generateKeyButton.addEventListener('click', (e) => {
@@ -41,12 +42,8 @@ decryptKeyButton.addEventListener('click', (e) => {
 
 saveStorageButton.addEventListener('click', (e) => {
 	const exportKeys = storageManager.exportKeys();
-	if (exportKeys.length === 0) {
-		alert("Key storage is empty");
-	} else {
-		localStorage.setItem("tempKeyStorage", storageManager.exportKeys().toBase64());
+		localStorage.setItem("tempKeyStorage", exportKeys.toBase64());
 		alert("Key storage is exported");
-	}
 });
 
 loadStorageButton.addEventListener('click', (e) => {
@@ -58,4 +55,10 @@ loadStorageButton.addEventListener('click', (e) => {
 			alert("Key storage is loaded");
 		});
 	}
-})
+});
+
+changePasswordButton.addEventListener('click', (e) => {
+	storageManager.changeMasterPassword().then(function() {
+		alert("Master password is changed");
+	});
+});

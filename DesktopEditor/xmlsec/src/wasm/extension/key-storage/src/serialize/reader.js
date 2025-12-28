@@ -58,19 +58,28 @@ BinaryReader.prototype.GetLong = function() {
 		return 0;
 	return (this.data[this.cur++] | this.data[this.cur++] << 8 | this.data[this.cur++] << 16 | this.data[this.cur++] << 24);
 };
-
 BinaryReader.prototype.GetString = function() {
-	var Len = this.GetLong();
-	if (this.cur + 2 * Len > this.size)
+	const Len = this.GetLong();
+	return this.GetStringLE(Len);
+};
+//String
+const global_string_decoder_le = (typeof TextDecoder !== "undefined") ? new TextDecoder('utf-16le', { ignoreBOM: true }) : null;
+BinaryReader.prototype.GetStringLE = function(len)
+{
+	if (this.cur + len > this.size)
 		return "";
-	var t = "";
-	for (var i = 0; i + 1 < 2 * Len; i+=2) {
-		var uni = this.data[this.cur + i];
-		uni |= this.data[this.cur + i + 1] << 8;
-		t += String.fromCharCode(uni);
+
+	if (global_string_decoder_le && undefined !== this.data.buffer) {
+		const subdata = new Uint8Array(this.data.buffer, this.data.byteOffset + this.cur, len);
+		this.cur += len;
+		return global_string_decoder_le.decode(subdata);
 	}
-	this.cur += 2 * Len;
-	return t;
+
+	var a = [];
+	for (var i = 0; i + 1 < len; i += 2)
+		a.push(String.fromCharCode(this.data[this.cur + i] | this.data[this.cur + i + 1] << 8));
+	this.cur += len;
+	return a.join("");
 };
 BinaryReader.prototype.GetCurPos = function() {
 	return this.cur;

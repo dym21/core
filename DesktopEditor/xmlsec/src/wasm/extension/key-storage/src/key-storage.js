@@ -67,7 +67,7 @@ KeyStorage.prototype.changeMasterPassword = function (oldMasterPassword, newMast
 	const oldPBKDFParams = this.pbkdfParams;
 	const newPBKDFParams = new PBKDF2Params(true);
 	const crypto = getCrypto();
-	Promise.all([crypto.getAesKey(oldMasterPassword, oldPBKDFParams), crypto.getAesKey(newMasterPassword, newPBKDFParams)]).then(function(aesKeys) {
+	return Promise.all([crypto.getAesKey(oldMasterPassword, oldPBKDFParams), crypto.getAesKey(newMasterPassword, newPBKDFParams)]).then(function(aesKeys) {
 		const keys = oThis.keys.map(function(key) {
 			return key.changeMasterPassword(aesKeys[0], aesKeys[1]);
 		});

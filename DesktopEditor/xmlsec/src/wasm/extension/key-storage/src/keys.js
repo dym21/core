@@ -74,6 +74,7 @@ WebKeyPair.import = function(reader) {
 			return null;
 		}
 	}
+	return keyPair;
 };
 
 WebKeyPair.prototype.export = function(writer) {
@@ -210,7 +211,7 @@ AsymmetricKey.prototype.setParams = function(params) {
 	this.params = params;
 }
 AsymmetricKey.prototype.getImportCryptoParams = function() {
-	return this.params.getImportCryptoParams();
+	return this.params.getCryptoParams();
 };
 AsymmetricKey.prototype.getBinaryKey = function() {
 	return this.binaryKey;
@@ -228,7 +229,7 @@ function WebPrivateKey() {
 initClass(WebPrivateKey, AsymmetricKey);
 
 WebPrivateKey.import = function(reader) {
-	const key = new WebPrivateKey();
+	const key = new this();
 	key.setVersion(readLong(reader));
 	switch (key.version) {
 		case 1: {
@@ -296,7 +297,7 @@ function WebPublicKey() {
 initClass(WebPublicKey, AsymmetricKey);
 
 WebPublicKey.import = function(reader) {
-	const key = new WebPublicKey();
+	const key = new this();
 	key.setVersion(readLong(reader));
 	switch (key.version) {
 		case 1: {

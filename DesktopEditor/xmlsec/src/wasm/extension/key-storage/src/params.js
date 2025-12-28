@@ -34,7 +34,6 @@ AlgorithmParams.prototype.export = function(writer) {
 	writeLong(writer, this.version);
 	switch (this.version) {
 		case 1: {
-			writeLong(writer, this.type);
 			break;
 		}
 		default: {
@@ -52,7 +51,7 @@ function RsaImportParams(hash) {
 }
 initClass(RsaImportParams, AlgorithmParams);
 RsaImportParams.import = function(reader) {
-	const params = new RsaImportParams();
+	const params = new this();
 	params.setVersion(readLong(reader));
 	switch (params.version) {
 		case 1: {
@@ -69,7 +68,7 @@ RsaImportParams.prototype.export = function(writer) {
 	writeLong(writer, this.version);
 	switch (this.version) {
 		case 1: {
-			writeLong(this.hash);
+			writeLong(writer, this.hash);
 			break;
 		}
 		default: {
@@ -80,10 +79,17 @@ RsaImportParams.prototype.export = function(writer) {
 RsaImportParams.prototype.setHash = function (hash) {
 	this.hash = hash;
 };
+RsaImportParams.prototype.getCryptoParams = function() {
+	return {
+		name: c_oAscCryptoRsaType[this.objectType],
+		hash: c_oAscCryptoDigestType[this.hash]
+	};
+};
 export function RsaOAEPImportParams(hash) {
 	RsaImportParams.call(this, hash);
 }
 initClass(RsaOAEPImportParams, RsaImportParams, c_oAscKeyStorageType.RSAOAEPImportParams);
+RsaOAEPImportParams.import = RsaImportParams.import;
 RsaOAEPImportParams.prototype.getEncryptParams = function() {
 	return new RsaOAEPCryptoParams();
 };
@@ -261,7 +267,7 @@ export function PBKDF2Params(isInit) {
 initClass(PBKDF2Params, AlgorithmParams, c_oAscKeyStorageType.PBKDF2Params);
 PBKDF2Params.import = function(reader) {
 	const params = new PBKDF2Params();
-	params.setVerison(readLong(reader));
+	params.setVersion(readLong(reader));
 	switch (params.version) {
 		case 1: {
 			params.setIterations(readLong(reader));
@@ -276,7 +282,7 @@ PBKDF2Params.import = function(reader) {
 	return params;
 }
 PBKDF2Params.prototype.export = function(writer) {
-	writeLong(this.version);
+	writeLong(writer, this.version);
 	switch (this.version) {
 		case 1: {
 			writeLong(writer, this.iterations);

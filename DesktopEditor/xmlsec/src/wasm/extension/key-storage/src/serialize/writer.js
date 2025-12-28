@@ -80,22 +80,22 @@ BinaryWriter.prototype.WriteDouble        = function(val)
 	this.data[this.pos++] = (lval >>> 16) & 0xFF;
 	this.data[this.pos++] = (lval >>> 24) & 0xFF;
 }
-BinaryWriter.prototype.WriteString        = function(text)
+BinaryWriter.prototype.WriteString = function(text)
 {
 	if ("string" != typeof text)
 		text = text + "";
 
-	var count = text.length & 0xFFFF;
-	this.CheckSize(2 * count + 2);
-	this.data[this.pos++] = count & 0xFF;
-	this.data[this.pos++] = (count >>> 8) & 0xFF;
-	for (var i = 0; i < count; i++)
+	var count      = text.length & 0x7FFFFFFF;
+	var countWrite = 2 * count;
+	this.WriteLong(countWrite);
+	this.CheckSize(countWrite);
+	for (let i = 0; i < count; i++)
 	{
-		var c                 = text.charCodeAt(i) & 0xFFFF;
+		const c                 = text.charCodeAt(i) & 0xFFFF;
 		this.data[this.pos++] = c & 0xFF;
 		this.data[this.pos++] = (c >>> 8) & 0xFF;
 	}
-};
+}
 BinaryWriter.prototype.WriteBuffer = function(data, _pos, count)
 {
 	this.CheckSize(count);
