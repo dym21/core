@@ -60,5 +60,9 @@ loadStorageButton.addEventListener('click', (e) => {
 changePasswordButton.addEventListener('click', (e) => {
 	storageManager.changeMasterPassword().then(function() {
 		alert("Master password is changed");
+	}).catch(function(e) {
+		if (e.name === "OperationError") {
+			alert("Master password is invalid");
+		}
 	});
 });
