@@ -512,3 +512,54 @@ EncryptData.prototype.setVersion = function(version) {
 	this.version = version;
 };
 
+
+function ExternalMasterPassword() {
+	this.version = 1;
+	this.pbkdfParams = null;
+	this.masterPassword = null;
+}
+ExternalMasterPassword.import = function(binaryData) {
+	const reader = new BinaryReader(binaryData, binaryData.length);
+	const masterPasswordInfo = new ExternalMasterPassword(true);
+	masterPasswordInfo.setVersion(readLong(reader));
+	switch (masterPasswordInfo.version) {
+		case 1: {
+			masterPasswordInfo.setMasterPassword(readBuffer(reader));
+			masterPasswordInfo.setPBKDFParams(readObject(reader));
+			break;
+		}
+		default: {
+			return null;
+		}
+	}
+	return masterPasswordInfo;
+};
+ExternalMasterPassword.prototype.export = function() {
+	const writer = new BinaryWriter();
+	writeLong(writer, this.version);
+	switch (this.version) {
+		case 1: {
+			writeBuffer(writer, this.masterPassword);
+			writeObject(writer, this.pbkdfParams);
+			break;
+		}
+		default: {
+			break;
+		}
+	}
+};
+ExternalMasterPassword.prototype.init = function() {
+	this.setPBKDFParams(new PBKDF2Params(true));
+};
+ExternalMasterPassword.prototype.setVersion = function(version) {
+	this.version = version;
+};
+ExternalMasterPassword.prototype.setMasterPassword = function(masterPassword) {
+	this.masterPassword = masterPassword;
+};
+ExternalMasterPassword.prototype.getMasterPassword = function(masterPassword) {
+	return masterPassword;
+};
+ExternalMasterPassword.prototype.setPBKDFParams = function(params) {
+	this.pbkdfParams = params;
+};
