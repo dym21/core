@@ -1,0 +1,183 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup Label="ProjectConfigurations">
+    <ProjectConfiguration Include="Release|x64">
+      <Configuration>Release</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+  </ItemGroup>
+  <PropertyGroup Label="Globals">
+    <ProjectGuid>{C88F8A36-D44F-3345-BEEA-FBB7622AAA55}</ProjectGuid>
+    <RootNamespace>doctrenderer</RootNamespace>
+    <Keyword>QtVS_v304</Keyword>
+    <WindowsTargetPlatformVersion>10.0</WindowsTargetPlatformVersion>
+    <QtMsBuild Condition="'$(QtMsBuild)'=='' OR !Exists('$(QtMsBuild)\qt.targets')">$(MSBuildProjectDirectory)\QtMsBuild</QtMsBuild>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'" Label="Configuration">
+    <PlatformToolset>v142</PlatformToolset>
+    <OutputDirectory>..\..\build\lib\win_64\</OutputDirectory>
+    <ATLMinimizesCRunTimeLibraryUsage>false</ATLMinimizesCRunTimeLibraryUsage>
+    <CharacterSet>NotSet</CharacterSet>
+    <ConfigurationType>DynamicLibrary</ConfigurationType>
+    <IntermediateDirectory>core_build\win_64\release\obj\</IntermediateDirectory>
+    <PrimaryOutput>doctrenderer</PrimaryOutput>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
+  <Import Project="$(QtMsBuild)\qt_defaults.props" Condition="Exists('$(QtMsBuild)\qt_defaults.props')" />
+  <PropertyGroup Label="QtSettings" Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <QtInstall>Qt-5.15.2_msvc2019_64</QtInstall>
+    <QtModules>
+    </QtModules>
+  </PropertyGroup>
+  <Target Name="QtMsBuildNotFound" BeforeTargets="CustomBuild;ClCompile" Condition="!Exists('$(QtMsBuild)\qt.targets') OR !Exists('$(QtMsBuild)\Qt.props')">
+    <Message Importance="High" Text="QtMsBuild: could not locate qt.targets, qt.props; project may not build correctly." />
+  </Target>
+  <ImportGroup Label="ExtensionSettings" />
+  <ImportGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'" Label="PropertySheets">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" />
+    <Import Project="$(QtMsBuild)\Qt.props" />
+  </ImportGroup>
+  <PropertyGroup Label="UserMacros" />
+  <PropertyGroup>
+    <OutDir Condition="'$(Configuration)|$(Platform)'=='Release|x64'">..\..\build\lib\win_64\</OutDir>
+    <IntDir Condition="'$(Configuration)|$(Platform)'=='Release|x64'">core_build\win_64\release\obj\</IntDir>
+    <TargetName Condition="'$(Configuration)|$(Platform)'=='Release|x64'">doctrenderer</TargetName>
+    <IgnoreImportLibrary Condition="'$(Configuration)|$(Platform)'=='Release|x64'">true</IgnoreImportLibrary>
+    <LinkIncremental Condition="'$(Configuration)|$(Platform)'=='Release|x64'">false</LinkIncremental>
+  </PropertyGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <ClCompile>
+      <AdditionalIncludeDirectories>GeneratedFiles\$(ConfigurationName);GeneratedFiles;.;addon;js_internal;..\..\Common\3dParty\v8_89\v8;..\..\Common\3dParty\v8_89\v8\include;js_internal\v8\inspector;..\..\Common\3dParty\boost\build\win_64\include;..\..\Common\3dParty\openssl\build\win_64\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalOptions>-Zc:rvalueCast -Zc:inline -Zc:strictStrings -Zc:throwingNew -Zc:referenceBinding -Zc:__cplusplus /Zc:strictStrings- /utf-8 /Zc:strictStrings- -w34100 -w34189 -w44996 -w44456 -w44457 -w44458 %(AdditionalOptions)</AdditionalOptions>
+      <AssemblerListingLocation>core_build\win_64\release\obj\</AssemblerListingLocation>
+      <BrowseInformation>false</BrowseInformation>
+      <DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
+      <DisableSpecificWarnings>4577;4467;%(DisableSpecificWarnings)</DisableSpecificWarnings>
+      <ExceptionHandling>Sync</ExceptionHandling>
+      <InlineFunctionExpansion>Disabled</InlineFunctionExpansion>
+      <MultiProcessorCompilation>true</MultiProcessorCompilation>
+      <LanguageStandard>stdcpp14</LanguageStandard>
+      <ObjectFileName>core_build\win_64\release\obj\</ObjectFileName>
+      <Optimization>Disabled</Optimization>
+      <PreprocessorDefinitions>_WINDOWS;UNICODE;_UNICODE;WIN32;_ENABLE_EXTENDED_ALIGNED_STORAGE;WIN64;INTVER=2.5.565.0;WIN_INTVER=2,5,565,0;COPYRIGHT_YEAR=2025;WIN32;_WIN32;NOMINMAX;WIN64;_WIN64;WINDOWS_IGNORE_PACKING_MISMATCH;DOCTRENDERER_USE_DYNAMIC_LIBRARY_BUILDING;JSBASE_USE_DYNAMIC_LIBRARY_BUILDING;V8_VERSION_89_PLUS;V8_SUPPORT_SNAPSHOTS;V8_COMPRESS_POINTERS;WIN32_LEAN_AND_MEAN;V8_INSPECTOR;BOOST_USE_WINDOWS_H;BOOST_WINAPI_NO_REDECLARATIONS;SUPPORT_HARFBUZZ_SHAPER;BUIDLER_OPEN_DOWNLOAD_ENABLED;BUIDLER_OPEN_BASE64_ENABLED;WASM_SERIALIZER_USE_ALLOCATOR;NDEBUG;QT_NO_DEBUG;QT_PLUGIN;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <PreprocessToFile>false</PreprocessToFile>
+      <RuntimeLibrary>MultiThreadedDLL</RuntimeLibrary>
+      <SuppressStartupBanner>true</SuppressStartupBanner>
+      <TreatWChar_tAsBuiltInType>true</TreatWChar_tAsBuiltInType>
+      <WarningLevel>Level3</WarningLevel>
+    </ClCompile>
+    <Link>
+      <AdditionalDependencies>graphics.lib;C:\onlyoffice\core\build\lib\win_64\kernel.lib;C:\onlyoffice\core\build\lib\win_64\UnicodeConverter.lib;C:\onlyoffice\core\build\lib\win_64\kernel_network.lib;C:\onlyoffice\core\Common\3dParty\v8_89\v8\out.gn\win_64\release\obj\v8_monolith.lib;winmm.lib;advapi32.lib;Shell32.lib;DbgHelp.lib;Shlwapi.lib;C:\onlyoffice\core\Common\3dParty\boost\build\win_64\lib\libboost_date_time-vc142-mt-x64-1_72.lib;C:\onlyoffice\core\Common\3dParty\openssl\build\win_64\lib\libssl.lib;C:\onlyoffice\core\Common\3dParty\openssl\build\win_64\lib\libcrypto.lib;C:\onlyoffice\core\build\lib\win_64\PdfFile.lib;C:\onlyoffice\core\build\lib\win_64\XpsFile.lib;C:\onlyoffice\core\build\lib\win_64\DjVuFile.lib;C:\onlyoffice\core\build\lib\win_64\DocxRenderer.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalLibraryDirectories>C:\onlyoffice\core\build\lib\win_64;C:\onlyoffice\core\Common\3dParty\v8_89\v8\out.gn\win_64\release\obj;C:\onlyoffice\core\Common\3dParty\boost\build\win_64\lib;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <DataExecutionPrevention>true</DataExecutionPrevention>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <IgnoreImportLibrary>true</IgnoreImportLibrary>
+      <LinkDLL>true</LinkDLL>
+      <LinkIncremental>false</LinkIncremental>
+      <OptimizeReferences>true</OptimizeReferences>
+      <OutputFile>$(OutDir)\doctrenderer.dll</OutputFile>
+      <RandomizedBaseAddress>true</RandomizedBaseAddress>
+      <SubSystem>Windows</SubSystem>
+      <SuppressStartupBanner>true</SuppressStartupBanner>
+      <Version>2.5</Version>
+    </Link>
+    <Midl>
+      <DefaultCharType>Unsigned</DefaultCharType>
+      <EnableErrorChecks>None</EnableErrorChecks>
+      <WarningLevel>0</WarningLevel>
+    </Midl>
+    <ResourceCompile>
+      <PreprocessorDefinitions>_WINDOWS;UNICODE;_UNICODE;WIN32;_ENABLE_EXTENDED_ALIGNED_STORAGE;WIN64;INTVER=2.5.565.0;WIN_INTVER=2,5,565,0;COPYRIGHT_YEAR=2025;WIN32;_WIN32;NOMINMAX;WIN64;_WIN64;WINDOWS_IGNORE_PACKING_MISMATCH;DOCTRENDERER_USE_DYNAMIC_LIBRARY_BUILDING;JSBASE_USE_DYNAMIC_LIBRARY_BUILDING;V8_VERSION_89_PLUS;V8_SUPPORT_SNAPSHOTS;V8_COMPRESS_POINTERS;WIN32_LEAN_AND_MEAN;V8_INSPECTOR;BOOST_USE_WINDOWS_H;BOOST_WINAPI_NO_REDECLARATIONS;SUPPORT_HARFBUZZ_SHAPER;BUIDLER_OPEN_DOWNLOAD_ENABLED;BUIDLER_OPEN_BASE64_ENABLED;WASM_SERIALIZER_USE_ALLOCATOR;NDEBUG;QT_NO_DEBUG;QT_PLUGIN;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+    </ResourceCompile>
+  </ItemDefinitionGroup>
+  <ItemGroup>
+    <ClCompile Include="embed\Default.cpp" />
+    <ClCompile Include="embed\DrawingFileEmbed.cpp" />
+    <ClCompile Include="embed\GraphicsEmbed.cpp" />
+    <ClCompile Include="..\graphics\pro\js\wasm\src\HTMLRendererText.cpp" />
+    <ClCompile Include="embed\HashEmbed.cpp" />
+    <ClCompile Include="embed\MemoryStreamEmbed.cpp" />
+    <ClCompile Include="embed\NativeBuilderDocumentEmbed.cpp" />
+    <ClCompile Include="embed\NativeBuilderEmbed.cpp" />
+    <ClCompile Include="embed\NativeControlEmbed.cpp" />
+    <ClCompile Include="..\..\Common\OfficeFileFormatChecker2.cpp" />
+    <ClCompile Include="embed\PointerEmbed.cpp" />
+    <ClCompile Include="embed\TextMeasurerEmbed.cpp" />
+    <ClCompile Include="embed\ZipEmbed.cpp" />
+    <ClCompile Include="docbuilder.cpp" />
+    <ClCompile Include="docbuilder_p.cpp" />
+    <ClCompile Include="doctrenderer.cpp" />
+    <ClCompile Include="editors.cpp" />
+    <ClCompile Include="graphics.cpp" />
+    <ClCompile Include="hash.cpp" />
+    <ClCompile Include="js_internal\v8\inspector\inspector.cpp" />
+    <ClCompile Include="js_internal\v8\inspector\inspector_pool.cpp" />
+    <ClCompile Include="js_internal\js_base.cpp" />
+    <ClCompile Include="js_internal\js_logger.cpp" />
+    <ClCompile Include="json\json.cpp" />
+    <ClCompile Include="json\json_values.cpp" />
+    <ClCompile Include="nativecontrol.cpp" />
+    <ClCompile Include="..\..\Common\3dParty\pole\pole.cpp" />
+    <ClCompile Include="..\..\OOXML\Base\unicode_util.cpp" />
+    <ClCompile Include="js_internal\v8\inspector\utils.cpp" />
+    <ClCompile Include="embed\v8\v8_DrawingFileEmbed.cpp" />
+    <ClCompile Include="embed\v8\v8_GraphicsEmbed.cpp" />
+    <ClCompile Include="embed\v8\v8_HashEmbed.cpp" />
+    <ClCompile Include="embed\v8\v8_MemoryStreamEmbed.cpp" />
+    <ClCompile Include="embed\v8\v8_NativeBuilderDocumentEmbed.cpp" />
+    <ClCompile Include="embed\v8\v8_NativeBuilderEmbed.cpp" />
+    <ClCompile Include="embed\v8\v8_NativeControlEmbed.cpp" />
+    <ClCompile Include="embed\v8\v8_PointerEmbed.cpp" />
+    <ClCompile Include="embed\v8\v8_TextMeasurerEmbed.cpp" />
+    <ClCompile Include="embed\v8\v8_ZipEmbed.cpp" />
+    <ClCompile Include="js_internal\v8\v8_base.cpp" />
+    <ClCompile Include="js_internal\v8\inspector\v8_inspector_channel.cpp" />
+    <ClCompile Include="js_internal\v8\inspector\v8_inspector_client.cpp" />
+    <ClCompile Include="js_internal\v8\inspector\websocket_server.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include=".\embed\Default.h" />
+    <ClInclude Include=".\embed\DrawingFileEmbed.h" />
+    <ClInclude Include=".\embed\GraphicsEmbed.h" />
+    <ClInclude Include=".\embed\HashEmbed.h" />
+    <ClInclude Include=".\embed\MemoryStreamEmbed.h" />
+    <ClInclude Include=".\embed\NativeBuilderDocumentEmbed.h" />
+    <ClInclude Include=".\embed\NativeBuilderEmbed.h" />
+    <ClInclude Include=".\embed\NativeControlEmbed.h" />
+    <ClInclude Include=".\embed\PointerEmbed.h" />
+    <ClInclude Include=".\embed\TextMeasurerEmbed.h" />
+    <ClInclude Include=".\embed\ZipEmbed.h" />
+    <ClInclude Include=".\config.h" />
+    <ClInclude Include=".\docbuilder.h" />
+    <ClInclude Include=".\docbuilder_p.h" />
+    <ClInclude Include=".\doctrenderer.h" />
+    <ClInclude Include=".\drawingfile.h" />
+    <ClInclude Include=".\editors.h" />
+    <ClInclude Include=".\graphics.h" />
+    <ClInclude Include=".\hash.h" />
+    <ClInclude Include=".\js_internal\v8\inspector\inspector.h" />
+    <ClInclude Include=".\js_internal\v8\inspector\inspector_pool.h" />
+    <ClInclude Include=".\js_internal\js_base.h" />
+    <ClInclude Include=".\js_internal\js_base_p.h" />
+    <ClInclude Include=".\js_internal\js_embed.h" />
+    <ClInclude Include=".\js_internal\js_logger.h" />
+    <ClInclude Include=".\json\json.h" />
+    <ClInclude Include=".\json\json_p.h" />
+    <ClInclude Include=".\json\json_values.h" />
+    <ClInclude Include=".\nativecontrol.h" />
+    <ClInclude Include=".\json\serialization.h" />
+    <ClInclude Include=".\server.h" />
+    <ClInclude Include=".\js_internal\v8\inspector\utils.h" />
+    <ClInclude Include=".\js_internal\v8\v8_base.h" />
+    <ClInclude Include=".\js_internal\v8\inspector\v8_inspector_channel.h" />
+    <ClInclude Include=".\js_internal\v8\inspector\v8_inspector_client.h" />
+    <ClInclude Include=".\js_internal\v8\inspector\websocket_server.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <ResourceCompile Include=".\doctrenderer_resource.rc" />
+  </ItemGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
+  <Import Project="$(QtMsBuild)\qt.targets" Condition="Exists('$(QtMsBuild)\qt.targets')" />
+  <ImportGroup Label="ExtensionTargets" />
+</Project>

@@ -168,7 +168,7 @@ HEADERS += \
 SOURCES += \
     SrcWriter/AcroForm.cpp \
     SrcWriter/Annotation.cpp \
-    SrcWriter/Catalog.cpp \
+    SrcWriter/CatalogWriter.cpp \
     SrcWriter/Destination.cpp \
     SrcWriter/Document.cpp \
     SrcWriter/Encrypt.cpp \
@@ -181,10 +181,10 @@ SOURCES += \
     SrcWriter/FontTTWriter.cpp \
     SrcWriter/FontOTWriter.cpp \
     SrcWriter/GState.cpp \
-    SrcWriter/Image.cpp \
+    SrcWriter/ImageWriter.cpp \
     SrcWriter/Info.cpp \
     SrcWriter/Objects.cpp \
-    SrcWriter/Outline.cpp \
+    SrcWriter/OutlineWriter.cpp \
     SrcWriter/Pages.cpp \
     SrcWriter/Pattern.cpp \
     SrcWriter/ResourcesDictionary.cpp \

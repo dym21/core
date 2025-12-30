@@ -117,8 +117,6 @@ HEADERS +=  \
 	../../../XlsFile/Converter/xlsx_conversion_context.h \
 	../../../XlsFile/Converter/xlsx_drawing_context.h \
 	../../../XlsFile/Converter/xlsx_drawings.h \
-	../../../XlsFile/Converter/xlsx_sheet_context.cpp \
-	../../../XlsFile/Converter/xlsx_pivots_context.cpp \
 	../../../XlsFile/Converter/xlsx_hyperlinks.h \
 	../../../XlsFile/Converter/xlsx_output_xml.h \
 	../../../XlsFile/Converter/xlsx_package.h \

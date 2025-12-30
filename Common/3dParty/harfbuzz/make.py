@@ -49,6 +49,12 @@ if not base.is_dir("harfbuzz"):
   qmake_content_lines.append("INCLUDEPATH += \\")
   qmake_content_lines.append("  $$SRC_DIR \\")
   qmake_content_lines.append("")
+  qmake_content_lines.append("")
+  qmake_content_lines.append("win32-msvc {")
+  qmake_content_lines.append("  QMAKE_CFLAGS += /MP")
+  qmake_content_lines.append("  QMAKE_CXXFLAGS += /MP")
+  qmake_content_lines.append("}")
+
 
   all_files = read_files("./harfbuzz/src")
   all_files += read_files("./harfbuzz/src/graph", "graph/")

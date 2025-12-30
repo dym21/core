@@ -1,0 +1,270 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup Label="ProjectConfigurations">
+    <ProjectConfiguration Include="Release|x64">
+      <Configuration>Release</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+  </ItemGroup>
+  <PropertyGroup Label="Globals">
+    <ProjectGuid>{EBE4210A-2098-3D06-9FD2-1BA50AB06BD7}</ProjectGuid>
+    <RootNamespace>DocFormatLib</RootNamespace>
+    <Keyword>QtVS_v304</Keyword>
+    <WindowsTargetPlatformVersion>10.0</WindowsTargetPlatformVersion>
+    <QtMsBuild Condition="'$(QtMsBuild)'=='' OR !Exists('$(QtMsBuild)\qt.targets')">$(MSBuildProjectDirectory)\QtMsBuild</QtMsBuild>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'" Label="Configuration">
+    <PlatformToolset>v142</PlatformToolset>
+    <OutputDirectory>..\..\..\..\build\lib\win_64\</OutputDirectory>
+    <ATLMinimizesCRunTimeLibraryUsage>false</ATLMinimizesCRunTimeLibraryUsage>
+    <CharacterSet>NotSet</CharacterSet>
+    <ConfigurationType>StaticLibrary</ConfigurationType>
+    <IntermediateDirectory>core_build\win_64\release\obj\</IntermediateDirectory>
+    <PrimaryOutput>DocFormatLib</PrimaryOutput>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
+  <Import Project="$(QtMsBuild)\qt_defaults.props" Condition="Exists('$(QtMsBuild)\qt_defaults.props')" />
+  <PropertyGroup Label="QtSettings" Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <QtInstall>Qt-5.15.2_msvc2019_64</QtInstall>
+    <QtModules>
+    </QtModules>
+  </PropertyGroup>
+  <Target Name="QtMsBuildNotFound" BeforeTargets="CustomBuild;ClCompile" Condition="!Exists('$(QtMsBuild)\qt.targets') OR !Exists('$(QtMsBuild)\Qt.props')">
+    <Message Importance="High" Text="QtMsBuild: could not locate qt.targets, qt.props; project may not build correctly." />
+  </Target>
+  <ImportGroup Label="ExtensionSettings" />
+  <ImportGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'" Label="PropertySheets">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" />
+    <Import Project="$(QtMsBuild)\Qt.props" />
+  </ImportGroup>
+  <PropertyGroup Label="UserMacros" />
+  <PropertyGroup>
+    <OutDir Condition="'$(Configuration)|$(Platform)'=='Release|x64'">..\..\..\..\build\lib\win_64\</OutDir>
+    <IntDir Condition="'$(Configuration)|$(Platform)'=='Release|x64'">core_build\win_64\release\obj\</IntDir>
+    <TargetName Condition="'$(Configuration)|$(Platform)'=='Release|x64'">DocFormatLib</TargetName>
+    <IgnoreImportLibrary Condition="'$(Configuration)|$(Platform)'=='Release|x64'">true</IgnoreImportLibrary>
+  </PropertyGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <ClCompile>
+      <AdditionalIncludeDirectories>GeneratedFiles\$(ConfigurationName);GeneratedFiles;.;..\..\..\..\Common\3dParty\boost\build\win_64\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalOptions>-Zc:rvalueCast -Zc:inline -Zc:strictStrings -Zc:throwingNew -Zc:referenceBinding -Zc:__cplusplus /Zc:strictStrings- /utf-8 /bigobj /Zc:strictStrings- -w34100 -w34189 -w44996 -w44456 -w44457 -w44458 %(AdditionalOptions)</AdditionalOptions>
+      <AssemblerListingLocation>core_build\win_64\release\obj\</AssemblerListingLocation>
+      <BrowseInformation>false</BrowseInformation>
+      <DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
+      <DisableSpecificWarnings>4577;4467;%(DisableSpecificWarnings)</DisableSpecificWarnings>
+      <ExceptionHandling>Sync</ExceptionHandling>
+      <InlineFunctionExpansion>Disabled</InlineFunctionExpansion>
+      <MultiProcessorCompilation>true</MultiProcessorCompilation>
+      <ObjectFileName>core_build\win_64\release\obj\</ObjectFileName>
+      <Optimization>Disabled</Optimization>
+      <PreprocessorDefinitions>_WINDOWS;UNICODE;_UNICODE;WIN32;_ENABLE_EXTENDED_ALIGNED_STORAGE;WIN64;INTVER=2.5.565.0;WIN_INTVER=2,5,565,0;COPYRIGHT_YEAR=2025;WIN32;_WIN32;NOMINMAX;WIN64;_WIN64;WINDOWS_IGNORE_PACKING_MISMATCH;CRYPTOPP_DISABLE_ASM;BOOST_USE_WINDOWS_H;BOOST_WINAPI_NO_REDECLARATIONS;UNICODE;_UNICODE;DONT_WRITE_EMBEDDED_FONTS;NDEBUG;QT_NO_DEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <PreprocessToFile>false</PreprocessToFile>
+      <RuntimeLibrary>MultiThreadedDLL</RuntimeLibrary>
+      <SuppressStartupBanner>true</SuppressStartupBanner>
+      <TreatWChar_tAsBuiltInType>true</TreatWChar_tAsBuiltInType>
+      <WarningLevel>Level3</WarningLevel>
+    </ClCompile>
+    <Link>
+      <IgnoreImportLibrary>true</IgnoreImportLibrary>
+    </Link>
+    <Midl>
+      <DefaultCharType>Unsigned</DefaultCharType>
+      <EnableErrorChecks>None</EnableErrorChecks>
+      <WarningLevel>0</WarningLevel>
+    </Midl>
+    <ResourceCompile>
+      <PreprocessorDefinitions>_WINDOWS;UNICODE;_UNICODE;WIN32;_ENABLE_EXTENDED_ALIGNED_STORAGE;WIN64;INTVER=2.5.565.0;WIN_INTVER=2,5,565,0;COPYRIGHT_YEAR=2025;WIN32;_WIN32;NOMINMAX;WIN64;_WIN64;WINDOWS_IGNORE_PACKING_MISMATCH;CRYPTOPP_DISABLE_ASM;BOOST_USE_WINDOWS_H;BOOST_WINAPI_NO_REDECLARATIONS;UNICODE;_UNICODE;DONT_WRITE_EMBEDDED_FONTS;NDEBUG;QT_NO_DEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+    </ResourceCompile>
+  </ItemDefinitionGroup>
+  <ItemGroup>
+    <ClCompile Include="..\..\..\DocFile\Main\DocFormatLib.cpp" />
+    <ClCompile Include="..\..\..\DocFile\DrawingPrimitives.cpp" />
+    <ClCompile Include="..\..\..\DocFile\EncryptionHeader.cpp" />
+    <ClCompile Include="..\..\..\Common\Base\FormatUtils.cpp" />
+    <ClCompile Include="..\..\..\DocFile\OleObject.cpp" />
+    <ClCompile Include="..\..\..\DocFile\Spa.cpp" />
+    <ClCompile Include="..\..\..\Common\Base\XmlTools.cpp" />
+    <ClCompile Include="doc_converter.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="..\..\..\DocFile\AbstractOpenXmlMapping.h" />
+    <ClInclude Include="C:\onlyoffice\core\MsBinaryFile\DocFile\OfficeDrawing\Shapetypes\ActionButton.h" />
+    <ClInclude Include="..\..\..\Common\Base\Aggregat.h" />
+    <ClInclude Include="..\..\..\DocFile\AnnotationOwnerList.h" />
+    <ClInclude Include="..\..\..\DocFile\AnnotationReferenceDescriptor.h" />
+    <ClInclude Include="C:\onlyoffice\core\MsBinaryFile\DocFile\OfficeDrawing\Shapetypes\ArcType.h" />
+    <ClInclude Include="C:\onlyoffice\core\MsBinaryFile\DocFile\OfficeDrawing\Shapetypes\ArrowType.h" />
+    <ClInclude Include="..\..\..\DocFile\AutoSummaryInfo.h" />
+    <ClInclude Include="C:\onlyoffice\core\MsBinaryFile\DocFile\OfficeDrawing\Shapetypes\BevelType.h" />
+    <ClInclude Include="..\..\..\DocFile\OfficeDrawing\BitmapBlip.h" />
+    <ClInclude Include="..\..\..\DocFile\OfficeDrawing\BlipStoreContainer.h" />
+    <ClInclude Include="..\..\..\DocFile\OfficeDrawing\BlipStoreEntry.h" />
+    <ClInclude Include="C:\onlyoffice\core\MsBinaryFile\DocFile\OfficeDrawing\Shapetypes\BlockArcType.h" />
+    <ClInclude Include="..\..\..\DocFile\BookmarkFirst.h" />
+    <ClInclude Include="..\..\..\DocFile\BorderCode.h" />
+    <ClInclude Include="C:\onlyoffice\core\MsBinaryFile\DocFile\OfficeDrawing\Shapetypes\BracketsType.h" />
+    <ClInclude Include="..\..\..\DocFile\ByteStructure.h" />
+    <ClInclude Include="C:\onlyoffice\core\MsBinaryFile\DocFile\OfficeDrawing\Shapetypes\CalloutsType.h" />
+    <ClInclude Include="C:\onlyoffice\core\MsBinaryFile\DocFile\OfficeDrawing\Shapetypes\CanType.h" />
+    <ClInclude Include="..\..\..\DocFile\CharacterPropertiesMapping.h" />
+    <ClInclude Include="..\..\..\DocFile\CharacterPropertyExceptions.h" />
+    <ClInclude Include="..\..\..\DocFile\CharacterRange.h" />
+    <ClInclude Include="..\..\..\DocFile\OfficeDrawing\ChildAnchor.h" />
+    <ClInclude Include="..\..\..\DocFile\OfficeDrawing\ClientAnchor.h" />
+    <ClInclude Include="..\..\..\DocFile\OfficeDrawing\ClientData.h" />
+    <ClInclude Include="..\..\..\DocFile\CommentsMapping.h" />
+    <ClInclude Include="C:\onlyoffice\core\MsBinaryFile\DocFile\OfficeDrawing\Shapetypes\Connector.h" />
+    <ClInclude Include="..\..\..\DocFile\ContentTypes.h" />
+    <ClInclude Include="..\..\..\DocFile\ConversionContext.h" />
+    <ClInclude Include="..\..\..\DocFile\Converter.h" />
+    <ClInclude Include="C:\onlyoffice\core\MsBinaryFile\DocFile\OfficeDrawing\Shapetypes\CubeType.h" />
+    <ClInclude Include="..\..\..\DocFile\DateAndTime.h" />
+    <ClInclude Include="C:\onlyoffice\core\MsBinaryFile\DocFile\OfficeDrawing\Shapetypes\DiamondType.h" />
+    <ClInclude Include="..\..\..\DocFile\Main\DocFormatLib.h" />
+    <ClInclude Include="..\..\..\DocFile\DocumentMapping.h" />
+    <ClInclude Include="..\..\..\DocFile\DocumentProperties.h" />
+    <ClInclude Include="..\..\..\DocFile\DocumentTypographyInfo.h" />
+    <ClInclude Include="C:\onlyoffice\core\MsBinaryFile\DocFile\OfficeDrawing\Shapetypes\DonutType.h" />
+    <ClInclude Include="..\..\..\DocFile\OfficeDrawing\DrawingContainer.h" />
+    <ClInclude Include="..\..\..\DocFile\OfficeDrawing\DrawingGroup.h" />
+    <ClInclude Include="..\..\..\DocFile\OfficeDrawing\DrawingGroupRecord.h" />
+    <ClInclude Include="..\..\..\DocFile\DrawingObjectGrid.h" />
+    <ClInclude Include="..\..\..\DocFile\DrawingPrimitives.h" />
+    <ClInclude Include="..\..\..\DocFile\OfficeDrawing\DrawingRecord.h" />
+    <ClInclude Include="..\..\..\DocFile\EmuValue.h" />
+    <ClInclude Include="..\..\..\DocFile\EncryptionHeader.h" />
+    <ClInclude Include="..\..\..\DocFile\EndnoteDescriptor.h" />
+    <ClInclude Include="..\..\..\DocFile\EndnotesMapping.h" />
+    <ClInclude Include="..\..\..\DocFile\FieldCharacter.h" />
+    <ClInclude Include="..\..\..\DocFile\FileInformationBlock.h" />
+    <ClInclude Include="..\..\..\DocFile\FixedPointNumber.h" />
+    <ClInclude Include="C:\onlyoffice\core\MsBinaryFile\DocFile\OfficeDrawing\Shapetypes\FlowChartType.h" />
+    <ClInclude Include="C:\onlyoffice\core\MsBinaryFile\DocFile\OfficeDrawing\Shapetypes\FoldedCornerlType.h" />
+    <ClInclude Include="..\..\..\DocFile\FontFamilyName.h" />
+    <ClInclude Include="..\..\..\DocFile\FontTableMapping.h" />
+    <ClInclude Include="..\..\..\DocFile\FooterMapping.h" />
+    <ClInclude Include="..\..\..\DocFile\FootnoteDescriptor.h" />
+    <ClInclude Include="..\..\..\DocFile\FootnotesMapping.h" />
+    <ClInclude Include="..\..\..\Common\Base\FormatUtils.h" />
+    <ClInclude Include="..\..\..\DocFile\FormattedDiskPage.h" />
+    <ClInclude Include="..\..\..\DocFile\FormattedDiskPageCHPX.h" />
+    <ClInclude Include="..\..\..\DocFile\FormattedDiskPagePAPX.h" />
+    <ClInclude Include="..\..\..\DocFile\Global.h" />
+    <ClInclude Include="..\..\..\DocFile\OfficeDrawing\GroupContainer.h" />
+    <ClInclude Include="..\..\..\DocFile\OfficeDrawing\GroupShapeRecord.h" />
+    <ClInclude Include="..\..\..\DocFile\HeaderAndFooterTable.h" />
+    <ClInclude Include="..\..\..\DocFile\HeaderMapping.h" />
+    <ClInclude Include="C:\onlyoffice\core\MsBinaryFile\DocFile\OfficeDrawing\Shapetypes\HeartType.h" />
+    <ClInclude Include="C:\onlyoffice\core\MsBinaryFile\DocFile\OfficeDrawing\Shapetypes\HexagonType.h" />
+    <ClInclude Include="..\..\..\DocFile\IBinaryReader.h" />
+    <ClInclude Include="..\..\..\DocFile\IMapping.h" />
+    <ClInclude Include="..\..\..\Common\Base\IOperand.h" />
+    <ClInclude Include="..\..\..\Common\Base\IVirtualConstructor.h" />
+    <ClInclude Include="..\..\..\DocFile\IVisitable.h" />
+    <ClInclude Include="C:\onlyoffice\core\MsBinaryFile\DocFile\OfficeDrawing\Shapetypes\IsoscelesTriangleType.h" />
+    <ClInclude Include="..\..\..\Common\Base\LanguageCodes.h" />
+    <ClInclude Include="..\..\..\DocFile\LanguageId.h" />
+    <ClInclude Include="..\..\..\DocFile\LanguageIdMapping.h" />
+    <ClInclude Include="C:\onlyoffice\core\MsBinaryFile\DocFile\OfficeDrawing\Shapetypes\LightningBoltType.h" />
+    <ClInclude Include="..\..\..\DocFile\LineSpacingDescriptor.h" />
+    <ClInclude Include="C:\onlyoffice\core\MsBinaryFile\DocFile\OfficeDrawing\Shapetypes\LineType.h" />
+    <ClInclude Include="..\..\..\DocFile\ListData.h" />
+    <ClInclude Include="..\..\..\DocFile\ListFormatOverride.h" />
+    <ClInclude Include="..\..\..\DocFile\ListFormatOverrideLevel.h" />
+    <ClInclude Include="..\..\..\DocFile\ListFormatOverrideTable.h" />
+    <ClInclude Include="..\..\..\DocFile\ListLevel.h" />
+    <ClInclude Include="..\..\..\DocFile\ListTable.h" />
+    <ClInclude Include="..\..\..\DocFile\MainDocumentMapping.h" />
+    <ClInclude Include="..\..\..\DocFile\MemoryStream.h" />
+    <ClInclude Include="..\..\..\DocFile\OfficeDrawing\MetafilePictBlip.h" />
+    <ClInclude Include="C:\onlyoffice\core\MsBinaryFile\DocFile\OfficeDrawing\Shapetypes\MoonType.h" />
+    <ClInclude Include="C:\onlyoffice\core\MsBinaryFile\DocFile\OfficeDrawing\Shapetypes\NoSmokingType.h" />
+    <ClInclude Include="..\..\..\DocFile\NumberingMapping.h" />
+    <ClInclude Include="C:\onlyoffice\core\MsBinaryFile\DocFile\OfficeDrawing\Shapetypes\OctagonType.h" />
+    <ClInclude Include="..\..\..\DocFile\OfficeDrawing\OfficeArtClientTextbox.h" />
+    <ClInclude Include="..\..\..\DocFile\OfficeArtContent.h" />
+    <ClInclude Include="..\..\..\DocFile\OleObject.h" />
+    <ClInclude Include="..\..\..\DocFile\OleObjectMapping.h" />
+    <ClInclude Include="..\..\..\DocFile\OpenXmlPackage.h" />
+    <ClInclude Include="C:\onlyoffice\core\MsBinaryFile\DocFile\OfficeDrawing\Shapetypes\OvalType.h" />
+    <ClInclude Include="..\..\..\DocFile\ParagraphHeight.h" />
+    <ClInclude Include="..\..\..\DocFile\ParagraphPropertiesMapping.h" />
+    <ClInclude Include="..\..\..\DocFile\ParagraphPropertyExceptions.h" />
+    <ClInclude Include="C:\onlyoffice\core\MsBinaryFile\DocFile\OfficeDrawing\Shapetypes\ParallelogramType.h" />
+    <ClInclude Include="..\..\..\DocFile\OfficeDrawing\PathParser.h" />
+    <ClInclude Include="..\..\..\DocFile\OfficeDrawing\PathSegment.h" />
+    <ClInclude Include="C:\onlyoffice\core\MsBinaryFile\DocFile\OfficeDrawing\Shapetypes\PentagonType.h" />
+    <ClInclude Include="..\..\..\DocFile\PictureDescriptor.h" />
+    <ClInclude Include="C:\onlyoffice\core\MsBinaryFile\DocFile\OfficeDrawing\Shapetypes\PictureFrameType.h" />
+    <ClInclude Include="..\..\..\DocFile\PieceDescriptor.h" />
+    <ClInclude Include="..\..\..\DocFile\PieceTable.h" />
+    <ClInclude Include="C:\onlyoffice\core\MsBinaryFile\DocFile\OfficeDrawing\Shapetypes\PlaqueType.h" />
+    <ClInclude Include="..\..\..\DocFile\Plex.h" />
+    <ClInclude Include="C:\onlyoffice\core\MsBinaryFile\DocFile\OfficeDrawing\Shapetypes\PlusType.h" />
+    <ClInclude Include="..\..\..\DocFile\OfficeDrawing\PresetShapeTypes.h" />
+    <ClInclude Include="..\..\..\DocFile\PropertiesMapping.h" />
+    <ClInclude Include="..\..\..\DocFile\PropertyExceptions.h" />
+    <ClInclude Include="..\..\..\DocFile\RGBColor.h" />
+    <ClInclude Include="..\..\..\DocFile\OfficeDrawing\Record.h" />
+    <ClInclude Include="..\..\..\DocFile\OfficeDrawing\RecordFactory.h" />
+    <ClInclude Include="C:\onlyoffice\core\MsBinaryFile\DocFile\OfficeDrawing\Shapetypes\RectangleType.h" />
+    <ClInclude Include="..\..\..\DocFile\OfficeDrawing\RegularContainer.h" />
+    <ClInclude Include="..\..\..\DocFile\RevisionData.h" />
+    <ClInclude Include="C:\onlyoffice\core\MsBinaryFile\DocFile\OfficeDrawing\Shapetypes\RightTriangleType.h" />
+    <ClInclude Include="C:\onlyoffice\core\MsBinaryFile\DocFile\OfficeDrawing\Shapetypes\RoundedRectangleType.h" />
+    <ClInclude Include="..\..\..\Common\Base\SPRMCodes.h" />
+    <ClInclude Include="..\..\..\DocFile\SectionDescriptor.h" />
+    <ClInclude Include="..\..\..\DocFile\SectionPropertiesMapping.h" />
+    <ClInclude Include="..\..\..\DocFile\SectionPropertyExceptions.h" />
+    <ClInclude Include="..\..\..\DocFile\SettingsMapping.h" />
+    <ClInclude Include="..\..\..\DocFile\ShadingDescriptor.h" />
+    <ClInclude Include="..\..\..\DocFile\OfficeDrawing\Shape.h" />
+    <ClInclude Include="..\..\..\DocFile\OfficeDrawing\ShapeContainer.h" />
+    <ClInclude Include="..\..\..\DocFile\OfficeDrawing\ShapeOptions.h" />
+    <ClInclude Include="..\..\..\DocFile\OfficeDrawing\ShapeType.h" />
+    <ClInclude Include="..\..\..\DocFile\OfficeDrawing\ShapeTypeFactory.h" />
+    <ClInclude Include="..\..\..\DocFile\SinglePropertyModifier.h" />
+    <ClInclude Include="..\..\..\Common\Base\Singleton.h" />
+    <ClInclude Include="C:\onlyoffice\core\MsBinaryFile\DocFile\OfficeDrawing\Shapetypes\SmileyFaceType.h" />
+    <ClInclude Include="..\..\..\DocFile\Spa.h" />
+    <ClInclude Include="..\..\..\DocFile\OfficeDrawing\SplitMenuColorContainer.h" />
+    <ClInclude Include="..\..\..\DocFile\SprmTDefTable.h" />
+    <ClInclude Include="C:\onlyoffice\core\MsBinaryFile\DocFile\OfficeDrawing\Shapetypes\StarType.h" />
+    <ClInclude Include="..\..\..\DocFile\StringTable.h" />
+    <ClInclude Include="..\..\..\DocFile\StructuredStorageReader.h" />
+    <ClInclude Include="..\..\..\DocFile\StyleSheet.h" />
+    <ClInclude Include="..\..\..\DocFile\StyleSheetDescription.h" />
+    <ClInclude Include="..\..\..\DocFile\StyleSheetInformation.h" />
+    <ClInclude Include="..\..\..\DocFile\StyleSheetMapping.h" />
+    <ClInclude Include="C:\onlyoffice\core\MsBinaryFile\DocFile\OfficeDrawing\Shapetypes\SunType.h" />
+    <ClInclude Include="..\..\..\DocFile\TabDescriptor.h" />
+    <ClInclude Include="..\..\..\DocFile\TableCellPropertiesMapping.h" />
+    <ClInclude Include="..\..\..\DocFile\TableInfo.h" />
+    <ClInclude Include="..\..\..\DocFile\TableMapping.h" />
+    <ClInclude Include="..\..\..\DocFile\TablePropertiesMapping.h" />
+    <ClInclude Include="..\..\..\DocFile\TablePropertyExceptions.h" />
+    <ClInclude Include="..\..\..\DocFile\TableRowPropertiesMapping.h" />
+    <ClInclude Include="..\..\..\Common\Base\TargetOptions.h" />
+    <ClInclude Include="..\..\..\DocFile\Tbkd.h" />
+    <ClInclude Include="..\..\..\Common\Base\TextMark.h" />
+    <ClInclude Include="..\..\..\DocFile\TextboxMapping.h" />
+    <ClInclude Include="C:\onlyoffice\core\MsBinaryFile\DocFile\OfficeDrawing\Shapetypes\TextboxType.h" />
+    <ClInclude Include="C:\onlyoffice\core\MsBinaryFile\DocFile\OfficeDrawing\Shapetypes\TrapezoidType.h" />
+    <ClInclude Include="..\..\..\DocFile\TwipsValue.h" />
+    <ClInclude Include="..\..\..\DocFile\OfficeDrawing\UnknownRecord.h" />
+    <ClInclude Include="..\..\..\DocFile\VMLPictureMapping.h" />
+    <ClInclude Include="..\..\..\DocFile\VMLShapeMapping.h" />
+    <ClInclude Include="..\..\..\DocFile\VMLShapeTypeMapping.h" />
+    <ClInclude Include="..\..\..\DocFile\VirtualStreamReader.h" />
+    <ClInclude Include="..\..\..\DocFile\WideString.h" />
+    <ClInclude Include="..\..\..\DocFile\WordDocument.h" />
+    <ClInclude Include="..\..\..\DocFile\WordprocessingDocument.h" />
+    <ClInclude Include="..\..\..\Common\Base\XmlTools.h" />
+    <ClInclude Include="..\..\..\..\Common\3dParty\pole\pole.h" />
+    <ClInclude Include="..\..\..\Common\Base\utf8.h" />
+  </ItemGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
+  <Import Project="$(QtMsBuild)\qt.targets" Condition="Exists('$(QtMsBuild)\qt.targets')" />
+  <ImportGroup Label="ExtensionTargets" />
+</Project>

@@ -48,7 +48,7 @@ SOURCES += \
     HwpDoc/HWPElements/HWPRecordParaText.cpp \
     HwpDoc/HWPElements/HWPRecordStyle.cpp \
     HwpDoc/HWPElements/HwpRecordTabDef.cpp \
-    HwpDoc/HWPFile.cpp \
+    HwpDoc/HWPDocFile.cpp \
     HwpDoc/HWPMLFile.cpp \
     HwpDoc/HWPSection.cpp \
     HwpDoc/HWPStream.cpp \

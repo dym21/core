@@ -7,8 +7,8 @@
     </ProjectConfiguration>
   </ItemGroup>
   <PropertyGroup Label="Globals">
-    <ProjectGuid>{3AA6619E-B400-3E08-8245-7DB70BF703A4}</ProjectGuid>
-    <RootNamespace>XpsFile</RootNamespace>
+    <ProjectGuid>{35A28C82-30BD-30AC-9E32-EB82841D16CD}</ProjectGuid>
+    <RootNamespace>hunspell</RootNamespace>
     <Keyword>QtVS_v304</Keyword>
     <WindowsTargetPlatformVersion>10.0</WindowsTargetPlatformVersion>
     <QtMsBuild Condition="'$(QtMsBuild)'=='' OR !Exists('$(QtMsBuild)\qt.targets')">$(MSBuildProjectDirectory)\QtMsBuild</QtMsBuild>
@@ -16,12 +16,12 @@
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'" Label="Configuration">
     <PlatformToolset>v142</PlatformToolset>
-    <OutputDirectory>..\build\lib\win_64\</OutputDirectory>
+    <OutputDirectory>..\..\..\..\build\lib\win_64\</OutputDirectory>
     <ATLMinimizesCRunTimeLibraryUsage>false</ATLMinimizesCRunTimeLibraryUsage>
     <CharacterSet>NotSet</CharacterSet>
     <ConfigurationType>DynamicLibrary</ConfigurationType>
     <IntermediateDirectory>core_build\win_64\release\obj\</IntermediateDirectory>
-    <PrimaryOutput>XpsFile</PrimaryOutput>
+    <PrimaryOutput>hunspell</PrimaryOutput>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
   <Import Project="$(QtMsBuild)\qt_defaults.props" Condition="Exists('$(QtMsBuild)\qt_defaults.props')" />
@@ -40,15 +40,15 @@
   </ImportGroup>
   <PropertyGroup Label="UserMacros" />
   <PropertyGroup>
-    <OutDir Condition="'$(Configuration)|$(Platform)'=='Release|x64'">..\build\lib\win_64\</OutDir>
+    <OutDir Condition="'$(Configuration)|$(Platform)'=='Release|x64'">..\..\..\..\build\lib\win_64\</OutDir>
     <IntDir Condition="'$(Configuration)|$(Platform)'=='Release|x64'">core_build\win_64\release\obj\</IntDir>
-    <TargetName Condition="'$(Configuration)|$(Platform)'=='Release|x64'">XpsFile</TargetName>
+    <TargetName Condition="'$(Configuration)|$(Platform)'=='Release|x64'">hunspell</TargetName>
     <IgnoreImportLibrary Condition="'$(Configuration)|$(Platform)'=='Release|x64'">true</IgnoreImportLibrary>
     <LinkIncremental Condition="'$(Configuration)|$(Platform)'=='Release|x64'">false</LinkIncremental>
   </PropertyGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
     <ClCompile>
-      <AdditionalIncludeDirectories>GeneratedFiles\$(ConfigurationName);GeneratedFiles;.;..\DesktopEditor\freetype-2.10.4\include;..\DesktopEditor\freetype-2.10.4\include\freetype;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>GeneratedFiles\$(ConfigurationName);GeneratedFiles;.;..\hunspell\src;..\wasm\src;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <AdditionalOptions>-Zc:rvalueCast -Zc:inline -Zc:strictStrings -Zc:throwingNew -Zc:referenceBinding -Zc:__cplusplus /Zc:strictStrings- /utf-8 /Zc:strictStrings- -w34100 -w34189 -w44996 -w44456 -w44457 -w44458 %(AdditionalOptions)</AdditionalOptions>
       <AssemblerListingLocation>core_build\win_64\release\obj\</AssemblerListingLocation>
       <BrowseInformation>false</BrowseInformation>
@@ -59,7 +59,7 @@
       <MultiProcessorCompilation>true</MultiProcessorCompilation>
       <ObjectFileName>core_build\win_64\release\obj\</ObjectFileName>
       <Optimization>Disabled</Optimization>
-      <PreprocessorDefinitions>_WINDOWS;UNICODE;_UNICODE;WIN32;_ENABLE_EXTENDED_ALIGNED_STORAGE;WIN64;INTVER=2.5.565.0;WIN_INTVER=2,5,565,0;COPYRIGHT_YEAR=2025;WIN32;_WIN32;NOMINMAX;WIN64;_WIN64;WINDOWS_IGNORE_PACKING_MISMATCH;XPS_USE_DYNAMIC_LIBRARY;NDEBUG;QT_NO_DEBUG;QT_PLUGIN;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <PreprocessorDefinitions>_WINDOWS;UNICODE;_UNICODE;WIN32;_ENABLE_EXTENDED_ALIGNED_STORAGE;WIN64;INTVER=2.5.565.0;WIN_INTVER=2,5,565,0;COPYRIGHT_YEAR=2025;WIN32;_WIN32;NOMINMAX;WIN64;_WIN64;WINDOWS_IGNORE_PACKING_MISMATCH;BUILDING_LIBHUNSPELL;NDEBUG;QT_NO_DEBUG;QT_PLUGIN;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <PreprocessToFile>false</PreprocessToFile>
       <RuntimeLibrary>MultiThreadedDLL</RuntimeLibrary>
       <SuppressStartupBanner>true</SuppressStartupBanner>
@@ -67,15 +67,14 @@
       <WarningLevel>Level3</WarningLevel>
     </ClCompile>
     <Link>
-      <AdditionalDependencies>graphics.lib;C:\onlyoffice\core\build\lib\win_64\kernel.lib;C:\onlyoffice\core\build\lib\win_64\UnicodeConverter.lib;C:\onlyoffice\core\build\lib\win_64\PdfFile.lib;gdi32.lib;advapi32.lib;user32.lib;shell32.lib;%(AdditionalDependencies)</AdditionalDependencies>
-      <AdditionalLibraryDirectories>C:\onlyoffice\core\build\lib\win_64;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalLibraryDirectories>%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
       <DataExecutionPrevention>true</DataExecutionPrevention>
       <GenerateDebugInformation>true</GenerateDebugInformation>
       <IgnoreImportLibrary>true</IgnoreImportLibrary>
       <LinkDLL>true</LinkDLL>
       <LinkIncremental>false</LinkIncremental>
       <OptimizeReferences>true</OptimizeReferences>
-      <OutputFile>$(OutDir)\XpsFile.dll</OutputFile>
+      <OutputFile>$(OutDir)\hunspell.dll</OutputFile>
       <RandomizedBaseAddress>true</RandomizedBaseAddress>
       <SubSystem>Windows</SubSystem>
       <SuppressStartupBanner>true</SuppressStartupBanner>
@@ -87,30 +86,42 @@
       <WarningLevel>0</WarningLevel>
     </Midl>
     <ResourceCompile>
-      <PreprocessorDefinitions>_WINDOWS;UNICODE;_UNICODE;WIN32;_ENABLE_EXTENDED_ALIGNED_STORAGE;WIN64;INTVER=2.5.565.0;WIN_INTVER=2,5,565,0;COPYRIGHT_YEAR=2025;WIN32;_WIN32;NOMINMAX;WIN64;_WIN64;WINDOWS_IGNORE_PACKING_MISMATCH;XPS_USE_DYNAMIC_LIBRARY;NDEBUG;QT_NO_DEBUG;QT_PLUGIN;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <PreprocessorDefinitions>_WINDOWS;UNICODE;_UNICODE;WIN32;_ENABLE_EXTENDED_ALIGNED_STORAGE;WIN64;INTVER=2.5.565.0;WIN_INTVER=2,5,565,0;COPYRIGHT_YEAR=2025;WIN32;_WIN32;NOMINMAX;WIN64;_WIN64;WINDOWS_IGNORE_PACKING_MISMATCH;BUILDING_LIBHUNSPELL;NDEBUG;QT_NO_DEBUG;QT_PLUGIN;%(PreprocessorDefinitions)</PreprocessorDefinitions>
     </ResourceCompile>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="XpsLib\ContextState.cpp" />
-    <ClCompile Include="XpsLib\Document.cpp" />
-    <ClCompile Include="XpsLib\StaticResources.cpp" />
-    <ClCompile Include="XpsLib\Utils.cpp" />
-    <ClCompile Include="XpsLib\WString.cpp" />
-    <ClCompile Include="XpsFile.cpp" />
-    <ClCompile Include="XpsLib\XpsPage.cpp" />
+    <ClCompile Include="..\hunspell\src\hunspell\affentry.cxx" />
+    <ClCompile Include="..\hunspell\src\hunspell\affixmgr.cxx" />
+    <ClCompile Include="..\hunspell\src\hunspell\csutil.cxx" />
+    <ClCompile Include="..\hunspell\src\hunspell\filemgr.cxx" />
+    <ClCompile Include="..\hunspell\src\hunspell\hashmgr.cxx" />
+    <ClCompile Include="..\hunspell\src\hunspell\hunspell.cxx" />
+    <ClCompile Include="..\hunspell\src\hunspell\hunzip.cxx" />
+    <ClCompile Include="..\hunspell\src\hunspell\phonet.cxx" />
+    <ClCompile Include="..\hunspell\src\hunspell\replist.cxx" />
+    <ClCompile Include="..\hunspell\src\hunspell\suggestmgr.cxx" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="XpsLib\ContextState.h" />
-    <ClInclude Include="XpsLib\Document.h" />
-    <ClInclude Include="XpsLib\FontList.h" />
-    <ClInclude Include="XpsLib\StaticResources.h" />
-    <ClInclude Include="XpsLib\Utils.h" />
-    <ClInclude Include="XpsLib\WString.h" />
-    <ClInclude Include="XpsFile.h" />
-    <ClInclude Include="XpsLib\XpsPage.h" />
+    <ClInclude Include="C:\onlyoffice\core\Common\3dParty\hunspell\hunspell\affentry.hxx" />
+    <ClInclude Include="C:\onlyoffice\core\Common\3dParty\hunspell\hunspell\affixmgr.hxx" />
+    <ClInclude Include="C:\onlyoffice\core\Common\3dParty\hunspell\hunspell\atypes.hxx" />
+    <ClInclude Include="C:\onlyoffice\core\Common\3dParty\hunspell\hunspell\baseaffix.hxx" />
+    <ClInclude Include="C:\onlyoffice\core\Common\3dParty\hunspell\hunspell\csutil.hxx" />
+    <ClInclude Include="C:\onlyoffice\core\Common\3dParty\hunspell\hunspell\dictmgr.hxx" />
+    <ClInclude Include="C:\onlyoffice\core\Common\3dParty\hunspell\hunspell\filemgr.hxx" />
+    <ClInclude Include="C:\onlyoffice\core\Common\3dParty\hunspell\hunspell\hashmgr.hxx" />
+    <ClInclude Include="C:\onlyoffice\core\Common\3dParty\hunspell\hunspell\htypes.hxx" />
+    <ClInclude Include="C:\onlyoffice\core\Common\3dParty\hunspell\hunspell\hunspell.h" />
+    <ClInclude Include="C:\onlyoffice\core\Common\3dParty\hunspell\hunspell\hunspell.hxx" />
+    <ClInclude Include="C:\onlyoffice\core\Common\3dParty\hunspell\hunspell\hunzip.hxx" />
+    <ClInclude Include="C:\onlyoffice\core\Common\3dParty\hunspell\hunspell\langnum.hxx" />
+    <ClInclude Include="C:\onlyoffice\core\Common\3dParty\hunspell\hunspell\phonet.hxx" />
+    <ClInclude Include="C:\onlyoffice\core\Common\3dParty\hunspell\hunspell\replist.hxx" />
+    <ClInclude Include="C:\onlyoffice\core\Common\3dParty\hunspell\hunspell\suggestmgr.hxx" />
+    <ClInclude Include="C:\onlyoffice\core\Common\3dParty\hunspell\hunspell\w_char.hxx" />
   </ItemGroup>
   <ItemGroup>
-    <ResourceCompile Include=".\XpsFile_resource.rc" />
+    <ResourceCompile Include=".\hunspell_resource.rc" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <Import Project="$(QtMsBuild)\qt.targets" Condition="Exists('$(QtMsBuild)\qt.targets')" />

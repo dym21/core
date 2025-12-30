@@ -7,8 +7,8 @@
     </ProjectConfiguration>
   </ItemGroup>
   <PropertyGroup Label="Globals">
-    <ProjectGuid>{3AA6619E-B400-3E08-8245-7DB70BF703A4}</ProjectGuid>
-    <RootNamespace>XpsFile</RootNamespace>
+    <ProjectGuid>{85021445-42BF-38DA-B37C-07E3B8D91E3C}</ProjectGuid>
+    <RootNamespace>OFDFile</RootNamespace>
     <Keyword>QtVS_v304</Keyword>
     <WindowsTargetPlatformVersion>10.0</WindowsTargetPlatformVersion>
     <QtMsBuild Condition="'$(QtMsBuild)'=='' OR !Exists('$(QtMsBuild)\qt.targets')">$(MSBuildProjectDirectory)\QtMsBuild</QtMsBuild>
@@ -21,7 +21,7 @@
     <CharacterSet>NotSet</CharacterSet>
     <ConfigurationType>DynamicLibrary</ConfigurationType>
     <IntermediateDirectory>core_build\win_64\release\obj\</IntermediateDirectory>
-    <PrimaryOutput>XpsFile</PrimaryOutput>
+    <PrimaryOutput>OFDFile</PrimaryOutput>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
   <Import Project="$(QtMsBuild)\qt_defaults.props" Condition="Exists('$(QtMsBuild)\qt_defaults.props')" />
@@ -42,13 +42,13 @@
   <PropertyGroup>
     <OutDir Condition="'$(Configuration)|$(Platform)'=='Release|x64'">..\build\lib\win_64\</OutDir>
     <IntDir Condition="'$(Configuration)|$(Platform)'=='Release|x64'">core_build\win_64\release\obj\</IntDir>
-    <TargetName Condition="'$(Configuration)|$(Platform)'=='Release|x64'">XpsFile</TargetName>
+    <TargetName Condition="'$(Configuration)|$(Platform)'=='Release|x64'">OFDFile</TargetName>
     <IgnoreImportLibrary Condition="'$(Configuration)|$(Platform)'=='Release|x64'">true</IgnoreImportLibrary>
     <LinkIncremental Condition="'$(Configuration)|$(Platform)'=='Release|x64'">false</LinkIncremental>
   </PropertyGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
     <ClCompile>
-      <AdditionalIncludeDirectories>GeneratedFiles\$(ConfigurationName);GeneratedFiles;.;..\DesktopEditor\freetype-2.10.4\include;..\DesktopEditor\freetype-2.10.4\include\freetype;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>GeneratedFiles\$(ConfigurationName);GeneratedFiles;.;..\Common\3dParty\boost\build\win_64\include;..\DesktopEditor\freetype-2.10.4\include;..\DesktopEditor\freetype-2.10.4\include\freetype;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <AdditionalOptions>-Zc:rvalueCast -Zc:inline -Zc:strictStrings -Zc:throwingNew -Zc:referenceBinding -Zc:__cplusplus /Zc:strictStrings- /utf-8 /Zc:strictStrings- -w34100 -w34189 -w44996 -w44456 -w44457 -w44458 %(AdditionalOptions)</AdditionalOptions>
       <AssemblerListingLocation>core_build\win_64\release\obj\</AssemblerListingLocation>
       <BrowseInformation>false</BrowseInformation>
@@ -59,7 +59,7 @@
       <MultiProcessorCompilation>true</MultiProcessorCompilation>
       <ObjectFileName>core_build\win_64\release\obj\</ObjectFileName>
       <Optimization>Disabled</Optimization>
-      <PreprocessorDefinitions>_WINDOWS;UNICODE;_UNICODE;WIN32;_ENABLE_EXTENDED_ALIGNED_STORAGE;WIN64;INTVER=2.5.565.0;WIN_INTVER=2,5,565,0;COPYRIGHT_YEAR=2025;WIN32;_WIN32;NOMINMAX;WIN64;_WIN64;WINDOWS_IGNORE_PACKING_MISMATCH;XPS_USE_DYNAMIC_LIBRARY;NDEBUG;QT_NO_DEBUG;QT_PLUGIN;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <PreprocessorDefinitions>_WINDOWS;UNICODE;_UNICODE;WIN32;_ENABLE_EXTENDED_ALIGNED_STORAGE;WIN64;INTVER=2.5.565.0;WIN_INTVER=2,5,565,0;COPYRIGHT_YEAR=2025;WIN32;_WIN32;NOMINMAX;WIN64;_WIN64;WINDOWS_IGNORE_PACKING_MISMATCH;BOOST_USE_WINDOWS_H;BOOST_WINAPI_NO_REDECLARATIONS;OFD_USE_DYNAMIC_LIBRARY;NDEBUG;QT_NO_DEBUG;QT_PLUGIN;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <PreprocessToFile>false</PreprocessToFile>
       <RuntimeLibrary>MultiThreadedDLL</RuntimeLibrary>
       <SuppressStartupBanner>true</SuppressStartupBanner>
@@ -75,7 +75,7 @@
       <LinkDLL>true</LinkDLL>
       <LinkIncremental>false</LinkIncremental>
       <OptimizeReferences>true</OptimizeReferences>
-      <OutputFile>$(OutDir)\XpsFile.dll</OutputFile>
+      <OutputFile>$(OutDir)\OFDFile.dll</OutputFile>
       <RandomizedBaseAddress>true</RandomizedBaseAddress>
       <SubSystem>Windows</SubSystem>
       <SuppressStartupBanner>true</SuppressStartupBanner>
@@ -87,30 +87,72 @@
       <WarningLevel>0</WarningLevel>
     </Midl>
     <ResourceCompile>
-      <PreprocessorDefinitions>_WINDOWS;UNICODE;_UNICODE;WIN32;_ENABLE_EXTENDED_ALIGNED_STORAGE;WIN64;INTVER=2.5.565.0;WIN_INTVER=2,5,565,0;COPYRIGHT_YEAR=2025;WIN32;_WIN32;NOMINMAX;WIN64;_WIN64;WINDOWS_IGNORE_PACKING_MISMATCH;XPS_USE_DYNAMIC_LIBRARY;NDEBUG;QT_NO_DEBUG;QT_PLUGIN;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <PreprocessorDefinitions>_WINDOWS;UNICODE;_UNICODE;WIN32;_ENABLE_EXTENDED_ALIGNED_STORAGE;WIN64;INTVER=2.5.565.0;WIN_INTVER=2,5,565,0;COPYRIGHT_YEAR=2025;WIN32;_WIN32;NOMINMAX;WIN64;_WIN64;WINDOWS_IGNORE_PACKING_MISMATCH;BOOST_USE_WINDOWS_H;BOOST_WINAPI_NO_REDECLARATIONS;OFD_USE_DYNAMIC_LIBRARY;NDEBUG;QT_NO_DEBUG;QT_PLUGIN;%(PreprocessorDefinitions)</PreprocessorDefinitions>
     </ResourceCompile>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="XpsLib\ContextState.cpp" />
-    <ClCompile Include="XpsLib\Document.cpp" />
-    <ClCompile Include="XpsLib\StaticResources.cpp" />
-    <ClCompile Include="XpsLib\Utils.cpp" />
-    <ClCompile Include="XpsLib\WString.cpp" />
-    <ClCompile Include="XpsFile.cpp" />
-    <ClCompile Include="XpsLib\XpsPage.cpp" />
+    <ClCompile Include="src\Annotation.cpp" />
+    <ClCompile Include="src\Base.cpp" />
+    <ClCompile Include="src\Types\Color.cpp" />
+    <ClCompile Include="src\Types\ColorSpace.cpp" />
+    <ClCompile Include="src\Types\CommonData.cpp" />
+    <ClCompile Include="src\Types\CompositeGraphicUnit.cpp" />
+    <ClCompile Include="src\Content\Content.cpp" />
+    <ClCompile Include="src\Document.cpp" />
+    <ClCompile Include="src\Types\DrawParam.cpp" />
+    <ClCompile Include="src\Types\Font.cpp" />
+    <ClCompile Include="src\Content\GraphicUnit.cpp" />
+    <ClCompile Include="src\Content\ImageObject.cpp" />
+    <ClCompile Include="src\Content\Layer.cpp" />
+    <ClCompile Include="src\Types\MultiMedia.cpp" />
+    <ClCompile Include="OFDFile.cpp" />
+    <ClCompile Include="src\OFDFile_Private.cpp" />
+    <ClCompile Include="src\Page.cpp" />
+    <ClCompile Include="src\Types\PageArea.cpp" />
+    <ClCompile Include="src\Content\PageBlock.cpp" />
+    <ClCompile Include="src\Content\PathObject.cpp" />
+    <ClCompile Include="src\Types\PenSettings.cpp" />
+    <ClCompile Include="src\Res.cpp" />
+    <ClCompile Include="src\Types\Signature.cpp" />
+    <ClCompile Include="src\Types\TemplatePage.cpp" />
+    <ClCompile Include="src\Content\TextObject.cpp" />
+    <ClCompile Include="src\Utils\Types.cpp" />
+    <ClCompile Include="src\Utils\XmlReader.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="XpsLib\ContextState.h" />
-    <ClInclude Include="XpsLib\Document.h" />
-    <ClInclude Include="XpsLib\FontList.h" />
-    <ClInclude Include="XpsLib\StaticResources.h" />
-    <ClInclude Include="XpsLib\Utils.h" />
-    <ClInclude Include="XpsLib\WString.h" />
-    <ClInclude Include="XpsFile.h" />
-    <ClInclude Include="XpsLib\XpsPage.h" />
+    <ClInclude Include="src\Annotation.h" />
+    <ClInclude Include="src\Base.h" />
+    <ClInclude Include="src\Types\Color.h" />
+    <ClInclude Include="src\Types\ColorSpace.h" />
+    <ClInclude Include="src\Types\CommonData.h" />
+    <ClInclude Include="src\Types\CompositeGraphicUnit.h" />
+    <ClInclude Include="src\Content\Content.h" />
+    <ClInclude Include="src\Document.h" />
+    <ClInclude Include="src\Types\DrawParam.h" />
+    <ClInclude Include="src\Types\Font.h" />
+    <ClInclude Include="src\Content\GraphicUnit.h" />
+    <ClInclude Include="src\IOFDElement.h" />
+    <ClInclude Include="src\Content\IPageBlock.h" />
+    <ClInclude Include="src\Content\ImageObject.h" />
+    <ClInclude Include="src\Content\Layer.h" />
+    <ClInclude Include="src\Types\MultiMedia.h" />
+    <ClInclude Include="OFDFile.h" />
+    <ClInclude Include="src\OFDFile_Private.h" />
+    <ClInclude Include="src\Page.h" />
+    <ClInclude Include="src\Types\PageArea.h" />
+    <ClInclude Include="src\Content\PageBlock.h" />
+    <ClInclude Include="src\Content\PathObject.h" />
+    <ClInclude Include="src\Types\PenSettings.h" />
+    <ClInclude Include="src\Res.h" />
+    <ClInclude Include="src\Types\Signature.h" />
+    <ClInclude Include="src\Types\TemplatePage.h" />
+    <ClInclude Include="src\Content\TextObject.h" />
+    <ClInclude Include="src\Utils\Types.h" />
+    <ClInclude Include="src\Utils\Utils.h" />
+    <ClInclude Include="src\Utils\XmlReader.h" />
   </ItemGroup>
   <ItemGroup>
-    <ResourceCompile Include=".\XpsFile_resource.rc" />
+    <ResourceCompile Include=".\OFDFile_resource.rc" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <Import Project="$(QtMsBuild)\qt.targets" Condition="Exists('$(QtMsBuild)\qt.targets')" />

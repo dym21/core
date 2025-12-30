@@ -140,7 +140,7 @@ METAFILE_PATH = $$PWD/../../raster/Metafile
 			$$METAFILE_PATH/svg/SvgObjects/CRect.cpp \
 			$$METAFILE_PATH/svg/SvgObjects/CCircle.cpp \
 			$$METAFILE_PATH/svg/SvgObjects/CEllipse.cpp \
-			$$METAFILE_PATH/svg/SvgObjects/CPath.cpp \
+			$$METAFILE_PATH/svg/SvgObjects/CPathSvg.cpp \
 			$$METAFILE_PATH/svg/SvgObjects/CText.cpp \
 			$$METAFILE_PATH/svg/SvgObjects/CUse.cpp \
 			$$METAFILE_PATH/svg/SvgObjects/CPolyline.cpp \

@@ -7,8 +7,8 @@
     </ProjectConfiguration>
   </ItemGroup>
   <PropertyGroup Label="Globals">
-    <ProjectGuid>{3AA6619E-B400-3E08-8245-7DB70BF703A4}</ProjectGuid>
-    <RootNamespace>XpsFile</RootNamespace>
+    <ProjectGuid>{3618F60A-CFD8-331D-A888-7793B31C4BE8}</ProjectGuid>
+    <RootNamespace>ooxml_crypt</RootNamespace>
     <Keyword>QtVS_v304</Keyword>
     <WindowsTargetPlatformVersion>10.0</WindowsTargetPlatformVersion>
     <QtMsBuild Condition="'$(QtMsBuild)'=='' OR !Exists('$(QtMsBuild)\qt.targets')">$(MSBuildProjectDirectory)\QtMsBuild</QtMsBuild>
@@ -16,12 +16,12 @@
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'" Label="Configuration">
     <PlatformToolset>v142</PlatformToolset>
-    <OutputDirectory>..\build\lib\win_64\</OutputDirectory>
+    <OutputDirectory>..\..\build\bin\win_64\</OutputDirectory>
     <ATLMinimizesCRunTimeLibraryUsage>false</ATLMinimizesCRunTimeLibraryUsage>
     <CharacterSet>NotSet</CharacterSet>
-    <ConfigurationType>DynamicLibrary</ConfigurationType>
+    <ConfigurationType>Application</ConfigurationType>
     <IntermediateDirectory>core_build\win_64\release\obj\</IntermediateDirectory>
-    <PrimaryOutput>XpsFile</PrimaryOutput>
+    <PrimaryOutput>ooxml_crypt</PrimaryOutput>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
   <Import Project="$(QtMsBuild)\qt_defaults.props" Condition="Exists('$(QtMsBuild)\qt_defaults.props')" />
@@ -40,15 +40,15 @@
   </ImportGroup>
   <PropertyGroup Label="UserMacros" />
   <PropertyGroup>
-    <OutDir Condition="'$(Configuration)|$(Platform)'=='Release|x64'">..\build\lib\win_64\</OutDir>
+    <OutDir Condition="'$(Configuration)|$(Platform)'=='Release|x64'">..\..\build\bin\win_64\</OutDir>
     <IntDir Condition="'$(Configuration)|$(Platform)'=='Release|x64'">core_build\win_64\release\obj\</IntDir>
-    <TargetName Condition="'$(Configuration)|$(Platform)'=='Release|x64'">XpsFile</TargetName>
+    <TargetName Condition="'$(Configuration)|$(Platform)'=='Release|x64'">ooxml_crypt</TargetName>
     <IgnoreImportLibrary Condition="'$(Configuration)|$(Platform)'=='Release|x64'">true</IgnoreImportLibrary>
     <LinkIncremental Condition="'$(Configuration)|$(Platform)'=='Release|x64'">false</LinkIncremental>
   </PropertyGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
     <ClCompile>
-      <AdditionalIncludeDirectories>GeneratedFiles\$(ConfigurationName);GeneratedFiles;.;..\DesktopEditor\freetype-2.10.4\include;..\DesktopEditor\freetype-2.10.4\include\freetype;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>GeneratedFiles\$(ConfigurationName);GeneratedFiles;.;..\..\Common\3dParty\boost\build\win_64\include;..\..\Common\3dParty\icu\icu\include;..\..\Common\3dParty\openssl\build\win_64\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <AdditionalOptions>-Zc:rvalueCast -Zc:inline -Zc:strictStrings -Zc:throwingNew -Zc:referenceBinding -Zc:__cplusplus /Zc:strictStrings- /utf-8 /Zc:strictStrings- -w34100 -w34189 -w44996 -w44456 -w44457 -w44458 %(AdditionalOptions)</AdditionalOptions>
       <AssemblerListingLocation>core_build\win_64\release\obj\</AssemblerListingLocation>
       <BrowseInformation>false</BrowseInformation>
@@ -59,7 +59,7 @@
       <MultiProcessorCompilation>true</MultiProcessorCompilation>
       <ObjectFileName>core_build\win_64\release\obj\</ObjectFileName>
       <Optimization>Disabled</Optimization>
-      <PreprocessorDefinitions>_WINDOWS;UNICODE;_UNICODE;WIN32;_ENABLE_EXTENDED_ALIGNED_STORAGE;WIN64;INTVER=2.5.565.0;WIN_INTVER=2,5,565,0;COPYRIGHT_YEAR=2025;WIN32;_WIN32;NOMINMAX;WIN64;_WIN64;WINDOWS_IGNORE_PACKING_MISMATCH;XPS_USE_DYNAMIC_LIBRARY;NDEBUG;QT_NO_DEBUG;QT_PLUGIN;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <PreprocessorDefinitions>_CONSOLE;_UNICODE;WIN32;_ENABLE_EXTENDED_ALIGNED_STORAGE;WIN64;INTVER=2.5.565.0;WIN_INTVER=2,5,565,0;COPYRIGHT_YEAR=2025;WIN32;_WIN32;NOMINMAX;WIN64;_WIN64;WINDOWS_IGNORE_PACKING_MISMATCH;BOOST_USE_WINDOWS_H;BOOST_WINAPI_NO_REDECLARATIONS;COMMON_OPENSSL_BUILDING;CRYPTOPP_DISABLE_ASM;NDEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <PreprocessToFile>false</PreprocessToFile>
       <RuntimeLibrary>MultiThreadedDLL</RuntimeLibrary>
       <SuppressStartupBanner>true</SuppressStartupBanner>
@@ -67,17 +67,17 @@
       <WarningLevel>Level3</WarningLevel>
     </ClCompile>
     <Link>
-      <AdditionalDependencies>graphics.lib;C:\onlyoffice\core\build\lib\win_64\kernel.lib;C:\onlyoffice\core\build\lib\win_64\UnicodeConverter.lib;C:\onlyoffice\core\build\lib\win_64\PdfFile.lib;gdi32.lib;advapi32.lib;user32.lib;shell32.lib;%(AdditionalDependencies)</AdditionalDependencies>
-      <AdditionalLibraryDirectories>C:\onlyoffice\core\build\lib\win_64;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalDependencies>C:\onlyoffice\core\build\lib\win_64\CryptoPPLib.lib;C:\onlyoffice\core\build\lib\win_64\CompoundFileLib.lib;C:\onlyoffice\core\build\lib\win_64\UnicodeConverter.lib;C:\onlyoffice\core\build\lib\win_64\kernel.lib;C:\onlyoffice\core\Common\3dParty\icu\win_64\build\icuuc.lib;C:\onlyoffice\core\Common\3dParty\openssl\build\win_64\lib\libssl.lib;C:\onlyoffice\core\Common\3dParty\openssl\build\win_64\lib\libcrypto.lib;Advapi32.lib;Shell32.lib;Gdi32.lib;User32.lib;crypt32.lib;cryptui.lib;ws2_32.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalLibraryDirectories>C:\onlyoffice\core\build\lib\win_64;C:\onlyoffice\core\Common\3dParty\icu\win_64\build;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalOptions>"/MANIFESTDEPENDENCY:type='win32' name='Microsoft.Windows.Common-Controls' version='6.0.0.0' publicKeyToken='6595b64144ccf1df' language='*' processorArchitecture='*'" %(AdditionalOptions)</AdditionalOptions>
       <DataExecutionPrevention>true</DataExecutionPrevention>
       <GenerateDebugInformation>true</GenerateDebugInformation>
       <IgnoreImportLibrary>true</IgnoreImportLibrary>
-      <LinkDLL>true</LinkDLL>
       <LinkIncremental>false</LinkIncremental>
       <OptimizeReferences>true</OptimizeReferences>
-      <OutputFile>$(OutDir)\XpsFile.dll</OutputFile>
+      <OutputFile>$(OutDir)\ooxml_crypt.exe</OutputFile>
       <RandomizedBaseAddress>true</RandomizedBaseAddress>
-      <SubSystem>Windows</SubSystem>
+      <SubSystem>Console</SubSystem>
       <SuppressStartupBanner>true</SuppressStartupBanner>
       <Version>2.5</Version>
     </Link>
@@ -87,30 +87,31 @@
       <WarningLevel>0</WarningLevel>
     </Midl>
     <ResourceCompile>
-      <PreprocessorDefinitions>_WINDOWS;UNICODE;_UNICODE;WIN32;_ENABLE_EXTENDED_ALIGNED_STORAGE;WIN64;INTVER=2.5.565.0;WIN_INTVER=2,5,565,0;COPYRIGHT_YEAR=2025;WIN32;_WIN32;NOMINMAX;WIN64;_WIN64;WINDOWS_IGNORE_PACKING_MISMATCH;XPS_USE_DYNAMIC_LIBRARY;NDEBUG;QT_NO_DEBUG;QT_PLUGIN;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <PreprocessorDefinitions>_CONSOLE;_UNICODE;WIN32;_ENABLE_EXTENDED_ALIGNED_STORAGE;WIN64;INTVER=2.5.565.0;WIN_INTVER=2,5,565,0;COPYRIGHT_YEAR=2025;WIN32;_WIN32;NOMINMAX;WIN64;_WIN64;WINDOWS_IGNORE_PACKING_MISMATCH;BOOST_USE_WINDOWS_H;BOOST_WINAPI_NO_REDECLARATIONS;COMMON_OPENSSL_BUILDING;CRYPTOPP_DISABLE_ASM;NDEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
     </ResourceCompile>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="XpsLib\ContextState.cpp" />
-    <ClCompile Include="XpsLib\Document.cpp" />
-    <ClCompile Include="XpsLib\StaticResources.cpp" />
-    <ClCompile Include="XpsLib\Utils.cpp" />
-    <ClCompile Include="XpsLib\WString.cpp" />
-    <ClCompile Include="XpsFile.cpp" />
-    <ClCompile Include="XpsLib\XpsPage.cpp" />
+    <ClCompile Include="..\source\CryptTransform.cpp" />
+    <ClCompile Include="..\source\ECMACryptFile.cpp" />
+    <ClCompile Include="..\..\MsBinaryFile\XlsFile\Format\Logging\Log.cpp" />
+    <ClCompile Include="..\..\MsBinaryFile\XlsFile\Format\Logging\Logger.cpp" />
+    <ClCompile Include="..\..\MsBinaryFile\DocFile\MemoryStream.cpp" />
+    <ClCompile Include="..\..\Common\OfficeFileFormatChecker2.cpp" />
+    <ClCompile Include="..\..\Common\3dParty\openssl\common\common_openssl.cpp" />
+    <ClCompile Include="main.cpp" />
+    <ClCompile Include="..\..\Common\3dParty\pole\pole.cpp" />
+    <ClCompile Include="..\..\OOXML\Base\unicode_util.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="XpsLib\ContextState.h" />
-    <ClInclude Include="XpsLib\Document.h" />
-    <ClInclude Include="XpsLib\FontList.h" />
-    <ClInclude Include="XpsLib\StaticResources.h" />
-    <ClInclude Include="XpsLib\Utils.h" />
-    <ClInclude Include="XpsLib\WString.h" />
-    <ClInclude Include="XpsFile.h" />
-    <ClInclude Include="XpsLib\XpsPage.h" />
+    <ClInclude Include="C:\onlyoffice\core\OfficeCryptReader\source\CryptTransform.h" />
+    <ClInclude Include="C:\onlyoffice\core\OfficeCryptReader\source\ECMACryptFile.h" />
+    <ClInclude Include="..\..\MsBinaryFile\XlsFile\Format\Logging\Log.h" />
+    <ClInclude Include="..\..\MsBinaryFile\XlsFile\Format\Logging\Logger.h" />
+    <ClInclude Include="C:\onlyoffice\core\Common\3dParty\openssl\common\common_openssl.h" />
+    <ClInclude Include="C:\onlyoffice\core\OfficeCryptReader\source\simple_xml_writer.h" />
   </ItemGroup>
   <ItemGroup>
-    <ResourceCompile Include=".\XpsFile_resource.rc" />
+    <ResourceCompile Include=".\ooxml_crypt_resource.rc" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <Import Project="$(QtMsBuild)\qt.targets" Condition="Exists('$(QtMsBuild)\qt.targets')" />

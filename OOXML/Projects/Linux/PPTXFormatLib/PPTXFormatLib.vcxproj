@@ -1,0 +1,777 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup Label="ProjectConfigurations">
+    <ProjectConfiguration Include="Release|x64">
+      <Configuration>Release</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+  </ItemGroup>
+  <PropertyGroup Label="Globals">
+    <ProjectGuid>{34B54B85-F235-3E99-97F5-C0CFEBFD5B11}</ProjectGuid>
+    <RootNamespace>PPTXFormatLib</RootNamespace>
+    <Keyword>QtVS_v304</Keyword>
+    <WindowsTargetPlatformVersion>10.0</WindowsTargetPlatformVersion>
+    <QtMsBuild Condition="'$(QtMsBuild)'=='' OR !Exists('$(QtMsBuild)\qt.targets')">$(MSBuildProjectDirectory)\QtMsBuild</QtMsBuild>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'" Label="Configuration">
+    <PlatformToolset>v142</PlatformToolset>
+    <OutputDirectory>..\..\..\..\build\lib\win_64\</OutputDirectory>
+    <ATLMinimizesCRunTimeLibraryUsage>false</ATLMinimizesCRunTimeLibraryUsage>
+    <CharacterSet>NotSet</CharacterSet>
+    <ConfigurationType>StaticLibrary</ConfigurationType>
+    <IntermediateDirectory>core_build\win_64\release\obj\</IntermediateDirectory>
+    <PrimaryOutput>PPTXFormatLib</PrimaryOutput>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
+  <Import Project="$(QtMsBuild)\qt_defaults.props" Condition="Exists('$(QtMsBuild)\qt_defaults.props')" />
+  <PropertyGroup Label="QtSettings" Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <QtInstall>Qt-5.15.2_msvc2019_64</QtInstall>
+    <QtModules>
+    </QtModules>
+  </PropertyGroup>
+  <Target Name="QtMsBuildNotFound" BeforeTargets="CustomBuild;ClCompile" Condition="!Exists('$(QtMsBuild)\qt.targets') OR !Exists('$(QtMsBuild)\Qt.props')">
+    <Message Importance="High" Text="QtMsBuild: could not locate qt.targets, qt.props; project may not build correctly." />
+  </Target>
+  <ImportGroup Label="ExtensionSettings" />
+  <ImportGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'" Label="PropertySheets">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" />
+    <Import Project="$(QtMsBuild)\Qt.props" />
+  </ImportGroup>
+  <PropertyGroup Label="UserMacros" />
+  <PropertyGroup>
+    <OutDir Condition="'$(Configuration)|$(Platform)'=='Release|x64'">..\..\..\..\build\lib\win_64\</OutDir>
+    <IntDir Condition="'$(Configuration)|$(Platform)'=='Release|x64'">core_build\win_64\release\obj\</IntDir>
+    <TargetName Condition="'$(Configuration)|$(Platform)'=='Release|x64'">PPTXFormatLib</TargetName>
+    <IgnoreImportLibrary Condition="'$(Configuration)|$(Platform)'=='Release|x64'">true</IgnoreImportLibrary>
+  </PropertyGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <ClCompile>
+      <AdditionalIncludeDirectories>GeneratedFiles\$(ConfigurationName);GeneratedFiles;.;..\..\..\..\Common\3dParty\boost\build\win_64\include;../../../../Common/ASCDocxFormat/Source/Utility;../../../../Common/ASCDocxFormat/Source/XML;../../../../Common/ASCDocxFormat/Source;../../../../../MsBinaryFile/XlsFile/Format;../../../../../MsBinaryFile/Common/common_xls;..\..\..\XlsbFormat;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalOptions>-Zc:rvalueCast -Zc:inline -Zc:strictStrings -Zc:throwingNew -Zc:referenceBinding -Zc:__cplusplus /Zc:strictStrings- /utf-8 /bigobj /Zc:strictStrings- -w34100 -w34189 -w44996 -w44456 -w44457 -w44458 %(AdditionalOptions)</AdditionalOptions>
+      <AssemblerListingLocation>core_build\win_64\release\obj\</AssemblerListingLocation>
+      <BrowseInformation>false</BrowseInformation>
+      <DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
+      <DisableSpecificWarnings>4577;4467;%(DisableSpecificWarnings)</DisableSpecificWarnings>
+      <ExceptionHandling>Sync</ExceptionHandling>
+      <InlineFunctionExpansion>Disabled</InlineFunctionExpansion>
+      <MultiProcessorCompilation>true</MultiProcessorCompilation>
+      <ObjectFileName>core_build\win_64\release\obj\</ObjectFileName>
+      <Optimization>Disabled</Optimization>
+      <PreprocessorDefinitions>_WINDOWS;UNICODE;_UNICODE;WIN32;_ENABLE_EXTENDED_ALIGNED_STORAGE;WIN64;INTVER=2.5.565.0;WIN_INTVER=2,5,565,0;COPYRIGHT_YEAR=2025;WIN32;_WIN32;NOMINMAX;WIN64;_WIN64;WINDOWS_IGNORE_PACKING_MISMATCH;CRYPTOPP_DISABLE_ASM;BOOST_USE_WINDOWS_H;BOOST_WINAPI_NO_REDECLARATIONS;UNICODE;_UNICODE;AVS_USE_CONVERT_PPTX_TOCUSTOM_VML;DONT_WRITE_EMBEDDED_FONTS;NDEBUG;QT_NO_DEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <PreprocessToFile>false</PreprocessToFile>
+      <RuntimeLibrary>MultiThreadedDLL</RuntimeLibrary>
+      <SuppressStartupBanner>true</SuppressStartupBanner>
+      <TreatWChar_tAsBuiltInType>true</TreatWChar_tAsBuiltInType>
+      <WarningLevel>Level3</WarningLevel>
+    </ClCompile>
+    <Link>
+      <IgnoreImportLibrary>true</IgnoreImportLibrary>
+    </Link>
+    <Midl>
+      <DefaultCharType>Unsigned</DefaultCharType>
+      <EnableErrorChecks>None</EnableErrorChecks>
+      <WarningLevel>0</WarningLevel>
+    </Midl>
+    <ResourceCompile>
+      <PreprocessorDefinitions>_WINDOWS;UNICODE;_UNICODE;WIN32;_ENABLE_EXTENDED_ALIGNED_STORAGE;WIN64;INTVER=2.5.565.0;WIN_INTVER=2,5,565,0;COPYRIGHT_YEAR=2025;WIN32;_WIN32;NOMINMAX;WIN64;_WIN64;WINDOWS_IGNORE_PACKING_MISMATCH;CRYPTOPP_DISABLE_ASM;BOOST_USE_WINDOWS_H;BOOST_WINAPI_NO_REDECLARATIONS;UNICODE;_UNICODE;AVS_USE_CONVERT_PPTX_TOCUSTOM_VML;DONT_WRITE_EMBEDDED_FONTS;NDEBUG;QT_NO_DEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+    </ResourceCompile>
+  </ItemDefinitionGroup>
+  <ItemGroup>
+    <ClCompile Include="..\..\..\PPTXFormat\DrawingConverter\ASCOfficeDrawingConverter.cpp" />
+    <ClCompile Include="..\..\..\PPTXFormat\DrawingConverter\ASCOfficePPTXFileRealization.cpp" />
+    <ClCompile Include="..\..\..\..\MsBinaryFile\Common\Vml\BaseShape.cpp" />
+    <ClCompile Include="..\..\..\..\OOXML\Binary\Document\BinWriter\BinEquationWriter.cpp" />
+    <ClCompile Include="..\..\..\Binary\Presentation\BinaryFileReaderWriter.cpp" />
+    <ClCompile Include="..\..\..\..\MsBinaryFile\Common\Vml\PPTShape\BinaryReader.cpp" />
+    <ClCompile Include="..\..\..\PPTXFormat\ShowPr\Browse.cpp" />
+    <ClCompile Include="..\..\..\PPTXFormat\ViewProps\CSldViewPr.cpp" />
+    <ClCompile Include="..\..\..\PPTXFormat\ViewProps\CViewPr.cpp" />
+    <ClCompile Include="..\..\..\Binary\Presentation\CalculatorCRC32.cpp" />
+    <ClCompile Include="..\..\..\PPTXFormat\Theme\ClrScheme.cpp" />
+    <ClCompile Include="..\..\..\Binary\Presentation\Converter.cpp" />
+    <ClCompile Include="..\..\..\..\MsBinaryFile\Common\Vml\PPTShape\CustomGeomShape.cpp" />
+    <ClCompile Include="..\..\..\PPTXFormat\ShowPr\CustomShowId.cpp" />
+    <ClCompile Include="..\..\..\Binary\Presentation\DefaultNotesMaster.cpp" />
+    <ClCompile Include="..\..\..\Binary\Presentation\DefaultNotesTheme.cpp" />
+    <ClCompile Include="..\..\..\..\MsBinaryFile\Common\Vml\PPTShape\ElementSettings.cpp" />
+    <ClCompile Include="..\..\..\..\MsBinaryFile\PptFile\Drawing\Elements.cpp" />
+    <ClCompile Include="..\..\..\PPTXFormat\Theme\ExtraClrScheme.cpp" />
+    <ClCompile Include="..\..\..\PPTXFormat\Theme\FmtScheme.cpp" />
+    <ClCompile Include="..\..\..\Binary\Presentation\FontCutter.cpp" />
+    <ClCompile Include="..\..\..\Binary\Presentation\FontPicker.cpp" />
+    <ClCompile Include="..\..\..\PPTXFormat\Theme\FontScheme.cpp" />
+    <ClCompile Include="..\..\..\..\MsBinaryFile\Common\Vml\GraphicsPath.cpp" />
+    <ClCompile Include="..\..\..\PPTXFormat\ViewProps\GridSpacing.cpp" />
+    <ClCompile Include="..\..\..\PPTXFormat\ViewProps\Guide.cpp" />
+    <ClCompile Include="..\..\..\PPTXFormat\ShowPr\Kiosk.cpp" />
+    <ClCompile Include="..\..\..\PPTXFormat\ViewProps\NormalViewPr.cpp" />
+    <ClCompile Include="..\..\..\PPTXFormat\ViewProps\NotesTextViewPr.cpp" />
+    <ClCompile Include="..\..\..\PPTXFormat\ViewProps\NotesViewPr.cpp" />
+    <ClCompile Include="..\..\..\PPTXFormat\ViewProps\Origin.cpp" />
+    <ClCompile Include="..\..\..\PPTXFormat\ViewProps\OutlineViewPr.cpp" />
+    <ClCompile Include="..\..\..\Binary\Presentation\PPTXWriter.cpp" />
+    <ClCompile Include="..\..\..\..\MsBinaryFile\Common\Vml\PPTShape\Ppt2PptxShapeConverter.cpp" />
+    <ClCompile Include="..\..\..\..\MsBinaryFile\Common\Vml\PPTShape\PptFormula.cpp" />
+    <ClCompile Include="..\..\..\..\MsBinaryFile\Common\Vml\PPTShape\PptShape.cpp" />
+    <ClCompile Include="..\..\..\..\MsBinaryFile\Common\Vml\PPTXShape\Pptx2PptShapeConverter.cpp" />
+    <ClCompile Include="..\..\..\..\MsBinaryFile\Common\Vml\PPTXShape\PptxFormula.cpp" />
+    <ClCompile Include="..\..\..\..\MsBinaryFile\Common\Vml\PPTXShape\PptxShape.cpp" />
+    <ClCompile Include="..\..\..\PPTXFormat\ShowPr\Present.cpp" />
+    <ClCompile Include="..\..\..\PPTXFormat\Presentation\PresentationChildElements.cpp" />
+    <ClCompile Include="..\..\..\PPTXFormat\ShowPr\PresentationPr.cpp" />
+    <ClCompile Include="..\..\..\PPTXFormat\ViewProps\Ratio.cpp" />
+    <ClCompile Include="..\..\..\PPTXFormat\ViewProps\Restored.cpp" />
+    <ClCompile Include="..\..\..\PPTXFormat\ViewProps\Scale.cpp" />
+    <ClCompile Include="..\..\..\PPTXFormat\ShowPr\SldAll.cpp" />
+    <ClCompile Include="..\..\..\PPTXFormat\ShowPr\SldRg.cpp" />
+    <ClCompile Include="..\..\..\PPTXFormat\ViewProps\SlideViewPr.cpp" />
+    <ClCompile Include="..\..\..\PPTXFormat\ViewProps\SorterViewPr.cpp" />
+    <ClCompile Include="..\..\..\..\MsBinaryFile\PptFile\Drawing\TextAttributesEx.cpp" />
+    <ClCompile Include="..\..\..\PPTXFormat\Theme\ThemeElements.cpp" />
+    <ClCompile Include="..\..\..\PPTXFormat\Theme\VisioThemeElements.cpp" />
+    <ClCompile Include="..\..\..\..\MsBinaryFile\Common\Vml\VmlPath.cpp" />
+    <ClCompile Include="..\..\..\Binary\Presentation\XmlWriter.cpp" />
+    <ClCompile Include="..\..\..\Binary\Presentation\imagemanager.cpp" />
+    <ClCompile Include="pptx_format.cpp" />
+    <ClCompile Include="..\..\..\PPTXFormat\Logic\pri\pptx_format_logic.cpp" />
+    <ClCompile Include="..\..\..\PPTXFormat\Limit\pri\pptx_limits.cpp" />
+    <ClCompile Include="..\..\..\..\MsBinaryFile\Common\Vml\PPTXShape\OOXMLShapes\pri\pptx_shapes.cpp" />
+    <ClCompile Include="..\..\..\..\MsBinaryFile\Common\Vml\toVmlConvert.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="..\..\..\PPTXFormat\DrawingConverter\ASCOfficeDrawingConverter.h" />
+    <ClInclude Include="..\..\..\PPTXFormat\DrawingConverter\ASCOfficePPTXFile.h" />
+    <ClInclude Include="C:\onlyoffice\core\OOXML\PPTXFormat\Logic\Ah.h" />
+    <ClInclude Include="C:\onlyoffice\core\OOXML\PPTXFormat\Logic\AhBase.h" />
+    <ClInclude Include="C:\onlyoffice\core\OOXML\PPTXFormat\Logic\AhPolar.h" />
+    <ClInclude Include="C:\onlyoffice\core\OOXML\PPTXFormat\Logic\AhXY.h" />
+    <ClInclude Include="C:\onlyoffice\core\OOXML\PPTXFormat\Limit\AlbumLayout.h" />
+    <ClInclude Include="C:\onlyoffice\core\OOXML\PPTXFormat\Logic\Effects\AlphaBiLevel.h" />
+    <ClInclude Include="C:\onlyoffice\core\OOXML\PPTXFormat\Logic\Effects\AlphaCeiling.h" />
+    <ClInclude Include="C:\onlyoffice\core\OOXML\PPTXFormat\Logic\Effects\AlphaFloor.h" />
+    <ClInclude Include="C:\onlyoffice\core\OOXML\PPTXFormat\Logic\Effects\AlphaInv.h" />
+    <ClInclude Include="C:\onlyoffice\core\OOXML\PPTXFormat\Logic\Effects\AlphaMod.h" />
+    <ClInclude Include="C:\onlyoffice\core\OOXML\PPTXFormat\Logic\Effects\AlphaModFix.h" />
+    <ClInclude Include="C:\onlyoffice\core\OOXML\PPTXFormat\Logic\Effects\AlphaOutset.h" />
+    <ClInclude Include="C:\onlyoffice\core\OOXML\PPTXFormat\Logic\Effects\AlphaRepl.h" />
+    <ClInclude Include="C:\onlyoffice\core\OOXML\PPTXFormat\Logic\Timing\Anim.h" />
+    <ClInclude Include="C:\onlyoffice\core\OOXML\PPTXFormat\Logic\Timing\AnimClr.h" />
+    <ClInclude Include="C:\onlyoffice\core\OOXML\PPTXFormat\Logic\Timing\AnimEffect.h" />
+    <ClInclude Include="C:\onlyoffice\core\OOXML\PPTXFormat\Logic\Timing\AnimMotion.h" />
+    <ClInclude Include="C:\onlyoffice\core\OOXML\PPTXFormat\Logic\Timing\AnimRot.h" />
+    <ClInclude Include="C:\onlyoffice\core\OOXML\PPTXFormat\Logic\Timing\AnimScale.h" />
+    <ClInclude Include="C:\onlyoffice\core\OOXML\PPTXFormat\Logic\Timing\AnimVariant.h" />
+    <ClInclude Include="C:\onlyoffice\core\OOXML\PPTXFormat\Limit\AnimationDgmBuild.h" />
+    <ClInclude Include="C:\onlyoffice\core\OOXML\PPTXFormat\Logic\Path2D\ArcTo.h" />
+    <ClInclude Include="C:\onlyoffice\core\OOXML\PPTXFormat\Logic\Timing\AttrName.h" />
+    <ClInclude Include="C:\onlyoffice\core\OOXML\PPTXFormat\Logic\Timing\AttrNameLst.h" />
+    <ClInclude Include="C:\onlyoffice\core\OOXML\PPTXFormat\Logic\Timing\Audio.h" />
+    <ClInclude Include="C:\onlyoffice\core\OOXML\PPTXFormat\Logic\Media\AudioCD.h" />
+    <ClInclude Include="C:\onlyoffice\core\OOXML\PPTXFormat\Limit\BWMode.h" />
+    <ClInclude Include="C:\onlyoffice\core\OOXML\PPTXFormat\Logic\Backdrop.h" />
+    <ClInclude Include="C:\onlyoffice\core\OOXML\PPTXFormat\Limit\BaseLimit.h" />
+    <ClInclude Include="..\..\..\..\MsBinaryFile\Common\Vml\BaseShape.h" />
+    <ClInclude Include="C:\onlyoffice\core\OOXML\PPTXFormat\Logic\Bevel.h" />
+    <ClInclude Include="C:\onlyoffice\core\OOXML\PPTXFormat\Limit\BevelType.h" />
+    <ClInclude Include="C:\onlyoffice\core\OOXML\PPTXFormat\Logic\Bg.h" />
+    <ClInclude Include="C:\onlyoffice\core\OOXML\PPTXFormat\Logic\BgPr.h" />
+    <ClInclude Include="C:\onlyoffice\core\OOXML\PPTXFormat\Logic\Effects\BiLevel.h" />
+    <ClInclude Include="..\..\..\Binary\Presentation\BinReaderWriterDefines.h" />
+    <ClInclude Include="..\..\..\Binary\Presentation\BinWriters.h" />
+    <ClInclude Include="..\..\..\Binary\Presentation\BinaryFileReaderWriter.h" />
+    <ClInclude Include="..\..\..\..\MsBinaryFile\Common\Vml\PPTShape\BinaryReader.h" />
+    <ClInclude Include="C:\onlyoffice\core\OOXML\PPTXFormat\Logic\Timing\BldDgm.h" />
+    <ClInclude Include="C:\onlyoffice\core\OOXML\PPTXFormat\Logic\Timing\BldGraphic.h" />
+    <ClInclude Include="C:\onlyoffice\core\OOXML\PPTXFormat\Logic\Timing\BldLst.h" />
+    <ClInclude Include="C:\onlyoffice\core\OOXML\PPTXFormat\Logic\Timing\BldOleChart.h" />
+    <ClInclude Include="C:\onlyoffice\core\OOXML\PPTXFormat\Logic\Timing\BldP.h" />
+    <ClInclude Include="C:\onlyoffice\core\OOXML\PPTXFormat\Logic\Timing\BldSub.h" />
+    <ClInclude Include="C:\onlyoffice\core\OOXML\PPTXFormat\Logic\Effects\Blend.h" />
+    <ClInclude Include="C:\onlyoffice\core\OOXML\PPTXFormat\Limit\BlendMode.h" />
+    <ClInclude Include="C:\onlyoffice\core\OOXML\PPTXFormat\Logic\Fills\Blip.h" />
+    <ClInclude Include="C:\onlyoffice\core\OOXML\PPTXFormat\Limit\BlipCompression.h" />
+    <ClInclude Include="C:\onlyoffice\core\OOXML\PPTXFormat\Logic\Fills\BlipFill.h" />
+    <ClInclude Include="C:\onlyoffice\core\OOXML\PPTXFormat\Logic\Effects\Blur.h" />
+    <ClInclude Include="C:\onlyoffice\core\OOXML\PPTXFormat\Logic\BodyPr.h" />
+    <ClInclude Include="C:\onlyoffice\core\OOXML\PPTXFormat\Logic\Runs\Br.h" />
+    <ClInclude Include="..\..\..\PPTXFormat\ShowPr\Browse.h" />
+    <ClInclude Include="C:\onlyoffice\core\OOXML\PPTXFormat\Logic\Bullets\BuAutoNum.h" />
+    <ClInclude Include="C:\onlyoffice\core\OOXML\PPTXFormat\Logic\Bullets\BuBlip.h" />
+    <ClInclude Include="C:\onlyoffice\core\OOXML\PPTXFormat\Logic\Bullets\BuChar.h" />
+    <ClInclude Include="C:\onlyoffice\core\OOXML\PPTXFormat\Logic\Bullets\BuClr.h" />
+    <ClInclude Include="C:\onlyoffice\core\OOXML\PPTXFormat\Logic\Bullets\BuClrTx.h" />
+    <ClInclude Include="C:\onlyoffice\core\OOXML\PPTXFormat\Logic\Bullets\BuFontTx.h" />
+    <ClInclude Include="C:\onlyoffice\core\OOXML\PPTXFormat\Logic\Bullets\BuNone.h" />
+    <ClInclude Include="C:\onlyoffice\core\OOXML\PPTXFormat\Logic\Bullets\BuSzPct.h" />
+    <ClInclude Include="C:\onlyoffice\core\OOXML\PPTXFormat\Logic\Bullets\BuSzPts.h" />
+    <ClInclude Include="C:\onlyoffice\core\OOXML\PPTXFormat\Logic\Bullets\BuSzTx.h" />
+    <ClInclude Include="C:\onlyoffice\core\OOXML\PPTXFormat\Logic\Timing\BuildNodeBase.h" />
+    <ClInclude Include="C:\onlyoffice\core\OOXML\PPTXFormat\Logic\Bullets\Bullet.h" />
+    <ClInclude Include="C:\onlyoffice\core\OOXML\PPTXFormat\Logic\Bullets\BulletColor.h" />
+    <ClInclude Include="C:\onlyoffice\core\OOXML\PPTXFormat\Logic\Bullets\BulletSize.h" />
+    <ClInclude Include="C:\onlyoffice\core\OOXML\PPTXFormat\Logic\Bullets\BulletTypeface.h" />
+    <ClInclude Include="C:\onlyoffice\core\MsBinaryFile\Common\Vml\PPTXShape\OOXMLShapes\CAccentBorderCallout1.h" />
+    <ClInclude Include="C:\onlyoffice\core\MsBinaryFile\Common\Vml\PPTXShape\OOXMLShapes\CAccentBorderCallout2.h" />
+    <ClInclude Include="C:\onlyoffice\core\MsBinaryFile\Common\Vml\PPTXShape\OOXMLShapes\CAccentBorderCallout3.h" />
+    <ClInclude Include="C:\onlyoffice\core\MsBinaryFile\Common\Vml\PPTXShape\OOXMLShapes\CAccentCallout1.h" />
+    <ClInclude Include="C:\onlyoffice\core\MsBinaryFile\Common\Vml\PPTXShape\OOXMLShapes\CAccentCallout2.h" />
+    <ClInclude Include="C:\onlyoffice\core\MsBinaryFile\Common\Vml\PPTXShape\OOXMLShapes\CAccentCallout3.h" />
+    <ClInclude Include="C:\onlyoffice\core\MsBinaryFile\Common\Vml\PPTXShape\OOXMLShapes\CActionButtonBackPrevious.h" />
+    <ClInclude Include="C:\onlyoffice\core\MsBinaryFile\Common\Vml\PPTXShape\OOXMLShapes\CActionButtonBeginning.h" />
+    <ClInclude Include="C:\onlyoffice\core\MsBinaryFile\Common\Vml\PPTXShape\OOXMLShapes\CActionButtonBlank.h" />
+    <ClInclude Include="C:\onlyoffice\core\MsBinaryFile\Common\Vml\PPTXShape\OOXMLShapes\CActionButtonDocument.h" />
+    <ClInclude Include="C:\onlyoffice\core\MsBinaryFile\Common\Vml\PPTXShape\OOXMLShapes\CActionButtonEnd.h" />
+    <ClInclude Include="C:\onlyoffice\core\MsBinaryFile\Common\Vml\PPTXShape\OOXMLShapes\CActionButtonForwardNext.h" />
+    <ClInclude Include="C:\onlyoffice\core\MsBinaryFile\Common\Vml\PPTXShape\OOXMLShapes\CActionButtonHelp.h" />
+    <ClInclude Include="C:\onlyoffice\core\MsBinaryFile\Common\Vml\PPTXShape\OOXMLShapes\CActionButtonHome.h" />
+    <ClInclude Include="C:\onlyoffice\core\MsBinaryFile\Common\Vml\PPTXShape\OOXMLShapes\CActionButtonInformation.h" />
+    <ClInclude Include="C:\onlyoffice\core\MsBinaryFile\Common\Vml\PPTXShape\OOXMLShapes\CActionButtonMovie.h" />
+    <ClInclude Include="C:\onlyoffice\core\MsBinaryFile\Common\Vml\PPTXShape\OOXMLShapes\CActionButtonReturn.h" />
+    <ClInclude Include="C:\onlyoffice\core\MsBinaryFile\Common\Vml\PPTXShape\OOXMLShapes\CActionButtonSound.h" />
+    <ClInclude Include="C:\onlyoffice\core\MsBinaryFile\Common\Vml\PPTXShape\OOXMLShapes\CArc.h" />
+    <ClInclude Include="C:\onlyoffice\core\MsBinaryFile\Common\Vml\PPTXShape\OOXMLShapes\CBentArrow.h" />
+    <ClInclude Include="C:\onlyoffice\core\MsBinaryFile\Common\Vml\PPTXShape\OOXMLShapes\CBentConnector2.h" />
+    <ClInclude Include="C:\onlyoffice\core\MsBinaryFile\Common\Vml\PPTXShape\OOXMLShapes\CBentConnector3.h" />
+    <ClInclude Include="C:\onlyoffice\core\MsBinaryFile\Common\Vml\PPTXShape\OOXMLShapes\CBentConnector4.h" />
+    <ClInclude Include="C:\onlyoffice\core\MsBinaryFile\Common\Vml\PPTXShape\OOXMLShapes\CBentConnector5.h" />
+    <ClInclude Include="C:\onlyoffice\core\MsBinaryFile\Common\Vml\PPTXShape\OOXMLShapes\CBentUpArrow.h" />
+    <ClInclude Include="C:\onlyoffice\core\MsBinaryFile\Common\Vml\PPTXShape\OOXMLShapes\CBevel.h" />
+    <ClInclude Include="C:\onlyoffice\core\OOXML\PPTXFormat\Logic\Timing\CBhvr.h" />
+    <ClInclude Include="C:\onlyoffice\core\MsBinaryFile\Common\Vml\PPTXShape\OOXMLShapes\CBlockArc.h" />
+    <ClInclude Include="C:\onlyoffice\core\MsBinaryFile\Common\Vml\PPTXShape\OOXMLShapes\CBorderCallout1.h" />
+    <ClInclude Include="C:\onlyoffice\core\MsBinaryFile\Common\Vml\PPTXShape\OOXMLShapes\CBorderCallout2.h" />
+    <ClInclude Include="C:\onlyoffice\core\MsBinaryFile\Common\Vml\PPTXShape\OOXMLShapes\CBorderCallout3.h" />
+    <ClInclude Include="C:\onlyoffice\core\MsBinaryFile\Common\Vml\PPTXShape\OOXMLShapes\CBracePair.h" />
+    <ClInclude Include="C:\onlyoffice\core\MsBinaryFile\Common\Vml\PPTXShape\OOXMLShapes\CBracketPair.h" />
+    <ClInclude Include="C:\onlyoffice\core\MsBinaryFile\Common\Vml\PPTXShape\OOXMLShapes\CCallout1.h" />
+    <ClInclude Include="C:\onlyoffice\core\MsBinaryFile\Common\Vml\PPTXShape\OOXMLShapes\CCallout2.h" />
+    <ClInclude Include="C:\onlyoffice\core\MsBinaryFile\Common\Vml\PPTXShape\OOXMLShapes\CCallout3.h" />
+    <ClInclude Include="C:\onlyoffice\core\MsBinaryFile\Common\Vml\PPTXShape\OOXMLShapes\CCan.h" />
+    <ClInclude Include="C:\onlyoffice\core\MsBinaryFile\Common\Vml\PPTXShape\OOXMLShapes\CChartPlus.h" />
+    <ClInclude Include="C:\onlyoffice\core\MsBinaryFile\Common\Vml\PPTXShape\OOXMLShapes\CChartStar.h" />
+    <ClInclude Include="C:\onlyoffice\core\MsBinaryFile\Common\Vml\PPTXShape\OOXMLShapes\CChartX.h" />
+    <ClInclude Include="C:\onlyoffice\core\MsBinaryFile\Common\Vml\PPTXShape\OOXMLShapes\CChevron.h" />
+    <ClInclude Include="C:\onlyoffice\core\MsBinaryFile\Common\Vml\PPTXShape\OOXMLShapes\CChord.h" />
+    <ClInclude Include="C:\onlyoffice\core\MsBinaryFile\Common\Vml\PPTXShape\OOXMLShapes\CCircularArrow.h" />
+    <ClInclude Include="C:\onlyoffice\core\MsBinaryFile\Common\Vml\PPTXShape\OOXMLShapes\CCloud.h" />
+    <ClInclude Include="C:\onlyoffice\core\MsBinaryFile\Common\Vml\PPTXShape\OOXMLShapes\CCloudCallout.h" />
+    <ClInclude Include="C:\onlyoffice\core\MsBinaryFile\Common\Vml\PPTXShape\OOXMLShapes\CCorner.h" />
+    <ClInclude Include="C:\onlyoffice\core\MsBinaryFile\Common\Vml\PPTXShape\OOXMLShapes\CCornerTabs.h" />
+    <ClInclude Include="C:\onlyoffice\core\MsBinaryFile\Common\Vml\PPTXShape\OOXMLShapes\CCube.h" />
+    <ClInclude Include="C:\onlyoffice\core\MsBinaryFile\Common\Vml\PPTXShape\OOXMLShapes\CCurvedConnector2.h" />
+    <ClInclude Include="C:\onlyoffice\core\MsBinaryFile\Common\Vml\PPTXShape\OOXMLShapes\CCurvedConnector3.h" />
+    <ClInclude Include="C:\onlyoffice\core\MsBinaryFile\Common\Vml\PPTXShape\OOXMLShapes\CCurvedConnector4.h" />
+    <ClInclude Include="C:\onlyoffice\core\MsBinaryFile\Common\Vml\PPTXShape\OOXMLShapes\CCurvedConnector5.h" />
+    <ClInclude Include="C:\onlyoffice\core\MsBinaryFile\Common\Vml\PPTXShape\OOXMLShapes\CCurvedDownArrow.h" />
+    <ClInclude Include="C:\onlyoffice\core\MsBinaryFile\Common\Vml\PPTXShape\OOXMLShapes\CCurvedLeftArrow.h" />
+    <ClInclude Include="C:\onlyoffice\core\MsBinaryFile\Common\Vml\PPTXShape\OOXMLShapes\CCurvedRightArrow.h" />
+    <ClInclude Include="C:\onlyoffice\core\MsBinaryFile\Common\Vml\PPTXShape\OOXMLShapes\CCurvedUpArrow.h" />
+    <ClInclude Include="C:\onlyoffice\core\MsBinaryFile\Common\Vml\PPTXShape\OOXMLShapes\CDecagon.h" />
+    <ClInclude Include="C:\onlyoffice\core\MsBinaryFile\Common\Vml\PPTXShape\OOXMLShapes\CDiagStripe.h" />
+    <ClInclude Include="C:\onlyoffice\core\MsBinaryFile\Common\Vml\PPTXShape\OOXMLShapes\CDiamond.h" />
+    <ClInclude Include="C:\onlyoffice\core\MsBinaryFile\Common\Vml\PPTXShape\OOXMLShapes\CDodecagon.h" />
+    <ClInclude Include="C:\onlyoffice\core\MsBinaryFile\Common\Vml\PPTXShape\OOXMLShapes\CDonut.h" />
+    <ClInclude Include="C:\onlyoffice\core\MsBinaryFile\Common\Vml\PPTXShape\OOXMLShapes\CDoubleWave.h" />
+    <ClInclude Include="C:\onlyoffice\core\MsBinaryFile\Common\Vml\PPTXShape\OOXMLShapes\CDownArrow.h" />
+    <ClInclude Include="C:\onlyoffice\core\MsBinaryFile\Common\Vml\PPTXShape\OOXMLShapes\CDownArrowCallout.h" />
+    <ClInclude Include="C:\onlyoffice\core\MsBinaryFile\Common\Vml\PPTXShape\OOXMLShapes\CEllipse.h" />
+    <ClInclude Include="C:\onlyoffice\core\MsBinaryFile\Common\Vml\PPTXShape\OOXMLShapes\CEllipseRibbon.h" />
+    <ClInclude Include="C:\onlyoffice\core\MsBinaryFile\Common\Vml\PPTXShape\OOXMLShapes\CEllipseRibbon2.h" />
+    <ClInclude Include="C:\onlyoffice\core\MsBinaryFile\Common\Vml\PPTXShape\OOXMLShapes\CFlowChartAlternateProcess.h" />
+    <ClInclude Include="C:\onlyoffice\core\MsBinaryFile\Common\Vml\PPTXShape\OOXMLShapes\CFlowChartCollate.h" />
+    <ClInclude Include="C:\onlyoffice\core\MsBinaryFile\Common\Vml\PPTXShape\OOXMLShapes\CFlowChartConnector.h" />
+    <ClInclude Include="C:\onlyoffice\core\MsBinaryFile\Common\Vml\PPTXShape\OOXMLShapes\CFlowChartDecision.h" />
+    <ClInclude Include="C:\onlyoffice\core\MsBinaryFile\Common\Vml\PPTXShape\OOXMLShapes\CFlowChartDelay.h" />
+    <ClInclude Include="C:\onlyoffice\core\MsBinaryFile\Common\Vml\PPTXShape\OOXMLShapes\CFlowChartDisplay.h" />
+    <ClInclude Include="C:\onlyoffice\core\MsBinaryFile\Common\Vml\PPTXShape\OOXMLShapes\CFlowChartDocument.h" />
+    <ClInclude Include="C:\onlyoffice\core\MsBinaryFile\Common\Vml\PPTXShape\OOXMLShapes\CFlowChartExtract.h" />
+    <ClInclude Include="C:\onlyoffice\core\MsBinaryFile\Common\Vml\PPTXShape\OOXMLShapes\CFlowChartInputOutput.h" />
+    <ClInclude Include="C:\onlyoffice\core\MsBinaryFile\Common\Vml\PPTXShape\OOXMLShapes\CFlowChartInternalStorage.h" />
+    <ClInclude Include="C:\onlyoffice\core\MsBinaryFile\Common\Vml\PPTXShape\OOXMLShapes\CFlowChartMagneticDisk.h" />
+    <ClInclude Include="C:\onlyoffice\core\MsBinaryFile\Common\Vml\PPTXShape\OOXMLShapes\CFlowChartMagneticDrum.h" />
+    <ClInclude Include="C:\onlyoffice\core\MsBinaryFile\Common\Vml\PPTXShape\OOXMLShapes\CFlowChartMagneticTape.h" />
+    <ClInclude Include="C:\onlyoffice\core\MsBinaryFile\Common\Vml\PPTXShape\OOXMLShapes\CFlowChartManualInput.h" />
+    <ClInclude Include="C:\onlyoffice\core\MsBinaryFile\Common\Vml\PPTXShape\OOXMLShapes\CFlowChartManualOperation.h" />
+    <ClInclude Include="C:\onlyoffice\core\MsBinaryFile\Common\Vml\PPTXShape\OOXMLShapes\CFlowChartMerge.h" />
+    <ClInclude Include="C:\onlyoffice\core\MsBinaryFile\Common\Vml\PPTXShape\OOXMLShapes\CFlowChartMultidocument.h" />
+    <ClInclude Include="C:\onlyoffice\core\MsBinaryFile\Common\Vml\PPTXShape\OOXMLShapes\CFlowChartOfflineStorage.h" />
+    <ClInclude Include="C:\onlyoffice\core\MsBinaryFile\Common\Vml\PPTXShape\OOXMLShapes\CFlowChartOffpageConnector.h" />
+    <ClInclude Include="C:\onlyoffice\core\MsBinaryFile\Common\Vml\PPTXShape\OOXMLShapes\CFlowChartOnlineStorage.h" />
+    <ClInclude Include="C:\onlyoffice\core\MsBinaryFile\Common\Vml\PPTXShape\OOXMLShapes\CFlowChartOr.h" />
+    <ClInclude Include="C:\onlyoffice\core\MsBinaryFile\Common\Vml\PPTXShape\OOXMLShapes\CFlowChartPredefinedProcess.h" />
+    <ClInclude Include="C:\onlyoffice\core\MsBinaryFile\Common\Vml\PPTXShape\OOXMLShapes\CFlowChartPreparation.h" />
+    <ClInclude Include="C:\onlyoffice\core\MsBinaryFile\Common\Vml\PPTXShape\OOXMLShapes\CFlowChartProcess.h" />
+    <ClInclude Include="C:\onlyoffice\core\MsBinaryFile\Common\Vml\PPTXShape\OOXMLShapes\CFlowChartPunchedCard.h" />
+    <ClInclude Include="C:\onlyoffice\core\MsBinaryFile\Common\Vml\PPTXShape\OOXMLShapes\CFlowChartPunchedTape.h" />
+    <ClInclude Include="C:\onlyoffice\core\MsBinaryFile\Common\Vml\PPTXShape\OOXMLShapes\CFlowChartSort.h" />
+    <ClInclude Include="C:\onlyoffice\core\MsBinaryFile\Common\Vml\PPTXShape\OOXMLShapes\CFlowChartSummingJunction.h" />
+    <ClInclude Include="C:\onlyoffice\core\MsBinaryFile\Common\Vml\PPTXShape\OOXMLShapes\CFlowChartTerminator.h" />
+    <ClInclude Include="C:\onlyoffice\core\MsBinaryFile\Common\Vml\PPTXShape\OOXMLShapes\CFoldedCorner.h" />
+    <ClInclude Include="C:\onlyoffice\core\MsBinaryFile\Common\Vml\PPTXShape\OOXMLShapes\CFrame.h" />
+    <ClInclude Include="C:\onlyoffice\core\MsBinaryFile\Common\Vml\PPTXShape\OOXMLShapes\CFunnel.h" />
+    <ClInclude Include="C:\onlyoffice\core\MsBinaryFile\Common\Vml\PPTXShape\OOXMLShapes\CGear6.h" />
+    <ClInclude Include="C:\onlyoffice\core\MsBinaryFile\Common\Vml\PPTXShape\OOXMLShapes\CGear9.h" />
+    <ClInclude Include="C:\onlyoffice\core\MsBinaryFile\Common\Vml\PPTXShape\OOXMLShapes\CHalfFrame.h" />
+    <ClInclude Include="C:\onlyoffice\core\MsBinaryFile\Common\Vml\PPTXShape\OOXMLShapes\CHeart.h" />
+    <ClInclude Include="C:\onlyoffice\core\MsBinaryFile\Common\Vml\PPTXShape\OOXMLShapes\CHeptagon.h" />
+    <ClInclude Include="C:\onlyoffice\core\MsBinaryFile\Common\Vml\PPTXShape\OOXMLShapes\CHexagon.h" />
+    <ClInclude Include="C:\onlyoffice\core\MsBinaryFile\Common\Vml\PPTXShape\OOXMLShapes\CHomePlate.h" />
+    <ClInclude Include="C:\onlyoffice\core\MsBinaryFile\Common\Vml\PPTXShape\OOXMLShapes\CHorizontalScroll.h" />
+    <ClInclude Include="C:\onlyoffice\core\MsBinaryFile\Common\Vml\PPTXShape\OOXMLShapes\CIrregularSeal1.h" />
+    <ClInclude Include="C:\onlyoffice\core\MsBinaryFile\Common\Vml\PPTXShape\OOXMLShapes\CIrregularSeal2.h" />
+    <ClInclude Include="C:\onlyoffice\core\MsBinaryFile\Common\Vml\PPTXShape\OOXMLShapes\CLeftArrow.h" />
+    <ClInclude Include="C:\onlyoffice\core\MsBinaryFile\Common\Vml\PPTXShape\OOXMLShapes\CLeftArrowCallout.h" />
+    <ClInclude Include="C:\onlyoffice\core\MsBinaryFile\Common\Vml\PPTXShape\OOXMLShapes\CLeftBrace.h" />
+    <ClInclude Include="C:\onlyoffice\core\MsBinaryFile\Common\Vml\PPTXShape\OOXMLShapes\CLeftBracket.h" />
+    <ClInclude Include="C:\onlyoffice\core\MsBinaryFile\Common\Vml\PPTXShape\OOXMLShapes\CLeftCircularArrow.h" />
+    <ClInclude Include="C:\onlyoffice\core\MsBinaryFile\Common\Vml\PPTXShape\OOXMLShapes\CLeftRightArrow.h" />
+    <ClInclude Include="C:\onlyoffice\core\MsBinaryFile\Common\Vml\PPTXShape\OOXMLShapes\CLeftRightArrowCallout.h" />
+    <ClInclude Include="C:\onlyoffice\core\MsBinaryFile\Common\Vml\PPTXShape\OOXMLShapes\CLeftRightCircularArrow.h" />
+    <ClInclude Include="C:\onlyoffice\core\MsBinaryFile\Common\Vml\PPTXShape\OOXMLShapes\CLeftRightRibbon.h" />
+    <ClInclude Include="C:\onlyoffice\core\MsBinaryFile\Common\Vml\PPTXShape\OOXMLShapes\CLeftRightUpArrow.h" />
+    <ClInclude Include="C:\onlyoffice\core\MsBinaryFile\Common\Vml\PPTXShape\OOXMLShapes\CLeftUpArrow.h" />
+    <ClInclude Include="C:\onlyoffice\core\MsBinaryFile\Common\Vml\PPTXShape\OOXMLShapes\CLightningBolt.h" />
+    <ClInclude Include="C:\onlyoffice\core\MsBinaryFile\Common\Vml\PPTXShape\OOXMLShapes\CLine.h" />
+    <ClInclude Include="C:\onlyoffice\core\MsBinaryFile\Common\Vml\PPTXShape\OOXMLShapes\CLineInv.h" />
+    <ClInclude Include="C:\onlyoffice\core\MsBinaryFile\Common\Vml\PPTXShape\OOXMLShapes\CMathDivide.h" />
+    <ClInclude Include="C:\onlyoffice\core\MsBinaryFile\Common\Vml\PPTXShape\OOXMLShapes\CMathEqual.h" />
+    <ClInclude Include="C:\onlyoffice\core\MsBinaryFile\Common\Vml\PPTXShape\OOXMLShapes\CMathMinus.h" />
+    <ClInclude Include="C:\onlyoffice\core\MsBinaryFile\Common\Vml\PPTXShape\OOXMLShapes\CMathMultiply.h" />
+    <ClInclude Include="C:\onlyoffice\core\MsBinaryFile\Common\Vml\PPTXShape\OOXMLShapes\CMathNotEqual.h" />
+    <ClInclude Include="C:\onlyoffice\core\MsBinaryFile\Common\Vml\PPTXShape\OOXMLShapes\CMathPlus.h" />
+    <ClInclude Include="C:\onlyoffice\core\OOXML\PPTXFormat\Logic\Timing\CMediaNode.h" />
+    <ClInclude Include="C:\onlyoffice\core\MsBinaryFile\Common\Vml\PPTXShape\OOXMLShapes\CMoon.h" />
+    <ClInclude Include="C:\onlyoffice\core\MsBinaryFile\Common\Vml\PPTXShape\OOXMLShapes\CNoSmoking.h" />
+    <ClInclude Include="C:\onlyoffice\core\MsBinaryFile\Common\Vml\PPTXShape\OOXMLShapes\CNonIsoscelesTrapezoid.h" />
+    <ClInclude Include="C:\onlyoffice\core\MsBinaryFile\Common\Vml\PPTXShape\OOXMLShapes\CNotchedRightArrow.h" />
+    <ClInclude Include="C:\onlyoffice\core\OOXML\PPTXFormat\Logic\CNvCxnSpPr.h" />
+    <ClInclude Include="C:\onlyoffice\core\OOXML\PPTXFormat\Logic\CNvGraphicFramePr.h" />
+    <ClInclude Include="C:\onlyoffice\core\OOXML\PPTXFormat\Logic\CNvGrpSpPr.h" />
+    <ClInclude Include="C:\onlyoffice\core\OOXML\PPTXFormat\Logic\CNvPicPr.h" />
+    <ClInclude Include="C:\onlyoffice\core\OOXML\PPTXFormat\Logic\CNvPr.h" />
+    <ClInclude Include="C:\onlyoffice\core\OOXML\PPTXFormat\Logic\CNvSpPr.h" />
+    <ClInclude Include="C:\onlyoffice\core\MsBinaryFile\Common\Vml\PPTXShape\OOXMLShapes\COctagon.h" />
+    <ClInclude Include="C:\onlyoffice\core\MsBinaryFile\Common\Vml\PPTXShape\OOXMLShapes\CParallelogram.h" />
+    <ClInclude Include="C:\onlyoffice\core\MsBinaryFile\Common\Vml\PPTXShape\OOXMLShapes\CPentagon.h" />
+    <ClInclude Include="C:\onlyoffice\core\MsBinaryFile\Common\Vml\PPTXShape\OOXMLShapes\CPie.h" />
+    <ClInclude Include="C:\onlyoffice\core\MsBinaryFile\Common\Vml\PPTXShape\OOXMLShapes\CPieWedge.h" />
+    <ClInclude Include="C:\onlyoffice\core\MsBinaryFile\Common\Vml\PPTXShape\OOXMLShapes\CPlaque.h" />
+    <ClInclude Include="C:\onlyoffice\core\MsBinaryFile\Common\Vml\PPTXShape\OOXMLShapes\CPlaqueTabs.h" />
+    <ClInclude Include="C:\onlyoffice\core\MsBinaryFile\Common\Vml\PPTXShape\OOXMLShapes\CPlus.h" />
+    <ClInclude Include="C:\onlyoffice\core\MsBinaryFile\Common\Vml\PPTXShape\OOXMLShapes\CQuadArrow.h" />
+    <ClInclude Include="C:\onlyoffice\core\MsBinaryFile\Common\Vml\PPTXShape\OOXMLShapes\CQuadArrowCallout.h" />
+    <ClInclude Include="C:\onlyoffice\core\MsBinaryFile\Common\Vml\PPTXShape\OOXMLShapes\CRect.h" />
+    <ClInclude Include="C:\onlyoffice\core\MsBinaryFile\Common\Vml\PPTXShape\OOXMLShapes\CRibbon.h" />
+    <ClInclude Include="C:\onlyoffice\core\MsBinaryFile\Common\Vml\PPTXShape\OOXMLShapes\CRibbon2.h" />
+    <ClInclude Include="C:\onlyoffice\core\MsBinaryFile\Common\Vml\PPTXShape\OOXMLShapes\CRightArrow.h" />
+    <ClInclude Include="C:\onlyoffice\core\MsBinaryFile\Common\Vml\PPTXShape\OOXMLShapes\CRightArrowCallout.h" />
+    <ClInclude Include="C:\onlyoffice\core\MsBinaryFile\Common\Vml\PPTXShape\OOXMLShapes\CRightBrace.h" />
+    <ClInclude Include="C:\onlyoffice\core\MsBinaryFile\Common\Vml\PPTXShape\OOXMLShapes\CRightBracket.h" />
+    <ClInclude Include="C:\onlyoffice\core\MsBinaryFile\Common\Vml\PPTXShape\OOXMLShapes\CRound1Rect.h" />
+    <ClInclude Include="C:\onlyoffice\core\MsBinaryFile\Common\Vml\PPTXShape\OOXMLShapes\CRound2DiagRect.h" />
+    <ClInclude Include="C:\onlyoffice\core\MsBinaryFile\Common\Vml\PPTXShape\OOXMLShapes\CRound2SameRect.h" />
+    <ClInclude Include="C:\onlyoffice\core\MsBinaryFile\Common\Vml\PPTXShape\OOXMLShapes\CRoundRect.h" />
+    <ClInclude Include="C:\onlyoffice\core\MsBinaryFile\Common\Vml\PPTXShape\OOXMLShapes\CRtTriangle.h" />
+    <ClInclude Include="C:\onlyoffice\core\OOXML\PPTXFormat\Logic\CSld.h" />
+    <ClInclude Include="..\..\..\PPTXFormat\ViewProps\CSldViewPr.h" />
+    <ClInclude Include="C:\onlyoffice\core\MsBinaryFile\Common\Vml\PPTXShape\OOXMLShapes\CSmileyFace.h" />
+    <ClInclude Include="C:\onlyoffice\core\MsBinaryFile\Common\Vml\PPTXShape\OOXMLShapes\CSnip1Rect.h" />
+    <ClInclude Include="C:\onlyoffice\core\MsBinaryFile\Common\Vml\PPTXShape\OOXMLShapes\CSnip2DiagRect.h" />
+    <ClInclude Include="C:\onlyoffice\core\MsBinaryFile\Common\Vml\PPTXShape\OOXMLShapes\CSnip2SameRect.h" />
+    <ClInclude Include="C:\onlyoffice\core\MsBinaryFile\Common\Vml\PPTXShape\OOXMLShapes\CSnipRoundRect.h" />
+    <ClInclude Include="C:\onlyoffice\core\MsBinaryFile\Common\Vml\PPTXShape\OOXMLShapes\CSquareTabs.h" />
+    <ClInclude Include="C:\onlyoffice\core\MsBinaryFile\Common\Vml\PPTXShape\OOXMLShapes\CStar10.h" />
+    <ClInclude Include="C:\onlyoffice\core\MsBinaryFile\Common\Vml\PPTXShape\OOXMLShapes\CStar12.h" />
+    <ClInclude Include="C:\onlyoffice\core\MsBinaryFile\Common\Vml\PPTXShape\OOXMLShapes\CStar16.h" />
+    <ClInclude Include="C:\onlyoffice\core\MsBinaryFile\Common\Vml\PPTXShape\OOXMLShapes\CStar24.h" />
+    <ClInclude Include="C:\onlyoffice\core\MsBinaryFile\Common\Vml\PPTXShape\OOXMLShapes\CStar32.h" />
+    <ClInclude Include="C:\onlyoffice\core\MsBinaryFile\Common\Vml\PPTXShape\OOXMLShapes\CStar4.h" />
+    <ClInclude Include="C:\onlyoffice\core\MsBinaryFile\Common\Vml\PPTXShape\OOXMLShapes\CStar5.h" />
+    <ClInclude Include="C:\onlyoffice\core\MsBinaryFile\Common\Vml\PPTXShape\OOXMLShapes\CStar6.h" />
+    <ClInclude Include="C:\onlyoffice\core\MsBinaryFile\Common\Vml\PPTXShape\OOXMLShapes\CStar7.h" />
+    <ClInclude Include="C:\onlyoffice\core\MsBinaryFile\Common\Vml\PPTXShape\OOXMLShapes\CStar8.h" />
+    <ClInclude Include="C:\onlyoffice\core\MsBinaryFile\Common\Vml\PPTXShape\OOXMLShapes\CStraightConnector1.h" />
+    <ClInclude Include="C:\onlyoffice\core\MsBinaryFile\Common\Vml\PPTXShape\OOXMLShapes\CStripedRightArrow.h" />
+    <ClInclude Include="C:\onlyoffice\core\MsBinaryFile\Common\Vml\PPTXShape\OOXMLShapes\CSun.h" />
+    <ClInclude Include="C:\onlyoffice\core\MsBinaryFile\Common\Vml\PPTXShape\OOXMLShapes\CSwooshArrow.h" />
+    <ClInclude Include="C:\onlyoffice\core\MsBinaryFile\Common\Vml\PPTXShape\OOXMLShapes\CTeardrop.h" />
+    <ClInclude Include="C:\onlyoffice\core\MsBinaryFile\Common\Vml\PPTXShape\OOXMLShapes\CTextArchDown.h" />
+    <ClInclude Include="C:\onlyoffice\core\MsBinaryFile\Common\Vml\PPTXShape\OOXMLShapes\CTextArchDownPour.h" />
+    <ClInclude Include="C:\onlyoffice\core\MsBinaryFile\Common\Vml\PPTXShape\OOXMLShapes\CTextArchUp.h" />
+    <ClInclude Include="C:\onlyoffice\core\MsBinaryFile\Common\Vml\PPTXShape\OOXMLShapes\CTextArchUpPour.h" />
+    <ClInclude Include="C:\onlyoffice\core\MsBinaryFile\Common\Vml\PPTXShape\OOXMLShapes\CTextButton.h" />
+    <ClInclude Include="C:\onlyoffice\core\MsBinaryFile\Common\Vml\PPTXShape\OOXMLShapes\CTextButtonPour.h" />
+    <ClInclude Include="C:\onlyoffice\core\MsBinaryFile\Common\Vml\PPTXShape\OOXMLShapes\CTextCanDown.h" />
+    <ClInclude Include="C:\onlyoffice\core\MsBinaryFile\Common\Vml\PPTXShape\OOXMLShapes\CTextCanUp.h" />
+    <ClInclude Include="C:\onlyoffice\core\MsBinaryFile\Common\Vml\PPTXShape\OOXMLShapes\CTextCascadeDown.h" />
+    <ClInclude Include="C:\onlyoffice\core\MsBinaryFile\Common\Vml\PPTXShape\OOXMLShapes\CTextCascadeUp.h" />
+    <ClInclude Include="C:\onlyoffice\core\MsBinaryFile\Common\Vml\PPTXShape\OOXMLShapes\CTextChevron.h" />
+    <ClInclude Include="C:\onlyoffice\core\MsBinaryFile\Common\Vml\PPTXShape\OOXMLShapes\CTextChevronInverted.h" />
+    <ClInclude Include="C:\onlyoffice\core\MsBinaryFile\Common\Vml\PPTXShape\OOXMLShapes\CTextCircle.h" />
+    <ClInclude Include="C:\onlyoffice\core\MsBinaryFile\Common\Vml\PPTXShape\OOXMLShapes\CTextCirclePour.h" />
+    <ClInclude Include="C:\onlyoffice\core\MsBinaryFile\Common\Vml\PPTXShape\OOXMLShapes\CTextCurveDown.h" />
+    <ClInclude Include="C:\onlyoffice\core\MsBinaryFile\Common\Vml\PPTXShape\OOXMLShapes\CTextCurveUp.h" />
+    <ClInclude Include="C:\onlyoffice\core\MsBinaryFile\Common\Vml\PPTXShape\OOXMLShapes\CTextDeflate.h" />
+    <ClInclude Include="C:\onlyoffice\core\MsBinaryFile\Common\Vml\PPTXShape\OOXMLShapes\CTextDeflateBottom.h" />
+    <ClInclude Include="C:\onlyoffice\core\MsBinaryFile\Common\Vml\PPTXShape\OOXMLShapes\CTextDeflateInflate.h" />
+    <ClInclude Include="C:\onlyoffice\core\MsBinaryFile\Common\Vml\PPTXShape\OOXMLShapes\CTextDeflateInflateDeflate.h" />
+    <ClInclude Include="C:\onlyoffice\core\MsBinaryFile\Common\Vml\PPTXShape\OOXMLShapes\CTextDeflateTop.h" />
+    <ClInclude Include="C:\onlyoffice\core\MsBinaryFile\Common\Vml\PPTXShape\OOXMLShapes\CTextDoubleWave1.h" />
+    <ClInclude Include="C:\onlyoffice\core\MsBinaryFile\Common\Vml\PPTXShape\OOXMLShapes\CTextFadeDown.h" />
+    <ClInclude Include="C:\onlyoffice\core\MsBinaryFile\Common\Vml\PPTXShape\OOXMLShapes\CTextFadeLeft.h" />
+    <ClInclude Include="C:\onlyoffice\core\MsBinaryFile\Common\Vml\PPTXShape\OOXMLShapes\CTextFadeRight.h" />
+    <ClInclude Include="C:\onlyoffice\core\MsBinaryFile\Common\Vml\PPTXShape\OOXMLShapes\CTextFadeUp.h" />
+    <ClInclude Include="C:\onlyoffice\core\MsBinaryFile\Common\Vml\PPTXShape\OOXMLShapes\CTextInflate.h" />
+    <ClInclude Include="C:\onlyoffice\core\MsBinaryFile\Common\Vml\PPTXShape\OOXMLShapes\CTextInflateBottom.h" />
+    <ClInclude Include="C:\onlyoffice\core\MsBinaryFile\Common\Vml\PPTXShape\OOXMLShapes\CTextInflateTop.h" />
+    <ClInclude Include="C:\onlyoffice\core\MsBinaryFile\Common\Vml\PPTXShape\OOXMLShapes\CTextPlain.h" />
+    <ClInclude Include="C:\onlyoffice\core\MsBinaryFile\Common\Vml\PPTXShape\OOXMLShapes\CTextRingInside.h" />
+    <ClInclude Include="C:\onlyoffice\core\MsBinaryFile\Common\Vml\PPTXShape\OOXMLShapes\CTextRingOutside.h" />
+    <ClInclude Include="C:\onlyoffice\core\MsBinaryFile\Common\Vml\PPTXShape\OOXMLShapes\CTextSlantDown.h" />
+    <ClInclude Include="C:\onlyoffice\core\MsBinaryFile\Common\Vml\PPTXShape\OOXMLShapes\CTextSlantUp.h" />
+    <ClInclude Include="C:\onlyoffice\core\MsBinaryFile\Common\Vml\PPTXShape\OOXMLShapes\CTextStop.h" />
+    <ClInclude Include="C:\onlyoffice\core\MsBinaryFile\Common\Vml\PPTXShape\OOXMLShapes\CTextTriangle.h" />
+    <ClInclude Include="C:\onlyoffice\core\MsBinaryFile\Common\Vml\PPTXShape\OOXMLShapes\CTextTriangleInverted.h" />
+    <ClInclude Include="C:\onlyoffice\core\MsBinaryFile\Common\Vml\PPTXShape\OOXMLShapes\CTextWave1.h" />
+    <ClInclude Include="C:\onlyoffice\core\MsBinaryFile\Common\Vml\PPTXShape\OOXMLShapes\CTextWave2.h" />
+    <ClInclude Include="C:\onlyoffice\core\MsBinaryFile\Common\Vml\PPTXShape\OOXMLShapes\CTextWave4.h" />
+    <ClInclude Include="C:\onlyoffice\core\OOXML\PPTXFormat\Logic\Timing\CTn.h" />
+    <ClInclude Include="C:\onlyoffice\core\MsBinaryFile\Common\Vml\PPTXShape\OOXMLShapes\CTrapezoid.h" />
+    <ClInclude Include="C:\onlyoffice\core\MsBinaryFile\Common\Vml\PPTXShape\OOXMLShapes\CTriangle.h" />
+    <ClInclude Include="C:\onlyoffice\core\MsBinaryFile\Common\Vml\PPTXShape\OOXMLShapes\CUpArrow.h" />
+    <ClInclude Include="C:\onlyoffice\core\MsBinaryFile\Common\Vml\PPTXShape\OOXMLShapes\CUpArrowCallout.h" />
+    <ClInclude Include="C:\onlyoffice\core\MsBinaryFile\Common\Vml\PPTXShape\OOXMLShapes\CUpDownArrow.h" />
+    <ClInclude Include="C:\onlyoffice\core\MsBinaryFile\Common\Vml\PPTXShape\OOXMLShapes\CUpDownArrowCallout.h" />
+    <ClInclude Include="C:\onlyoffice\core\MsBinaryFile\Common\Vml\PPTXShape\OOXMLShapes\CUturnArrow.h" />
+    <ClInclude Include="C:\onlyoffice\core\MsBinaryFile\Common\Vml\PPTXShape\OOXMLShapes\CVerticalScroll.h" />
+    <ClInclude Include="..\..\..\PPTXFormat\ViewProps\CViewPr.h" />
+    <ClInclude Include="C:\onlyoffice\core\MsBinaryFile\Common\Vml\PPTXShape\OOXMLShapes\CWave.h" />
+    <ClInclude Include="C:\onlyoffice\core\MsBinaryFile\Common\Vml\PPTXShape\OOXMLShapes\CWedgeEllipseCallout.h" />
+    <ClInclude Include="C:\onlyoffice\core\MsBinaryFile\Common\Vml\PPTXShape\OOXMLShapes\CWedgeRectCallout.h" />
+    <ClInclude Include="C:\onlyoffice\core\MsBinaryFile\Common\Vml\PPTXShape\OOXMLShapes\CWedgeRoundRectCallout.h" />
+    <ClInclude Include="..\..\..\Binary\Presentation\CalculatorCRC32.h" />
+    <ClInclude Include="C:\onlyoffice\core\OOXML\PPTXFormat\Logic\Camera.h" />
+    <ClInclude Include="C:\onlyoffice\core\OOXML\PPTXFormat\Limit\CameraType.h" />
+    <ClInclude Include="C:\onlyoffice\core\OOXML\PPTXFormat\Logic\Cell3D.h" />
+    <ClInclude Include="C:\onlyoffice\core\OOXML\PPTXFormat\Limit\ChartBuild.h" />
+    <ClInclude Include="C:\onlyoffice\core\OOXML\PPTXFormat\Limit\ChartBuildType.h" />
+    <ClInclude Include="C:\onlyoffice\core\OOXML\PPTXFormat\Logic\Path2D\Close.h" />
+    <ClInclude Include="C:\onlyoffice\core\OOXML\PPTXFormat\Logic\Effects\ClrChange.h" />
+    <ClInclude Include="C:\onlyoffice\core\OOXML\PPTXFormat\Logic\ClrMap.h" />
+    <ClInclude Include="C:\onlyoffice\core\OOXML\PPTXFormat\Logic\ClrMapOvr.h" />
+    <ClInclude Include="C:\onlyoffice\core\OOXML\PPTXFormat\Logic\Effects\ClrRepl.h" />
+    <ClInclude Include="..\..\..\PPTXFormat\Theme\ClrScheme.h" />
+    <ClInclude Include="C:\onlyoffice\core\OOXML\PPTXFormat\Logic\Timing\Cmd.h" />
+    <ClInclude Include="C:\onlyoffice\core\OOXML\PPTXFormat\Logic\Colors\ColorBase.h" />
+    <ClInclude Include="C:\onlyoffice\core\OOXML\PPTXFormat\Logic\Colors\ColorModifier.h" />
+    <ClInclude Include="C:\onlyoffice\core\OOXML\PPTXFormat\Limit\ColorSchemeIndex.h" />
+    <ClInclude Include="..\..\..\PPTXFormat\CommentAuthors.h" />
+    <ClInclude Include="..\..\..\PPTXFormat\Comments.h" />
+    <ClInclude Include="..\..\..\..\MsBinaryFile\Common\Vml\Common.h" />
+    <ClInclude Include="C:\onlyoffice\core\OOXML\PPTXFormat\Limit\CompoundLine.h" />
+    <ClInclude Include="C:\onlyoffice\core\OOXML\PPTXFormat\Logic\Timing\Cond.h" />
+    <ClInclude Include="C:\onlyoffice\core\OOXML\PPTXFormat\Logic\Timing\CondLst.h" />
+    <ClInclude Include="C:\onlyoffice\core\OOXML\PPTXFormat\Limit\Conformance.h" />
+    <ClInclude Include="C:\onlyoffice\core\OOXML\PPTXFormat\Limit\ContentStatus.h" />
+    <ClInclude Include="C:\onlyoffice\core\OOXML\PPTXFormat\Logic\Controls.h" />
+    <ClInclude Include="..\..\..\Binary\Presentation\Converter.h" />
+    <ClInclude Include="C:\onlyoffice\core\OOXML\PPTXFormat\Logic\Transitions\CornerDirectionTransition.h" />
+    <ClInclude Include="C:\onlyoffice\core\OOXML\PPTXFormat\Limit\CornerDirectionVal.h" />
+    <ClInclude Include="C:\onlyoffice\core\OOXML\PPTXFormat\Logic\Path2D\CubicBezTo.h" />
+    <ClInclude Include="C:\onlyoffice\core\OOXML\PPTXFormat\Logic\CustGeom.h" />
+    <ClInclude Include="..\..\..\..\MsBinaryFile\Common\Vml\PPTShape\CustomGeomShape.h" />
+    <ClInclude Include="..\..\..\PPTXFormat\ShowPr\CustomShowId.h" />
+    <ClInclude Include="C:\onlyoffice\core\OOXML\PPTXFormat\Logic\Cxn.h" />
+    <ClInclude Include="C:\onlyoffice\core\OOXML\PPTXFormat\Logic\CxnSp.h" />
+    <ClInclude Include="..\..\..\Binary\Presentation\DefaultNotesMaster.h" />
+    <ClInclude Include="..\..\..\Binary\Presentation\DefaultNotesTheme.h" />
+    <ClInclude Include="C:\onlyoffice\core\OOXML\PPTXFormat\Logic\DefaultShapeDefinition.h" />
+    <ClInclude Include="C:\onlyoffice\core\OOXML\PPTXFormat\Limit\DgmBuild.h" />
+    <ClInclude Include="C:\onlyoffice\core\OOXML\PPTXFormat\Limit\DgmBuildType.h" />
+    <ClInclude Include="C:\onlyoffice\core\OOXML\PPTXFormat\Logic\Effects\Duotone.h" />
+    <ClInclude Include="C:\onlyoffice\core\OOXML\PPTXFormat\Limit\EffectContainerType.h" />
+    <ClInclude Include="C:\onlyoffice\core\OOXML\PPTXFormat\Logic\EffectDag.h" />
+    <ClInclude Include="C:\onlyoffice\core\OOXML\PPTXFormat\Logic\Effects\EffectElement.h" />
+    <ClInclude Include="C:\onlyoffice\core\OOXML\PPTXFormat\Logic\EffectLst.h" />
+    <ClInclude Include="C:\onlyoffice\core\OOXML\PPTXFormat\Logic\EffectProperties.h" />
+    <ClInclude Include="C:\onlyoffice\core\OOXML\PPTXFormat\Logic\EffectStyle.h" />
+    <ClInclude Include="C:\onlyoffice\core\OOXML\PPTXFormat\Logic\Transitions\EightDirectionTransition.h" />
+    <ClInclude Include="C:\onlyoffice\core\OOXML\PPTXFormat\Limit\EightDirectionVal.h" />
+    <ClInclude Include="..\..\..\..\MsBinaryFile\Common\Vml\PPTShape\ElementSettings.h" />
+    <ClInclude Include="C:\onlyoffice\core\OOXML\PPTXFormat\Logic\Transitions\EmptyTransition.h" />
+    <ClInclude Include="..\..\..\..\MsBinaryFile\Common\Vml\PPTShape\Enums.h" />
+    <ClInclude Include="C:\onlyoffice\core\OOXML\PPTXFormat\Logic\Timing\Excl.h" />
+    <ClInclude Include="C:\onlyoffice\core\OOXML\PPTXFormat\Logic\ExtP.h" />
+    <ClInclude Include="..\..\..\PPTXFormat\Theme\ExtraClrScheme.h" />
+    <ClInclude Include="..\..\..\PPTXFormat\FileContainer.h" />
+    <ClInclude Include="..\..\..\..\Common\FileDownloader\FileDownloader.h" />
+    <ClInclude Include="..\..\..\PPTXFormat\FileFactory.h" />
+    <ClInclude Include="..\..\..\PPTXFormat\FileMap.h" />
+    <ClInclude Include="..\..\..\PPTXFormat\FileTypes.h" />
+    <ClInclude Include="C:\onlyoffice\core\OOXML\PPTXFormat\Logic\Effects\FillEffect.h" />
+    <ClInclude Include="C:\onlyoffice\core\OOXML\PPTXFormat\Logic\Effects\FillOverlay.h" />
+    <ClInclude Include="C:\onlyoffice\core\OOXML\PPTXFormat\Limit\FillPath.h" />
+    <ClInclude Include="C:\onlyoffice\core\OOXML\PPTXFormat\Logic\FillStyle.h" />
+    <ClInclude Include="C:\onlyoffice\core\OOXML\PPTXFormat\Logic\Runs\Fld.h" />
+    <ClInclude Include="C:\onlyoffice\core\OOXML\PPTXFormat\Limit\Flip.h" />
+    <ClInclude Include="..\..\..\PPTXFormat\Theme\FmtScheme.h" />
+    <ClInclude Include="..\..\..\PPTXFormat\Folder.h" />
+    <ClInclude Include="C:\onlyoffice\core\OOXML\PPTXFormat\Limit\FontAlign.h" />
+    <ClInclude Include="C:\onlyoffice\core\OOXML\PPTXFormat\Logic\FontCollection.h" />
+    <ClInclude Include="..\..\..\Binary\Presentation\FontCutter.h" />
+    <ClInclude Include="..\..\..\Binary\Presentation\FontPicker.h" />
+    <ClInclude Include="C:\onlyoffice\core\OOXML\PPTXFormat\Logic\FontRef.h" />
+    <ClInclude Include="..\..\..\PPTXFormat\Theme\FontScheme.h" />
+    <ClInclude Include="C:\onlyoffice\core\OOXML\PPTXFormat\Limit\FontStyleIndex.h" />
+    <ClInclude Include="C:\onlyoffice\core\OOXML\PPTXFormat\Limit\FrameShape.h" />
+    <ClInclude Include="C:\onlyoffice\core\OOXML\PPTXFormat\Logic\Gd.h" />
+    <ClInclude Include="C:\onlyoffice\core\OOXML\PPTXFormat\Logic\Geometry.h" />
+    <ClInclude Include="C:\onlyoffice\core\OOXML\PPTXFormat\Logic\Effects\Glow.h" />
+    <ClInclude Include="C:\onlyoffice\core\OOXML\PPTXFormat\Logic\Fills\GradFill.h" />
+    <ClInclude Include="C:\onlyoffice\core\OOXML\PPTXFormat\Logic\Timing\GraphicEl.h" />
+    <ClInclude Include="C:\onlyoffice\core\OOXML\PPTXFormat\Logic\GraphicFrame.h" />
+    <ClInclude Include="..\..\..\..\MsBinaryFile\Common\Vml\GraphicsPath.h" />
+    <ClInclude Include="C:\onlyoffice\core\OOXML\PPTXFormat\Logic\Effects\Grayscl.h" />
+    <ClInclude Include="..\..\..\PPTXFormat\ViewProps\GridSpacing.h" />
+    <ClInclude Include="C:\onlyoffice\core\OOXML\PPTXFormat\Logic\GrpSpPr.h" />
+    <ClInclude Include="C:\onlyoffice\core\OOXML\PPTXFormat\Logic\Gs.h" />
+    <ClInclude Include="..\..\..\PPTXFormat\ViewProps\Guide.h" />
+    <ClInclude Include="..\..\..\PPTXFormat\HandoutMaster.h" />
+    <ClInclude Include="C:\onlyoffice\core\OOXML\PPTXFormat\Logic\HeadingVariant.h" />
+    <ClInclude Include="C:\onlyoffice\core\OOXML\PPTXFormat\Logic\Hf.h" />
+    <ClInclude Include="C:\onlyoffice\core\OOXML\PPTXFormat\Limit\HorzOverflow.h" />
+    <ClInclude Include="C:\onlyoffice\core\OOXML\PPTXFormat\Logic\Effects\HslEffect.h" />
+    <ClInclude Include="C:\onlyoffice\core\OOXML\PPTXFormat\Logic\Hyperlink.h" />
+    <ClInclude Include="C:\onlyoffice\core\OOXML\PPTXFormat\Limit\InOutDirectionVal.h" />
+    <ClInclude Include="C:\onlyoffice\core\OOXML\PPTXFormat\Logic\Effects\InnerShdw.h" />
+    <ClInclude Include="C:\onlyoffice\core\OOXML\PPTXFormat\Logic\Timing\Iterate.h" />
+    <ClInclude Include="C:\onlyoffice\core\OOXML\PPTXFormat\Limit\IterateType.h" />
+    <ClInclude Include="..\..\..\PPTXFormat\ShowPr\Kiosk.h" />
+    <ClInclude Include="C:\onlyoffice\core\OOXML\PPTXFormat\Limit\LastView.h" />
+    <ClInclude Include="..\..\..\PPTXFormat\LegacyDiagramText.h" />
+    <ClInclude Include="C:\onlyoffice\core\OOXML\PPTXFormat\Logic\LightRig.h" />
+    <ClInclude Include="C:\onlyoffice\core\OOXML\PPTXFormat\Limit\LightRigType.h" />
+    <ClInclude Include="C:\onlyoffice\core\OOXML\PPTXFormat\Logic\Lin.h" />
+    <ClInclude Include="C:\onlyoffice\core\OOXML\PPTXFormat\Limit\LineCap.h" />
+    <ClInclude Include="C:\onlyoffice\core\OOXML\PPTXFormat\Logic\LineEnd.h" />
+    <ClInclude Include="C:\onlyoffice\core\OOXML\PPTXFormat\Limit\LineEndSize.h" />
+    <ClInclude Include="C:\onlyoffice\core\OOXML\PPTXFormat\Limit\LineEndType.h" />
+    <ClInclude Include="C:\onlyoffice\core\OOXML\PPTXFormat\Logic\LineJoin.h" />
+    <ClInclude Include="C:\onlyoffice\core\OOXML\PPTXFormat\Logic\LineStyle.h" />
+    <ClInclude Include="C:\onlyoffice\core\OOXML\PPTXFormat\Logic\Path2D\LineTo.h" />
+    <ClInclude Include="C:\onlyoffice\core\OOXML\PPTXFormat\Logic\Ln.h" />
+    <ClInclude Include="C:\onlyoffice\core\OOXML\PPTXFormat\Logic\Effects\LumEffect.h" />
+    <ClInclude Include="C:\onlyoffice\core\OOXML\PPTXFormat\Limit\Material.h" />
+    <ClInclude Include="C:\onlyoffice\core\OOXML\PPTXFormat\Logic\Runs\MathParaWrapper.h" />
+    <ClInclude Include="C:\onlyoffice\core\OOXML\PPTXFormat\Logic\Media\MediaFile.h" />
+    <ClInclude Include="C:\onlyoffice\core\OOXML\PPTXFormat\Logic\Path2D\MoveTo.h" />
+    <ClInclude Include="..\..\..\PPTXFormat\Namespaces.h" />
+    <ClInclude Include="C:\onlyoffice\core\OOXML\PPTXFormat\Logic\Fills\NoFill.h" />
+    <ClInclude Include="..\..\..\PPTXFormat\ViewProps\NormalViewPr.h" />
+    <ClInclude Include="..\..\..\PPTXFormat\NotesMaster.h" />
+    <ClInclude Include="..\..\..\PPTXFormat\NotesSlide.h" />
+    <ClInclude Include="..\..\..\PPTXFormat\ViewProps\NotesTextViewPr.h" />
+    <ClInclude Include="..\..\..\PPTXFormat\ViewProps\NotesViewPr.h" />
+    <ClInclude Include="..\..\..\Base\Nullable.h" />
+    <ClInclude Include="C:\onlyoffice\core\OOXML\PPTXFormat\Logic\NvCxnSpPr.h" />
+    <ClInclude Include="C:\onlyoffice\core\OOXML\PPTXFormat\Logic\NvGraphicFramePr.h" />
+    <ClInclude Include="C:\onlyoffice\core\OOXML\PPTXFormat\Logic\NvGrpSpPr.h" />
+    <ClInclude Include="C:\onlyoffice\core\OOXML\PPTXFormat\Logic\NvPicPr.h" />
+    <ClInclude Include="C:\onlyoffice\core\OOXML\PPTXFormat\Logic\NvPr.h" />
+    <ClInclude Include="C:\onlyoffice\core\OOXML\PPTXFormat\Logic\NvSpPr.h" />
+    <ClInclude Include="C:\onlyoffice\core\OOXML\PPTXFormat\Limit\OnOff.h" />
+    <ClInclude Include="C:\onlyoffice\core\OOXML\PPTXFormat\Logic\Transitions\OptionalBlackTransition.h" />
+    <ClInclude Include="C:\onlyoffice\core\OOXML\PPTXFormat\Limit\Orient.h" />
+    <ClInclude Include="C:\onlyoffice\core\OOXML\PPTXFormat\Logic\Transitions\OrientationTransition.h" />
+    <ClInclude Include="..\..\..\PPTXFormat\ViewProps\Origin.h" />
+    <ClInclude Include="C:\onlyoffice\core\OOXML\PPTXFormat\Logic\Effects\OuterShdw.h" />
+    <ClInclude Include="..\..\..\PPTXFormat\ViewProps\OutlineViewPr.h" />
+    <ClInclude Include="..\..\..\PPTXFormat\PPTX.h" />
+    <ClInclude Include="..\..\..\PPTXFormat\PPTXEvent.h" />
+    <ClInclude Include="..\..\..\Binary\Presentation\PPTXWriter.h" />
+    <ClInclude Include="C:\onlyoffice\core\OOXML\PPTXFormat\Logic\Timing\Par.h" />
+    <ClInclude Include="C:\onlyoffice\core\OOXML\PPTXFormat\Limit\ParaBuildType.h" />
+    <ClInclude Include="C:\onlyoffice\core\OOXML\PPTXFormat\Logic\Paragraph.h" />
+    <ClInclude Include="C:\onlyoffice\core\OOXML\PPTXFormat\Logic\PartTitle.h" />
+    <ClInclude Include="C:\onlyoffice\core\OOXML\PPTXFormat\Logic\Path.h" />
+    <ClInclude Include="C:\onlyoffice\core\OOXML\PPTXFormat\Logic\Path2D.h" />
+    <ClInclude Include="C:\onlyoffice\core\OOXML\PPTXFormat\Logic\Path2D\PathBase.h" />
+    <ClInclude Include="C:\onlyoffice\core\OOXML\PPTXFormat\Limit\PathFillMode.h" />
+    <ClInclude Include="C:\onlyoffice\core\OOXML\PPTXFormat\Logic\Fills\PattFill.h" />
+    <ClInclude Include="C:\onlyoffice\core\OOXML\PPTXFormat\Limit\PattFillVal.h" />
+    <ClInclude Include="C:\onlyoffice\core\OOXML\PPTXFormat\Limit\PenAlign.h" />
+    <ClInclude Include="C:\onlyoffice\core\OOXML\PPTXFormat\Logic\Ph.h" />
+    <ClInclude Include="C:\onlyoffice\core\OOXML\PPTXFormat\Logic\Pic.h" />
+    <ClInclude Include="C:\onlyoffice\core\OOXML\PPTXFormat\Limit\PlaceholderSize.h" />
+    <ClInclude Include="C:\onlyoffice\core\OOXML\PPTXFormat\Limit\PlaceholderType.h" />
+    <ClInclude Include="..\..\..\..\MsBinaryFile\Common\Vml\PPTShape\Ppt2PptxShapeConverter.h" />
+    <ClInclude Include="..\..\..\..\MsBinaryFile\Common\Vml\PPTShape\PptFormula.h" />
+    <ClInclude Include="..\..\..\..\MsBinaryFile\Common\Vml\PPTShape\PptShape.h" />
+    <ClInclude Include="..\..\..\..\MsBinaryFile\Common\Vml\PPTShape\PptShapeEnum.h" />
+    <ClInclude Include="..\..\..\..\MsBinaryFile\Common\Vml\PPTXShape\Pptx2PptShapeConverter.h" />
+    <ClInclude Include="..\..\..\..\MsBinaryFile\Common\Vml\PPTXShape\PptxFormula.h" />
+    <ClInclude Include="..\..\..\..\MsBinaryFile\Common\Vml\PPTXShape\PptxShape.h" />
+    <ClInclude Include="..\..\..\PPTXFormat\PresProps.h" />
+    <ClInclude Include="..\..\..\PPTXFormat\ShowPr\Present.h" />
+    <ClInclude Include="..\..\..\PPTXFormat\Presentation.h" />
+    <ClInclude Include="..\..\..\PPTXFormat\Presentation\PresentationChildElements.h" />
+    <ClInclude Include="..\..\..\PPTXFormat\ShowPr\PresentationPr.h" />
+    <ClInclude Include="C:\onlyoffice\core\OOXML\PPTXFormat\Limit\PresetShadowVal.h" />
+    <ClInclude Include="..\..\..\..\MsBinaryFile\DocFile\OfficeDrawing\PresetShapeTypes.h" />
+    <ClInclude Include="..\..\..\..\MsBinaryFile\Common\Vml\PPTXShape\PresetShapesHeader.h" />
+    <ClInclude Include="C:\onlyoffice\core\OOXML\PPTXFormat\Logic\Colors\PrstClr.h" />
+    <ClInclude Include="C:\onlyoffice\core\OOXML\PPTXFormat\Limit\PrstClrVal.h" />
+    <ClInclude Include="C:\onlyoffice\core\OOXML\PPTXFormat\Logic\PrstDash.h" />
+    <ClInclude Include="C:\onlyoffice\core\OOXML\PPTXFormat\Limit\PrstDashVal.h" />
+    <ClInclude Include="C:\onlyoffice\core\OOXML\PPTXFormat\Logic\PrstGeom.h" />
+    <ClInclude Include="C:\onlyoffice\core\OOXML\PPTXFormat\Logic\Effects\PrstShdw.h" />
+    <ClInclude Include="C:\onlyoffice\core\OOXML\PPTXFormat\Logic\PrstTxWarp.h" />
+    <ClInclude Include="C:\onlyoffice\core\OOXML\PPTXFormat\Logic\Path2D\QuadBezTo.h" />
+    <ClInclude Include="..\..\..\PPTXFormat\ViewProps\Ratio.h" />
+    <ClInclude Include="C:\onlyoffice\core\OOXML\PPTXFormat\Logic\Rect.h" />
+    <ClInclude Include="C:\onlyoffice\core\OOXML\PPTXFormat\Limit\RectAlign.h" />
+    <ClInclude Include="C:\onlyoffice\core\OOXML\PPTXFormat\Logic\Effects\Reflection.h" />
+    <ClInclude Include="C:\onlyoffice\core\OOXML\PPTXFormat\Logic\Effects\RelOff.h" />
+    <ClInclude Include="..\..\..\PPTXFormat\ViewProps\Restored.h" />
+    <ClInclude Include="C:\onlyoffice\core\OOXML\PPTXFormat\Logic\Rot.h" />
+    <ClInclude Include="C:\onlyoffice\core\OOXML\PPTXFormat\Logic\Runs\Run.h" />
+    <ClInclude Include="C:\onlyoffice\core\OOXML\PPTXFormat\Logic\Runs\RunBase.h" />
+    <ClInclude Include="C:\onlyoffice\core\OOXML\PPTXFormat\Logic\RunElem.h" />
+    <ClInclude Include="C:\onlyoffice\core\OOXML\PPTXFormat\Logic\RunProperties.h" />
+    <ClInclude Include="..\..\..\PPTXFormat\ViewProps\Scale.h" />
+    <ClInclude Include="C:\onlyoffice\core\OOXML\PPTXFormat\Logic\Scene3d.h" />
+    <ClInclude Include="C:\onlyoffice\core\OOXML\PPTXFormat\Logic\Colors\SchemeClr.h" />
+    <ClInclude Include="C:\onlyoffice\core\OOXML\PPTXFormat\Limit\SchemeClrVal.h" />
+    <ClInclude Include="C:\onlyoffice\core\OOXML\PPTXFormat\Logic\Timing\Seq.h" />
+    <ClInclude Include="C:\onlyoffice\core\OOXML\PPTXFormat\Logic\Timing\Set.h" />
+    <ClInclude Include="C:\onlyoffice\core\OOXML\PPTXFormat\Logic\Shape.h" />
+    <ClInclude Include="C:\onlyoffice\core\OOXML\PPTXFormat\Logic\ShapeStyle.h" />
+    <ClInclude Include="C:\onlyoffice\core\OOXML\PPTXFormat\Limit\ShapeType.h" />
+    <ClInclude Include="C:\onlyoffice\core\OOXML\PPTXFormat\Logic\Transitions\SideDirectionTransition.h" />
+    <ClInclude Include="C:\onlyoffice\core\OOXML\PPTXFormat\Limit\SideDirectionVal.h" />
+    <ClInclude Include="..\..\..\PPTXFormat\ShowPr\SldAll.h" />
+    <ClInclude Include="..\..\..\PPTXFormat\ShowPr\SldRg.h" />
+    <ClInclude Include="..\..\..\PPTXFormat\Slide.h" />
+    <ClInclude Include="..\..\..\PPTXFormat\SlideLayout.h" />
+    <ClInclude Include="C:\onlyoffice\core\OOXML\PPTXFormat\Limit\SlideLayoutType.h" />
+    <ClInclude Include="..\..\..\PPTXFormat\SlideMaster.h" />
+    <ClInclude Include="C:\onlyoffice\core\OOXML\PPTXFormat\Limit\SlideSize.h" />
+    <ClInclude Include="..\..\..\PPTXFormat\ViewProps\SlideViewPr.h" />
+    <ClInclude Include="C:\onlyoffice\core\OOXML\PPTXFormat\Logic\SmartArt.h" />
+    <ClInclude Include="C:\onlyoffice\core\OOXML\PPTXFormat\Logic\Transitions\SndAc.h" />
+    <ClInclude Include="C:\onlyoffice\core\OOXML\PPTXFormat\Logic\Effects\SoftEdge.h" />
+    <ClInclude Include="C:\onlyoffice\core\OOXML\PPTXFormat\Logic\Fills\SolidFill.h" />
+    <ClInclude Include="..\..\..\PPTXFormat\ViewProps\SorterViewPr.h" />
+    <ClInclude Include="C:\onlyoffice\core\OOXML\PPTXFormat\Logic\Sp3d.h" />
+    <ClInclude Include="C:\onlyoffice\core\OOXML\PPTXFormat\Logic\SpPr.h" />
+    <ClInclude Include="C:\onlyoffice\core\OOXML\PPTXFormat\Logic\Timing\SpTgt.h" />
+    <ClInclude Include="C:\onlyoffice\core\OOXML\PPTXFormat\Logic\SpTree.h" />
+    <ClInclude Include="C:\onlyoffice\core\OOXML\PPTXFormat\Logic\SpTreeElem.h" />
+    <ClInclude Include="C:\onlyoffice\core\OOXML\PPTXFormat\Logic\Transitions\SplitTransition.h" />
+    <ClInclude Include="C:\onlyoffice\core\OOXML\PPTXFormat\Limit\SplitterBarState.h" />
+    <ClInclude Include="C:\onlyoffice\core\OOXML\PPTXFormat\Logic\Colors\SrgbClr.h" />
+    <ClInclude Include="C:\onlyoffice\core\OOXML\PPTXFormat\Logic\Transitions\StSnd.h" />
+    <ClInclude Include="C:\onlyoffice\core\OOXML\PPTXFormat\Logic\Fills\Stretch.h" />
+    <ClInclude Include="C:\onlyoffice\core\OOXML\PPTXFormat\Logic\StyleRef.h" />
+    <ClInclude Include="C:\onlyoffice\core\OOXML\PPTXFormat\Logic\SupplementalFont.h" />
+    <ClInclude Include="C:\onlyoffice\core\OOXML\PPTXFormat\Logic\Colors\SysClr.h" />
+    <ClInclude Include="C:\onlyoffice\core\OOXML\PPTXFormat\Limit\SysClrVal.h" />
+    <ClInclude Include="C:\onlyoffice\core\OOXML\PPTXFormat\Limit\TLAccumulate.h" />
+    <ClInclude Include="C:\onlyoffice\core\OOXML\PPTXFormat\Limit\TLAdditive.h" />
+    <ClInclude Include="C:\onlyoffice\core\OOXML\PPTXFormat\Limit\TLCalcMode.h" />
+    <ClInclude Include="C:\onlyoffice\core\OOXML\PPTXFormat\Limit\TLChartSubElement.h" />
+    <ClInclude Include="C:\onlyoffice\core\OOXML\PPTXFormat\Limit\TLColorDirection.h" />
+    <ClInclude Include="C:\onlyoffice\core\OOXML\PPTXFormat\Limit\TLColorSpace.h" />
+    <ClInclude Include="C:\onlyoffice\core\OOXML\PPTXFormat\Limit\TLCommandType.h" />
+    <ClInclude Include="C:\onlyoffice\core\OOXML\PPTXFormat\Limit\TLMasterRelation.h" />
+    <ClInclude Include="C:\onlyoffice\core\OOXML\PPTXFormat\Limit\TLNextAc.h" />
+    <ClInclude Include="C:\onlyoffice\core\OOXML\PPTXFormat\Limit\TLNodeFillType.h" />
+    <ClInclude Include="C:\onlyoffice\core\OOXML\PPTXFormat\Limit\TLNodeType.h" />
+    <ClInclude Include="C:\onlyoffice\core\OOXML\PPTXFormat\Limit\TLOrigin.h" />
+    <ClInclude Include="C:\onlyoffice\core\OOXML\PPTXFormat\Limit\TLOverride.h" />
+    <ClInclude Include="C:\onlyoffice\core\OOXML\PPTXFormat\Limit\TLPathEditMode.h" />
+    <ClInclude Include="C:\onlyoffice\core\OOXML\PPTXFormat\Limit\TLPresetClass.h" />
+    <ClInclude Include="C:\onlyoffice\core\OOXML\PPTXFormat\Limit\TLPrevAc.h" />
+    <ClInclude Include="C:\onlyoffice\core\OOXML\PPTXFormat\Limit\TLRestart.h" />
+    <ClInclude Include="C:\onlyoffice\core\OOXML\PPTXFormat\Limit\TLRuntimeTrigger.h" />
+    <ClInclude Include="C:\onlyoffice\core\OOXML\PPTXFormat\Limit\TLSyncBehavior.h" />
+    <ClInclude Include="C:\onlyoffice\core\OOXML\PPTXFormat\Limit\TLTransform.h" />
+    <ClInclude Include="C:\onlyoffice\core\OOXML\PPTXFormat\Limit\TLTransition.h" />
+    <ClInclude Include="C:\onlyoffice\core\OOXML\PPTXFormat\Limit\TLTriggerEvent.h" />
+    <ClInclude Include="C:\onlyoffice\core\OOXML\PPTXFormat\Limit\TLValueType.h" />
+    <ClInclude Include="C:\onlyoffice\core\OOXML\PPTXFormat\Logic\Tab.h" />
+    <ClInclude Include="C:\onlyoffice\core\OOXML\PPTXFormat\Logic\Table\Table.h" />
+    <ClInclude Include="C:\onlyoffice\core\OOXML\PPTXFormat\Logic\TableBgStyle.h" />
+    <ClInclude Include="C:\onlyoffice\core\OOXML\PPTXFormat\Logic\Table\TableCell.h" />
+    <ClInclude Include="C:\onlyoffice\core\OOXML\PPTXFormat\Logic\Table\TableCellProperties.h" />
+    <ClInclude Include="C:\onlyoffice\core\OOXML\PPTXFormat\Logic\Table\TableCol.h" />
+    <ClInclude Include="C:\onlyoffice\core\OOXML\PPTXFormat\Logic\TablePartStyle.h" />
+    <ClInclude Include="C:\onlyoffice\core\OOXML\PPTXFormat\Logic\Table\TableProperties.h" />
+    <ClInclude Include="C:\onlyoffice\core\OOXML\PPTXFormat\Logic\Table\TableRow.h" />
+    <ClInclude Include="C:\onlyoffice\core\OOXML\PPTXFormat\Logic\TableStyle.h" />
+    <ClInclude Include="..\..\..\PPTXFormat\TableStyles.h" />
+    <ClInclude Include="C:\onlyoffice\core\OOXML\PPTXFormat\Logic\Timing\Tav.h" />
+    <ClInclude Include="C:\onlyoffice\core\OOXML\PPTXFormat\Logic\Timing\TavLst.h" />
+    <ClInclude Include="C:\onlyoffice\core\OOXML\PPTXFormat\Logic\TcBdr.h" />
+    <ClInclude Include="C:\onlyoffice\core\OOXML\PPTXFormat\Logic\TcStyle.h" />
+    <ClInclude Include="C:\onlyoffice\core\OOXML\PPTXFormat\Logic\TcTxStyle.h" />
+    <ClInclude Include="C:\onlyoffice\core\OOXML\PPTXFormat\Limit\TextAlign.h" />
+    <ClInclude Include="C:\onlyoffice\core\OOXML\PPTXFormat\Limit\TextAnchor.h" />
+    <ClInclude Include="C:\onlyoffice\core\OOXML\PPTXFormat\Limit\TextAutonumberScheme.h" />
+    <ClInclude Include="C:\onlyoffice\core\OOXML\PPTXFormat\Limit\TextCaps.h" />
+    <ClInclude Include="C:\onlyoffice\core\OOXML\PPTXFormat\Logic\TextFit.h" />
+    <ClInclude Include="C:\onlyoffice\core\OOXML\PPTXFormat\Logic\TextFont.h" />
+    <ClInclude Include="C:\onlyoffice\core\OOXML\PPTXFormat\Logic\TextListStyle.h" />
+    <ClInclude Include="C:\onlyoffice\core\OOXML\PPTXFormat\Logic\TextParagraphPr.h" />
+    <ClInclude Include="C:\onlyoffice\core\OOXML\PPTXFormat\Limit\TextShapeType.h" />
+    <ClInclude Include="C:\onlyoffice\core\OOXML\PPTXFormat\Logic\TextSpacing.h" />
+    <ClInclude Include="C:\onlyoffice\core\OOXML\PPTXFormat\Limit\TextStrike.h" />
+    <ClInclude Include="C:\onlyoffice\core\OOXML\PPTXFormat\Limit\TextTabAlignType.h" />
+    <ClInclude Include="C:\onlyoffice\core\OOXML\PPTXFormat\Limit\TextUnderline.h" />
+    <ClInclude Include="C:\onlyoffice\core\OOXML\PPTXFormat\Limit\TextVerticalType.h" />
+    <ClInclude Include="C:\onlyoffice\core\OOXML\PPTXFormat\Limit\TextWrap.h" />
+    <ClInclude Include="C:\onlyoffice\core\OOXML\PPTXFormat\Logic\Timing\TgtEl.h" />
+    <ClInclude Include="..\..\..\PPTXFormat\Theme.h" />
+    <ClInclude Include="..\..\..\PPTXFormat\Theme\ThemeElements.h" />
+    <ClInclude Include="C:\onlyoffice\core\OOXML\PPTXFormat\Logic\Fills\Tile.h" />
+    <ClInclude Include="C:\onlyoffice\core\OOXML\PPTXFormat\Logic\Timing\TimeNodeBase.h" />
+    <ClInclude Include="C:\onlyoffice\core\OOXML\PPTXFormat\Logic\Timing\Timing.h" />
+    <ClInclude Include="C:\onlyoffice\core\OOXML\PPTXFormat\Logic\Effects\TintEffect.h" />
+    <ClInclude Include="C:\onlyoffice\core\OOXML\PPTXFormat\Logic\Timing\Tmpl.h" />
+    <ClInclude Include="C:\onlyoffice\core\OOXML\PPTXFormat\Logic\Timing\TmplLst.h" />
+    <ClInclude Include="C:\onlyoffice\core\OOXML\PPTXFormat\Logic\Timing\TnLst.h" />
+    <ClInclude Include="C:\onlyoffice\core\OOXML\PPTXFormat\Logic\Transitions\Transition.h" />
+    <ClInclude Include="C:\onlyoffice\core\OOXML\PPTXFormat\Logic\Transitions\TransitionBase.h" />
+    <ClInclude Include="C:\onlyoffice\core\OOXML\PPTXFormat\Limit\TransitionSpeed.h" />
+    <ClInclude Include="C:\onlyoffice\core\OOXML\PPTXFormat\Logic\TxBody.h" />
+    <ClInclude Include="C:\onlyoffice\core\OOXML\PPTXFormat\Logic\Timing\TxEl.h" />
+    <ClInclude Include="C:\onlyoffice\core\OOXML\PPTXFormat\Logic\TxStyles.h" />
+    <ClInclude Include="C:\onlyoffice\core\OOXML\PPTXFormat\Logic\UniColor.h" />
+    <ClInclude Include="C:\onlyoffice\core\OOXML\PPTXFormat\Logic\UniEffect.h" />
+    <ClInclude Include="C:\onlyoffice\core\OOXML\PPTXFormat\Logic\UniFill.h" />
+    <ClInclude Include="C:\onlyoffice\core\OOXML\PPTXFormat\Logic\UniMedia.h" />
+    <ClInclude Include="C:\onlyoffice\core\OOXML\PPTXFormat\Logic\UniPath2D.h" />
+    <ClInclude Include="C:\onlyoffice\core\OOXML\PPTXFormat\Limit\VariantType.h" />
+    <ClInclude Include="C:\onlyoffice\core\OOXML\PPTXFormat\Limit\VertOverflow.h" />
+    <ClInclude Include="C:\onlyoffice\core\OOXML\PPTXFormat\Logic\Timing\Video.h" />
+    <ClInclude Include="..\..\..\PPTXFormat\ViewProps.h" />
+    <ClInclude Include="..\..\..\PPTXFormat\Theme\VisioThemeElements.h" />
+    <ClInclude Include="..\..\..\..\MsBinaryFile\Common\Vml\VmlPath.h" />
+    <ClInclude Include="..\..\..\Binary\Presentation\WMFToImageConverter.h" />
+    <ClInclude Include="C:\onlyoffice\core\OOXML\PPTXFormat\Logic\Media\WavAudioFile.h" />
+    <ClInclude Include="C:\onlyoffice\core\OOXML\PPTXFormat\Logic\Transitions\WheelTransition.h" />
+    <ClInclude Include="..\..\..\PPTXFormat\WrapperFile.h" />
+    <ClInclude Include="..\..\..\PPTXFormat\WrapperWritingElement.h" />
+    <ClInclude Include="C:\onlyoffice\core\OOXML\PPTXFormat\Logic\Xfrm.h" />
+    <ClInclude Include="C:\onlyoffice\core\OOXML\PPTXFormat\Logic\Effects\XfrmEffect.h" />
+    <ClInclude Include="C:\onlyoffice\core\OOXML\PPTXFormat\Logic\XmlId.h" />
+    <ClInclude Include="C:\onlyoffice\core\OOXML\PPTXFormat\Logic\Transitions\ZoomTransition.h" />
+    <ClInclude Include="..\..\..\Binary\Presentation\imagemanager.h" />
+    <ClInclude Include="pptx_format.h" />
+    <ClInclude Include="..\..\..\..\MsBinaryFile\Common\Vml\toVmlConvert.h" />
+  </ItemGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
+  <Import Project="$(QtMsBuild)\qt.targets" Condition="Exists('$(QtMsBuild)\qt.targets')" />
+  <ImportGroup Label="ExtensionTargets" />
+</Project>

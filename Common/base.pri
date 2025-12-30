@@ -75,6 +75,26 @@ win32 {
 	}
 }
 
+
+win32:core_release {
+    message("Windows release: disable optimization, enable PDB")
+
+    # 关闭优化
+    QMAKE_CXXFLAGS_RELEASE -= /O1
+    QMAKE_CXXFLAGS_RELEASE -= /O2
+    QMAKE_CXXFLAGS_RELEASE += /Od
+    QMAKE_CXXFLAGS_RELEASE += /Ob0
+
+    # 生成调试信息
+    QMAKE_CXXFLAGS_RELEASE += /Zi
+    QMAKE_LFLAGS_RELEASE   += /DEBUG
+
+    # 可选：禁用 LTCG（否则调试体验极差）
+    QMAKE_CXXFLAGS_RELEASE -= /GL
+    QMAKE_LFLAGS_RELEASE   -= /LTCG
+}
+
+
 DST_ARCH=$$QMAKE_TARGET.arch
 isEqual(QT_MAJOR_VERSION, 5) {
 	DST_ARCH=$$QT_ARCH
@@ -285,6 +305,7 @@ core_windows {
 	QMAKE_CXXFLAGS_RELEASE += /Zc:strictStrings-
 	QMAKE_CXXFLAGS += /Zc:strictStrings-
 	QMAKE_CXXFLAGS += /MP
+	QMAKE_CXXFLAGS += /utf-8
 
 	MSVC_VERSION_DETECT = $$(VisualStudioVersion)
 	greaterThan(MSVC_VERSION_DETECT, 15.0) {
@@ -472,8 +493,8 @@ core_release {
 	CORE_BUILDS_CONFIGURATION_PREFIX    = release
 }
 
-CONFIG += object_parallel_to_source
-core_windows:CONFIG += no_batch
+# CONFIG += object_parallel_to_source
+# core_windows:CONFIG += no_batch
 
 # MESSAGE
 message($$CORE_BUILDS_PLATFORM_PREFIX/$$CORE_BUILDS_CONFIGURATION_PREFIX)

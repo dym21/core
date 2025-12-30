@@ -7,8 +7,8 @@
     </ProjectConfiguration>
   </ItemGroup>
   <PropertyGroup Label="Globals">
-    <ProjectGuid>{3AA6619E-B400-3E08-8245-7DB70BF703A4}</ProjectGuid>
-    <RootNamespace>XpsFile</RootNamespace>
+    <ProjectGuid>{2D8C659B-B0CA-326A-B3F7-97D0B6C47BB3}</ProjectGuid>
+    <RootNamespace>Fb2File</RootNamespace>
     <Keyword>QtVS_v304</Keyword>
     <WindowsTargetPlatformVersion>10.0</WindowsTargetPlatformVersion>
     <QtMsBuild Condition="'$(QtMsBuild)'=='' OR !Exists('$(QtMsBuild)\qt.targets')">$(MSBuildProjectDirectory)\QtMsBuild</QtMsBuild>
@@ -21,7 +21,7 @@
     <CharacterSet>NotSet</CharacterSet>
     <ConfigurationType>DynamicLibrary</ConfigurationType>
     <IntermediateDirectory>core_build\win_64\release\obj\</IntermediateDirectory>
-    <PrimaryOutput>XpsFile</PrimaryOutput>
+    <PrimaryOutput>Fb2File</PrimaryOutput>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
   <Import Project="$(QtMsBuild)\qt_defaults.props" Condition="Exists('$(QtMsBuild)\qt_defaults.props')" />
@@ -42,13 +42,13 @@
   <PropertyGroup>
     <OutDir Condition="'$(Configuration)|$(Platform)'=='Release|x64'">..\build\lib\win_64\</OutDir>
     <IntDir Condition="'$(Configuration)|$(Platform)'=='Release|x64'">core_build\win_64\release\obj\</IntDir>
-    <TargetName Condition="'$(Configuration)|$(Platform)'=='Release|x64'">XpsFile</TargetName>
+    <TargetName Condition="'$(Configuration)|$(Platform)'=='Release|x64'">Fb2File</TargetName>
     <IgnoreImportLibrary Condition="'$(Configuration)|$(Platform)'=='Release|x64'">true</IgnoreImportLibrary>
     <LinkIncremental Condition="'$(Configuration)|$(Platform)'=='Release|x64'">false</LinkIncremental>
   </PropertyGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
     <ClCompile>
-      <AdditionalIncludeDirectories>GeneratedFiles\$(ConfigurationName);GeneratedFiles;.;..\DesktopEditor\freetype-2.10.4\include;..\DesktopEditor\freetype-2.10.4\include\freetype;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>GeneratedFiles\$(ConfigurationName);GeneratedFiles;.;..\Common\3dParty\html;..\Common\3dParty\html\gumbo-parser\visualc\include;..\Common\3dParty\boost\build\win_64\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <AdditionalOptions>-Zc:rvalueCast -Zc:inline -Zc:strictStrings -Zc:throwingNew -Zc:referenceBinding -Zc:__cplusplus /Zc:strictStrings- /utf-8 /Zc:strictStrings- -w34100 -w34189 -w44996 -w44456 -w44457 -w44458 %(AdditionalOptions)</AdditionalOptions>
       <AssemblerListingLocation>core_build\win_64\release\obj\</AssemblerListingLocation>
       <BrowseInformation>false</BrowseInformation>
@@ -59,7 +59,7 @@
       <MultiProcessorCompilation>true</MultiProcessorCompilation>
       <ObjectFileName>core_build\win_64\release\obj\</ObjectFileName>
       <Optimization>Disabled</Optimization>
-      <PreprocessorDefinitions>_WINDOWS;UNICODE;_UNICODE;WIN32;_ENABLE_EXTENDED_ALIGNED_STORAGE;WIN64;INTVER=2.5.565.0;WIN_INTVER=2,5,565,0;COPYRIGHT_YEAR=2025;WIN32;_WIN32;NOMINMAX;WIN64;_WIN64;WINDOWS_IGNORE_PACKING_MISMATCH;XPS_USE_DYNAMIC_LIBRARY;NDEBUG;QT_NO_DEBUG;QT_PLUGIN;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <PreprocessorDefinitions>_WINDOWS;UNICODE;_UNICODE;WIN32;_ENABLE_EXTENDED_ALIGNED_STORAGE;WIN64;FB2FILE_USE_DYNAMIC_LIBRARY;INTVER=2.5.565.0;WIN_INTVER=2,5,565,0;COPYRIGHT_YEAR=2025;WIN32;_WIN32;NOMINMAX;WIN64;_WIN64;WINDOWS_IGNORE_PACKING_MISMATCH;BOOST_USE_WINDOWS_H;BOOST_WINAPI_NO_REDECLARATIONS;NDEBUG;QT_NO_DEBUG;QT_PLUGIN;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <PreprocessToFile>false</PreprocessToFile>
       <RuntimeLibrary>MultiThreadedDLL</RuntimeLibrary>
       <SuppressStartupBanner>true</SuppressStartupBanner>
@@ -67,15 +67,15 @@
       <WarningLevel>Level3</WarningLevel>
     </ClCompile>
     <Link>
-      <AdditionalDependencies>graphics.lib;C:\onlyoffice\core\build\lib\win_64\kernel.lib;C:\onlyoffice\core\build\lib\win_64\UnicodeConverter.lib;C:\onlyoffice\core\build\lib\win_64\PdfFile.lib;gdi32.lib;advapi32.lib;user32.lib;shell32.lib;%(AdditionalDependencies)</AdditionalDependencies>
-      <AdditionalLibraryDirectories>C:\onlyoffice\core\build\lib\win_64;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalDependencies>C:\onlyoffice\core\build\lib\win_64\kernel.lib;C:\onlyoffice\core\build\lib\win_64\UnicodeConverter.lib;graphics.lib;C:\onlyoffice\core\Common\3dParty\boost\build\win_64\lib\libboost_regex-vc142-mt-x64-1_72.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalLibraryDirectories>C:\onlyoffice\core\build\lib\win_64;C:\onlyoffice\core\Common\3dParty\boost\build\win_64\lib;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
       <DataExecutionPrevention>true</DataExecutionPrevention>
       <GenerateDebugInformation>true</GenerateDebugInformation>
       <IgnoreImportLibrary>true</IgnoreImportLibrary>
       <LinkDLL>true</LinkDLL>
       <LinkIncremental>false</LinkIncremental>
       <OptimizeReferences>true</OptimizeReferences>
-      <OutputFile>$(OutDir)\XpsFile.dll</OutputFile>
+      <OutputFile>$(OutDir)\Fb2File.dll</OutputFile>
       <RandomizedBaseAddress>true</RandomizedBaseAddress>
       <SubSystem>Windows</SubSystem>
       <SuppressStartupBanner>true</SuppressStartupBanner>
@@ -87,30 +87,48 @@
       <WarningLevel>0</WarningLevel>
     </Midl>
     <ResourceCompile>
-      <PreprocessorDefinitions>_WINDOWS;UNICODE;_UNICODE;WIN32;_ENABLE_EXTENDED_ALIGNED_STORAGE;WIN64;INTVER=2.5.565.0;WIN_INTVER=2,5,565,0;COPYRIGHT_YEAR=2025;WIN32;_WIN32;NOMINMAX;WIN64;_WIN64;WINDOWS_IGNORE_PACKING_MISMATCH;XPS_USE_DYNAMIC_LIBRARY;NDEBUG;QT_NO_DEBUG;QT_PLUGIN;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <PreprocessorDefinitions>_WINDOWS;UNICODE;_UNICODE;WIN32;_ENABLE_EXTENDED_ALIGNED_STORAGE;WIN64;FB2FILE_USE_DYNAMIC_LIBRARY;INTVER=2.5.565.0;WIN_INTVER=2,5,565,0;COPYRIGHT_YEAR=2025;WIN32;_WIN32;NOMINMAX;WIN64;_WIN64;WINDOWS_IGNORE_PACKING_MISMATCH;BOOST_USE_WINDOWS_H;BOOST_WINAPI_NO_REDECLARATIONS;NDEBUG;QT_NO_DEBUG;QT_PLUGIN;%(PreprocessorDefinitions)</PreprocessorDefinitions>
     </ResourceCompile>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="XpsLib\ContextState.cpp" />
-    <ClCompile Include="XpsLib\Document.cpp" />
-    <ClCompile Include="XpsLib\StaticResources.cpp" />
-    <ClCompile Include="XpsLib\Utils.cpp" />
-    <ClCompile Include="XpsLib\WString.cpp" />
-    <ClCompile Include="XpsFile.cpp" />
-    <ClCompile Include="XpsLib\XpsPage.cpp" />
+    <ClCompile Include="Fb2File.cpp" />
+    <ClCompile Include="..\Common\3dParty\html\gumbo-parser\src\attribute.c" />
+    <ClCompile Include="..\Common\3dParty\html\gumbo-parser\src\char_ref.c" />
+    <ClCompile Include="..\Common\3dParty\html\gumbo-parser\src\error.c" />
+    <ClCompile Include="..\Common\3dParty\html\gumbo-parser\src\parser.c" />
+    <ClCompile Include="..\Common\3dParty\html\gumbo-parser\src\string_buffer.c" />
+    <ClCompile Include="..\Common\3dParty\html\gumbo-parser\src\string_piece.c" />
+    <ClCompile Include="..\Common\3dParty\html\gumbo-parser\src\tag.c" />
+    <ClCompile Include="..\Common\3dParty\html\gumbo-parser\src\tokenizer.c" />
+    <ClCompile Include="..\Common\3dParty\html\gumbo-parser\src\utf8.c" />
+    <ClCompile Include="..\Common\3dParty\html\gumbo-parser\src\util.c" />
+    <ClCompile Include="..\Common\3dParty\html\gumbo-parser\src\vector.c" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="XpsLib\ContextState.h" />
-    <ClInclude Include="XpsLib\Document.h" />
-    <ClInclude Include="XpsLib\FontList.h" />
-    <ClInclude Include="XpsLib\StaticResources.h" />
-    <ClInclude Include="XpsLib\Utils.h" />
-    <ClInclude Include="XpsLib\WString.h" />
-    <ClInclude Include="XpsFile.h" />
-    <ClInclude Include="XpsLib\XpsPage.h" />
+    <ClInclude Include="Fb2File.h" />
+    <ClInclude Include="C:\onlyoffice\core\Common\3dParty\html\gumbo-parser\src\attribute.h" />
+    <ClInclude Include="C:\onlyoffice\core\Common\3dParty\html\gumbo-parser\src\char_ref.h" />
+    <ClInclude Include="C:\onlyoffice\core\Common\3dParty\html\gumbo-parser\src\error.h" />
+    <ClInclude Include="C:\onlyoffice\core\Common\3dParty\html\gumbo-parser\src\gumbo.h" />
+    <ClInclude Include="C:\onlyoffice\core\Common\3dParty\html\htmltoxhtml.h" />
+    <ClInclude Include="C:\onlyoffice\core\Common\3dParty\html\gumbo-parser\src\insertion_mode.h" />
+    <ClInclude Include="C:\onlyoffice\core\Common\3dParty\html\gumbo-parser\src\parser.h" />
+    <ClInclude Include="C:\onlyoffice\core\Common\3dParty\html\gumbo-parser\src\string_buffer.h" />
+    <ClInclude Include="C:\onlyoffice\core\Common\3dParty\html\gumbo-parser\src\string_piece.h" />
+    <ClInclude Include="C:\onlyoffice\core\Common\3dParty\html\gumbo-parser\src\tag_enum.h" />
+    <ClInclude Include="C:\onlyoffice\core\Common\3dParty\html\gumbo-parser\src\tag_gperf.h" />
+    <ClInclude Include="C:\onlyoffice\core\Common\3dParty\html\gumbo-parser\src\tag_sizes.h" />
+    <ClInclude Include="C:\onlyoffice\core\Common\3dParty\html\gumbo-parser\src\tag_strings.h" />
+    <ClInclude Include="template\template.h" />
+    <ClInclude Include="C:\onlyoffice\core\Common\3dParty\html\gumbo-parser\src\token_type.h" />
+    <ClInclude Include="C:\onlyoffice\core\Common\3dParty\html\gumbo-parser\src\tokenizer.h" />
+    <ClInclude Include="C:\onlyoffice\core\Common\3dParty\html\gumbo-parser\src\tokenizer_states.h" />
+    <ClInclude Include="C:\onlyoffice\core\Common\3dParty\html\gumbo-parser\src\utf8.h" />
+    <ClInclude Include="C:\onlyoffice\core\Common\3dParty\html\gumbo-parser\src\util.h" />
+    <ClInclude Include="C:\onlyoffice\core\Common\3dParty\html\gumbo-parser\src\vector.h" />
   </ItemGroup>
   <ItemGroup>
-    <ResourceCompile Include=".\XpsFile_resource.rc" />
+    <ResourceCompile Include=".\Fb2File_resource.rc" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <Import Project="$(QtMsBuild)\qt.targets" Condition="Exists('$(QtMsBuild)\qt.targets')" />

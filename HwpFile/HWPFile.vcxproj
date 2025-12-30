@@ -1,0 +1,267 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup Label="ProjectConfigurations">
+    <ProjectConfiguration Include="Release|x64">
+      <Configuration>Release</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+  </ItemGroup>
+  <PropertyGroup Label="Globals">
+    <ProjectGuid>{F61FCF4F-2ECD-3C1B-8E8B-D205082DE793}</ProjectGuid>
+    <RootNamespace>HWPFile</RootNamespace>
+    <Keyword>QtVS_v304</Keyword>
+    <WindowsTargetPlatformVersion>10.0</WindowsTargetPlatformVersion>
+    <QtMsBuild Condition="'$(QtMsBuild)'=='' OR !Exists('$(QtMsBuild)\qt.targets')">$(MSBuildProjectDirectory)\QtMsBuild</QtMsBuild>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'" Label="Configuration">
+    <PlatformToolset>v142</PlatformToolset>
+    <OutputDirectory>..\build\lib\win_64\</OutputDirectory>
+    <ATLMinimizesCRunTimeLibraryUsage>false</ATLMinimizesCRunTimeLibraryUsage>
+    <CharacterSet>NotSet</CharacterSet>
+    <ConfigurationType>DynamicLibrary</ConfigurationType>
+    <IntermediateDirectory>core_build\win_64\release\obj\</IntermediateDirectory>
+    <PrimaryOutput>HWPFile</PrimaryOutput>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
+  <Import Project="$(QtMsBuild)\qt_defaults.props" Condition="Exists('$(QtMsBuild)\qt_defaults.props')" />
+  <PropertyGroup Label="QtSettings" Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <QtInstall>Qt-5.15.2_msvc2019_64</QtInstall>
+    <QtModules>
+    </QtModules>
+  </PropertyGroup>
+  <Target Name="QtMsBuildNotFound" BeforeTargets="CustomBuild;ClCompile" Condition="!Exists('$(QtMsBuild)\qt.targets') OR !Exists('$(QtMsBuild)\Qt.props')">
+    <Message Importance="High" Text="QtMsBuild: could not locate qt.targets, qt.props; project may not build correctly." />
+  </Target>
+  <ImportGroup Label="ExtensionSettings" />
+  <ImportGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'" Label="PropertySheets">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" />
+    <Import Project="$(QtMsBuild)\Qt.props" />
+  </ImportGroup>
+  <PropertyGroup Label="UserMacros" />
+  <PropertyGroup>
+    <OutDir Condition="'$(Configuration)|$(Platform)'=='Release|x64'">..\build\lib\win_64\</OutDir>
+    <IntDir Condition="'$(Configuration)|$(Platform)'=='Release|x64'">core_build\win_64\release\obj\</IntDir>
+    <TargetName Condition="'$(Configuration)|$(Platform)'=='Release|x64'">HWPFile</TargetName>
+    <IgnoreImportLibrary Condition="'$(Configuration)|$(Platform)'=='Release|x64'">true</IgnoreImportLibrary>
+    <LinkIncremental Condition="'$(Configuration)|$(Platform)'=='Release|x64'">false</LinkIncremental>
+  </PropertyGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <ClCompile>
+      <AdditionalIncludeDirectories>GeneratedFiles\$(ConfigurationName);GeneratedFiles;.;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalOptions>-Zc:rvalueCast -Zc:inline -Zc:strictStrings -Zc:throwingNew -Zc:referenceBinding -Zc:__cplusplus /Zc:strictStrings- /utf-8 /Zc:strictStrings- -w34100 -w34189 -w44996 -w44456 -w44457 -w44458 %(AdditionalOptions)</AdditionalOptions>
+      <AssemblerListingLocation>core_build\win_64\release\obj\</AssemblerListingLocation>
+      <BrowseInformation>false</BrowseInformation>
+      <DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
+      <DisableSpecificWarnings>4577;4467;%(DisableSpecificWarnings)</DisableSpecificWarnings>
+      <ExceptionHandling>Sync</ExceptionHandling>
+      <InlineFunctionExpansion>Disabled</InlineFunctionExpansion>
+      <MultiProcessorCompilation>true</MultiProcessorCompilation>
+      <ObjectFileName>core_build\win_64\release\obj\</ObjectFileName>
+      <Optimization>Disabled</Optimization>
+      <PreprocessorDefinitions>_WINDOWS;UNICODE;_UNICODE;WIN32;_ENABLE_EXTENDED_ALIGNED_STORAGE;WIN64;INTVER=2.5.565.0;WIN_INTVER=2,5,565,0;COPYRIGHT_YEAR=2025;WIN32;_WIN32;NOMINMAX;WIN64;_WIN64;WINDOWS_IGNORE_PACKING_MISMATCH;HWPFILE_USE_DYNAMIC_LIBRARY;CRYPTOPP_DISABLE_ASM;NDEBUG;QT_NO_DEBUG;QT_PLUGIN;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <PreprocessToFile>false</PreprocessToFile>
+      <RuntimeLibrary>MultiThreadedDLL</RuntimeLibrary>
+      <SuppressStartupBanner>true</SuppressStartupBanner>
+      <TreatWChar_tAsBuiltInType>true</TreatWChar_tAsBuiltInType>
+      <WarningLevel>Level3</WarningLevel>
+    </ClCompile>
+    <Link>
+      <AdditionalDependencies>C:\onlyoffice\core\build\lib\win_64\CryptoPPLib.lib;C:\onlyoffice\core\build\lib\win_64\kernel.lib;C:\onlyoffice\core\build\lib\win_64\UnicodeConverter.lib;graphics.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalLibraryDirectories>C:\onlyoffice\core\build\lib\win_64;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <DataExecutionPrevention>true</DataExecutionPrevention>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <IgnoreImportLibrary>true</IgnoreImportLibrary>
+      <LinkDLL>true</LinkDLL>
+      <LinkIncremental>false</LinkIncremental>
+      <OptimizeReferences>true</OptimizeReferences>
+      <OutputFile>$(OutDir)\HWPFile.dll</OutputFile>
+      <RandomizedBaseAddress>true</RandomizedBaseAddress>
+      <SubSystem>Windows</SubSystem>
+      <SuppressStartupBanner>true</SuppressStartupBanner>
+      <Version>2.5</Version>
+    </Link>
+    <Midl>
+      <DefaultCharType>Unsigned</DefaultCharType>
+      <EnableErrorChecks>None</EnableErrorChecks>
+      <WarningLevel>0</WarningLevel>
+    </Midl>
+    <ResourceCompile>
+      <PreprocessorDefinitions>_WINDOWS;UNICODE;_UNICODE;WIN32;_ENABLE_EXTENDED_ALIGNED_STORAGE;WIN64;INTVER=2.5.565.0;WIN_INTVER=2,5,565,0;COPYRIGHT_YEAR=2025;WIN32;_WIN32;NOMINMAX;WIN64;_WIN64;WINDOWS_IGNORE_PACKING_MISMATCH;HWPFILE_USE_DYNAMIC_LIBRARY;CRYPTOPP_DISABLE_ASM;NDEBUG;QT_NO_DEBUG;QT_PLUGIN;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+    </ResourceCompile>
+  </ItemDefinitionGroup>
+  <ItemGroup>
+    <ClCompile Include="HwpDoc\Paragraph\CapParagraph.cpp" />
+    <ClCompile Include="HwpDoc\Paragraph\CellParagraph.cpp" />
+    <ClCompile Include="HwpDoc\Paragraph\CharShape.cpp" />
+    <ClCompile Include="HwpDoc\OLEdoc\CompoundFile.cpp" />
+    <ClCompile Include="HwpDoc\Conversion\Converter2OOXML.cpp" />
+    <ClCompile Include="HwpDoc\Paragraph\Ctrl.cpp" />
+    <ClCompile Include="HwpDoc\Paragraph\CtrlAutoNumber.cpp" />
+    <ClCompile Include="HwpDoc\Paragraph\CtrlCharacter.cpp" />
+    <ClCompile Include="HwpDoc\Paragraph\CtrlClick.cpp" />
+    <ClCompile Include="HwpDoc\Paragraph\CtrlColumnDef.cpp" />
+    <ClCompile Include="HwpDoc\Paragraph\CtrlCommon.cpp" />
+    <ClCompile Include="HwpDoc\Paragraph\CtrlContainer.cpp" />
+    <ClCompile Include="HwpDoc\Paragraph\CtrlEmpty.cpp" />
+    <ClCompile Include="HwpDoc\Paragraph\CtrlEqEdit.cpp" />
+    <ClCompile Include="HwpDoc\Paragraph\CtrlField.cpp" />
+    <ClCompile Include="HwpDoc\Paragraph\CtrlForm.cpp" />
+    <ClCompile Include="HwpDoc\Paragraph\CtrlGeneralShape.cpp" />
+    <ClCompile Include="HwpDoc\Paragraph\CtrlHeadFoot.cpp" />
+    <ClCompile Include="HwpDoc\Paragraph\CtrlNewNumber.cpp" />
+    <ClCompile Include="HwpDoc\Paragraph\CtrlNote.cpp" />
+    <ClCompile Include="HwpDoc\Paragraph\CtrlObjElement.cpp" />
+    <ClCompile Include="HwpDoc\Paragraph\CtrlPageNumPos.cpp" />
+    <ClCompile Include="HwpDoc\Paragraph\CtrlSectionDef.cpp" />
+    <ClCompile Include="HwpDoc\Paragraph\CtrlShapeArc.cpp" />
+    <ClCompile Include="HwpDoc\Paragraph\CtrlShapeConnectLine.cpp" />
+    <ClCompile Include="HwpDoc\Paragraph\CtrlShapeCurve.cpp" />
+    <ClCompile Include="HwpDoc\Paragraph\CtrlShapeEllipse.cpp" />
+    <ClCompile Include="HwpDoc\Paragraph\CtrlShapeLine.cpp" />
+    <ClCompile Include="HwpDoc\Paragraph\CtrlShapeOle.cpp" />
+    <ClCompile Include="HwpDoc\Paragraph\CtrlShapePic.cpp" />
+    <ClCompile Include="HwpDoc\Paragraph\CtrlShapePolygon.cpp" />
+    <ClCompile Include="HwpDoc\Paragraph\CtrlShapeRect.cpp" />
+    <ClCompile Include="HwpDoc\Paragraph\CtrlShapeTextArt.cpp" />
+    <ClCompile Include="HwpDoc\Paragraph\CtrlShapeVideo.cpp" />
+    <ClCompile Include="HwpDoc\Paragraph\CtrlTable.cpp" />
+    <ClCompile Include="HwpDoc\OLEdoc\DirectoryEntry.cpp" />
+    <ClCompile Include="HwpDoc\Conversion\FootnoteConverter.cpp" />
+    <ClCompile Include="HwpDoc\HWPDocFile.cpp" />
+    <ClCompile Include="HwpDoc\HWPDocInfo.cpp" />
+    <ClCompile Include="HWPFile.cpp" />
+    <ClCompile Include="HwpDoc\HWPMLFile.cpp" />
+    <ClCompile Include="HwpDoc\Paragraph\HWPPargraph.cpp" />
+    <ClCompile Include="HwpDoc\HWPElements\HWPRecord.cpp" />
+    <ClCompile Include="HwpDoc\HWPElements\HWPRecordBinData.cpp" />
+    <ClCompile Include="HwpDoc\HWPElements\HWPRecordBorderFill.cpp" />
+    <ClCompile Include="HwpDoc\HWPElements\HWPRecordBullet.cpp" />
+    <ClCompile Include="HwpDoc\HWPElements\HWPRecordCharShape.cpp" />
+    <ClCompile Include="HwpDoc\HWPElements\HWPRecordCtrlData.cpp" />
+    <ClCompile Include="HwpDoc\HWPElements\HWPRecordCtrlHeader.cpp" />
+    <ClCompile Include="HwpDoc\HWPElements\HWPRecordDocumentProperties.cpp" />
+    <ClCompile Include="HwpDoc\HWPElements\HWPRecordFaceName.cpp" />
+    <ClCompile Include="HwpDoc\HWPElements\HWPRecordFormObject.cpp" />
+    <ClCompile Include="HwpDoc\HWPElements\HWPRecordIDMaping.cpp" />
+    <ClCompile Include="HwpDoc\HWPElements\HWPRecordListHeader.cpp" />
+    <ClCompile Include="HwpDoc\HWPElements\HWPRecordNumbering.cpp" />
+    <ClCompile Include="HwpDoc\HWPElements\HWPRecordParaRangeTag.cpp" />
+    <ClCompile Include="HwpDoc\HWPElements\HWPRecordParaShape.cpp" />
+    <ClCompile Include="HwpDoc\HWPElements\HWPRecordParaText.cpp" />
+    <ClCompile Include="HwpDoc\HWPElements\HWPRecordStyle.cpp" />
+    <ClCompile Include="HwpDoc\HWPSection.cpp" />
+    <ClCompile Include="HwpDoc\HWPStream.cpp" />
+    <ClCompile Include="HwpDoc\HWPXFile.cpp" />
+    <ClCompile Include="HwpDoc\HwpFileHeader.cpp" />
+    <ClCompile Include="HwpDoc\HWPElements\HwpRecordTabDef.cpp" />
+    <ClCompile Include="HwpDoc\Paragraph\LineSeg.cpp" />
+    <ClCompile Include="HwpDoc\Section\NoteShape.cpp" />
+    <ClCompile Include="HwpDoc\Conversion\NumberingConverter.cpp" />
+    <ClCompile Include="HwpDoc\Conversion\OleConverter.cpp" />
+    <ClCompile Include="HwpDoc\Section\Page.cpp" />
+    <ClCompile Include="HwpDoc\Section\PageBorderFill.cpp" />
+    <ClCompile Include="HwpDoc\Paragraph\ParaText.cpp" />
+    <ClCompile Include="HwpDoc\Conversion\StyleConverter.cpp" />
+    <ClCompile Include="HwpDoc\Paragraph\TblCell.cpp" />
+    <ClCompile Include="HwpDoc\Common\WriterContext.cpp" />
+    <ClCompile Include="HwpDoc\Common\XMLReader.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="HwpDoc\Paragraph\CapParagraph.h" />
+    <ClInclude Include="HwpDoc\Paragraph\CellParagraph.h" />
+    <ClInclude Include="HwpDoc\Paragraph\CharShape.h" />
+    <ClInclude Include="HwpDoc\Common\Common.h" />
+    <ClInclude Include="HwpDoc\Paragraph\CommonObj.h" />
+    <ClInclude Include="HwpDoc\OLEdoc\CompoundFile.h" />
+    <ClInclude Include="HwpDoc\Conversion\ConversionState.h" />
+    <ClInclude Include="HwpDoc\Conversion\Converter2OOXML.h" />
+    <ClInclude Include="HwpDoc\Paragraph\Ctrl.h" />
+    <ClInclude Include="HwpDoc\Paragraph\CtrlAutoNumber.h" />
+    <ClInclude Include="HwpDoc\Paragraph\CtrlCharacter.h" />
+    <ClInclude Include="HwpDoc\Paragraph\CtrlClick.h" />
+    <ClInclude Include="HwpDoc\Paragraph\CtrlColumnDef.h" />
+    <ClInclude Include="HwpDoc\Paragraph\CtrlCommon.h" />
+    <ClInclude Include="HwpDoc\Paragraph\CtrlContainer.h" />
+    <ClInclude Include="HwpDoc\Paragraph\CtrlEmpty.h" />
+    <ClInclude Include="HwpDoc\Paragraph\CtrlEqEdit.h" />
+    <ClInclude Include="HwpDoc\Paragraph\CtrlField.h" />
+    <ClInclude Include="HwpDoc\Paragraph\CtrlForm.h" />
+    <ClInclude Include="HwpDoc\Paragraph\CtrlGeneralShape.h" />
+    <ClInclude Include="HwpDoc\Paragraph\CtrlHeadFoot.h" />
+    <ClInclude Include="HwpDoc\Paragraph\CtrlNewNumber.h" />
+    <ClInclude Include="HwpDoc\Paragraph\CtrlNote.h" />
+    <ClInclude Include="HwpDoc\Paragraph\CtrlObjElement.h" />
+    <ClInclude Include="HwpDoc\Paragraph\CtrlPageNumPos.h" />
+    <ClInclude Include="HwpDoc\Paragraph\CtrlSectionDef.h" />
+    <ClInclude Include="HwpDoc\Paragraph\CtrlShapeArc.h" />
+    <ClInclude Include="HwpDoc\Paragraph\CtrlShapeConnectLine.h" />
+    <ClInclude Include="HwpDoc\Paragraph\CtrlShapeCurve.h" />
+    <ClInclude Include="HwpDoc\Paragraph\CtrlShapeEllipse.h" />
+    <ClInclude Include="HwpDoc\Paragraph\CtrlShapeLine.h" />
+    <ClInclude Include="HwpDoc\Paragraph\CtrlShapeOle.h" />
+    <ClInclude Include="HwpDoc\Paragraph\CtrlShapePic.h" />
+    <ClInclude Include="HwpDoc\Paragraph\CtrlShapePolygon.h" />
+    <ClInclude Include="HwpDoc\Paragraph\CtrlShapeRect.h" />
+    <ClInclude Include="HwpDoc\Paragraph\CtrlShapeTextArt.h" />
+    <ClInclude Include="HwpDoc\Paragraph\CtrlShapeVideo.h" />
+    <ClInclude Include="HwpDoc\Paragraph\CtrlTable.h" />
+    <ClInclude Include="HwpDoc\OLEdoc\DirectoryEntry.h" />
+    <ClInclude Include="HwpDoc\Errors.h" />
+    <ClInclude Include="HwpDoc\Conversion\FootnoteConverter.h" />
+    <ClInclude Include="HwpDoc\HWPDocInfo.h" />
+    <ClInclude Include="HWPFile.h" />
+    <ClInclude Include="HwpDoc\HWPFile.h" />
+    <ClInclude Include="HwpDoc\HWPMLFile.h" />
+    <ClInclude Include="HwpDoc\Paragraph\HWPPargraph.h" />
+    <ClInclude Include="HwpDoc\HWPElements\HWPRecord.h" />
+    <ClInclude Include="HwpDoc\HWPElements\HWPRecordBinData.h" />
+    <ClInclude Include="HwpDoc\HWPElements\HWPRecordBorderFill.h" />
+    <ClInclude Include="HwpDoc\HWPElements\HWPRecordBullet.h" />
+    <ClInclude Include="HwpDoc\HWPElements\HWPRecordCharShape.h" />
+    <ClInclude Include="HwpDoc\HWPElements\HWPRecordCtrlData.h" />
+    <ClInclude Include="HwpDoc\HWPElements\HWPRecordCtrlHeader.h" />
+    <ClInclude Include="HwpDoc\HWPElements\HWPRecordDocumentProperties.h" />
+    <ClInclude Include="HwpDoc\HWPElements\HWPRecordFaceName.h" />
+    <ClInclude Include="HwpDoc\HWPElements\HWPRecordFormObject.h" />
+    <ClInclude Include="HwpDoc\HWPElements\HWPRecordIDMaping.h" />
+    <ClInclude Include="HwpDoc\HWPElements\HWPRecordListHeader.h" />
+    <ClInclude Include="HwpDoc\HWPElements\HWPRecordNumbering.h" />
+    <ClInclude Include="HwpDoc\HWPElements\HWPRecordParaRangeTag.h" />
+    <ClInclude Include="HwpDoc\HWPElements\HWPRecordParaShape.h" />
+    <ClInclude Include="HwpDoc\HWPElements\HWPRecordParaText.h" />
+    <ClInclude Include="HwpDoc\HWPElements\HWPRecordStyle.h" />
+    <ClInclude Include="HwpDoc\HWPSection.h" />
+    <ClInclude Include="HwpDoc\HWPStream.h" />
+    <ClInclude Include="HwpDoc\HWPElements\HWPTag.h" />
+    <ClInclude Include="HwpDoc\HWPXFile.h" />
+    <ClInclude Include="HwpDoc\HanType.h" />
+    <ClInclude Include="HwpDoc\HwpFileHeader.h" />
+    <ClInclude Include="HwpDoc\HWPElements\HwpRecordTabDef.h" />
+    <ClInclude Include="HwpDoc\HWPElements\HwpRecordTypes.h" />
+    <ClInclude Include="HwpDoc\Paragraph\LineSeg.h" />
+    <ClInclude Include="HwpDoc\Common\NodeNames.h" />
+    <ClInclude Include="HwpDoc\Section\NoteShape.h" />
+    <ClInclude Include="HwpDoc\Conversion\NumberingConverter.h" />
+    <ClInclude Include="HwpDoc\Conversion\OleConverter.h" />
+    <ClInclude Include="HwpDoc\Section\Page.h" />
+    <ClInclude Include="HwpDoc\Section\PageBorderFill.h" />
+    <ClInclude Include="HwpDoc\Paragraph\ParaText.h" />
+    <ClInclude Include="HwpDoc\Paragraph\Point.h" />
+    <ClInclude Include="HwpDoc\Paragraph\RangeTag.h" />
+    <ClInclude Include="HwpDoc\OLEdoc\Sector.h" />
+    <ClInclude Include="HwpDoc\OLEdoc\SectorType.h" />
+    <ClInclude Include="HwpDoc\Conversion\StyleConverter.h" />
+    <ClInclude Include="HwpDoc\Paragraph\TblCell.h" />
+    <ClInclude Include="HwpDoc\Conversion\Transform.h" />
+    <ClInclude Include="HwpDoc\Conversion\Types.h" />
+    <ClInclude Include="HwpDoc\Common\WriterContext.h" />
+    <ClInclude Include="HwpDoc\Common\XMLReader.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <ResourceCompile Include=".\HWPFile_resource.rc" />
+  </ItemGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
+  <Import Project="$(QtMsBuild)\qt.targets" Condition="Exists('$(QtMsBuild)\qt.targets')" />
+  <ImportGroup Label="ExtensionTargets" />
+</Project>

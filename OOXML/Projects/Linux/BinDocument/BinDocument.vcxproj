@@ -1,0 +1,226 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup Label="ProjectConfigurations">
+    <ProjectConfiguration Include="Release|x64">
+      <Configuration>Release</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+  </ItemGroup>
+  <PropertyGroup Label="Globals">
+    <ProjectGuid>{926F0699-AF45-3EF4-B50A-BD690BF252C5}</ProjectGuid>
+    <RootNamespace>BinDocument</RootNamespace>
+    <Keyword>QtVS_v304</Keyword>
+    <WindowsTargetPlatformVersion>10.0</WindowsTargetPlatformVersion>
+    <QtMsBuild Condition="'$(QtMsBuild)'=='' OR !Exists('$(QtMsBuild)\qt.targets')">$(MSBuildProjectDirectory)\QtMsBuild</QtMsBuild>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'" Label="Configuration">
+    <PlatformToolset>v142</PlatformToolset>
+    <OutputDirectory>..\..\..\..\build\lib\win_64\</OutputDirectory>
+    <ATLMinimizesCRunTimeLibraryUsage>false</ATLMinimizesCRunTimeLibraryUsage>
+    <CharacterSet>NotSet</CharacterSet>
+    <ConfigurationType>StaticLibrary</ConfigurationType>
+    <IntermediateDirectory>core_build\win_64\release\obj\</IntermediateDirectory>
+    <PrimaryOutput>BinDocument</PrimaryOutput>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
+  <Import Project="$(QtMsBuild)\qt_defaults.props" Condition="Exists('$(QtMsBuild)\qt_defaults.props')" />
+  <PropertyGroup Label="QtSettings" Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <QtInstall>Qt-5.15.2_msvc2019_64</QtInstall>
+    <QtModules>
+    </QtModules>
+  </PropertyGroup>
+  <Target Name="QtMsBuildNotFound" BeforeTargets="CustomBuild;ClCompile" Condition="!Exists('$(QtMsBuild)\qt.targets') OR !Exists('$(QtMsBuild)\Qt.props')">
+    <Message Importance="High" Text="QtMsBuild: could not locate qt.targets, qt.props; project may not build correctly." />
+  </Target>
+  <ImportGroup Label="ExtensionSettings" />
+  <ImportGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'" Label="PropertySheets">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" />
+    <Import Project="$(QtMsBuild)\Qt.props" />
+  </ImportGroup>
+  <PropertyGroup Label="UserMacros" />
+  <PropertyGroup>
+    <OutDir Condition="'$(Configuration)|$(Platform)'=='Release|x64'">..\..\..\..\build\lib\win_64\</OutDir>
+    <IntDir Condition="'$(Configuration)|$(Platform)'=='Release|x64'">core_build\win_64\release\obj\</IntDir>
+    <TargetName Condition="'$(Configuration)|$(Platform)'=='Release|x64'">BinDocument</TargetName>
+    <IgnoreImportLibrary Condition="'$(Configuration)|$(Platform)'=='Release|x64'">true</IgnoreImportLibrary>
+  </PropertyGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <ClCompile>
+      <AdditionalIncludeDirectories>GeneratedFiles\$(ConfigurationName);GeneratedFiles;.;..\..\..\..\Common\3dParty\boost\build\win_64\include;..\..\..\..\MsBinaryFile\XlsFile\Format;../../../../MsBinaryFile/Common/common_xls;..\..\..\XlsbFormat;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalOptions>-Zc:rvalueCast -Zc:inline -Zc:strictStrings -Zc:throwingNew -Zc:referenceBinding -Zc:__cplusplus /Zc:strictStrings- /utf-8 /bigobj /Zc:strictStrings- -w34100 -w34189 -w44996 -w44456 -w44457 -w44458 %(AdditionalOptions)</AdditionalOptions>
+      <AssemblerListingLocation>core_build\win_64\release\obj\</AssemblerListingLocation>
+      <BrowseInformation>false</BrowseInformation>
+      <DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
+      <DisableSpecificWarnings>4577;4467;%(DisableSpecificWarnings)</DisableSpecificWarnings>
+      <ExceptionHandling>Sync</ExceptionHandling>
+      <ForcedIncludeFiles>precompiled.h;%(ForcedIncludeFiles)</ForcedIncludeFiles>
+      <InlineFunctionExpansion>Disabled</InlineFunctionExpansion>
+      <MultiProcessorCompilation>true</MultiProcessorCompilation>
+      <ObjectFileName>core_build\win_64\release\obj\</ObjectFileName>
+      <Optimization>Disabled</Optimization>
+      <PrecompiledHeader>Use</PrecompiledHeader>
+      <PrecompiledHeaderFile>precompiled.h</PrecompiledHeaderFile>
+      <PrecompiledHeaderOutputFile>$(IntDir)\BinDocument.pch</PrecompiledHeaderOutputFile>
+      <PreprocessorDefinitions>_WINDOWS;UNICODE;_UNICODE;WIN32;_ENABLE_EXTENDED_ALIGNED_STORAGE;WIN64;INTVER=2.5.565.0;WIN_INTVER=2,5,565,0;COPYRIGHT_YEAR=2025;WIN32;_WIN32;NOMINMAX;WIN64;_WIN64;WINDOWS_IGNORE_PACKING_MISMATCH;CRYPTOPP_DISABLE_ASM;BOOST_USE_WINDOWS_H;BOOST_WINAPI_NO_REDECLARATIONS;UNICODE;_UNICODE;SOLUTION_ASCOFFICEDOCXFILE2;DONT_WRITE_EMBEDDED_FONTS;AVS_USE_CONVERT_PPTX_TOCUSTOM_VML;NDEBUG;QT_NO_DEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <PreprocessToFile>false</PreprocessToFile>
+      <RuntimeLibrary>MultiThreadedDLL</RuntimeLibrary>
+      <SuppressStartupBanner>true</SuppressStartupBanner>
+      <TreatWChar_tAsBuiltInType>true</TreatWChar_tAsBuiltInType>
+      <WarningLevel>Level3</WarningLevel>
+    </ClCompile>
+    <Link>
+      <IgnoreImportLibrary>true</IgnoreImportLibrary>
+    </Link>
+    <Midl>
+      <DefaultCharType>Unsigned</DefaultCharType>
+      <EnableErrorChecks>None</EnableErrorChecks>
+      <WarningLevel>0</WarningLevel>
+    </Midl>
+    <ResourceCompile>
+      <PreprocessorDefinitions>_WINDOWS;UNICODE;_UNICODE;WIN32;_ENABLE_EXTENDED_ALIGNED_STORAGE;WIN64;INTVER=2.5.565.0;WIN_INTVER=2,5,565,0;COPYRIGHT_YEAR=2025;WIN32;_WIN32;NOMINMAX;WIN64;_WIN64;WINDOWS_IGNORE_PACKING_MISMATCH;CRYPTOPP_DISABLE_ASM;BOOST_USE_WINDOWS_H;BOOST_WINAPI_NO_REDECLARATIONS;UNICODE;_UNICODE;SOLUTION_ASCOFFICEDOCXFILE2;DONT_WRITE_EMBEDDED_FONTS;AVS_USE_CONVERT_PPTX_TOCUSTOM_VML;NDEBUG;QT_NO_DEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+    </ResourceCompile>
+  </ItemDefinitionGroup>
+  <ItemGroup>
+    <ClCompile Include="..\..\..\Binary\Document\BinReader\BinaryReaderD.cpp" />
+    <ClCompile Include="..\..\..\Binary\Sheets\Writer\BinaryReaderS.cpp" />
+    <ClCompile Include="..\..\..\Binary\Draw\BinaryReaderV.cpp" />
+    <ClCompile Include="..\..\..\Binary\Document\BinWriter\BinaryWriterD.cpp" />
+    <ClCompile Include="..\..\..\Binary\Sheets\Reader\BinaryWriterS.cpp" />
+    <ClCompile Include="..\..\..\Binary\Draw\BinaryWriterV.cpp" />
+    <ClCompile Include="..\..\..\Binary\Sheets\Reader\CSVReader.cpp" />
+    <ClCompile Include="..\..\..\Binary\Sheets\Writer\CSVWriter.cpp" />
+    <ClCompile Include="..\..\..\Binary\Sheets\Reader\CellFormatController\CellFormatController.cpp" />
+    <ClCompile Include="..\..\..\Binary\Sheets\Reader\ChartFromToBinary.cpp" />
+    <ClCompile Include="..\..\..\Binary\Document\DocWrapper\ChartSerializer.cpp" />
+    <ClCompile Include="..\..\..\Binary\Document\BinReader\ChartWriter.cpp" />
+    <ClCompile Include="..\..\..\Binary\Document\BinReader\CommentsWriter.cpp" />
+    <ClCompile Include="..\..\..\Binary\Sheets\Common\Common.cpp" />
+    <ClCompile Include="..\..\..\Binary\Sheets\Reader\CommonWriter.cpp" />
+    <ClCompile Include="..\..\..\Binary\Sheets\Reader\CellFormatController\CurrencyReader.cpp" />
+    <ClCompile Include="..\..\..\Binary\Document\BinReader\CustomXmlWriter.cpp" />
+    <ClCompile Include="..\..\..\Binary\Sheets\Reader\CellFormatController\DateReader.cpp" />
+    <ClCompile Include="..\..\..\Binary\Document\BinReader\DefaultThemeWriter.cpp" />
+    <ClCompile Include="..\..\..\Binary\Sheets\Reader\CellFormatController\DigitReader.cpp" />
+    <ClCompile Include="..\..\..\Binary\Document\BinReader\DocumentRelsWriter.cpp" />
+    <ClCompile Include="..\..\..\Binary\Document\BinReader\DocumentWriter.cpp" />
+    <ClCompile Include="..\..\..\Binary\Document\DocWrapper\DocxSerializer.cpp" />
+    <ClCompile Include="..\..\..\Binary\Document\BinReader\FileWriter.cpp" />
+    <ClCompile Include="..\..\..\Binary\Document\DocWrapper\FontProcessor.cpp" />
+    <ClCompile Include="..\..\..\Binary\Document\BinReader\HeaderFooterWriter.cpp" />
+    <ClCompile Include="..\..\..\Binary\Sheets\Reader\CellFormatController\LocalInfo.cpp" />
+    <ClCompile Include="..\..\..\Binary\Document\BinReader\MediaWriter.cpp" />
+    <ClCompile Include="..\..\..\Binary\Document\BinReader\NumberingWriter.cpp" />
+    <ClCompile Include="..\..\..\Binary\Document\BinReader\ReaderClasses.cpp" />
+    <ClCompile Include="..\..\..\Binary\Document\BinReader\SettingWriter.cpp" />
+    <ClCompile Include="..\..\..\Binary\Document\BinReader\StylesWriter.cpp" />
+    <ClCompile Include="..\..\..\Binary\Document\DocWrapper\VsdxSerializer.cpp" />
+    <ClCompile Include="..\..\..\Binary\Sheets\Reader\XMLReader\XLSXTableController.cpp" />
+    <ClCompile Include="..\..\..\Binary\Sheets\Reader\XMLReader\XML2TableConverter.cpp" />
+    <ClCompile Include="..\..\..\Binary\Sheets\Reader\XMLReader\XMLConverter2.cpp" />
+    <ClCompile Include="..\..\..\Binary\Sheets\Reader\XMLReader\XMLMap.cpp" />
+    <ClCompile Include="..\..\..\Binary\Sheets\Reader\XMLReader\XMLReader.cpp" />
+    <ClCompile Include="..\..\..\Binary\Sheets\Reader\XMLReader\XMLReader2.cpp" />
+    <ClCompile Include="..\..\..\Binary\Document\DocWrapper\XlsxSerializer.cpp" />
+    <ClCompile Include="..\..\..\Binary\Sheets\Reader\XMLReader\columnNameController.cpp" />
+    <ClCompile Include="..\..\..\Binary\Document\BinReader\fontTableWriter.cpp" />
+    <ClCompile Include="..\..\..\Binary\Document\BinReader\webSettingsWriter.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="..\..\..\Binary\Document\BinWriter\BinEquationWriter.h" />
+    <ClInclude Include="..\..\..\Binary\Document\BinWriter\BinReaderWriterDefines.h" />
+    <ClInclude Include="..\..\..\Binary\Draw\BinReaderWriterDefines.h" />
+    <ClInclude Include="..\..\..\Binary\Sheets\Common\BinReaderWriterDefines.h" />
+    <ClInclude Include="..\..\..\Binary\Sheets\Writer\BinaryCommonReader.h" />
+    <ClInclude Include="..\..\..\Binary\Document\BinReader\BinaryReaderD.h" />
+    <ClInclude Include="..\..\..\Binary\Sheets\Writer\BinaryReaderS.h" />
+    <ClInclude Include="..\..\..\Binary\Draw\BinaryReaderV.h" />
+    <ClInclude Include="..\..\..\Binary\Document\BinWriter\BinaryWriterD.h" />
+    <ClInclude Include="..\..\..\Binary\Sheets\Reader\BinaryWriterS.h" />
+    <ClInclude Include="..\..\..\Binary\Draw\BinaryWriterV.h" />
+    <ClInclude Include="..\..\..\Binary\Sheets\Reader\CSVReader.h" />
+    <ClInclude Include="..\..\..\Binary\Sheets\Writer\CSVWriter.h" />
+    <ClInclude Include="..\..\..\Binary\Sheets\Reader\CellFormatController\CellFormatController.h" />
+    <ClInclude Include="..\..\..\Binary\Sheets\Reader\ChartFromToBinary.h" />
+    <ClInclude Include="..\..\..\Binary\Document\BinReader\ChartWriter.h" />
+    <ClInclude Include="..\..\..\Binary\Document\DocWrapper\ChartWriter.h" />
+    <ClInclude Include="..\..\..\Binary\Document\BinReader\CommentsWriter.h" />
+    <ClInclude Include="..\..\..\Binary\Sheets\Common\Common.h" />
+    <ClInclude Include="..\..\..\Binary\Sheets\Reader\CommonWriter.h" />
+    <ClInclude Include="..\..\..\..\OfficeCryptReader\source\CryptTransform.h" />
+    <ClInclude Include="..\..\..\Binary\Sheets\Reader\CellFormatController\CurrencyReader.h" />
+    <ClInclude Include="..\..\..\Binary\Document\BinReader\CustomXmlWriter.h" />
+    <ClInclude Include="..\..\..\Binary\Sheets\Reader\CellFormatController\DateReader.h" />
+    <ClInclude Include="..\..\..\Binary\Document\BinReader\DefaultThemeWriter.h" />
+    <ClInclude Include="..\..\..\Binary\Sheets\Reader\CellFormatController\DigitReader.h" />
+    <ClInclude Include="..\..\..\Binary\Document\BinReader\DocumentRelsWriter.h" />
+    <ClInclude Include="..\..\..\Binary\Document\BinReader\DocumentWriter.h" />
+    <ClInclude Include="..\..\..\Binary\Document\DocWrapper\DocxSerializer.h" />
+    <ClInclude Include="..\..\..\..\OfficeCryptReader\source\ECMACryptFile.h" />
+    <ClInclude Include="..\..\..\..\Common\FileDownloader\FileDownloader.h" />
+    <ClInclude Include="..\..\..\Binary\Document\BinReader\FileWriter.h" />
+    <ClInclude Include="..\..\..\Binary\Document\DocWrapper\FontProcessor.h" />
+    <ClInclude Include="..\..\..\Binary\Document\BinReader\HeaderFooterWriter.h" />
+    <ClInclude Include="..\..\..\Binary\Sheets\Reader\CellFormatController\LocalInfo.h" />
+    <ClInclude Include="..\..\..\Binary\Document\BinReader\MediaWriter.h" />
+    <ClInclude Include="..\..\..\Binary\Document\BinReader\NumberingWriter.h" />
+    <ClInclude Include="..\..\..\Binary\Document\BinReader\ReaderClasses.h" />
+    <ClInclude Include="..\..\..\Binary\Document\BinReader\SettingWriter.h" />
+    <ClInclude Include="..\..\..\Binary\Document\BinReader\StylesWriter.h" />
+    <ClInclude Include="..\..\..\Binary\Document\DocWrapper\VsdxSerializer.h" />
+    <ClInclude Include="..\..\..\Binary\Sheets\Reader\XMLReader\XLSXTableController.h" />
+    <ClInclude Include="..\..\..\Binary\Sheets\Reader\XMLReader\XML2TableConverter.h" />
+    <ClInclude Include="..\..\..\Binary\Sheets\Reader\XMLReader\XMLConverter2.h" />
+    <ClInclude Include="..\..\..\Binary\Sheets\Reader\XMLReader\XMLMap.h" />
+    <ClInclude Include="..\..\..\Binary\Sheets\Reader\XMLReader\XMLReader.h" />
+    <ClInclude Include="..\..\..\Binary\Document\DocWrapper\XlsxSerializer.h" />
+    <ClInclude Include="..\..\..\Binary\Sheets\Reader\XMLReader\columnNameController.h" />
+    <ClInclude Include="..\..\..\Binary\Document\BinReader\fontTableWriter.h" />
+    <CustomBuild Include="precompiled.h">
+      <Command Condition="'$(Configuration)|$(Platform)'=='Release|x64'">echo /*-------------------------------------------------------------------- &gt;precompiled.h.cpp
+if errorlevel 1 goto VCEnd
+echo * Precompiled header source file used by Visual Studio.NET to generate&gt;&gt;precompiled.h.cpp
+if errorlevel 1 goto VCEnd
+echo * the .pch file.&gt;&gt;precompiled.h.cpp
+if errorlevel 1 goto VCEnd
+echo *&gt;&gt;precompiled.h.cpp
+if errorlevel 1 goto VCEnd
+echo * Due to issues with the dependencies checker within the IDE, it&gt;&gt;precompiled.h.cpp
+if errorlevel 1 goto VCEnd
+echo * sometimes fails to recompile the PCH file, if we force the IDE to&gt;&gt;precompiled.h.cpp
+if errorlevel 1 goto VCEnd
+echo * create the PCH file directly from the header file.&gt;&gt;precompiled.h.cpp
+if errorlevel 1 goto VCEnd
+echo *&gt;&gt;precompiled.h.cpp
+if errorlevel 1 goto VCEnd
+echo * This file is auto-generated by qmake since no PRECOMPILED_SOURCE was&gt;&gt;precompiled.h.cpp
+if errorlevel 1 goto VCEnd
+echo * specified, and is used as the common stdafx.cpp. The file is only&gt;&gt;precompiled.h.cpp
+if errorlevel 1 goto VCEnd
+echo * generated when creating .vcxproj project files, and is not used for&gt;&gt;precompiled.h.cpp
+if errorlevel 1 goto VCEnd
+echo * command line compilations by nmake.&gt;&gt;precompiled.h.cpp
+if errorlevel 1 goto VCEnd
+echo *&gt;&gt;precompiled.h.cpp
+if errorlevel 1 goto VCEnd
+echo * WARNING: All changes made in this file will be lost.&gt;&gt;precompiled.h.cpp
+if errorlevel 1 goto VCEnd
+echo --------------------------------------------------------------------*/&gt;&gt;precompiled.h.cpp
+if errorlevel 1 goto VCEnd
+echo #include "precompiled.h"&gt;&gt;precompiled.h.cpp</Command>
+      <Message Condition="'$(Configuration)|$(Platform)'=='Release|x64'">Generating precompiled header source file 'precompiled.h.cpp' ...</Message>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">precompiled.h.cpp;%(Outputs)</Outputs>
+    </CustomBuild>
+    <ClInclude Include="..\..\..\Binary\Document\BinReader\webSettingsWriter.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="precompiled.h.cpp">
+      <ForcedIncludeFiles Condition="'$(Configuration)|$(Platform)'=='Release|x64'">$(NOINHERIT)</ForcedIncludeFiles>
+      <PrecompiledHeaderFile Condition="'$(Configuration)|$(Platform)'=='Release|x64'">precompiled.h</PrecompiledHeaderFile>
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|x64'">Create</PrecompiledHeader>
+    </ClCompile>
+  </ItemGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
+  <Import Project="$(QtMsBuild)\qt.targets" Condition="Exists('$(QtMsBuild)\qt.targets')" />
+  <ImportGroup Label="ExtensionTargets" />
+</Project>

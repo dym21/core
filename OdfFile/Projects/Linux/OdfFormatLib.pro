@@ -409,7 +409,7 @@ SOURCES += \
 	../../Common/xml/attributes.cpp \
 	../../Common/xml/sax.cpp \
 	../../Common/xml/sax_xmllite.cpp \
-	../../Common/xml/utils.cpp \
+	../../Common/xml/utilsxml.cpp \
 	../../Common/xml/xmlchar.cpp \
 	../../Common/CPColorUtils.cpp \
 	../../Common/CPString.cpp \
