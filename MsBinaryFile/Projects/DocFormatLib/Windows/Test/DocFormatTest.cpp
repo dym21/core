@@ -32,19 +32,42 @@
 #include <iostream>
 
 #include "../../Common/OfficeFileFormatChecker.h"
-#include "../../Common/DocxFormat/Source/Base/Base.h"
-#include "../../Common/DocxFormat/Source/Base/Base.h"
 #include "../../DesktopEditor/common/Directory.h"
 #include "../../OfficeUtils/src/OfficeUtils.h"
 
-#include "../DocFormatLib/DocFormatLib.h"
+#include "../../../../DocFile/Main/DocFormatLib.h"
+
+
+#include <chrono>
+#include <iostream>
+#include <string>
+
+class ScopeTimer {
+public:
+	explicit ScopeTimer(const std::string& name)
+		: name_(name),
+		start_(std::chrono::high_resolution_clock::now()) {
+	}
+
+	~ScopeTimer() {
+		auto end = std::chrono::high_resolution_clock::now();
+		std::chrono::duration<double> cost = end - start_; // 秒
+		std::cout << "[TIMER] " << name_
+			<< " cost " << cost.count()
+			<< " s" << std::endl;
+	}
+
+private:
+	std::string name_;
+	std::chrono::high_resolution_clock::time_point start_;
+};
 
 #pragma comment(lib,"Shell32.lib")	
 #pragma comment(lib,"Advapi32.lib")
 #pragma comment(lib,"Rpcrt4.lib")
 
 #if defined(_WIN64)
-	#pragma comment(lib, "../../build/bin/icu/win_64/icuuc.lib")
+	#pragma comment(lib, "../../../../../Common/3dParty/icu/win_64/build/icuuc.lib")
 #elif defined (_WIN32)
 
 	#if defined(_DEBUG)
@@ -80,7 +103,7 @@ HRESULT convert_single(std::wstring srcFileName)
 	docFile.m_nUserLCID = 1049;
 	
 	bool bMacros = true;
-	HRESULT hRes = docFile.LoadFromFile( srcFileName, dstTempPath, L"password", bMacros, NULL);
+	HRESULT hRes = docFile.LoadFromFile( srcFileName, dstTempPath, L"password", bMacros);
 	
 	if (bMacros)
 	{
@@ -117,18 +140,23 @@ HRESULT convert_directory(std::wstring pathName)
 }
 
 int _tmain(int argc, _TCHAR* argv[])
+
+
 {
 	if (argc < 2) return 1;
 
 	HRESULT hr = -1;
-	if (NSFile::CFileBinary::Exists(argv[1]))
-	{	
-		hr = convert_single(argv[1]);
-	}
-	else if (NSDirectory::Exists(argv[1]))
-	{
-		hr = convert_directory(argv[1]);
-	}
+    {
+		ScopeTimer timer("foo");
+        if (NSFile::CFileBinary::Exists(argv[1]))
+        {	
+            hr = convert_single(argv[1]);
+        }
+        else if (NSDirectory::Exists(argv[1]))
+        {
+            hr = convert_directory(argv[1]);
+        }
+    }
 
 	return hr;
 }
