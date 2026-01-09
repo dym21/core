@@ -19,9 +19,10 @@
     </ProjectConfiguration>
   </ItemGroup>
   <PropertyGroup Label="Globals">
-    <ProjectGuid>{0F49D5D1-A8D3-4F97-8BC1-E2F65BB00C10}</ProjectGuid>
+    <ProjectGuid>{C4FB83E0-67AD-46E3-B892-76565B491B83}</ProjectGuid>
     <RootNamespace>PptFormatTest</RootNamespace>
     <Keyword>Win32Proj</Keyword>
+    <WindowsTargetPlatformVersion>10.0</WindowsTargetPlatformVersion>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="Configuration">
@@ -38,9 +39,9 @@
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'" Label="Configuration">
     <ConfigurationType>Application</ConfigurationType>
-    <PlatformToolset>v140</PlatformToolset>
     <CharacterSet>Unicode</CharacterSet>
     <WholeProgramOptimization>true</WholeProgramOptimization>
+    <PlatformToolset>v145</PlatformToolset>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'" Label="Configuration">
     <ConfigurationType>Application</ConfigurationType>
@@ -85,7 +86,7 @@
     <LinkIncremental>false</LinkIncremental>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
-    <OutDir>$(SolutionDir)$(Platform)\$(Configuration)\</OutDir>
+    <OutDir>$(SolutionDir)build\bin\win_64</OutDir>
     <IntDir>$(Platform)\$(Configuration)\</IntDir>
     <LinkIncremental>false</LinkIncremental>
   </PropertyGroup>
@@ -158,42 +159,27 @@
       <TargetEnvironment>X64</TargetEnvironment>
     </Midl>
     <ClCompile>
-      <AdditionalIncludeDirectories>..\..\DesktopEditor\freetype-2.5.2\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>..\..\..\..\..\Common\OfficeDrawing;..\..\..\..\..\DesktopEditor\freetype-2.5.2\include;..\..\..\..\..\Common\OfficeDrawing\Shapes;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <PreprocessorDefinitions>NDEBUG;_CONSOLE;_USE_MATH_DEFINES;PPTX_DEF;PPT_DEF;ENABLE_PPT_TO_PPTX_CONVERT;PPT_FORMAT;_USE_LIBXML2_READER_;LIBXML_READER_ENABLED;USE_LITE_READER;_USE_XMLLITE_READER_;BUILD_CONFIG_FULL_VERSION;_PRESENTATION_WRITER_;_SVG_CONVERT_TO_IMAGE_;DONT_WRITE_EMBEDDED_FONTS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <RuntimeLibrary>MultiThreadedDLL</RuntimeLibrary>
       <PrecompiledHeader />
       <WarningLevel>Level3</WarningLevel>
       <DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
+      <Optimization>Disabled</Optimization>
     </ClCompile>
     <Link>
-      <AdditionalDependencies>Urlmon.lib;%(AdditionalDependencies)</AdditionalDependencies>
-      <IgnoreSpecificDefaultLibraries>libcmt.lib;%(IgnoreSpecificDefaultLibraries)</IgnoreSpecificDefaultLibraries>
+      <AdditionalDependencies>xlsformatlib.lib;kernel.lib;ooxml_crypt.lib;BinDocument.lib;DocxFormatLib.lib;kernel_network.lib;XlsbFormatLib.lib;DocxRenderer.lib;PptFormatLib.lib;PptxFormatLib.lib;DocFormatLib.lib;PdfFile.lib;OdfFormatLib.lib;TxtXmlFormatLib.lib;VbaFormatLib.lib;HtmlFile2.lib;OFDFile.lib;graphics.lib;CryptoPPLib.lib;CompoundFileLib.lib;UnicodeConverter.lib;icuuc.lib;libssl.lib;libcrypto.lib;RtfFormatLib.lib;Advapi32.lib;Shell32.lib;Gdi32.lib;User32.lib;crypt32.lib;cryptui.lib;ws2_32.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <IgnoreSpecificDefaultLibraries>
+      </IgnoreSpecificDefaultLibraries>
       <GenerateDebugInformation>true</GenerateDebugInformation>
       <SubSystem>Console</SubSystem>
       <OptimizeReferences>true</OptimizeReferences>
       <EnableCOMDATFolding>true</EnableCOMDATFolding>
       <TargetMachine>MachineX64</TargetMachine>
+      <AdditionalLibraryDirectories>$(SolutionDir)\build\lib\win_64;$(SolutionDir)\build\bin\win_64;$(SolutionDir)\Common\3dParty\boost\build\win_64\lib</AdditionalLibraryDirectories>
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="..\..\ASCOfficeDocxFile2\BinReader\CustormXmlWriter.cpp" />
-    <ClCompile Include="..\..\ASCOfficeDocxFile2\BinReader\FileWriter.cpp" />
-    <ClCompile Include="..\..\ASCOfficeDocxFile2\BinReader\Readers.cpp" />
-    <ClCompile Include="..\..\ASCOfficeDocxFile2\BinWriter\BinWriters.cpp" />
-    <ClCompile Include="..\..\ASCOfficeDocxFile2\DocWrapper\ChartWriter.cpp" />
-    <ClCompile Include="..\..\ASCOfficeDocxFile2\DocWrapper\DocxSerializer.cpp" />
-    <ClCompile Include="..\..\ASCOfficeDocxFile2\DocWrapper\FontProcessor.cpp" />
-    <ClCompile Include="..\..\ASCOfficeDocxFile2\DocWrapper\XlsxSerializer.cpp" />
-    <ClCompile Include="..\..\ASCOfficePPTXFile\Editor\BinaryFileReaderWriter.cpp" />
-    <ClCompile Include="..\..\Common\3dParty\pole\pole.cpp" />
-    <ClCompile Include="..\..\Common\OfficeFileFormatChecker2.cpp" />
-    <ClCompile Include="..\..\XlsxSerializerCom\Common\Common.cpp" />
-    <ClCompile Include="..\..\XlsxSerializerCom\Reader\BinaryWriter.cpp" />
-    <ClCompile Include="..\..\XlsxSerializerCom\Reader\ChartFromToBinary.cpp" />
-    <ClCompile Include="..\..\XlsxSerializerCom\Reader\CommonWriter.cpp" />
-    <ClCompile Include="..\..\XlsxSerializerCom\Reader\CSVReader.cpp" />
-    <ClCompile Include="..\..\XlsxSerializerCom\Writer\BinaryReader.cpp" />
-    <ClCompile Include="..\..\XlsxSerializerCom\Writer\CSVWriter.cpp" />
     <ClCompile Include="PptFormatTest.cpp" />
   </ItemGroup>
   <ItemGroup>

@@ -31,7 +31,7 @@
  */
 // PptFormatTest.cpp : Defines the entry point for the console application.
 //
-#include "../PPTFormatLib/PPTFormatLib.h"
+#include "../../../../PptFile/Main/PPTFormatLib.h"
 #include "../../OfficeUtils/src/OfficeUtils.h"
 
 #include "../../DesktopEditor/common/Directory.h"
@@ -40,20 +40,47 @@
 
 #pragma comment(lib, "Rpcrt4.lib")
 
+
+#include <chrono>
+#include <iostream>
+#include <string>
+
+class ScopeTimer {
+public:
+	explicit ScopeTimer(const std::string& name)
+		: name_(name),
+		start_(std::chrono::high_resolution_clock::now()) {
+	}
+
+	~ScopeTimer() {
+		auto end = std::chrono::high_resolution_clock::now();
+		std::chrono::duration<double> cost = end - start_; // 秒
+		std::cout << "[TIMER] " << name_
+			<< " cost " << cost.count()
+			<< " s" << std::endl;
+	}
+
+private:
+	std::string name_;
+	std::chrono::high_resolution_clock::time_point start_;
+};
+
+
+
 #if defined(_WIN64)
-	#pragma comment(lib, "../../build/bin/icu/win_64/icuuc.lib")
+#pragma comment(lib, "../../../../../Common/3dParty/icu/win_64/build/icuuc.lib")
 #elif defined (_WIN32)
 
-	#if defined(_DEBUG)
-		#pragma comment(lib, "../../build/lib/win_32/DEBUG/graphics.lib")
-		#pragma comment(lib, "../../build/lib/win_32/DEBUG/kernel.lib")
-		#pragma comment(lib, "../../build/lib/win_32/DEBUG/UnicodeConverter.lib")
-	#else
-		#pragma comment(lib, "../../build/lib/win_32/graphics.lib")
-		#pragma comment(lib, "../../build/lib/win_32/kernel.lib")
-		#pragma comment(lib, "../../build/lib/win_32/UnicodeConverter.lib")
-	#endif
-	#pragma comment(lib, "../../build/bin/icu/win_32/icuuc.lib")
+#if defined(_DEBUG)
+#pragma comment(lib, "../../build/lib/win_32/DEBUG/graphics.lib")
+#pragma comment(lib, "../../build/lib/win_32/DEBUG/kernel.lib")
+#pragma comment(lib, "../../build/lib/win_32/DEBUG/UnicodeConverter.lib")
+#else
+#pragma comment(lib, "../../build/lib/win_32/graphics.lib")
+#pragma comment(lib, "../../build/lib/win_32/kernel.lib")
+#pragma comment(lib, "../../build/lib/win_32/UnicodeConverter.lib")
+#endif
+#pragma comment(lib, "../../build/bin/icu/win_32/icuuc.lib")
 #endif
 
 HRESULT convert_single(std::wstring srcFileName)
@@ -124,14 +151,17 @@ int _tmain(int argc, _TCHAR* argv[])
 	if (argc < 2) return 1;
 
 	HRESULT hr = -1;
-	if (NSFile::CFileBinary::Exists(argv[1]))
-	{	
-		hr = convert_single(argv[1]);
-	}
-	else if (NSDirectory::Exists(argv[1]))
-	{
-		hr = convert_directory(argv[1]);
-	}
+    {
+		ScopeTimer f_timer("PptFormatTest");
+        if (NSFile::CFileBinary::Exists(argv[1]))
+        {	
+            hr = convert_single(argv[1]);
+        }
+        else if (NSDirectory::Exists(argv[1]))
+        {
+            hr = convert_directory(argv[1]);
+        }
+    }
 
 	return hr;
 }

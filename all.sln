@@ -1,6 +1,6 @@
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 18
-VisualStudioVersion = 18.1.11312.151 d18.0
+VisualStudioVersion = 18.1.11312.151
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "CryptoPPLib", "Common\3dParty\cryptopp\project\CryptoPPLib.vcxproj", "{84B9E435-B5D5-3942-B1EC-16AB179B6D73}"
 EndProject
@@ -263,6 +263,14 @@ EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "DocFormatTest", "MsBinaryFile\Projects\DocFormatLib\Windows\Test\DocFormatTest.vcxproj", "{0F49D5D1-A8D3-4F97-8BC1-E2F65BB00C10}"
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "ooxml_crypt_lib", "OfficeCryptReader\ooxml_crypt\ooxml_crypt_lib.vcxproj", "{84CBBF40-B485-41E3-B4A8-49525B89C166}"
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "PptFormatTest", "MsBinaryFile\Projects\PPTFormatLib\Windows\Test\PptFormatTest.vcxproj", "{C4FB83E0-67AD-46E3-B892-76565B491B83}"
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "XlsFormatTest", "MsBinaryFile\Projects\XlsFormatLib\Windows\Test\XlsFormatTest.vcxproj", "{C2882DDD-07E6-4314-AD4B-48F43F38D722}"
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "PdfFileTest", "PdfFile\test\test.vcxproj", "{42ADD379-DF64-2892-4E57-2A24FC8DA43C}"
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "ooxmlsignature", "DesktopEditor\xmlsec\src\ooxmlsignature.vcxproj", "{6BE3C07B-535E-CC96-871B-6E346580CB61}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -528,6 +536,38 @@ Global
 		{84CBBF40-B485-41E3-B4A8-49525B89C166}.Release|x64.Build.0 = Release|x64
 		{84CBBF40-B485-41E3-B4A8-49525B89C166}.Release|x86.ActiveCfg = Release|x64
 		{84CBBF40-B485-41E3-B4A8-49525B89C166}.Release|x86.Build.0 = Release|x64
+		{C4FB83E0-67AD-46E3-B892-76565B491B83}.Debug|x64.ActiveCfg = Debug|x64
+		{C4FB83E0-67AD-46E3-B892-76565B491B83}.Debug|x64.Build.0 = Debug|x64
+		{C4FB83E0-67AD-46E3-B892-76565B491B83}.Debug|x86.ActiveCfg = Debug|Win32
+		{C4FB83E0-67AD-46E3-B892-76565B491B83}.Debug|x86.Build.0 = Debug|Win32
+		{C4FB83E0-67AD-46E3-B892-76565B491B83}.Release|x64.ActiveCfg = Release|x64
+		{C4FB83E0-67AD-46E3-B892-76565B491B83}.Release|x64.Build.0 = Release|x64
+		{C4FB83E0-67AD-46E3-B892-76565B491B83}.Release|x86.ActiveCfg = Release|Win32
+		{C4FB83E0-67AD-46E3-B892-76565B491B83}.Release|x86.Build.0 = Release|Win32
+		{C2882DDD-07E6-4314-AD4B-48F43F38D722}.Debug|x64.ActiveCfg = Debug|x64
+		{C2882DDD-07E6-4314-AD4B-48F43F38D722}.Debug|x64.Build.0 = Debug|x64
+		{C2882DDD-07E6-4314-AD4B-48F43F38D722}.Debug|x86.ActiveCfg = Debug|Win32
+		{C2882DDD-07E6-4314-AD4B-48F43F38D722}.Debug|x86.Build.0 = Debug|Win32
+		{C2882DDD-07E6-4314-AD4B-48F43F38D722}.Release|x64.ActiveCfg = Release|x64
+		{C2882DDD-07E6-4314-AD4B-48F43F38D722}.Release|x64.Build.0 = Release|x64
+		{C2882DDD-07E6-4314-AD4B-48F43F38D722}.Release|x86.ActiveCfg = Release|Win32
+		{C2882DDD-07E6-4314-AD4B-48F43F38D722}.Release|x86.Build.0 = Release|Win32
+		{42ADD379-DF64-2892-4E57-2A24FC8DA43C}.Debug|x64.ActiveCfg = Release|x64
+		{42ADD379-DF64-2892-4E57-2A24FC8DA43C}.Debug|x64.Build.0 = Release|x64
+		{42ADD379-DF64-2892-4E57-2A24FC8DA43C}.Debug|x86.ActiveCfg = Release|x64
+		{42ADD379-DF64-2892-4E57-2A24FC8DA43C}.Debug|x86.Build.0 = Release|x64
+		{42ADD379-DF64-2892-4E57-2A24FC8DA43C}.Release|x64.ActiveCfg = Release|x64
+		{42ADD379-DF64-2892-4E57-2A24FC8DA43C}.Release|x64.Build.0 = Release|x64
+		{42ADD379-DF64-2892-4E57-2A24FC8DA43C}.Release|x86.ActiveCfg = Release|x64
+		{42ADD379-DF64-2892-4E57-2A24FC8DA43C}.Release|x86.Build.0 = Release|x64
+		{6BE3C07B-535E-CC96-871B-6E346580CB61}.Debug|x64.ActiveCfg = Release|x64
+		{6BE3C07B-535E-CC96-871B-6E346580CB61}.Debug|x64.Build.0 = Release|x64
+		{6BE3C07B-535E-CC96-871B-6E346580CB61}.Debug|x86.ActiveCfg = Release|x64
+		{6BE3C07B-535E-CC96-871B-6E346580CB61}.Debug|x86.Build.0 = Release|x64
+		{6BE3C07B-535E-CC96-871B-6E346580CB61}.Release|x64.ActiveCfg = Release|x64
+		{6BE3C07B-535E-CC96-871B-6E346580CB61}.Release|x64.Build.0 = Release|x64
+		{6BE3C07B-535E-CC96-871B-6E346580CB61}.Release|x86.ActiveCfg = Release|x64
+		{6BE3C07B-535E-CC96-871B-6E346580CB61}.Release|x86.Build.0 = Release|x64
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -575,6 +615,10 @@ Global
 		{04829EB1-2025-351B-ABFB-5023C533A88D} = {1AD7B9A0-334E-46FE-A371-DD86E2FC7005}
 		{0F49D5D1-A8D3-4F97-8BC1-E2F65BB00C10} = {1AD7B9A0-334E-46FE-A371-DD86E2FC7005}
 		{84CBBF40-B485-41E3-B4A8-49525B89C166} = {F1549FEC-94A7-495A-B7B3-869FAADF5E4B}
+		{C4FB83E0-67AD-46E3-B892-76565B491B83} = {1AD7B9A0-334E-46FE-A371-DD86E2FC7005}
+		{C2882DDD-07E6-4314-AD4B-48F43F38D722} = {1AD7B9A0-334E-46FE-A371-DD86E2FC7005}
+		{42ADD379-DF64-2892-4E57-2A24FC8DA43C} = {1AD7B9A0-334E-46FE-A371-DD86E2FC7005}
+		{6BE3C07B-535E-CC96-871B-6E346580CB61} = {F1549FEC-94A7-495A-B7B3-869FAADF5E4B}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {EE9301AD-9512-43DD-9A8F-19F3F9D561F1}

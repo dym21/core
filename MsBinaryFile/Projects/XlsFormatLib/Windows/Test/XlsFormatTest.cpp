@@ -33,92 +33,89 @@
 //
 
 #include <iostream>
-
-#include "../../Common/DocxFormat/Source/Base/Base.h"
-#include "../../DesktopEditor/common/Directory.h"
-
-#include "../source/XlsXlsxConverter/ConvertXls2Xlsx.h"
-#include "../source/XlsXlsxConverter/progressCallback.h"
-
+#include "../../../../XlsFile/Converter/ConvertXls2Xlsx.h"
 #include "../../OfficeUtils/src/OfficeUtils.h"
 
-#pragma comment(lib,"Shell32.lib")	
+#include "../../DesktopEditor/common/Directory.h"
+
+#pragma comment(lib,"Shell32.lib")
 #pragma comment(lib,"Advapi32.lib")
 
+
 #if defined(_WIN64)
-	#pragma comment(lib, "../../build/bin/icu/win_64/icuuc.lib")
+#pragma comment(lib, "../../../../../Common/3dParty/icu/win_64/build/icuuc.lib")
 #elif defined (_WIN32)
 
-	#if defined(_DEBUG)
-		#pragma comment(lib, "../../build/lib/win_32/DEBUG/graphics.lib")
-		#pragma comment(lib, "../../build/lib/win_32/DEBUG/kernel.lib")
-		#pragma comment(lib, "../../build/lib/win_32/DEBUG/UnicodeConverter.lib")
-	#else
-		#pragma comment(lib, "../../build/lib/win_32/graphics.lib")
-		#pragma comment(lib, "../../build/lib/win_32/kernel.lib")
-		#pragma comment(lib, "../../build/lib/win_32/UnicodeConverter.lib")
-	#endif
-	#pragma comment(lib, "../../build/bin/icu/win_32/icuuc.lib")
+#if defined(_DEBUG)
+#pragma comment(lib, "../../build/lib/win_32/DEBUG/graphics.lib")
+#pragma comment(lib, "../../build/lib/win_32/DEBUG/kernel.lib")
+#pragma comment(lib, "../../build/lib/win_32/DEBUG/UnicodeConverter.lib")
+#else
+#pragma comment(lib, "../../build/lib/win_32/graphics.lib")
+#pragma comment(lib, "../../build/lib/win_32/kernel.lib")
+#pragma comment(lib, "../../build/lib/win_32/UnicodeConverter.lib")
+#endif
+#pragma comment(lib, "../../build/bin/icu/win_32/icuuc.lib")
 #endif
 
 HRESULT convert_single(std::wstring srcFileName)
 {
-	HRESULT hr = S_OK;
+    HRESULT hr = S_OK;
 
-	std::wstring outputDir		= NSDirectory::GetFolderPath(srcFileName);	
-	std::wstring dstTempPath	= NSDirectory::CreateDirectoryWithUniqueName(outputDir);
-	std::wstring dstPath;
+    std::wstring outputDir = NSDirectory::GetFolderPath(srcFileName);
+    std::wstring dstTempPath = NSDirectory::CreateDirectoryWithUniqueName(outputDir);
+    std::wstring dstPath;
 
-	bool bMacros = true;
-	hr = ConvertXls2Xlsx(srcFileName, dstTempPath, L"password", L"C:\\Windows\\Fonts", L"C:\\Windows\\Temp", 1049, bMacros);
+    bool bMacros = true;
+    hr = ConvertXls2Xlsx(srcFileName, dstTempPath, L"password", L"C:\\Windows\\Fonts", L"C:\\Windows\\Temp", 1049,
+                         bMacros);
 
-	if (bMacros)
-	{
-		dstPath = srcFileName + L"-my.xlsm";
-	}
-	else
-	{
-		dstPath = srcFileName + L"-my.xlsx";
+    if (bMacros)
+    {
+        dstPath = srcFileName + L"-my.xlsm";
+    }
+    else
+    {
+        dstPath = srcFileName + L"-my.xlsx";
+    }
+    if (hr == S_OK)
+    {
+        COfficeUtils oCOfficeUtils(NULL);
+        hr = oCOfficeUtils.CompressFileOrDirectory(dstTempPath.c_str(), dstPath.c_str(), true);
+    }
 
-	}
-	if (hr == S_OK) 
-	{
-		COfficeUtils oCOfficeUtils(NULL);
-		hr = oCOfficeUtils.CompressFileOrDirectory(dstTempPath.c_str(), dstPath.c_str(), true);
-	}
-	
-	NSDirectory::DeleteDirectory(dstTempPath);
+    NSDirectory::DeleteDirectory(dstTempPath);
 
 
-	return hr;
+    return hr;
 }
 
 HRESULT convert_directory(std::wstring pathName)
 {
-	HRESULT hr = S_OK;
+    HRESULT hr = S_OK;
 
-	std::vector<std::wstring> arFiles = NSDirectory::GetFiles(pathName, false);
+    std::vector<std::wstring> arFiles = NSDirectory::GetFiles(pathName, false);
 
-	for (size_t i = 0; i < arFiles.size(); i++)
-	{
-		convert_single(arFiles[i]);
-	}
-	return S_OK;
+    for (size_t i = 0; i < arFiles.size(); i++)
+    {
+        convert_single(arFiles[i]);
+    }
+    return S_OK;
 }
 
 int _tmain(int argc, _TCHAR* argv[])
 {
-	if (argc < 2) return 1;
+    if (argc < 2) return 1;
 
-	HRESULT hr = -1;
-	if (NSFile::CFileBinary::Exists(argv[1]))
-	{	
-		hr = convert_single(argv[1]);
-	}
-	else if (NSDirectory::Exists(argv[1]))
-	{
-		hr = convert_directory(argv[1]);
-	}
+    HRESULT hr = -1;
+    if (NSFile::CFileBinary::Exists(argv[1]))
+    {
+        hr = convert_single(argv[1]);
+    }
+    else if (NSDirectory::Exists(argv[1]))
+    {
+        hr = convert_directory(argv[1]);
+    }
 
-	return hr;
+    return hr;
 }

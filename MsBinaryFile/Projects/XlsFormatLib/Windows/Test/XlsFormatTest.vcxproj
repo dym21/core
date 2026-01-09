@@ -22,6 +22,7 @@
     <ProjectGuid>{C2882DDD-07E6-4314-AD4B-48F43F38D722}</ProjectGuid>
     <RootNamespace>ASCOfficeOdfFileTest</RootNamespace>
     <Keyword>Win32Proj</Keyword>
+    <WindowsTargetPlatformVersion>10.0</WindowsTargetPlatformVersion>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="Configuration">
@@ -37,7 +38,7 @@
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'" Label="Configuration">
     <ConfigurationType>Application</ConfigurationType>
-    <PlatformToolset>v140</PlatformToolset>
+    <PlatformToolset>v145</PlatformToolset>
     <CharacterSet>Unicode</CharacterSet>
     <WholeProgramOptimization>true</WholeProgramOptimization>
   </PropertyGroup>
@@ -83,7 +84,7 @@
     <LinkIncremental>false</LinkIncremental>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
-    <OutDir>$(SolutionDir)$(Platform)\$(Configuration)\</OutDir>
+    <OutDir>$(SolutionDir)build\bin\win_64</OutDir>
     <IntDir>$(Platform)\$(Configuration)\</IntDir>
     <LinkIncremental>false</LinkIncremental>
   </PropertyGroup>
@@ -152,37 +153,22 @@
     <ClCompile>
       <PreprocessorDefinitions>WIN32;NDEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <RuntimeLibrary>MultiThreadedDLL</RuntimeLibrary>
-      <PrecompiledHeader>Use</PrecompiledHeader>
       <WarningLevel>Level3</WarningLevel>
       <DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
+      <Optimization>Disabled</Optimization>
+      <AdditionalIncludeDirectories>..\..\..\..\..\Common\OfficeDrawing;..\..\..\..\..\DesktopEditor\freetype-2.5.2\include;..\..\..\..\..\Common\OfficeDrawing\Shapes;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
-      <AdditionalDependencies>kernel32.lib</AdditionalDependencies>
+      <AdditionalDependencies>xlsformatlib.lib;kernel.lib;ooxml_crypt.lib;BinDocument.lib;DocxFormatLib.lib;kernel_network.lib;XlsbFormatLib.lib;DocxRenderer.lib;PptFormatLib.lib;PptxFormatLib.lib;DocFormatLib.lib;PdfFile.lib;OdfFormatLib.lib;TxtXmlFormatLib.lib;VbaFormatLib.lib;HtmlFile2.lib;OFDFile.lib;graphics.lib;CryptoPPLib.lib;CompoundFileLib.lib;UnicodeConverter.lib;icuuc.lib;libssl.lib;libcrypto.lib;RtfFormatLib.lib;Advapi32.lib;Shell32.lib;Gdi32.lib;User32.lib;crypt32.lib;cryptui.lib;ws2_32.lib;%(AdditionalDependencies)</AdditionalDependencies>
       <GenerateDebugInformation>true</GenerateDebugInformation>
       <SubSystem>Console</SubSystem>
       <OptimizeReferences>true</OptimizeReferences>
       <EnableCOMDATFolding>true</EnableCOMDATFolding>
       <TargetMachine>MachineX64</TargetMachine>
+      <AdditionalLibraryDirectories>$(SolutionDir)\build\lib\win_64;$(SolutionDir)\build\bin\win_64;$(SolutionDir)\Common\3dParty\boost\build\win_64\lib</AdditionalLibraryDirectories>
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="..\..\ASCOfficeDocxFile2\BinReader\CustormXmlWriter.cpp" />
-    <ClCompile Include="..\..\ASCOfficeDocxFile2\BinReader\FileWriter.cpp" />
-    <ClCompile Include="..\..\ASCOfficeDocxFile2\BinReader\Readers.cpp" />
-    <ClCompile Include="..\..\ASCOfficeDocxFile2\BinWriter\BinWriters.cpp" />
-    <ClCompile Include="..\..\ASCOfficeDocxFile2\DocWrapper\ChartWriter.cpp" />
-    <ClCompile Include="..\..\ASCOfficeDocxFile2\DocWrapper\DocxSerializer.cpp" />
-    <ClCompile Include="..\..\ASCOfficeDocxFile2\DocWrapper\FontProcessor.cpp" />
-    <ClCompile Include="..\..\ASCOfficeDocxFile2\DocWrapper\XlsxSerializer.cpp" />
-    <ClCompile Include="..\..\Common\FileDownloader\FileDownloader_win.cpp" />
-    <ClCompile Include="..\..\Common\OfficeFileFormatChecker2.cpp" />
-    <ClCompile Include="..\..\XlsxSerializerCom\Common\Common.cpp" />
-    <ClCompile Include="..\..\XlsxSerializerCom\Reader\BinaryWriter.cpp" />
-    <ClCompile Include="..\..\XlsxSerializerCom\Reader\ChartFromToBinary.cpp" />
-    <ClCompile Include="..\..\XlsxSerializerCom\Reader\CommonWriter.cpp" />
-    <ClCompile Include="..\..\XlsxSerializerCom\Reader\CSVReader.cpp" />
-    <ClCompile Include="..\..\XlsxSerializerCom\Writer\BinaryReader.cpp" />
-    <ClCompile Include="..\..\XlsxSerializerCom\Writer\CSVWriter.cpp" />
     <ClCompile Include="XlsFormatTest.cpp">
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
       </PrecompiledHeader>
