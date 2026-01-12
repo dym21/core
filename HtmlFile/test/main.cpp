@@ -95,7 +95,7 @@ protected:
 
         CHtmlFile oFile;
         std::wstring sMetaInfo;
-        int nResult = oFile.ConvertEpub(sSrc, sMetaInfo, sDstFolder, sPath);
+        int nResult = oFile.ConvertEpub(sSrc, sMetaInfo, sDstFolder);
         nResult;
 
         m_pCounter->Decrement();

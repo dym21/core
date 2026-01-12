@@ -165,13 +165,13 @@
       <DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
     </ClCompile>
     <Link>
-      <AdditionalDependencies>xlsformatlib.lib;kernel.lib;ooxml_crypt.lib;BinDocument.lib;DocxFormatLib.lib;kernel_network.lib;XlsbFormatLib.lib;DocxRenderer.lib;PptFormatLib.lib;PptxFormatLib.lib;DocFormatLib.lib;PdfFile.lib;OdfFormatLib.lib;TxtXmlFormatLib.lib;VbaFormatLib.lib;HtmlFile2.lib;OFDFile.lib;graphics.lib;CryptoPPLib.lib;CompoundFileLib.lib;UnicodeConverter.lib;icuuc.lib;libssl.lib;libcrypto.lib;RtfFormatLib.lib;Advapi32.lib;Shell32.lib;Gdi32.lib;User32.lib;crypt32.lib;cryptui.lib;ws2_32.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalDependencies>xlsformatlib.lib;kernel.lib;Rpcrt4.lib;ooxml_crypt.lib;BinDocument.lib;DocxFormatLib.lib;kernel_network.lib;XlsbFormatLib.lib;DocxRenderer.lib;PptFormatLib.lib;PptxFormatLib.lib;DocFormatLib.lib;PdfFile.lib;OdfFormatLib.lib;TxtXmlFormatLib.lib;VbaFormatLib.lib;HtmlFile2.lib;OFDFile.lib;graphics.lib;CryptoPPLib.lib;CompoundFileLib.lib;UnicodeConverter.lib;icuuc.lib;libssl.lib;libcrypto.lib;RtfFormatLib.lib;Advapi32.lib;Shell32.lib;Gdi32.lib;User32.lib;crypt32.lib;cryptui.lib;ws2_32.lib;%(AdditionalDependencies)</AdditionalDependencies>
       <GenerateDebugInformation>true</GenerateDebugInformation>
       <SubSystem>Console</SubSystem>
       <OptimizeReferences>true</OptimizeReferences>
       <EnableCOMDATFolding>true</EnableCOMDATFolding>
       <TargetMachine>MachineX64</TargetMachine>
-      <AdditionalLibraryDirectories>$(SolutionDir)\build\lib\win_64;$(SolutionDir)\build\bin\win_64;$(SolutionDir)\Common\3dParty\boost\build\win_64\lib</AdditionalLibraryDirectories>
+      <AdditionalLibraryDirectories>$(SolutionDir)\build\lib\win_64;$(SolutionDir)\Common\3dParty\boost\build\win_64\lib</AdditionalLibraryDirectories>
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>

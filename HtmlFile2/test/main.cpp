@@ -19,13 +19,13 @@ int main()
     bool bMhtMode = false;
     if(bBatchMode)
     {
-        // Директория файлов
+        // 文件目录
         std::wstring sDirectory = NSFile::GetProcessDirectory() + L"/../../../examples/html";
-        // Вложенные директории
+        // 嵌套目录
         std::vector<std::wstring> arrDirectory;
         getDirectories(sDirectory, arrDirectory);
         COfficeUtils oZip;
-        // Выставляем временную директорию
+        // 设置临时目录
         std::wstring sTmp = NSFile::GetProcessDirectory() + L"/tmp";
         NSDirectory::DeleteDirectory(sTmp);
         NSDirectory::CreateDirectory(sTmp);
@@ -33,7 +33,7 @@ int main()
         for(std::wstring sD : arrDirectory)
         {
             std::vector<std::wstring> arrFiles = NSDirectory::GetFiles(sD);
-            // Директория, где будем создавать docx
+            // 用于创建 docx 的目录
             size_t nPos = sD.find(L"/html");
             std::wstring sOutputDirectory = sD.insert(nPos + 5, L"-res");
             NSDirectory::CreateDirectory(sOutputDirectory);
@@ -84,7 +84,7 @@ int main()
     else
     {
         HRESULT nResConvert = S_FALSE;
-        // Директория, где будем создавать docx
+        // 用于创建 docx 的目录
         std::wstring sOutputDirectory = NSFile::GetProcessDirectory() + L"/res";
         NSDirectory::DeleteDirectory(sOutputDirectory);
         NSDirectory::CreateDirectory(sOutputDirectory);
@@ -96,7 +96,7 @@ int main()
         oParams.SetDate(L"2010-06-03T04:00:00+00:00");
         oParams.SetDescription(L"Description");
 
-        // Файл, который открываем
+        // 要打开的文件
         std::wstring sFile = NSFile::GetProcessDirectory() + L"/test.html";
         CHtmlFile2 oFile;
         oFile.SetTmpDirectory(sOutputDirectory);

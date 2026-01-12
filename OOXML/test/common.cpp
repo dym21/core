@@ -32,18 +32,20 @@
 
 #include "common.h"
 
-#include "../../../DesktopEditor/common/Directory.h"
+
 #include "../../../DesktopEditor/common/Path.h"
 #include "../../../OfficeUtils/src/OfficeUtils.h"
 #include "../../../DesktopEditor/fontengine/ApplicationFontsWorker.h"
 #include "../../../Common/OfficeFileFormatChecker.h"
 #include "../../../DesktopEditor/common/StringBuilder.h"
-#include "../../src/dylib/x2t.h"
+#include "../../../X2tConverter/src/dylib/x2t.h"
 #include "tchar.h"
 #include <cstdlib> 
 #include <locale>
 #include <codecvt>
 #include <boost/filesystem.hpp>
+
+#include "../../../DesktopEditor/common/Directory.h"
 
 
 std::wstring GetWorkDir()

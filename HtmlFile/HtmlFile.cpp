@@ -40,10 +40,13 @@
 #include "../DesktopEditor/common/StringBuilder.h"
 #include "../DesktopEditor/common/StringExt.h"
 #include "../DesktopEditor/xml/include/xmlutils.h"
-#include "../DesktopEditor/fontengine/application_generate_fonts_common.h"
 
 #include <vector>
 #include <map>
+#include <algorithm>
+#include <cwctype>
+
+#include "../DesktopEditor/fontengine/fontconverter/FontFileTrueType.h"
 
 #ifdef LINUX
 #include <unistd.h>
@@ -349,8 +352,10 @@ int CHtmlFile::Convert(const std::vector<std::wstring>& arFiles, const std::wstr
         oBuilder.WriteString(L"<file>");
 
         std::wstring sFilePath = *iter;
-        std::wstring sExt = NSCommon::GetFileExtention(sFilePath);
-        NSCommon::makeUpperW(sExt);
+        std::wstring sExt = NSFile::GetFileExtention(sFilePath);
+
+        std::transform(sExt.begin(), sExt.end(), sExt.begin(),
+            [](wchar_t c) { return std::towupper(c); });
 
         if (sExt == L"HTML" || sExt == L"HTM" || sExt == L"XHTML")
             oBuilder.WriteEncodeXmlString(CorrectHtmlPath(sFilePath));
@@ -588,7 +593,7 @@ static std::vector<std::wstring> ParseEpub(const std::wstring& sPackagePath, std
         std::wstring sCoverage      = oNodeMeta.ReadValueString(L"dc:coverage");
 
         std::vector<XmlUtils::CXmlNode> oMetaNodes = oNodeMeta.ReadNodesNoNS(L"meta");
-        if (oMetaNodes.IsValid())
+        if (!oMetaNodes.empty())
         {
             size_t nCountMeta = oMetaNodes.size();
             for (size_t i = 0; i < nCountMeta; ++i)
