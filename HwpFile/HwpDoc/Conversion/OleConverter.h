@@ -10,7 +10,7 @@ class COleConverter
 	unsigned int m_unCountCharts;
 	std::wstring m_wsTempDir;
 
-	void CreateChartData(const std::wstring& wsChartData);
+	void CreateChartData(CHWPStream& oOOXMLStream);
 public:
 	COleConverter();
 

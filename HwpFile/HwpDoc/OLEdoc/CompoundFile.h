@@ -10,7 +10,8 @@ namespace HWP
 {
 class CCompoundFile
 {
-	NSFile::CFileBinary m_oFile;
+	CHWPStream m_oData;
+
 	int m_nMinorVersion;
 	int m_nMajorVersion;
 	int m_nSectorSize;
@@ -33,6 +34,7 @@ class CCompoundFile
 	VECTOR<CDirectoryEntry*> m_arDirectoryEntries;
 public:
 	CCompoundFile(const HWP_STRING& sFileName);
+	CCompoundFile(CHWPStream& oBuffer);
 	~CCompoundFile();
 
 	const CDirectoryEntry* GetEntry(const HWP_STRING& sFileName) const;

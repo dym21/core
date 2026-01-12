@@ -4,6 +4,9 @@
 #include "../../../DesktopEditor/common/Directory.h"
 #include "../../../DesktopEditor/common/StringBuilder.h"
 
+#include "../OLEdoc/CompoundFile.h"
+#include "../Chart/ChartReader.h"
+
 namespace HWP
 {
 COleConverter::COleConverter()
@@ -25,13 +28,13 @@ void COleConverter::SetTempDir(const std::wstring& wsTempDir)
 {
 	m_wsTempDir = wsTempDir;
 }
-void COleConverter::CreateChartData(const std::wstring& wsChartData)
+void COleConverter::CreateChartData(CHWPStream& oOOXMLStream)
 {
 	const std::wstring wsPath = m_wsTempDir + FILE_SEPARATOR_STR + L"word" + FILE_SEPARATOR_STR + L"charts" + FILE_SEPARATOR_STR;
 
 	NSFile::CFileBinary oChartFile;
 	oChartFile.CreateFileW(wsPath + L"chart" + std::to_wstring(m_unCountCharts) + L".xml");
-	oChartFile.WriteStringUTF8(wsChartData);
+	oChartFile.WriteFile(oOOXMLStream.GetCurPtr(), oOOXMLStream.SizeToEnd());
 	oChartFile.CloseFile();
 
 	NSStringUtils::CStringBuilder oColorData;
@@ -91,20 +94,24 @@ void COleConverter::CreateChartData(const std::wstring& wsChartData)
 
 void COleConverter::CreateChart(CHWPStream& oOleStream)
 {
-	std::string sData = std::string(oOleStream.GetCurPtr(), oOleStream.GetSize());
+	oOleStream.Skip(4);
 
-	size_t unBegin = sData.find("<?xml");
+	CCompoundFile oCompoundFile(oOleStream);
 
-	if (std::string::npos == unBegin)
+	if (!oCompoundFile.Open())
 		return;
 
-	size_t unEnd = sData.find("</c:chartSpace>", unBegin);
+	CHWPStream oContentData;
+	if (!oCompoundFile.GetComponent(L"OOXMLChartContents", oContentData) || true)
+	{
+		if (!oCompoundFile.GetComponent(L"Contents", oContentData))
+			return;
 
-	if (std::string::npos == unEnd)
-		return;
+		CHART::CChartReader oChartReader;
 
-	const std::string sCharDataA = sData.substr(unBegin, unEnd - unBegin + 15);
-	const std::wstring wsChartData = UTF8_TO_U(sCharDataA);
+		if (!oChartReader.ReadFromOle(oContentData))
+			return;
+	}
 
 	const std::wstring wsPath = m_wsTempDir + FILE_SEPARATOR_STR + L"word" + FILE_SEPARATOR_STR + L"charts";
 
@@ -113,7 +120,7 @@ void COleConverter::CreateChart(CHWPStream& oOleStream)
 
 	++m_unCountCharts;
 
-	CreateChartData(wsChartData);
+	CreateChartData(oContentData);
 
 	const std::wstring wsRelsPath = wsPath + FILE_SEPARATOR_STR + L"_rels";
 

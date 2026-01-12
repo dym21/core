@@ -28,6 +28,7 @@ SOURCES += \
     HwpDoc/Chart/Bar.cpp \
     HwpDoc/Chart/Brush.cpp \
     HwpDoc/Chart/CategoryScale.cpp \
+    HwpDoc/Chart/ChartReader.cpp \
     HwpDoc/Chart/Contour.cpp \
     HwpDoc/Chart/ContourGradient.cpp \
     HwpDoc/Chart/Coor.cpp \
@@ -156,6 +157,8 @@ HEADERS += \
     HwpDoc/Chart/Brush.h \
     HwpDoc/Chart/CategoryScale.h \
     HwpDoc/Chart/ChartObject.h \
+    HwpDoc/Chart/ChartReader.h \
+    HwpDoc/Chart/Common.h \
     HwpDoc/Chart/Contour.h \
     HwpDoc/Chart/ContourGradient.h \
     HwpDoc/Chart/Coor.h \

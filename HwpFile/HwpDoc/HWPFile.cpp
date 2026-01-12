@@ -209,6 +209,19 @@ bool CHWPFile::GetChildStream(const HWP_STRING& sEntryName, ECompressed eCompres
 	return false;
 }
 
+bool CHWPFile::GetOLEObject(const HWP_STRING& sEntryName, CHWPStream& oBuffer)
+{
+	if (!m_oFileHeader.Compressed())
+		return GetComponent(sEntryName, oBuffer);
+
+	CHWPStream oTempBuffer;
+
+	if (!GetComponent(sEntryName, oTempBuffer))
+		return false;
+
+	return Unzip(oTempBuffer, oBuffer);
+}
+
 bool CHWPFile::Unzip(CHWPStream& oInput, CHWPStream& oBuffer)
 {
 	unsigned char* pInBuffer = new(std::nothrow) unsigned char[DEFAULT_BUFFER_SIZE];

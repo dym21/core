@@ -33,6 +33,7 @@ public:
 	bool GetDocInfo(int nVersion);
 	bool GetComponent(const HWP_STRING& sEntryName, CHWPStream& oBuffer);
 	bool GetChildStream(const HWP_STRING& sEntryName, ECompressed eCompressed, CHWPStream& oBuffer);
+	bool GetOLEObject(const HWP_STRING& sEntryName, CHWPStream& oBuffer);
 private:
 	CDirectoryEntry* FindChildEntry(const HWP_STRING& sBasePath, const CDirectoryEntry& oBaseEntry, const HWP_STRING& sEntryName) const;
 	HWP_STRING SaveChildEntry(const HWP_STRING& sRootPath, const HWP_STRING& sEntryName, ECompressed eCompressed);

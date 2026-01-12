@@ -7,7 +7,19 @@ namespace HWP
 CCompoundFile::CCompoundFile(const HWP_STRING& sFileName)
 	: m_nSectorSize(512)
 {
-	m_oFile.OpenFile(sFileName);
+	BYTE* pBuffer;
+	DWORD unSize;
+
+	if (!NSFile::CFileBinary::ReadAllBytes(sFileName, &pBuffer, unSize))
+		return;
+
+	m_oData.SetStream((HWP_BYTE*)pBuffer, unSize, false);
+}
+
+CCompoundFile::CCompoundFile(CHWPStream& oBuffer)
+	: m_nSectorSize(512)
+{
+	m_oData.SetStream(oBuffer.GetCurPtr(), oBuffer.SizeToEnd());
 }
 
 CCompoundFile::~CCompoundFile()
@@ -108,9 +120,8 @@ bool CCompoundFile::Read(const CDirectoryEntry& oEntry, CHWPStream& oBuffer)
 
 			int nSatID = arStreamContainerSectors.at(nStreamIndex);
 
-			DWORD dwSizeRead;
-			m_oFile.SeekFile((nSatID + 1) * m_nSectorSize + nStreamOffset * 64);
-			m_oFile.ReadFile((BYTE*)oBuffer.GetCurPtr(), nRemainSize >= 64 ? 64 : nRemainSize, dwSizeRead);
+			m_oData.MoveTo((nSatID + 1) * m_nSectorSize + nStreamOffset * 64);
+			const DWORD dwSizeRead{m_oData.ReadBytes((HWP_BYTE*)oBuffer.GetCurPtr(), nRemainSize >= 64 ? 64 : nRemainSize)};
 
 			oBuffer.Skip(dwSizeRead);
 			nRemainSize -= dwSizeRead;
@@ -124,9 +135,8 @@ bool CCompoundFile::Read(const CDirectoryEntry& oEntry, CHWPStream& oBuffer)
 				continue;
 
 			// readStream
-			DWORD dwSizeRead;
-			m_oFile.SeekFile((nSecNum + 1) * m_nSectorSize);
-			m_oFile.ReadFile((BYTE*)oBuffer.GetCurPtr(), nRemainSize >= m_nSectorSize ? m_nSectorSize : nRemainSize, dwSizeRead);
+			m_oData.MoveTo((nSecNum + 1) * m_nSectorSize);
+			const DWORD dwSizeRead{m_oData.ReadBytes((HWP_BYTE*)oBuffer.GetCurPtr(), nRemainSize >= m_nSectorSize ? m_nSectorSize : nRemainSize)};
 
 			oBuffer.Skip(dwSizeRead);
 			nRemainSize -= dwSizeRead;
@@ -145,15 +155,14 @@ bool CCompoundFile::Open()
 	if (!oBuffer.IsValid())
 		return false;
 
-	DWORD dwSizeRead;
-	m_oFile.ReadFile((BYTE*)oBuffer.GetCurPtr(), m_nSectorSize, dwSizeRead);
+	const DWORD dwSizeRead{m_oData.ReadBytes((HWP_BYTE*)oBuffer.GetCurPtr(), m_nSectorSize)};
 
 	if (dwSizeRead != m_nSectorSize || !ParseHeader(oBuffer))
 		return false;
 
 	if (0x0004 == m_nMajorVersion)
 	{
-		m_oFile.SeekFile(4096);
+		m_oData.MoveTo(4096);
 		m_nSectorSize = 4096;
 		oBuffer.Clear();
 		oBuffer.Expand(m_nSectorSize);
@@ -329,7 +338,7 @@ bool CCompoundFile::Open()
 
 void CCompoundFile::Close()
 {
-	m_oFile.CloseFile();
+	m_oData.Clear();
 }
 
 void CCompoundFile::AddSiblings(VECTOR<int>& arIndexs, int nCurrentIndex) const
@@ -372,9 +381,8 @@ VECTOR<int> CCompoundFile::GetSecIDsFromSAT(int nSecID, int nSatIndex, int nSecI
 	if (!oBuffer.IsValid())
 		return VECTOR<int>();
 
-	DWORD dwSizeRead;
-	m_oFile.SeekFile((nSecID + 1) * m_nSectorSize);
-	m_oFile.ReadFile((BYTE*)oBuffer.GetCurPtr(), m_nSectorSize, dwSizeRead);
+	m_oData.MoveTo((nSecID + 1) * m_nSectorSize);
+	const DWORD dwSizeRead{m_oData.ReadBytes((HWP_BYTE*)oBuffer.GetCurPtr(), m_nSectorSize)};
 
 	if (dwSizeRead != m_nSectorSize)
 		return VECTOR<int>();
@@ -405,9 +413,8 @@ void CCompoundFile::ReadDirectorySector(int nSecID)
 	if (!oBuffer.IsValid())
 		return;
 
-	DWORD dwSizeRead;
-	m_oFile.SeekFile((nSecID + 1) * m_nSectorSize);
-	m_oFile.ReadFile((BYTE*)oBuffer.GetCurPtr(), m_nSectorSize, dwSizeRead);
+	m_oData.MoveTo((nSecID + 1) * m_nSectorSize);
+	const DWORD dwSizeRead{m_oData.ReadBytes((HWP_BYTE*)oBuffer.GetCurPtr(), m_nSectorSize)};
 
 	if (dwSizeRead == m_nSectorSize)
 		ParseDirectorySector(oBuffer);
@@ -420,9 +427,8 @@ void CCompoundFile::ReadSSATSector(int nSecID)
 	if (!oBuffer.IsValid())
 		return;
 
-	DWORD dwSizeRead;
-	m_oFile.SeekFile((nSecID + 1) * m_nSectorSize);
-	m_oFile.ReadFile((BYTE*)oBuffer.GetCurPtr(), m_nSectorSize, dwSizeRead);
+	m_oData.MoveTo((nSecID + 1) * m_nSectorSize);
+	const DWORD dwSizeRead{m_oData.ReadBytes((HWP_BYTE*)oBuffer.GetCurPtr(), m_nSectorSize)};
 
 	if (dwSizeRead == m_nSectorSize)
 		ParseSSATSector(oBuffer);
@@ -435,9 +441,8 @@ void CCompoundFile::ReadMSATSector(int nSecID)
 	if (!oBuffer.IsValid())
 		return;
 
-	DWORD dwSizeRead;
-	m_oFile.SeekFile((nSecID + 1) * m_nSectorSize);
-	m_oFile.ReadFile((BYTE*)oBuffer.GetCurPtr(), m_nSectorSize, dwSizeRead);
+	m_oData.MoveTo((nSecID + 1) * m_nSectorSize);
+	const DWORD dwSizeRead{m_oData.ReadBytes((HWP_BYTE*)oBuffer.GetCurPtr(), m_nSectorSize)};
 
 	if (dwSizeRead == m_nSectorSize)
 		ParseMSATSector(oBuffer);
@@ -607,7 +612,8 @@ void CCompoundFile::ParseMSATSector(CHWPStream& oBuffer)
 
 bool CCompoundFile::ParseHeader(CHWPStream& oBuffer)
 {
-	CheckSignature(oBuffer);
+	if (!CheckSignature(oBuffer))
+		return false;
 
 	oBuffer.Skip(16); // Header CLSID
 	m_nMinorVersion = oBuffer.ReadShort();
