@@ -1,0 +1,126 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup Label="ProjectConfigurations">
+    <ProjectConfiguration Include="Release|x64">
+      <Configuration>Release</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+  </ItemGroup>
+  <PropertyGroup Label="Globals">
+    <ProjectGuid>{96CAEA41-1A57-5F81-9F15-51D68A214C80}</ProjectGuid>
+    <RootNamespace>OfficeUtils</RootNamespace>
+    <Keyword>QtVS_v304</Keyword>
+    <WindowsTargetPlatformVersion>10.0</WindowsTargetPlatformVersion>
+    <QtMsBuild Condition="'$(QtMsBuild)'=='' OR !Exists('$(QtMsBuild)\qt.targets')">$(MSBuildProjectDirectory)\QtMsBuild</QtMsBuild>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'" Label="Configuration">
+    <PlatformToolset>v145</PlatformToolset>
+    <OutputDirectory>..\build\lib\win_64\</OutputDirectory>
+    <ATLMinimizesCRunTimeLibraryUsage>false</ATLMinimizesCRunTimeLibraryUsage>
+    <CharacterSet>NotSet</CharacterSet>
+    <ConfigurationType>StaticLibrary</ConfigurationType>
+    <IntermediateDirectory>core_build\win_64\release\obj\</IntermediateDirectory>
+    <PrimaryOutput>OfficeUtils</PrimaryOutput>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
+  <Import Project="$(QtMsBuild)\qt_defaults.props" Condition="Exists('$(QtMsBuild)\qt_defaults.props')" />
+  <PropertyGroup Label="QtSettings" Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <QtInstall>Qt-5.15.2_msvc2019_64</QtInstall>
+    <QtModules>
+    </QtModules>
+  </PropertyGroup>
+  <Target Name="QtMsBuildNotFound" BeforeTargets="CustomBuild;ClCompile" Condition="!Exists('$(QtMsBuild)\qt.targets') OR !Exists('$(QtMsBuild)\Qt.props')">
+    <Message Importance="High" Text="QtMsBuild: could not locate qt.targets, qt.props; project may not build correctly." />
+  </Target>
+  <ImportGroup Label="ExtensionSettings" />
+  <ImportGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'" Label="PropertySheets">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" />
+    <Import Project="$(QtMsBuild)\Qt.props" />
+  </ImportGroup>
+  <PropertyGroup Label="UserMacros" />
+  <PropertyGroup>
+    <OutDir Condition="'$(Configuration)|$(Platform)'=='Release|x64'">$(SolutionDir)build\lib\win_64</OutDir>
+    <IntDir Condition="'$(Configuration)|$(Platform)'=='Release|x64'">core_build\win_64\release\obj\</IntDir>
+    <TargetName Condition="'$(Configuration)|$(Platform)'=='Release|x64'">OfficeUtils</TargetName>
+    <IgnoreImportLibrary Condition="'$(Configuration)|$(Platform)'=='Release|x64'">true</IgnoreImportLibrary>
+  </PropertyGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <ClCompile>
+      <AdditionalIncludeDirectories>GeneratedFiles\$(ConfigurationName);GeneratedFiles;.;src\zlib-1.2.11\contrib\minizip;src\zlib-1.2.11;src;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalOptions>-Zc:rvalueCast -Zc:inline -Zc:strictStrings -Zc:throwingNew -Zc:referenceBinding -Zc:__cplusplus /Zc:strictStrings- /utf-8 /Zc:strictStrings- -w34100 -w34189 -w44996 -w44456 -w44457 -w44458 %(AdditionalOptions)</AdditionalOptions>
+      <AssemblerListingLocation>core_build\win_64\release\obj\</AssemblerListingLocation>
+      <BrowseInformation>false</BrowseInformation>
+      <DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
+      <DisableSpecificWarnings>4577;4467;%(DisableSpecificWarnings)</DisableSpecificWarnings>
+      <ExceptionHandling>Sync</ExceptionHandling>
+      <InlineFunctionExpansion>Disabled</InlineFunctionExpansion>
+      <MultiProcessorCompilation>true</MultiProcessorCompilation>
+      <ObjectFileName>core_build\win_64\release\obj\</ObjectFileName>
+      <Optimization>Disabled</Optimization>
+      <PreprocessorDefinitions>_WINDOWS;UNICODE;_UNICODE;WIN32;_ENABLE_EXTENDED_ALIGNED_STORAGE;WIN64;INTVER=2.5.565.0;WIN_INTVER=2,5,565,0;COPYRIGHT_YEAR=2026;WIN32;_WIN32;NOMINMAX;WIN64;_WIN64;WINDOWS_IGNORE_PACKING_MISMATCH;NDEBUG;QT_NO_DEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <PreprocessToFile>false</PreprocessToFile>
+      <RuntimeLibrary>MultiThreadedDLL</RuntimeLibrary>
+      <SuppressStartupBanner>true</SuppressStartupBanner>
+      <TreatWChar_tAsBuiltInType>true</TreatWChar_tAsBuiltInType>
+      <WarningLevel>Level3</WarningLevel>
+    </ClCompile>
+    <Link>
+      <IgnoreImportLibrary>true</IgnoreImportLibrary>
+    </Link>
+    <Midl>
+      <DefaultCharType>Unsigned</DefaultCharType>
+      <EnableErrorChecks>None</EnableErrorChecks>
+      <WarningLevel>0</WarningLevel>
+    </Midl>
+    <ResourceCompile>
+      <PreprocessorDefinitions>_WINDOWS;UNICODE;_UNICODE;WIN32;_ENABLE_EXTENDED_ALIGNED_STORAGE;WIN64;INTVER=2.5.565.0;WIN_INTVER=2,5,565,0;COPYRIGHT_YEAR=2026;WIN32;_WIN32;NOMINMAX;WIN64;_WIN64;WINDOWS_IGNORE_PACKING_MISMATCH;NDEBUG;QT_NO_DEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+    </ResourceCompile>
+  </ItemDefinitionGroup>
+  <ItemGroup>
+    <ClCompile Include="src\OfficeUtils.cpp" />
+    <ClCompile Include="src\ZipBuffer.cpp" />
+    <ClCompile Include="src\ZipUtilsCP.cpp" />
+    <ClCompile Include="src\zlib-1.2.11\adler32.c" />
+    <ClCompile Include="src\zlib-1.2.11\compress.c" />
+    <ClCompile Include="src\zlib-1.2.11\crc32.c" />
+    <ClCompile Include="src\zlib-1.2.11\deflate.c" />
+    <ClCompile Include="src\zlib-1.2.11\gzclose.c" />
+    <ClCompile Include="src\zlib-1.2.11\gzlib.c" />
+    <ClCompile Include="src\zlib-1.2.11\gzread.c" />
+    <ClCompile Include="src\zlib-1.2.11\gzwrite.c" />
+    <ClCompile Include="src\zlib-1.2.11\infback.c" />
+    <ClCompile Include="src\zlib-1.2.11\inffast.c" />
+    <ClCompile Include="src\zlib-1.2.11\inflate.c" />
+    <ClCompile Include="src\zlib-1.2.11\inftrees.c" />
+    <ClCompile Include="src\zlib-1.2.11\contrib\minizip\ioapi.c" />
+    <ClCompile Include="src\zlib-1.2.11\contrib\minizip\ioapibuf.c" />
+    <ClCompile Include="src\zlib-1.2.11\contrib\minizip\iowin32.c" />
+    <ClCompile Include="src\zlib-1.2.11\contrib\minizip\miniunz.c" />
+    <ClCompile Include="src\zlib-1.2.11\contrib\minizip\minizip.c" />
+    <ClCompile Include="src\zlib-1.2.11\contrib\minizip\mztools.c" />
+    <ClCompile Include="src\zlib-1.2.11\trees.c" />
+    <ClCompile Include="src\zlib-1.2.11\uncompr.c" />
+    <ClCompile Include="src\zlib-1.2.11\contrib\minizip\unzip.c" />
+    <ClCompile Include="src\zlib-1.2.11\contrib\minizip\zip.c" />
+    <ClCompile Include="src\zlib_addon.c" />
+    <ClCompile Include="src\zlib-1.2.11\zutil.c" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include=".\src\OfficeUtils.h" />
+    <ClInclude Include=".\src\OfficeUtilsCommon.h" />
+    <ClInclude Include=".\src\ZipBuffer.h" />
+    <ClInclude Include=".\src\ZipFolder.h" />
+    <ClInclude Include=".\src\ZipUtilsCP.h" />
+    <ClInclude Include=".\src\zlib-1.2.11\contrib\minizip\crypt.h" />
+    <ClInclude Include=".\src\zlib-1.2.11\contrib\minizip\ioapi.h" />
+    <ClInclude Include=".\src\zlib-1.2.11\contrib\minizip\ioapibuf.h" />
+    <ClInclude Include=".\src\zlib-1.2.11\contrib\minizip\mztools.h" />
+    <ClInclude Include=".\src\zlib-1.2.11\contrib\minizip\unzip.h" />
+    <ClInclude Include=".\src\zlib-1.2.11\contrib\minizip\zip.h" />
+    <ClInclude Include=".\src\zlib_addon.h" />
+  </ItemGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
+  <Import Project="$(QtMsBuild)\qt.targets" Condition="Exists('$(QtMsBuild)\qt.targets')" />
+  <ImportGroup Label="ExtensionTargets" />
+</Project>
