@@ -57,7 +57,7 @@ public:
 	int End;
 };
 
-class CFontListNamePicker
+class GRAPHICS_DECL CFontListNamePicker
 {
 private:
 	std::map<std::wstring, int>             m_mapNamesToIndex;
@@ -237,7 +237,7 @@ public:
 	}
 };
 
-class CFontList : public NSFonts::IFontList
+class GRAPHICS_DECL CFontList : public NSFonts::IFontList
 {
 private:
 	std::vector<NSFonts::CFontInfo*>	m_pList;
@@ -327,7 +327,7 @@ public:
 	void InitializeRanges(unsigned char* data);
 };
 
-class CApplicationFonts : public NSFonts::IApplicationFonts
+class GRAPHICS_DECL CApplicationFonts : public NSFonts::IApplicationFonts
 {
 private:
 	CApplicationFontStreams	m_oStreams;

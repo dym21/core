@@ -53,7 +53,7 @@ public:
 	virtual void GetMemory(BYTE*& pData, LONG& lSize);
 };
 
-class CApplicationFontStreams : public NSFonts::IApplicationFontStreams
+class GRAPHICS_DECL CApplicationFontStreams : public NSFonts::IApplicationFontStreams
 {
 private:
 	// этот мап нужно периодически опрашивать и удалять неиспользуемые стримы
@@ -69,7 +69,7 @@ public:
 	void Clear();
 };
 
-class CFontsCache : public NSFonts::IFontsCache
+class GRAPHICS_DECL CFontsCache : public NSFonts::IFontsCache
 {
 	friend class CFontManager;
 	friend class CApplicationFonts;
@@ -96,7 +96,7 @@ public:
 };
 
 class CApplicationFonts;
-class CFontManager : public NSFonts::IFontManager
+class GRAPHICS_DECL CFontManager : public NSFonts::IFontManager
 {
 	friend class CApplicationFonts;
 

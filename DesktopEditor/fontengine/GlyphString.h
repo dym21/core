@@ -153,7 +153,7 @@ namespace FontConstants
 	};
 }
 
-class CGlyphString
+class GRAPHICS_DECL CGlyphString
 {
 public:
 	CGlyphString();

@@ -32,8 +32,6 @@
 // XpsFileTest.cpp : Defines the entry point for the console application.
 //
 
-#include "stdafx.h"
-
 #include "../XpsFile.h"
 
 #include <vector>
@@ -75,7 +73,7 @@ void ConvertFolderToRaster(const std::wstring& wsFolderPath)
 	oFonts.Initialize();
 
 	CXpsFile oReader(&oFonts);
-	oReader.SetTempFolder(L"D:/Test Files/Temp/");
+	oReader.SetTempDirectory(L"D:/Test Files/Temp/");
 
 	std::vector<std::wstring> vFiles = GetAllFilesInFolder(wsFolderPath, L"xps");
 	for (int nIndex = 0; nIndex < vFiles.size(); nIndex++)
@@ -107,7 +105,7 @@ void ConvertFolderToPdf(const std::wstring& wsFolderPath)
 	oFonts.Initialize();
 
 	CXpsFile oReader(&oFonts);
-	oReader.SetTempFolder(L"D:/Test Files/Temp/");
+	oReader.SetTempDirectory(L"D:/Test Files/Temp/");
 
 	std::vector<std::wstring> vFiles = GetAllFilesInFolder(wsFolderPath, L"xps");
 	for (int nIndex = 0; nIndex < vFiles.size(); nIndex++)
