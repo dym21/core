@@ -1093,25 +1093,16 @@ void RedactOutputDev::drawImageMask(GfxState *pGState, Gfx *gfx, Object *pRef, S
 
 	PdfWriter::CDocument* pDocument = m_pRenderer->GetDocument();
 	PdfWriter::CObjectBase* pObj = NULL;
-	if (!pRef || bInlineImage)
+	std::vector<CPoint> imagePolygon = GetImagePolygon(m_arrMatrix);
+	bool bHasRedact = CheckImageRedact(m_arrQuadPoints, imagePolygon);
+	if (!pRef || bInlineImage || bHasRedact)
 		pObj = CreateImage(gfx, nWidth, nHeight, STREAM_FILTER_FLATE_DECODE, 1, NULL);
 	else
-	{
 		pObj = m_mObjManager->GetObj(pRef->getRefNum() + m_nStartRefID);
-
-		CDictObject* pXObject = pDocument->GetXObject(pRef->getRefNum() + m_nStartRefID);
-		if (pXObject)
-		{
-			DrawXObject(m_sImageName.c_str());
-			return;
-		}
-	}
 
 	if (!pObj || pObj->GetType() != object_type_DICT)
 		return;
 
-	std::vector<CPoint> imagePolygon = GetImagePolygon(m_arrMatrix);
-	bool bHasRedact = CheckImageRedact(m_arrQuadPoints, imagePolygon);
 	if (!bHasRedact && pRef && !bInlineImage)
 	{
 		DrawXObject(m_sImageName.c_str());
@@ -1128,7 +1119,6 @@ void RedactOutputDev::drawImageMask(GfxState *pGState, Gfx *gfx, Object *pRef, S
 	SaveImageMaskToStream(pDocument, (CDictObject*)pObj, pBufferPtr, nWidth, nHeight);
 	delete[] pBufferPtr;
 
-	pDocument->AddXObject(pRef->getRefNum() + m_nStartRefID, (CDictObject*)pObj);
 	DrawXObject(m_sImageName.c_str());
 }
 void RedactOutputDev::drawImage(GfxState *pGState, Gfx *gfx, Object *pRef, Stream *pStream, int nWidth, int nHeight, GfxImageColorMap *pColorMap, int *pMaskColors, GBool bInlineImg, GBool interpolate)
@@ -1141,25 +1131,16 @@ void RedactOutputDev::drawImage(GfxState *pGState, Gfx *gfx, Object *pRef, Strea
 
 	PdfWriter::CDocument* pDocument = m_pRenderer->GetDocument();
 	PdfWriter::CObjectBase* pObj = NULL;
-	if (!pRef || bInlineImg)
+	std::vector<CPoint> imagePolygon = GetImagePolygon(m_arrMatrix);
+	bool bHasRedact = CheckImageRedact(m_arrQuadPoints, imagePolygon);
+	if (!pRef || bInlineImg || bHasRedact)
 		pObj = CreateImage(gfx, nWidth, nHeight, STREAM_FILTER_DCT_DECODE, 8, "DeviceRGB");
 	else
-	{
 		pObj = m_mObjManager->GetObj(pRef->getRefNum() + m_nStartRefID);
-
-		CDictObject* pXObject = pDocument->GetXObject(pRef->getRefNum() + m_nStartRefID);
-		if (pXObject)
-		{
-			DrawXObject(m_sImageName.c_str());
-			return;
-		}
-	}
 
 	if (!pObj || pObj->GetType() != object_type_DICT)
 		return;
 
-	std::vector<CPoint> imagePolygon = GetImagePolygon(m_arrMatrix);
-	bool bHasRedact = CheckImageRedact(m_arrQuadPoints, imagePolygon);
 	if (!bHasRedact && pRef && !bInlineImg)
 	{
 		DrawXObject(m_sImageName.c_str());
@@ -1175,7 +1156,6 @@ void RedactOutputDev::drawImage(GfxState *pGState, Gfx *gfx, Object *pRef, Strea
 
 	SaveRGBAToStream(pDocument, (CDictObject*)pObj, pBufferPtr, nWidth, nHeight);
 
-	pDocument->AddXObject(pRef->getRefNum() + m_nStartRefID, (CDictObject*)pObj);
 	DrawXObject(m_sImageName.c_str());
 }
 void RedactOutputDev::drawMaskedImage(GfxState *pGState, Gfx *gfx, Object *pRef, Stream *pStream, int nWidth, int nHeight, GfxImageColorMap *pColorMap,
@@ -1194,25 +1174,17 @@ void RedactOutputDev::drawSoftMaskedImage(GfxState *pGState, Gfx *gfx, Object *p
 
 	PdfWriter::CDocument* pDocument = m_pRenderer->GetDocument();
 	PdfWriter::CObjectBase* pObj = NULL;
-	if (!pRef)
+	std::vector<CPoint> imagePolygon = GetImagePolygon(m_arrMatrix);
+	bool bHasRedact = CheckImageRedact(m_arrQuadPoints, imagePolygon);
+	if (!pRef || bHasRedact)
 		pObj = CreateImage(gfx, nWidth, nHeight, STREAM_FILTER_DCT_DECODE, 8, "DeviceRGB");
 	else
-	{
 		pObj = m_mObjManager->GetObj(pRef->getRefNum() + m_nStartRefID);
-
-		CDictObject* pXObject = pDocument->GetXObject(pRef->getRefNum() + m_nStartRefID);
-		if (pXObject)
-		{
-			DrawXObject(m_sImageName.c_str());
-			return;
-		}
-	}
 
 	if (!pObj || pObj->GetType() != object_type_DICT)
 		return;
 
-	std::vector<CPoint> imagePolygon = GetImagePolygon(m_arrMatrix);
-	if (!CheckImageRedact(m_arrQuadPoints, imagePolygon))
+	if (!bHasRedact)
 	{
 		DrawXObject(m_sImageName.c_str());
 		return;
@@ -1266,7 +1238,6 @@ void RedactOutputDev::drawSoftMaskedImage(GfxState *pGState, Gfx *gfx, Object *p
 		delete[] pMaskBufferPtr;
 	}
 
-	pDocument->AddXObject(pRef->getRefNum() + m_nStartRefID, (CDictObject*)pObj);
 	DrawXObject(m_sImageName.c_str());
 }
 //----- Type 3 font operators
