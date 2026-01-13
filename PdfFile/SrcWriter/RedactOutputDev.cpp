@@ -78,7 +78,7 @@ std::vector<CPoint> GetImagePolygon(double* pMatrix)
 	Transform(pMatrix, dX4, dY4, &dX4, &dY4);
 	return { CPoint(dX1, dY1), CPoint(dX2, dY2), CPoint(dX3, dY3), CPoint(dX4, dY4) };
 }
-bool CheckImageRedact(const std::vector<double>& arrQuadPoints, const std::vector<CPoint>& imagePolygon)
+bool CheckPartialRedact(const std::vector<double>& arrQuadPoints, const std::vector<CPoint>& XObjectPolygon)
 {
 	for (int j = 0; j < arrQuadPoints.size(); j += 8)
 	{
@@ -90,7 +90,24 @@ bool CheckImageRedact(const std::vector<double>& arrQuadPoints, const std::vecto
 			CPoint(arrQuadPoints[j + 6], arrQuadPoints[j + 7])
 		};
 
-		if (PdfWriter::SAT(redactPolygon, imagePolygon))
+		if (PdfWriter::SAT(redactPolygon, XObjectPolygon))
+			return true;
+	}
+	return false;
+}
+bool CheckFullRedact(const std::vector<double>& arrQuadPoints, const std::vector<CPoint>& XObjectPolygon)
+{
+	for (int j = 0; j < arrQuadPoints.size(); j += 8)
+	{
+		std::vector<CPoint> redactPolygon =
+		{
+			CPoint(arrQuadPoints[j + 0], arrQuadPoints[j + 1]),
+			CPoint(arrQuadPoints[j + 2], arrQuadPoints[j + 3]),
+			CPoint(arrQuadPoints[j + 4], arrQuadPoints[j + 5]),
+			CPoint(arrQuadPoints[j + 6], arrQuadPoints[j + 7])
+		};
+
+		if (PdfWriter::isPolygonInsidePolygon(XObjectPolygon, redactPolygon))
 			return true;
 	}
 	return false;
@@ -1094,7 +1111,10 @@ void RedactOutputDev::drawImageMask(GfxState *pGState, Gfx *gfx, Object *pRef, S
 	PdfWriter::CDocument* pDocument = m_pRenderer->GetDocument();
 	PdfWriter::CObjectBase* pObj = NULL;
 	std::vector<CPoint> imagePolygon = GetImagePolygon(m_arrMatrix);
-	bool bHasRedact = CheckImageRedact(m_arrQuadPoints, imagePolygon);
+	if (CheckFullRedact(m_arrQuadPoints, imagePolygon))
+		return;
+
+	bool bHasRedact = CheckPartialRedact(m_arrQuadPoints, imagePolygon);
 	if (!pRef || bInlineImage || bHasRedact)
 		pObj = CreateImage(gfx, nWidth, nHeight, STREAM_FILTER_FLATE_DECODE, 1, NULL);
 	else
@@ -1132,7 +1152,10 @@ void RedactOutputDev::drawImage(GfxState *pGState, Gfx *gfx, Object *pRef, Strea
 	PdfWriter::CDocument* pDocument = m_pRenderer->GetDocument();
 	PdfWriter::CObjectBase* pObj = NULL;
 	std::vector<CPoint> imagePolygon = GetImagePolygon(m_arrMatrix);
-	bool bHasRedact = CheckImageRedact(m_arrQuadPoints, imagePolygon);
+	if (CheckFullRedact(m_arrQuadPoints, imagePolygon))
+		return;
+
+	bool bHasRedact = CheckPartialRedact(m_arrQuadPoints, imagePolygon);
 	if (!pRef || bInlineImg || bHasRedact)
 		pObj = CreateImage(gfx, nWidth, nHeight, STREAM_FILTER_DCT_DECODE, 8, "DeviceRGB");
 	else
@@ -1175,7 +1198,10 @@ void RedactOutputDev::drawSoftMaskedImage(GfxState *pGState, Gfx *gfx, Object *p
 	PdfWriter::CDocument* pDocument = m_pRenderer->GetDocument();
 	PdfWriter::CObjectBase* pObj = NULL;
 	std::vector<CPoint> imagePolygon = GetImagePolygon(m_arrMatrix);
-	bool bHasRedact = CheckImageRedact(m_arrQuadPoints, imagePolygon);
+	if (CheckFullRedact(m_arrQuadPoints, imagePolygon))
+		return;
+
+	bool bHasRedact = CheckPartialRedact(m_arrQuadPoints, imagePolygon);
 	if (!pRef || bHasRedact)
 		pObj = CreateImage(gfx, nWidth, nHeight, STREAM_FILTER_DCT_DECODE, 8, "DeviceRGB");
 	else
@@ -1263,12 +1289,6 @@ void RedactOutputDev::drawForm(GfxState *pGState, Gfx *gfx, Ref id, const char* 
 		return;
 
 	PdfWriter::CDocument* pDocument = m_pRenderer->GetDocument();
-	CDictObject* pXObject = pDocument->GetXObject(id.num + m_nStartRefID);
-	if (pXObject)
-	{
-		DrawXObject(name);
-		return;
-	}
 
 	Object oForm;
 	if (!m_pXref->fetch(id.num, id.gen, &oForm)->isStream())
@@ -1324,7 +1344,6 @@ void RedactOutputDev::drawForm(GfxState *pGState, Gfx *gfx, Ref id, const char* 
 	}
 	oObj.free();
 
-	bool bFullyRedacted = false;
 	std::vector<CPoint> formPolygon =
 	{
 		CPoint(dX1, dY1),
@@ -1332,42 +1351,42 @@ void RedactOutputDev::drawForm(GfxState *pGState, Gfx *gfx, Ref id, const char* 
 		CPoint(dX3, dY3),
 		CPoint(dX4, dY4)
 	};
-	for (int i = 0; i < m_arrQuadPoints.size(); i += 8)
-	{
-		std::vector<CPoint> redactPolygon =
-		{
-			CPoint(m_arrQuadPoints[i + 0], m_arrQuadPoints[i + 1]),
-			CPoint(m_arrQuadPoints[i + 2], m_arrQuadPoints[i + 3]),
-			CPoint(m_arrQuadPoints[i + 4], m_arrQuadPoints[i + 5]),
-			CPoint(m_arrQuadPoints[i + 6], m_arrQuadPoints[i + 7])
-		};
-		if (PdfWriter::isPolygonInsidePolygon(formPolygon, redactPolygon))
-		{
-			bFullyRedacted = true;
-			break;
-		}
-	}
-
-	if (bFullyRedacted)
+	if (CheckFullRedact(m_arrQuadPoints, formPolygon))
 	{
 		oForm.free();
 		return;
 	}
+	if (!CheckPartialRedact(m_arrQuadPoints, formPolygon))
+	{
+		oForm.free();
+		DrawXObject(name);
+		return;
+	}
 
-	CDictObject* pDictObj = (CDictObject*)pObj;
-	pDictObj->ClearStream();
-	CNumberObject* pLength = new CNumberObject(0);
-	pDocument->AddObject(pLength);
-	pDictObj->Add("Length", pLength);
-#ifndef FILTER_FLATE_DECODE_DISABLED
-	pDictObj->SetFilter(STREAM_FILTER_FLATE_DECODE);
-#endif
+	CDictObject* pNewForm = pDocument->CreateForm();
+	pDocument->AddObject(pNewForm);
+	CDictObject* pOrigForm = (CDictObject*)pObj;
+
+	pNewForm->Add("Type", "XObject");
+	pNewForm->Add("Subtype", "Form");
+	pNewForm->Add("FormType", 1);
+	pNewForm->Add("BBox", pOrigForm->Get("BBox")->Copy());
+	pObj = pOrigForm->Get("Matrix");
+	if (pObj)
+		pNewForm->Add("Matrix", pObj->Copy());
+	pObj = pOrigForm->Get("Resources");
+	if (pObj)
+		pNewForm->Add("Resources", pObj->Copy());
+
+	PdfWriter::CResourcesDict* pResources = GetResources(gfx);
+	if (pResources)
+		name = pResources->GetXObjectName(pNewForm);
 
 	PdfWriter::CPage* pCurPage = m_pRenderer->GetPage();
 	PdfWriter::CPage* pFakePage = new PdfWriter::CPage(pDocument);
 	m_pRenderer->SetPage(pFakePage);
 	pDocument->SetCurPage(pFakePage);
-	pFakePage->SetStream(pDictObj->GetStream());
+	pFakePage->SetStream(pNewForm->GetStream());
 
 	RedactOutputDev* pFormOutputDev = new RedactOutputDev(m_pRenderer, m_mObjManager, m_nStartRefID);
 	pFormOutputDev->NewPDF(m_pXref);
@@ -1404,7 +1423,6 @@ void RedactOutputDev::drawForm(GfxState *pGState, Gfx *gfx, Ref id, const char* 
 
 	m_pRenderer->SetPage(pCurPage);
 	pDocument->SetCurPage(pCurPage);
-	pDocument->AddXObject(id.num + m_nStartRefID, pDictObj);
 
 	RELEASEOBJECT(pFakePage);
 
@@ -1859,6 +1877,17 @@ CObjectBase* RedactOutputDev::CreateImage(Gfx *gfx, int nWidth, int nHeight, uns
 
 	pDictObj->Remove("DecodeParms");
 
+	PdfWriter::CResourcesDict* pResources = GetResources(gfx);
+	if (pResources)
+	{
+		const char* sXObjectName = pResources->GetXObjectName(pObj);
+		m_sImageName = std::string(sXObjectName);
+	}
+
+	return pObj;
+}
+CResourcesDict* RedactOutputDev::GetResources(Gfx *gfx)
+{
 	PdfWriter::CResourcesDict* pResources = NULL;
 	Object* pContent = gfx->getTopContentStreamStack();
 	if (pContent && pContent->isRef())
@@ -1868,9 +1897,8 @@ CObjectBase* RedactOutputDev::CreateImage(Gfx *gfx, int nWidth, int nHeight, uns
 		{
 			PdfWriter::CDictObject* pDictForm = (PdfWriter::CDictObject*)pForm;
 			PdfWriter::CObjectBase* pResourcesForm = pDictForm->Get("Resources");
-			if (pResourcesForm && pResourcesForm->GetType() == object_type_DICT)
-				pResources = (PdfWriter::CResourcesDict*)pResourcesForm;
-			else
+			pResources = dynamic_cast<PdfWriter::CResourcesDict*>(pResourcesForm);
+			if (!pResources)
 			{
 				pResources = new PdfWriter::CResourcesDict(NULL, true, false);
 				pDictForm->Add("Resources", pResources);
@@ -1886,13 +1914,6 @@ CObjectBase* RedactOutputDev::CreateImage(Gfx *gfx, int nWidth, int nHeight, uns
 			pResources = m_pPage->GetResourcesItem();
 		}
 	}
-
-	if (pResources)
-	{
-		const char* sXObjectName = pResources->GetXObjectName(pObj);
-		m_sImageName = std::string(sXObjectName);
-	}
-
-	return pObj;
+	return pResources;
 }
 }
