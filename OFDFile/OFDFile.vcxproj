@@ -40,7 +40,7 @@
   </ImportGroup>
   <PropertyGroup Label="UserMacros" />
   <PropertyGroup>
-    <OutDir Condition="'$(Configuration)|$(Platform)'=='Release|x64'">$(SolutionDir)build\bin\win_64</OutDir>
+    <OutDir Condition="'$(Configuration)|$(Platform)'=='Release|x64'">$(SolutionDir)build\bin\win_64\</OutDir>
     <IntDir Condition="'$(Configuration)|$(Platform)'=='Release|x64'">core_build\win_64\release\obj\</IntDir>
     <TargetName Condition="'$(Configuration)|$(Platform)'=='Release|x64'">OFDFile</TargetName>
     <IgnoreImportLibrary Condition="'$(Configuration)|$(Platform)'=='Release|x64'">true</IgnoreImportLibrary>
@@ -49,7 +49,7 @@
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
     <ClCompile>
       <AdditionalIncludeDirectories>GeneratedFiles\$(ConfigurationName);GeneratedFiles;.;..\Common\3dParty\boost\build\win_64\include;..\DesktopEditor\freetype-2.10.4\include;..\DesktopEditor\freetype-2.10.4\include\freetype;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
-      <AdditionalOptions>-Zc:rvalueCast -Zc:inline -Zc:strictStrings -Zc:throwingNew -Zc:referenceBinding -Zc:__cplusplus /Zc:strictStrings- /utf-8 /Zc:strictStrings- -w34100 -w34189 -w44996 -w44456 -w44457 -w44458 %(AdditionalOptions)</AdditionalOptions>
+      <AdditionalOptions>-Zc:rvalueCast -Zc:inline  -Zc:throwingNew -Zc:referenceBinding -Zc:__cplusplus /Zc:strictStrings- /utf-8 /Zc:strictStrings- -w34100 -w34189 -w44996 -w44456 -w44457 -w44458 %(AdditionalOptions)</AdditionalOptions>
       <AssemblerListingLocation>core_build\win_64\release\obj\</AssemblerListingLocation>
       <BrowseInformation>false</BrowseInformation>
       <DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
@@ -80,7 +80,7 @@
       <SubSystem>Windows</SubSystem>
       <SuppressStartupBanner>true</SuppressStartupBanner>
       <Version>2.5</Version>
-      <ImportLibrary>$(SolutionDir)build\lib\win_64\$(TargetName).lib</ImportLibrary>
+      <ImportLibrary>$(SolutionDir)build\lib\win_64\\$(TargetName).lib</ImportLibrary>
     </Link>
     <Midl>
       <DefaultCharType>Unsigned</DefaultCharType>
@@ -121,36 +121,6 @@
     <ClCompile Include="src\Utils\XmlReader.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="src\Annotation.h" />
-    <ClInclude Include="src\Base.h" />
-    <ClInclude Include="src\Types\Color.h" />
-    <ClInclude Include="src\Types\ColorSpace.h" />
-    <ClInclude Include="src\Types\CommonData.h" />
-    <ClInclude Include="src\Types\CompositeGraphicUnit.h" />
-    <ClInclude Include="src\Content\Content.h" />
-    <ClInclude Include="src\Document.h" />
-    <ClInclude Include="src\Types\DrawParam.h" />
-    <ClInclude Include="src\Types\Font.h" />
-    <ClInclude Include="src\Content\GraphicUnit.h" />
-    <ClInclude Include="src\IOFDElement.h" />
-    <ClInclude Include="src\Content\IPageBlock.h" />
-    <ClInclude Include="src\Content\ImageObject.h" />
-    <ClInclude Include="src\Content\Layer.h" />
-    <ClInclude Include="src\Types\MultiMedia.h" />
-    <ClInclude Include="OFDFile.h" />
-    <ClInclude Include="src\OFDFile_Private.h" />
-    <ClInclude Include="src\Page.h" />
-    <ClInclude Include="src\Types\PageArea.h" />
-    <ClInclude Include="src\Content\PageBlock.h" />
-    <ClInclude Include="src\Content\PathObject.h" />
-    <ClInclude Include="src\Types\PenSettings.h" />
-    <ClInclude Include="src\Res.h" />
-    <ClInclude Include="src\Types\Signature.h" />
-    <ClInclude Include="src\Types\TemplatePage.h" />
-    <ClInclude Include="src\Content\TextObject.h" />
-    <ClInclude Include="src\Utils\Types.h" />
-    <ClInclude Include="src\Utils\Utils.h" />
-    <ClInclude Include="src\Utils\XmlReader.h" />
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include=".\OFDFile_resource.rc" />

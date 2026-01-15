@@ -1,15 +1,65 @@
-cmake_minimum_required(VERSION 3.5)
+# CMakeLists.txt for EpubFile
+# Generated from EpubFile.vcxproj
 
-project(EpubFile LANGUAGES CXX)
-
-set(CMAKE_INCLUDE_CURRENT_DIR ON)
-set(CMAKE_CXX_STANDARD 11)
-set(CMAKE_CXX_STANDARD_REQUIRED ON)
-
-add_library(EpubFile SHARED
-  EpubFile_global.h
-  CEpubFile.cpp
-  CEpubFile.h
+# Source files
+set(EpubFile_SOURCES
+    src/CBookContentItem.cpp
+    src/CBookInfo.cpp
+    src/CBookItem.cpp
+    src/CBookToc.cpp
+    src/CEpubFile.cpp
 )
 
-target_compile_definitions(EpubFile PRIVATE EPUBFILE_LIBRARY)
+# Header files
+set(EpubFile_HEADERS
+    src/CBookContentItem.h
+    src/CBookInfo.h
+    src/CBookItem.h
+    src/CBookToc.h
+    CEpubFile.h
+    src/EpubFile_global.h
+)
+
+add_library(EpubFile SHARED
+    ${EpubFile_SOURCES}
+    ${EpubFile_HEADERS}
+)
+
+# Include directories
+target_include_directories(EpubFile PUBLIC
+    GeneratedFiles/
+    GeneratedFiles
+    .
+)
+
+# Preprocessor definitions
+target_compile_definitions(EpubFile PRIVATE
+    _WINDOWS
+    UNICODE
+    _UNICODE
+    WIN32
+    _ENABLE_EXTENDED_ALIGNED_STORAGE
+    WIN64
+    EPUBFILE_USE_DYNAMIC_LIBRARY
+    INTVER=2.5.565.0
+    WIN_INTVER=2,5,565,0
+    COPYRIGHT_YEAR=2025
+    _WIN32
+    NOMINMAX
+    _WIN64
+    WINDOWS_IGNORE_PACKING_MISMATCH
+    NDEBUG
+    QT_NO_DEBUG
+    QT_PLUGIN
+)
+
+# Link libraries
+target_link_libraries(EpubFile PRIVATE
+    graphics
+)
+
+set_target_properties(EpubFile PROPERTIES
+    LIBRARY_OUTPUT_DIRECTORY "$(SolutionDir)build/bin/win_64"
+    ARCHIVE_OUTPUT_DIRECTORY "$(SolutionDir)build/bin/win_64"
+)
+

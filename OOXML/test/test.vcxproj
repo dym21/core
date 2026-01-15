@@ -41,7 +41,7 @@
   </ImportGroup>
   <PropertyGroup Label="UserMacros" />
   <PropertyGroup>
-    <OutDir Condition="'$(Configuration)|$(Platform)'=='Release|x64'">$(SolutionDir)build\bin\win_64</OutDir>
+    <OutDir Condition="'$(Configuration)|$(Platform)'=='Release|x64'">$(SolutionDir)build\bin\win_64\</OutDir>
     <IntDir Condition="'$(Configuration)|$(Platform)'=='Release|x64'">..\..\X2tConverter\build\Qt\core_build\win_64\release\obj\</IntDir>
     <TargetName Condition="'$(Configuration)|$(Platform)'=='Release|x64'">OOXMLTest</TargetName>
     <IgnoreImportLibrary Condition="'$(Configuration)|$(Platform)'=='Release|x64'">true</IgnoreImportLibrary>
@@ -50,7 +50,7 @@
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
     <ClCompile>
       <AdditionalIncludeDirectories>GeneratedFiles\$(ConfigurationName);GeneratedFiles;.;..\..\Common\3dParty\icu\icu\include;..\..\OOXML;..\PPTXFormat;..\Binary\Presentation;..\..\OfficeUtils\src;..\Binary\Document;..\..\Common\3dParty\boost\build\win_64\include;..\..\Common\3dParty\googletest\googletest\googletest;..\..\Common\3dParty\googletest\googletest\googletest\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
-      <AdditionalOptions>-Zc:rvalueCast -Zc:inline -Zc:strictStrings -Zc:throwingNew -Zc:referenceBinding -Zc:__cplusplus /Zc:strictStrings- /utf-8 /bigobj /Zc:strictStrings- -w34100 -w34189 -w44996 -w44456 -w44457 -w44458 %(AdditionalOptions)</AdditionalOptions>
+      <AdditionalOptions>-Zc:rvalueCast -Zc:inline  -Zc:throwingNew -Zc:referenceBinding -Zc:__cplusplus /Zc:strictStrings- /utf-8 /bigobj /Zc:strictStrings- -w34100 -w34189 -w44996 -w44456 -w44457 -w44458 %(AdditionalOptions)</AdditionalOptions>
       <AssemblerListingLocation>..\..\X2tConverter\build\Qt\core_build\win_64\release\obj\</AssemblerListingLocation>
       <BrowseInformation>false</BrowseInformation>
       <DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
@@ -102,29 +102,6 @@
     <ClCompile Include="..\..\X2tConverter\src\dylib\x2t.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="..\..\src\ASCConverters.h" />
-    <ClInclude Include="..\..\..\Common\OfficeFileFormatChecker.h" />
-    <ClInclude Include="..\..\src\cextracttools.h" />
-    <ClInclude Include="..\..\src\lib\common.h" />
-    <ClInclude Include="common.h" />
-    <ClInclude Include="..\..\src\lib\crypt.h" />
-    <ClInclude Include="..\..\src\lib\csv.h" />
-    <ClInclude Include="..\..\src\lib\doc.h" />
-    <ClInclude Include="..\..\src\lib\docx.h" />
-    <ClInclude Include="..\..\src\lib\html.h" />
-    <ClInclude Include="..\..\src\lib\hwp.h" />
-    <ClInclude Include="..\..\src\lib\iwork.h" />
-    <ClInclude Include="..\..\src\lib\odf.h" />
-    <ClInclude Include="..\..\src\lib\pdf_image.h" />
-    <ClInclude Include="..\..\src\lib\pdf_oform.h" />
-    <ClInclude Include="..\..\src\lib\ppt.h" />
-    <ClInclude Include="..\..\src\lib\pptx.h" />
-    <ClInclude Include="..\..\src\lib\rtf.h" />
-    <ClInclude Include="..\..\src\lib\txt.h" />
-    <ClInclude Include="..\..\src\lib\vsdx.h" />
-    <ClInclude Include="C:\onlyoffice\core\X2tConverter\src\dylib\x2t.h" />
-    <ClInclude Include="..\..\src\lib\xls.h" />
-    <ClInclude Include="..\..\src\lib\xlsx.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <Import Project="$(QtMsBuild)\qt.targets" Condition="Exists('$(QtMsBuild)\qt.targets')" />

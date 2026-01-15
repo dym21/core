@@ -40,7 +40,7 @@
   </ImportGroup>
   <PropertyGroup Label="UserMacros" />
   <PropertyGroup>
-    <OutDir Condition="'$(Configuration)|$(Platform)'=='Release|x64'">$(SolutionDir)build\lib\win_64</OutDir>
+    <OutDir Condition="'$(Configuration)|$(Platform)'=='Release|x64'">$(SolutionDir)build\lib\win_64\</OutDir>
     <IntDir Condition="'$(Configuration)|$(Platform)'=='Release|x64'">core_build\win_64\release\obj\</IntDir>
     <TargetName Condition="'$(Configuration)|$(Platform)'=='Release|x64'">OfficeUtils</TargetName>
     <IgnoreImportLibrary Condition="'$(Configuration)|$(Platform)'=='Release|x64'">true</IgnoreImportLibrary>
@@ -48,7 +48,7 @@
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
     <ClCompile>
       <AdditionalIncludeDirectories>GeneratedFiles\$(ConfigurationName);GeneratedFiles;.;src\zlib-1.2.11\contrib\minizip;src\zlib-1.2.11;src;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
-      <AdditionalOptions>-Zc:rvalueCast -Zc:inline -Zc:strictStrings -Zc:throwingNew -Zc:referenceBinding -Zc:__cplusplus /Zc:strictStrings- /utf-8 /Zc:strictStrings- -w34100 -w34189 -w44996 -w44456 -w44457 -w44458 %(AdditionalOptions)</AdditionalOptions>
+      <AdditionalOptions>-Zc:rvalueCast -Zc:inline  -Zc:throwingNew -Zc:referenceBinding -Zc:__cplusplus /Zc:strictStrings- /utf-8 /Zc:strictStrings- -w34100 -w34189 -w44996 -w44456 -w44457 -w44458 %(AdditionalOptions)</AdditionalOptions>
       <AssemblerListingLocation>core_build\win_64\release\obj\</AssemblerListingLocation>
       <BrowseInformation>false</BrowseInformation>
       <DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
@@ -107,18 +107,6 @@
     <ClCompile Include="src\zlib-1.2.11\zutil.c" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include=".\src\OfficeUtils.h" />
-    <ClInclude Include=".\src\OfficeUtilsCommon.h" />
-    <ClInclude Include=".\src\ZipBuffer.h" />
-    <ClInclude Include=".\src\ZipFolder.h" />
-    <ClInclude Include=".\src\ZipUtilsCP.h" />
-    <ClInclude Include=".\src\zlib-1.2.11\contrib\minizip\crypt.h" />
-    <ClInclude Include=".\src\zlib-1.2.11\contrib\minizip\ioapi.h" />
-    <ClInclude Include=".\src\zlib-1.2.11\contrib\minizip\ioapibuf.h" />
-    <ClInclude Include=".\src\zlib-1.2.11\contrib\minizip\mztools.h" />
-    <ClInclude Include=".\src\zlib-1.2.11\contrib\minizip\unzip.h" />
-    <ClInclude Include=".\src\zlib-1.2.11\contrib\minizip\zip.h" />
-    <ClInclude Include=".\src\zlib_addon.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <Import Project="$(QtMsBuild)\qt.targets" Condition="Exists('$(QtMsBuild)\qt.targets')" />

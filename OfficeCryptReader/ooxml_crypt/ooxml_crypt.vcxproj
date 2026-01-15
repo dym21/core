@@ -41,7 +41,7 @@
   </ImportGroup>
   <PropertyGroup Label="UserMacros" />
   <PropertyGroup>
-    <OutDir Condition="'$(Configuration)|$(Platform)'=='Release|x64'">$(SolutionDir)build\bin\win_64</OutDir>
+    <OutDir Condition="'$(Configuration)|$(Platform)'=='Release|x64'">$(SolutionDir)build\bin\win_64\</OutDir>
     <IntDir Condition="'$(Configuration)|$(Platform)'=='Release|x64'">core_build\win_64\release\obj\</IntDir>
     <TargetName Condition="'$(Configuration)|$(Platform)'=='Release|x64'">ooxml_crypt</TargetName>
     <IgnoreImportLibrary Condition="'$(Configuration)|$(Platform)'=='Release|x64'">true</IgnoreImportLibrary>
@@ -50,7 +50,7 @@
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
     <ClCompile>
       <AdditionalIncludeDirectories>GeneratedFiles\$(ConfigurationName);GeneratedFiles;.;..\..\Common\3dParty\boost\build\win_64\include;..\..\Common\3dParty\icu\icu\include;..\..\Common\3dParty\openssl\build\win_64\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
-      <AdditionalOptions>-Zc:rvalueCast -Zc:inline -Zc:strictStrings -Zc:throwingNew -Zc:referenceBinding -Zc:__cplusplus /Zc:strictStrings- /utf-8 /Zc:strictStrings- -w34100 -w34189 -w44996 -w44456 -w44457 -w44458 %(AdditionalOptions)</AdditionalOptions>
+      <AdditionalOptions>-Zc:rvalueCast -Zc:inline  -Zc:throwingNew -Zc:referenceBinding -Zc:__cplusplus /Zc:strictStrings- /utf-8 /Zc:strictStrings- -w34100 -w34189 -w44996 -w44456 -w44457 -w44458 %(AdditionalOptions)</AdditionalOptions>
       <AssemblerListingLocation>core_build\win_64\release\obj\</AssemblerListingLocation>
       <BrowseInformation>false</BrowseInformation>
       <DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
@@ -104,12 +104,6 @@
     <ClCompile Include="..\..\OOXML\Base\unicode_util.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="C:\onlyoffice\core\OfficeCryptReader\source\CryptTransform.h" />
-    <ClInclude Include="C:\onlyoffice\core\OfficeCryptReader\source\ECMACryptFile.h" />
-    <ClInclude Include="..\..\MsBinaryFile\XlsFile\Format\Logging\Log.h" />
-    <ClInclude Include="..\..\MsBinaryFile\XlsFile\Format\Logging\Logger.h" />
-    <ClInclude Include="C:\onlyoffice\core\Common\3dParty\openssl\common\common_openssl.h" />
-    <ClInclude Include="C:\onlyoffice\core\OfficeCryptReader\source\simple_xml_writer.h" />
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include=".\ooxml_crypt_resource.rc" />

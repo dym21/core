@@ -41,7 +41,7 @@
   </ImportGroup>
   <PropertyGroup Label="UserMacros" />
   <PropertyGroup>
-    <OutDir Condition="'$(Configuration)|$(Platform)'=='Release|x64'">$(SolutionDir)build\bin\win_64</OutDir>
+    <OutDir Condition="'$(Configuration)|$(Platform)'=='Release|x64'">$(SolutionDir)build\bin\win_64\</OutDir>
     <IntDir Condition="'$(Configuration)|$(Platform)'=='Release|x64'">core_build\win_64\release\obj\</IntDir>
     <TargetName Condition="'$(Configuration)|$(Platform)'=='Release|x64'">ooxmlsignature</TargetName>
     <IgnoreImportLibrary Condition="'$(Configuration)|$(Platform)'=='Release|x64'">true</IgnoreImportLibrary>
@@ -50,7 +50,7 @@
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
     <ClCompile>
       <AdditionalIncludeDirectories>GeneratedFiles\$(ConfigurationName);GeneratedFiles;.;..\..\..\Common\3dParty\openssl\build\win_64\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
-      <AdditionalOptions>-Zc:rvalueCast -Zc:inline -Zc:strictStrings -Zc:throwingNew -Zc:referenceBinding -Zc:__cplusplus /Zc:strictStrings- /utf-8 /Zc:strictStrings- -w34100 -w34189 -w44996 -w44456 -w44457 -w44458 %(AdditionalOptions)</AdditionalOptions>
+      <AdditionalOptions>-Zc:rvalueCast -Zc:inline  -Zc:throwingNew -Zc:referenceBinding -Zc:__cplusplus /Zc:strictStrings- /utf-8 /Zc:strictStrings- -w34100 -w34189 -w44996 -w44456 -w44457 -w44458 %(AdditionalOptions)</AdditionalOptions>
       <AssemblerListingLocation>core_build\win_64\release\obj\</AssemblerListingLocation>
       <BrowseInformation>false</BrowseInformation>
       <DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
@@ -81,7 +81,7 @@
       <SubSystem>Windows</SubSystem>
       <SuppressStartupBanner>true</SuppressStartupBanner>
       <Version>2.5</Version>
-      <ImportLibrary>$(SolutionDir)build\lib\win_64\$(TargetName).lib</ImportLibrary>
+      <ImportLibrary>$(SolutionDir)build\lib\win_64\\$(TargetName).lib</ImportLibrary>
     </Link>
     <Midl>
       <DefaultCharType>Unsigned</DefaultCharType>
@@ -100,16 +100,6 @@
     <ClCompile Include="..\..\..\Common\3dParty\openssl\common\common_openssl.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="include\Certificate.h" />
-    <ClInclude Include="include\CertificateCommon.h" />
-    <ClInclude Include="src\Certificate_mscrypto.h" />
-    <ClInclude Include="src\Certificate_openssl.h" />
-    <ClInclude Include="include\OOXMLSigner.h" />
-    <ClInclude Include="include\OOXMLVerifier.h" />
-    <ClInclude Include="src\XmlCanonicalizator.h" />
-    <ClInclude Include="src\XmlRels.h" />
-    <ClInclude Include="src\XmlTransform.h" />
-    <ClInclude Include="C:\onlyoffice\core\Common\3dParty\openssl\common\common_openssl.h" />
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include=".\ooxmlsignature_resource.rc" />

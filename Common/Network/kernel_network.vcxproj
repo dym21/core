@@ -40,7 +40,7 @@
   </ImportGroup>
   <PropertyGroup Label="UserMacros" />
   <PropertyGroup>
-    <OutDir Condition="'$(Configuration)|$(Platform)'=='Release|x64'">$(SolutionDir)build\bin\win_64</OutDir>
+    <OutDir Condition="'$(Configuration)|$(Platform)'=='Release|x64'">$(SolutionDir)build\bin\win_64\</OutDir>
     <IntDir Condition="'$(Configuration)|$(Platform)'=='Release|x64'">core_build\win_64\release\obj\</IntDir>
     <TargetName Condition="'$(Configuration)|$(Platform)'=='Release|x64'">kernel_network</TargetName>
     <IgnoreImportLibrary Condition="'$(Configuration)|$(Platform)'=='Release|x64'">true</IgnoreImportLibrary>
@@ -49,7 +49,7 @@
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
     <ClCompile>
       <AdditionalIncludeDirectories>GeneratedFiles\$(ConfigurationName);GeneratedFiles;.;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
-      <AdditionalOptions>-Zc:rvalueCast -Zc:inline -Zc:strictStrings -Zc:throwingNew -Zc:referenceBinding -Zc:__cplusplus /Zc:strictStrings- /utf-8 /Zc:strictStrings- -w34100 -w34189 -w44996 -w44456 -w44457 -w44458 %(AdditionalOptions)</AdditionalOptions>
+      <AdditionalOptions>-Zc:rvalueCast -Zc:inline  -Zc:throwingNew -Zc:referenceBinding -Zc:__cplusplus /Zc:strictStrings- /utf-8 /Zc:strictStrings- -w34100 -w34189 -w44996 -w44456 -w44457 -w44458 %(AdditionalOptions)</AdditionalOptions>
       <AssemblerListingLocation>core_build\win_64\release\obj\</AssemblerListingLocation>
       <BrowseInformation>false</BrowseInformation>
       <DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
@@ -80,7 +80,7 @@
       <SubSystem>Windows</SubSystem>
       <SuppressStartupBanner>true</SuppressStartupBanner>
       <Version>2.5</Version>
-      <ImportLibrary>$(SolutionDir)build\lib\win_64\$(TargetName).lib</ImportLibrary>
+      <ImportLibrary>$(SolutionDir)build\lib\win_64\\$(TargetName).lib</ImportLibrary>
     </Link>
     <Midl>
       <DefaultCharType>Unsigned</DefaultCharType>
@@ -98,11 +98,6 @@
     <ClCompile Include="FileTransporter\src\manager.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include=".\FileTransporter\include\FileTransporter.h" />
-    <ClInclude Include=".\FileTransporter\src\FileTransporter_private.h" />
-    <ClInclude Include=".\FileTransporter\src\Session.h" />
-    <ClInclude Include=".\FileTransporter\include\manager.h" />
-    <ClInclude Include=".\FileTransporter\src\transport_external.h" />
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include=".\kernel_network_resource.rc" />

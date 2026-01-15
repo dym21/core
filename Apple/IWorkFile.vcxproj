@@ -40,7 +40,7 @@
   </ImportGroup>
   <PropertyGroup Label="UserMacros" />
   <PropertyGroup>
-    <OutDir Condition="'$(Configuration)|$(Platform)'=='Release|x64'">$(SolutionDir)build\bin\win_64</OutDir>
+    <OutDir Condition="'$(Configuration)|$(Platform)'=='Release|x64'">$(SolutionDir)build\bin\win_64\</OutDir>
     <IntDir Condition="'$(Configuration)|$(Platform)'=='Release|x64'">core_build\win_64\release\obj\</IntDir>
     <TargetName Condition="'$(Configuration)|$(Platform)'=='Release|x64'">IWorkFile</TargetName>
     <IgnoreImportLibrary Condition="'$(Configuration)|$(Platform)'=='Release|x64'">true</IgnoreImportLibrary>
@@ -49,7 +49,7 @@
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
     <ClCompile>
       <AdditionalIncludeDirectories>GeneratedFiles\$(ConfigurationName);GeneratedFiles;.;..\Common\3dParty\boost\build\win_64\include;..\OfficeUtils\src\zlib-1.2.11\contrib\minizip;..\OfficeUtils\src\zlib-1.2.11;..\OfficeUtils\src;..\DesktopEditor\xml\libxml2\include;..\DesktopEditor\xml\libxml2\include\libxml;..\DesktopEditor\xml\build\qt;..\Common\3dParty\apple;..\Common\3dParty\apple\librevenge\inc;..\Common\3dParty\apple\libodfgen\inc;..\Common\3dParty\apple\libetonyek\inc;..\Common\3dParty\apple\libetonyek\src\lib;..\Common\3dParty\apple\libetonyek\src\lib\contexts;..\Common\3dParty\apple\mdds\include;..\Common\3dParty\apple\glm;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
-      <AdditionalOptions>-Zc:rvalueCast -Zc:inline -Zc:strictStrings -Zc:throwingNew -Zc:referenceBinding -Zc:__cplusplus /Zc:strictStrings- /utf-8 /Zc:strictStrings- -w34100 -w34189 -w44996 -w44456 -w44457 -w44458 %(AdditionalOptions)</AdditionalOptions>
+      <AdditionalOptions>-Zc:rvalueCast -Zc:inline  -Zc:throwingNew -Zc:referenceBinding -Zc:__cplusplus /Zc:strictStrings- /utf-8 /Zc:strictStrings- -w34100 -w34189 -w44996 -w44456 -w44457 -w44458 %(AdditionalOptions)</AdditionalOptions>
       <AssemblerListingLocation>core_build\win_64\release\obj\</AssemblerListingLocation>
       <BrowseInformation>false</BrowseInformation>
       <DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
@@ -80,7 +80,7 @@
       <SubSystem>Windows</SubSystem>
       <SuppressStartupBanner>true</SuppressStartupBanner>
       <Version>2.5</Version>
-      <ImportLibrary>$(SolutionDir)build\lib\win_64\$(TargetName).lib</ImportLibrary>
+      <ImportLibrary>$(SolutionDir)build\lib\win_64\\$(TargetName).lib</ImportLibrary>
     </Link>
     <Midl>
       <DefaultCharType>Unsigned</DefaultCharType>
@@ -316,168 +316,12 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="C:\onlyoffice\core\Common\3dParty\apple\libodfgen\src\DocumentElement.hxx" />
-    <ClInclude Include="C:\onlyoffice\core\Common\3dParty\apple\libetonyek\inc\libetonyek\EtonyekDocument.h" />
     <ClInclude Include="C:\onlyoffice\core\Common\3dParty\apple\libodfgen\src\FilterInternal.hxx" />
     <ClInclude Include="C:\onlyoffice\core\Common\3dParty\apple\libodfgen\src\FontStyle.hxx" />
     <ClInclude Include="C:\onlyoffice\core\Common\3dParty\apple\libodfgen\src\GraphicFunctions.hxx" />
     <ClInclude Include="C:\onlyoffice\core\Common\3dParty\apple\libodfgen\src\GraphicStyle.hxx" />
-    <ClInclude Include="C:\onlyoffice\core\Common\3dParty\apple\libetonyek\src\lib\IWAField.h" />
-    <ClInclude Include="C:\onlyoffice\core\Common\3dParty\apple\libetonyek\src\lib\IWAMessage.h" />
-    <ClInclude Include="C:\onlyoffice\core\Common\3dParty\apple\libetonyek\src\lib\IWAObjectIndex.h" />
-    <ClInclude Include="C:\onlyoffice\core\Common\3dParty\apple\libetonyek\src\lib\IWAObjectType.h" />
-    <ClInclude Include="C:\onlyoffice\core\Common\3dParty\apple\libetonyek\src\lib\IWAParser.h" />
-    <ClInclude Include="C:\onlyoffice\core\Common\3dParty\apple\libetonyek\src\lib\IWAReader.h" />
-    <ClInclude Include="C:\onlyoffice\core\Common\3dParty\apple\libetonyek\src\lib\IWASnappyStream.h" />
-    <ClInclude Include="C:\onlyoffice\core\Common\3dParty\apple\libetonyek\src\lib\IWAText.h" />
-    <ClInclude Include="C:\onlyoffice\core\Common\3dParty\apple\libetonyek\src\lib\contexts\IWORKBezierElement.h" />
-    <ClInclude Include="C:\onlyoffice\core\Common\3dParty\apple\libetonyek\src\lib\contexts\IWORKBinaryElement.h" />
-    <ClInclude Include="C:\onlyoffice\core\Common\3dParty\apple\libetonyek\src\lib\contexts\IWORKBrContext.h" />
-    <ClInclude Include="C:\onlyoffice\core\Common\3dParty\apple\libetonyek\src\lib\contexts\IWORKCalcEngineContext.h" />
-    <ClInclude Include="C:\onlyoffice\core\Common\3dParty\apple\libetonyek\src\lib\contexts\IWORKCellCommentDrawableInfoElement.h" />
-    <ClInclude Include="C:\onlyoffice\core\Common\3dParty\apple\libetonyek\src\lib\IWORKChainedTokenizer.h" />
-    <ClInclude Include="C:\onlyoffice\core\Common\3dParty\apple\libetonyek\src\lib\IWORKChart.h" />
-    <ClInclude Include="C:\onlyoffice\core\Common\3dParty\apple\libetonyek\src\lib\contexts\IWORKChartInfoElement.h" />
-    <ClInclude Include="C:\onlyoffice\core\Common\3dParty\apple\libetonyek\src\lib\IWORKCollector.h" />
-    <ClInclude Include="C:\onlyoffice\core\Common\3dParty\apple\libetonyek\src\lib\contexts\IWORKColorElement.h" />
-    <ClInclude Include="C:\onlyoffice\core\Common\3dParty\apple\libetonyek\src\lib\contexts\IWORKContainerContext.h" />
-    <ClInclude Include="C:\onlyoffice\core\Common\3dParty\apple\libetonyek\src\lib\contexts\IWORKCoreImageFilterDescriptorElement.h" />
-    <ClInclude Include="C:\onlyoffice\core\Common\3dParty\apple\libetonyek\src\lib\contexts\IWORKDataElement.h" />
-    <ClInclude Include="C:\onlyoffice\core\Common\3dParty\apple\libetonyek\src\lib\IWORKDictionary.h" />
-    <ClInclude Include="C:\onlyoffice\core\Common\3dParty\apple\libetonyek\src\lib\contexts\IWORKDirectCollector.h" />
-    <ClInclude Include="C:\onlyoffice\core\Common\3dParty\apple\libetonyek\src\lib\IWORKDiscardContext.h" />
-    <ClInclude Include="C:\onlyoffice\core\Common\3dParty\apple\libetonyek\src\lib\IWORKDocumentInterface.h" />
-    <ClInclude Include="C:\onlyoffice\core\Common\3dParty\apple\libetonyek\src\lib\IWORKEnum.h" />
-    <ClInclude Include="C:\onlyoffice\core\Common\3dParty\apple\libetonyek\src\lib\contexts\IWORKFieldElement.h" />
-    <ClInclude Include="C:\onlyoffice\core\Common\3dParty\apple\libetonyek\src\lib\contexts\IWORKFillElement.h" />
-    <ClInclude Include="C:\onlyoffice\core\Common\3dParty\apple\libetonyek\src\lib\contexts\IWORKFilteredImageElement.h" />
-    <ClInclude Include="C:\onlyoffice\core\Common\3dParty\apple\libetonyek\src\lib\contexts\IWORKFormatElement.h" />
-    <ClInclude Include="C:\onlyoffice\core\Common\3dParty\apple\libetonyek\src\lib\IWORKFormula.h" />
-    <ClInclude Include="C:\onlyoffice\core\Common\3dParty\apple\libetonyek\src\lib\contexts\IWORKFormulaElement.h" />
-    <ClInclude Include="C:\onlyoffice\core\Common\3dParty\apple\libetonyek\src\lib\contexts\IWORKGeometryElement.h" />
-    <ClInclude Include="C:\onlyoffice\core\Common\3dParty\apple\libetonyek\src\lib\contexts\IWORKGroupElement.h" />
-    <ClInclude Include="C:\onlyoffice\core\Common\3dParty\apple\libetonyek\src\lib\contexts\IWORKHeaderFooterContext.h" />
-    <ClInclude Include="C:\onlyoffice\core\Common\3dParty\apple\libetonyek\src\lib\contexts\IWORKImageContext.h" />
-    <ClInclude Include="C:\onlyoffice\core\Common\3dParty\apple\libetonyek\src\lib\contexts\IWORKImageElement.h" />
-    <ClInclude Include="C:\onlyoffice\core\Common\3dParty\apple\libetonyek\src\lib\IWORKLanguageManager.h" />
-    <ClInclude Include="C:\onlyoffice\core\Common\3dParty\apple\libetonyek\src\lib\contexts\IWORKLayoutElement.h" />
-    <ClInclude Include="C:\onlyoffice\core\Common\3dParty\apple\libetonyek\src\lib\contexts\IWORKLineElement.h" />
-    <ClInclude Include="C:\onlyoffice\core\Common\3dParty\apple\libetonyek\src\lib\contexts\IWORKLineEndElement.h" />
-    <ClInclude Include="C:\onlyoffice\core\Common\3dParty\apple\libetonyek\src\lib\contexts\IWORKLinkElement.h" />
-    <ClInclude Include="C:\onlyoffice\core\Common\3dParty\apple\libetonyek\src\lib\contexts\IWORKListLabelGeometriesProperty.h" />
-    <ClInclude Include="C:\onlyoffice\core\Common\3dParty\apple\libetonyek\src\lib\contexts\IWORKListLabelGeometryElement.h" />
-    <ClInclude Include="C:\onlyoffice\core\Common\3dParty\apple\libetonyek\src\lib\contexts\IWORKListLabelIndentsProperty.h" />
-    <ClInclude Include="C:\onlyoffice\core\Common\3dParty\apple\libetonyek\src\lib\contexts\IWORKListLabelTypeinfoElement.h" />
-    <ClInclude Include="C:\onlyoffice\core\Common\3dParty\apple\libetonyek\src\lib\contexts\IWORKListLabelTypesProperty.h" />
-    <ClInclude Include="C:\onlyoffice\core\Common\3dParty\apple\libetonyek\src\lib\contexts\IWORKListTextIndentsProperty.h" />
-    <ClInclude Include="C:\onlyoffice\core\Common\3dParty\apple\libetonyek\src\lib\contexts\IWORKMediaElement.h" />
-    <ClInclude Include="C:\onlyoffice\core\Common\3dParty\apple\libetonyek\src\lib\IWORKMemoryStream.h" />
-    <ClInclude Include="C:\onlyoffice\core\Common\3dParty\apple\libetonyek\src\lib\contexts\IWORKMetadataElement.h" />
-    <ClInclude Include="C:\onlyoffice\core\Common\3dParty\apple\libetonyek\src\lib\contexts\IWORKMutableArrayElement.h" />
-    <ClInclude Include="C:\onlyoffice\core\Common\3dParty\apple\libetonyek\src\lib\contexts\IWORKNumberConverter.h" />
-    <ClInclude Include="C:\onlyoffice\core\Common\3dParty\apple\libetonyek\src\lib\contexts\IWORKNumberElement.h" />
-    <ClInclude Include="C:\onlyoffice\core\Common\3dParty\apple\libetonyek\src\lib\contexts\IWORKNumericPropertyContext.h" />
-    <ClInclude Include="C:\onlyoffice\core\Common\3dParty\apple\libetonyek\src\lib\IWORKOutputElements.h" />
-    <ClInclude Include="C:\onlyoffice\core\Common\3dParty\apple\libetonyek\src\lib\IWORKOutputManager.h" />
-    <ClInclude Include="C:\onlyoffice\core\Common\3dParty\apple\libetonyek\src\lib\contexts\IWORKPElement.h" />
-    <ClInclude Include="C:\onlyoffice\core\Common\3dParty\apple\libetonyek\src\lib\IWORKParser.h" />
-    <ClInclude Include="C:\onlyoffice\core\Common\3dParty\apple\libetonyek\src\lib\IWORKPath.h" />
-    <ClInclude Include="C:\onlyoffice\core\Common\3dParty\apple\libetonyek\src\lib\contexts\IWORKPathElement.h" />
-    <ClInclude Include="C:\onlyoffice\core\Common\3dParty\apple\libetonyek\src\lib\IWORKPath_fwd.h" />
-    <ClInclude Include="C:\onlyoffice\core\Common\3dParty\apple\libetonyek\src\lib\contexts\IWORKPositionElement.h" />
-    <ClInclude Include="C:\onlyoffice\core\Common\3dParty\apple\libetonyek\src\lib\IWORKPresentationRedirector.h" />
-    <ClInclude Include="C:\onlyoffice\core\Common\3dParty\apple\libetonyek\src\lib\IWORKProperties.h" />
-    <ClInclude Include="C:\onlyoffice\core\Common\3dParty\apple\libetonyek\src\lib\contexts\IWORKPropertyContext.h" />
-    <ClInclude Include="C:\onlyoffice\core\Common\3dParty\apple\libetonyek\src\lib\contexts\IWORKPropertyContextBase.h" />
-    <ClInclude Include="C:\onlyoffice\core\Common\3dParty\apple\libetonyek\src\lib\IWORKPropertyHandler.h" />
-    <ClInclude Include="C:\onlyoffice\core\Common\3dParty\apple\libetonyek\src\lib\IWORKPropertyInfo.h" />
-    <ClInclude Include="C:\onlyoffice\core\Common\3dParty\apple\libetonyek\src\lib\IWORKPropertyMap.h" />
-    <ClInclude Include="C:\onlyoffice\core\Common\3dParty\apple\libetonyek\src\lib\contexts\IWORKPropertyMapElement.h" />
-    <ClInclude Include="C:\onlyoffice\core\Common\3dParty\apple\libetonyek\src\lib\contexts\IWORKPtrPropertyContext.h" />
-    <ClInclude Include="C:\onlyoffice\core\Common\3dParty\apple\libetonyek\src\lib\contexts\IWORKPushCollector.h" />
-    <ClInclude Include="C:\onlyoffice\core\Common\3dParty\apple\libetonyek\src\lib\IWORKRecorder.h" />
-    <ClInclude Include="C:\onlyoffice\core\Common\3dParty\apple\libetonyek\src\lib\contexts\IWORKRefContext.h" />
-    <ClInclude Include="C:\onlyoffice\core\Common\3dParty\apple\libetonyek\src\lib\IWORKShape.h" />
-    <ClInclude Include="C:\onlyoffice\core\Common\3dParty\apple\libetonyek\src\lib\contexts\IWORKShapeContext.h" />
-    <ClInclude Include="C:\onlyoffice\core\Common\3dParty\apple\libetonyek\src\lib\contexts\IWORKSizeElement.h" />
-    <ClInclude Include="C:\onlyoffice\core\Common\3dParty\apple\libetonyek\src\lib\contexts\IWORKSpanElement.h" />
-    <ClInclude Include="C:\onlyoffice\core\Common\3dParty\apple\libetonyek\src\lib\IWORKSpreadsheetRedirector.h" />
-    <ClInclude Include="C:\onlyoffice\core\Common\3dParty\apple\libetonyek\src\lib\contexts\IWORKStringElement.h" />
-    <ClInclude Include="C:\onlyoffice\core\Common\3dParty\apple\libetonyek\src\lib\contexts\IWORKStrokeContext.h" />
-    <ClInclude Include="C:\onlyoffice\core\Common\3dParty\apple\libetonyek\src\lib\IWORKStyle.h" />
-    <ClInclude Include="C:\onlyoffice\core\Common\3dParty\apple\libetonyek\src\lib\contexts\IWORKStyleContainer.h" />
-    <ClInclude Include="C:\onlyoffice\core\Common\3dParty\apple\libetonyek\src\lib\contexts\IWORKStyleContext.h" />
-    <ClInclude Include="C:\onlyoffice\core\Common\3dParty\apple\libetonyek\src\lib\contexts\IWORKStyleRefContext.h" />
-    <ClInclude Include="C:\onlyoffice\core\Common\3dParty\apple\libetonyek\src\lib\IWORKStyleStack.h" />
-    <ClInclude Include="C:\onlyoffice\core\Common\3dParty\apple\libetonyek\src\lib\IWORKStyle_fwd.h" />
-    <ClInclude Include="C:\onlyoffice\core\Common\3dParty\apple\libetonyek\src\lib\contexts\IWORKStylesContext.h" />
-    <ClInclude Include="C:\onlyoffice\core\Common\3dParty\apple\libetonyek\src\lib\IWORKStylesheet.h" />
-    <ClInclude Include="C:\onlyoffice\core\Common\3dParty\apple\libetonyek\src\lib\contexts\IWORKStylesheetBase.h" />
-    <ClInclude Include="C:\onlyoffice\core\Common\3dParty\apple\libetonyek\src\lib\IWORKSubDirStream.h" />
-    <ClInclude Include="C:\onlyoffice\core\Common\3dParty\apple\libetonyek\src\lib\contexts\IWORKTabElement.h" />
-    <ClInclude Include="C:\onlyoffice\core\Common\3dParty\apple\libetonyek\src\lib\IWORKTable.h" />
-    <ClInclude Include="C:\onlyoffice\core\Common\3dParty\apple\libetonyek\src\lib\contexts\IWORKTableInfoElement.h" />
-    <ClInclude Include="C:\onlyoffice\core\Common\3dParty\apple\libetonyek\src\lib\IWORKTableRecorder.h" />
-    <ClInclude Include="C:\onlyoffice\core\Common\3dParty\apple\libetonyek\src\lib\contexts\IWORKTabsElement.h" />
-    <ClInclude Include="C:\onlyoffice\core\Common\3dParty\apple\libetonyek\src\lib\contexts\IWORKTabularInfoElement.h" />
-    <ClInclude Include="C:\onlyoffice\core\Common\3dParty\apple\libetonyek\src\lib\contexts\IWORKTabularModelElement.h" />
-    <ClInclude Include="C:\onlyoffice\core\Common\3dParty\apple\libetonyek\src\lib\IWORKText.h" />
-    <ClInclude Include="C:\onlyoffice\core\Common\3dParty\apple\libetonyek\src\lib\contexts\IWORKTextBodyElement.h" />
-    <ClInclude Include="C:\onlyoffice\core\Common\3dParty\apple\libetonyek\src\lib\contexts\IWORKTextElement.h" />
-    <ClInclude Include="C:\onlyoffice\core\Common\3dParty\apple\libetonyek\src\lib\contexts\IWORKTextLabelElement.h" />
-    <ClInclude Include="C:\onlyoffice\core\Common\3dParty\apple\libetonyek\src\lib\IWORKTextRecorder.h" />
-    <ClInclude Include="C:\onlyoffice\core\Common\3dParty\apple\libetonyek\src\lib\IWORKTextRedirector.h" />
-    <ClInclude Include="C:\onlyoffice\core\Common\3dParty\apple\libetonyek\src\lib\contexts\IWORKTextStorageElement.h" />
-    <ClInclude Include="C:\onlyoffice\core\Common\3dParty\apple\libetonyek\src\lib\IWORKText_fwd.h" />
-    <ClInclude Include="C:\onlyoffice\core\Common\3dParty\apple\libetonyek\src\lib\IWORKToken.h" />
-    <ClInclude Include="C:\onlyoffice\core\Common\3dParty\apple\libetonyek\src\lib\IWORKTokenInfo.h" />
-    <ClInclude Include="C:\onlyoffice\core\Common\3dParty\apple\libetonyek\src\lib\IWORKTokenizer.h" />
-    <ClInclude Include="C:\onlyoffice\core\Common\3dParty\apple\libetonyek\src\lib\IWORKTokenizerBase.h" />
-    <ClInclude Include="C:\onlyoffice\core\Common\3dParty\apple\libetonyek\src\lib\IWORKTransformation.h" />
-    <ClInclude Include="C:\onlyoffice\core\Common\3dParty\apple\libetonyek\src\lib\IWORKTypes.h" />
-    <ClInclude Include="C:\onlyoffice\core\Common\3dParty\apple\libetonyek\src\lib\IWORKTypes_fwd.h" />
-    <ClInclude Include="C:\onlyoffice\core\Common\3dParty\apple\libetonyek\src\lib\contexts\IWORKUnfilteredElement.h" />
-    <ClInclude Include="C:\onlyoffice\core\Common\3dParty\apple\libetonyek\src\lib\contexts\IWORKValueContext.h" />
-    <ClInclude Include="C:\onlyoffice\core\Common\3dParty\apple\libetonyek\src\lib\contexts\IWORKWrapElement.h" />
-    <ClInclude Include="C:\onlyoffice\core\Common\3dParty\apple\libetonyek\src\lib\IWORKXMLContext.h" />
-    <ClInclude Include="C:\onlyoffice\core\Common\3dParty\apple\libetonyek\src\lib\IWORKXMLContextBase.h" />
-    <ClInclude Include="C:\onlyoffice\core\Common\3dParty\apple\libetonyek\src\lib\IWORKXMLParserState.h" />
-    <ClInclude Include="C:\onlyoffice\core\Common\3dParty\apple\libetonyek\src\lib\IWORKZlibStream.h" />
-    <ClInclude Include="IWork.h" />
     <ClInclude Include="C:\onlyoffice\core\Common\3dParty\apple\libodfgen\src\InternalHandler.hxx" />
-    <ClInclude Include="C:\onlyoffice\core\Common\3dParty\apple\libetonyek\src\lib\contexts\KEY1ContentElement.h" />
-    <ClInclude Include="C:\onlyoffice\core\Common\3dParty\apple\libetonyek\src\lib\KEY1Dictionary.h" />
-    <ClInclude Include="C:\onlyoffice\core\Common\3dParty\apple\libetonyek\src\lib\contexts\KEY1DivElement.h" />
-    <ClInclude Include="C:\onlyoffice\core\Common\3dParty\apple\libetonyek\src\lib\contexts\KEY1FillElement.h" />
-    <ClInclude Include="C:\onlyoffice\core\Common\3dParty\apple\libetonyek\src\lib\KEY1Parser.h" />
-    <ClInclude Include="C:\onlyoffice\core\Common\3dParty\apple\libetonyek\src\lib\KEY1ParserState.h" />
-    <ClInclude Include="C:\onlyoffice\core\Common\3dParty\apple\libetonyek\src\lib\contexts\KEY1SpanElement.h" />
-    <ClInclude Include="C:\onlyoffice\core\Common\3dParty\apple\libetonyek\src\lib\contexts\KEY1StringConverter.h" />
-    <ClInclude Include="C:\onlyoffice\core\Common\3dParty\apple\libetonyek\src\lib\contexts\KEY1StylesContext.h" />
-    <ClInclude Include="C:\onlyoffice\core\Common\3dParty\apple\libetonyek\src\lib\contexts\KEY1TableElement.h" />
-    <ClInclude Include="C:\onlyoffice\core\Common\3dParty\apple\libetonyek\src\lib\KEY1Token.h" />
-    <ClInclude Include="C:\onlyoffice\core\Common\3dParty\apple\libetonyek\src\lib\KEY1XMLContextBase.h" />
-    <ClInclude Include="C:\onlyoffice\core\Common\3dParty\apple\libetonyek\src\lib\KEY2Dictionary.h" />
-    <ClInclude Include="C:\onlyoffice\core\Common\3dParty\apple\libetonyek\src\lib\KEY2Parser.h" />
-    <ClInclude Include="C:\onlyoffice\core\Common\3dParty\apple\libetonyek\src\lib\KEY2ParserState.h" />
-    <ClInclude Include="C:\onlyoffice\core\Common\3dParty\apple\libetonyek\src\lib\contexts\KEY2StyleContext.h" />
-    <ClInclude Include="C:\onlyoffice\core\Common\3dParty\apple\libetonyek\src\lib\KEY2Token.h" />
-    <ClInclude Include="C:\onlyoffice\core\Common\3dParty\apple\libetonyek\src\lib\KEY2XMLContextBase.h" />
-    <ClInclude Include="C:\onlyoffice\core\Common\3dParty\apple\libetonyek\src\lib\KEY6ObjectType.h" />
-    <ClInclude Include="C:\onlyoffice\core\Common\3dParty\apple\libetonyek\src\lib\KEY6Parser.h" />
-    <ClInclude Include="C:\onlyoffice\core\Common\3dParty\apple\libetonyek\src\lib\KEYCollector.h" />
-    <ClInclude Include="C:\onlyoffice\core\Common\3dParty\apple\libetonyek\src\lib\KEYEnum.h" />
-    <ClInclude Include="C:\onlyoffice\core\Common\3dParty\apple\libetonyek\src\lib\KEYProperties.h" />
-    <ClInclude Include="C:\onlyoffice\core\Common\3dParty\apple\libetonyek\src\lib\KEYTypes.h" />
-    <ClInclude Include="C:\onlyoffice\core\Common\3dParty\apple\libetonyek\src\lib\KEYTypes_fwd.h" />
     <ClInclude Include="C:\onlyoffice\core\Common\3dParty\apple\libodfgen\src\ListStyle.hxx" />
-    <ClInclude Include="C:\onlyoffice\core\Common\3dParty\apple\libetonyek\src\lib\NUM1Dictionary.h" />
-    <ClInclude Include="C:\onlyoffice\core\Common\3dParty\apple\libetonyek\src\lib\NUM1Parser.h" />
-    <ClInclude Include="C:\onlyoffice\core\Common\3dParty\apple\libetonyek\src\lib\NUM1ParserState.h" />
-    <ClInclude Include="C:\onlyoffice\core\Common\3dParty\apple\libetonyek\src\lib\NUM1Token.h" />
-    <ClInclude Include="C:\onlyoffice\core\Common\3dParty\apple\libetonyek\src\lib\NUM1XMLContextBase.h" />
-    <ClInclude Include="C:\onlyoffice\core\Common\3dParty\apple\libetonyek\src\lib\NUM3ObjectType.h" />
-    <ClInclude Include="C:\onlyoffice\core\Common\3dParty\apple\libetonyek\src\lib\NUM3Parser.h" />
-    <ClInclude Include="C:\onlyoffice\core\Common\3dParty\apple\libetonyek\src\lib\NUMCollector.h" />
     <ClInclude Include="C:\onlyoffice\core\Common\3dParty\apple\libodfgen\src\OdcGenerator.hxx" />
     <ClInclude Include="C:\onlyoffice\core\Common\3dParty\apple\libodfgen\inc\libodfgen\OdfDocumentHandler.hxx" />
     <ClInclude Include="C:\onlyoffice\core\Common\3dParty\apple\libodfgen\src\OdfGenerator.hxx" />
@@ -485,85 +329,14 @@
     <ClInclude Include="C:\onlyoffice\core\Common\3dParty\apple\libodfgen\inc\libodfgen\OdpGenerator.hxx" />
     <ClInclude Include="C:\onlyoffice\core\Common\3dParty\apple\libodfgen\inc\libodfgen\OdsGenerator.hxx" />
     <ClInclude Include="C:\onlyoffice\core\Common\3dParty\apple\libodfgen\inc\libodfgen\OdtGenerator.hxx" />
-    <ClInclude Include="C:\onlyoffice\core\OfficeUtils\src\OfficeUtils.h" />
-    <ClInclude Include="C:\onlyoffice\core\OfficeUtils\src\OfficeUtilsCommon.h" />
-    <ClInclude Include="C:\onlyoffice\core\Common\3dParty\apple\libetonyek\src\lib\contexts\PAG1AnnotationContext.h" />
-    <ClInclude Include="C:\onlyoffice\core\Common\3dParty\apple\libetonyek\src\lib\contexts\PAG1AnnotationElement.h" />
-    <ClInclude Include="C:\onlyoffice\core\Common\3dParty\apple\libetonyek\src\lib\PAG1Dictionary.h" />
-    <ClInclude Include="C:\onlyoffice\core\Common\3dParty\apple\libetonyek\src\lib\contexts\PAG1FootnotesElement.h" />
-    <ClInclude Include="C:\onlyoffice\core\Common\3dParty\apple\libetonyek\src\lib\PAG1Parser.h" />
-    <ClInclude Include="C:\onlyoffice\core\Common\3dParty\apple\libetonyek\src\lib\PAG1ParserState.h" />
-    <ClInclude Include="C:\onlyoffice\core\Common\3dParty\apple\libetonyek\src\lib\contexts\PAG1ShapeContext.h" />
-    <ClInclude Include="C:\onlyoffice\core\Common\3dParty\apple\libetonyek\src\lib\contexts\PAG1StyleContext.h" />
-    <ClInclude Include="C:\onlyoffice\core\Common\3dParty\apple\libetonyek\src\lib\contexts\PAG1TextStorageElement.h" />
-    <ClInclude Include="C:\onlyoffice\core\Common\3dParty\apple\libetonyek\src\lib\PAG1Token.h" />
-    <ClInclude Include="C:\onlyoffice\core\Common\3dParty\apple\libetonyek\src\lib\PAG1XMLContextBase.h" />
-    <ClInclude Include="C:\onlyoffice\core\Common\3dParty\apple\libetonyek\src\lib\PAG5ObjectType.h" />
-    <ClInclude Include="C:\onlyoffice\core\Common\3dParty\apple\libetonyek\src\lib\PAG5Parser.h" />
-    <ClInclude Include="C:\onlyoffice\core\Common\3dParty\apple\libetonyek\src\lib\PAGCollector.h" />
-    <ClInclude Include="C:\onlyoffice\core\Common\3dParty\apple\libetonyek\src\lib\PAGEnum.h" />
-    <ClInclude Include="C:\onlyoffice\core\Common\3dParty\apple\libetonyek\src\lib\PAGProperties.h" />
-    <ClInclude Include="C:\onlyoffice\core\Common\3dParty\apple\libetonyek\src\lib\PAGTypes.h" />
     <ClInclude Include="C:\onlyoffice\core\Common\3dParty\apple\libodfgen\src\PageSpan.hxx" />
-    <ClInclude Include="C:\onlyoffice\core\Common\3dParty\apple\librevenge\inc\librevenge\RVNGBinaryData.h" />
-    <ClInclude Include="C:\onlyoffice\core\Common\3dParty\apple\librevenge\inc\librevenge-generators\RVNGCSVSpreadsheetGenerator.h" />
-    <ClInclude Include="C:\onlyoffice\core\Common\3dParty\apple\librevenge\inc\librevenge-stream\RVNGDirectoryStream.h" />
-    <ClInclude Include="C:\onlyoffice\core\Common\3dParty\apple\librevenge\inc\librevenge\RVNGDrawingInterface.h" />
-    <ClInclude Include="C:\onlyoffice\core\Common\3dParty\apple\librevenge\inc\librevenge-generators\RVNGHTMLTextGenerator.h" />
-    <ClInclude Include="C:\onlyoffice\core\Common\3dParty\apple\librevenge\src\lib\RVNGHTMLTextTableStyle.h" />
-    <ClInclude Include="C:\onlyoffice\core\Common\3dParty\apple\librevenge\src\lib\RVNGHTMLTextTextStyle.h" />
-    <ClInclude Include="C:\onlyoffice\core\Common\3dParty\apple\librevenge\src\lib\RVNGMemoryStream.h" />
-    <ClInclude Include="C:\onlyoffice\core\Common\3dParty\apple\librevenge\src\lib\RVNGOLEStream.h" />
-    <ClInclude Include="C:\onlyoffice\core\Common\3dParty\apple\librevenge\inc\librevenge\RVNGPresentationInterface.h" />
-    <ClInclude Include="C:\onlyoffice\core\Common\3dParty\apple\librevenge\inc\librevenge\RVNGProperty.h" />
-    <ClInclude Include="C:\onlyoffice\core\Common\3dParty\apple\librevenge\inc\librevenge\RVNGPropertyList.h" />
-    <ClInclude Include="C:\onlyoffice\core\Common\3dParty\apple\librevenge\inc\librevenge\RVNGPropertyListVector.h" />
-    <ClInclude Include="C:\onlyoffice\core\Common\3dParty\apple\librevenge\inc\librevenge-generators\RVNGRawDrawingGenerator.h" />
-    <ClInclude Include="C:\onlyoffice\core\Common\3dParty\apple\librevenge\src\lib\RVNGRawGeneratorBase.h" />
-    <ClInclude Include="C:\onlyoffice\core\Common\3dParty\apple\librevenge\inc\librevenge-generators\RVNGRawPresentationGenerator.h" />
-    <ClInclude Include="C:\onlyoffice\core\Common\3dParty\apple\librevenge\inc\librevenge-generators\RVNGRawSpreadsheetGenerator.h" />
-    <ClInclude Include="C:\onlyoffice\core\Common\3dParty\apple\librevenge\inc\librevenge-generators\RVNGRawTextGenerator.h" />
-    <ClInclude Include="C:\onlyoffice\core\Common\3dParty\apple\librevenge\inc\librevenge\RVNGSVGDrawingGenerator.h" />
-    <ClInclude Include="C:\onlyoffice\core\Common\3dParty\apple\librevenge\inc\librevenge-generators\RVNGSVGPresentationGenerator.h" />
-    <ClInclude Include="C:\onlyoffice\core\Common\3dParty\apple\librevenge\inc\librevenge\RVNGSpreadsheetInterface.h" />
-    <ClInclude Include="C:\onlyoffice\core\Common\3dParty\apple\librevenge\inc\librevenge-stream\RVNGStream.h" />
-    <ClInclude Include="C:\onlyoffice\core\Common\3dParty\apple\librevenge\inc\librevenge-stream\RVNGStreamImplementation.h" />
-    <ClInclude Include="C:\onlyoffice\core\Common\3dParty\apple\librevenge\inc\librevenge\RVNGString.h" />
-    <ClInclude Include="C:\onlyoffice\core\Common\3dParty\apple\librevenge\inc\librevenge\RVNGStringVector.h" />
-    <ClInclude Include="C:\onlyoffice\core\Common\3dParty\apple\librevenge\inc\librevenge-generators\RVNGTextDrawingGenerator.h" />
-    <ClInclude Include="C:\onlyoffice\core\Common\3dParty\apple\librevenge\inc\librevenge\RVNGTextInterface.h" />
-    <ClInclude Include="C:\onlyoffice\core\Common\3dParty\apple\librevenge\inc\librevenge-generators\RVNGTextPresentationGenerator.h" />
-    <ClInclude Include="C:\onlyoffice\core\Common\3dParty\apple\librevenge\inc\librevenge-generators\RVNGTextSpreadsheetGenerator.h" />
-    <ClInclude Include="C:\onlyoffice\core\Common\3dParty\apple\librevenge\inc\librevenge-generators\RVNGTextTextGenerator.h" />
-    <ClInclude Include="C:\onlyoffice\core\Common\3dParty\apple\librevenge\src\lib\RVNGZipStream.h" />
     <ClInclude Include="C:\onlyoffice\core\Common\3dParty\apple\libodfgen\src\SectionStyle.hxx" />
     <ClInclude Include="C:\onlyoffice\core\Common\3dParty\apple\libodfgen\src\SheetStyle.hxx" />
-    <ClInclude Include="C:\onlyoffice\core\Common\3dParty\apple\libodfgen\test\StringDocumentHandler.h" />
     <ClInclude Include="C:\onlyoffice\core\Common\3dParty\apple\libodfgen\src\Style.hxx" />
     <ClInclude Include="C:\onlyoffice\core\Common\3dParty\apple\libodfgen\src\TableStyle.hxx" />
     <ClInclude Include="C:\onlyoffice\core\Common\3dParty\apple\libodfgen\src\TextRunStyle.hxx" />
-    <ClInclude Include="C:\onlyoffice\core\OfficeUtils\src\ZipBuffer.h" />
-    <ClInclude Include="C:\onlyoffice\core\OfficeUtils\src\ZipFolder.h" />
-    <ClInclude Include="C:\onlyoffice\core\OfficeUtils\src\ZipUtilsCP.h" />
-    <ClInclude Include="C:\onlyoffice\core\OfficeUtils\src\zlib-1.2.11\contrib\minizip\crypt.h" />
-    <ClInclude Include="C:\onlyoffice\core\OfficeUtils\src\zlib-1.2.11\contrib\minizip\ioapi.h" />
-    <ClInclude Include="C:\onlyoffice\core\OfficeUtils\src\zlib-1.2.11\contrib\minizip\ioapibuf.h" />
-    <ClInclude Include="C:\onlyoffice\core\Common\3dParty\apple\libetonyek\inc\libetonyek\libetonyek.h" />
-    <ClInclude Include="C:\onlyoffice\core\Common\3dParty\apple\libetonyek\src\lib\libetonyek_utils.h" />
-    <ClInclude Include="C:\onlyoffice\core\Common\3dParty\apple\libetonyek\src\lib\libetonyek_xml.h" />
     <ClInclude Include="C:\onlyoffice\core\Common\3dParty\apple\libodfgen\inc\libodfgen\libodfgen-api.hxx" />
     <ClInclude Include="C:\onlyoffice\core\Common\3dParty\apple\libodfgen\inc\libodfgen\libodfgen.hxx" />
-    <ClInclude Include="C:\onlyoffice\core\Common\3dParty\apple\librevenge\inc\librevenge\librevenge-api.h" />
-    <ClInclude Include="C:\onlyoffice\core\Common\3dParty\apple\librevenge\inc\librevenge-generators\librevenge-generators-api.h" />
-    <ClInclude Include="C:\onlyoffice\core\Common\3dParty\apple\librevenge\inc\librevenge-generators\librevenge-generators.h" />
-    <ClInclude Include="C:\onlyoffice\core\Common\3dParty\apple\librevenge\inc\librevenge-stream\librevenge-stream-api.h" />
-    <ClInclude Include="C:\onlyoffice\core\Common\3dParty\apple\librevenge\inc\librevenge-stream\librevenge-stream.h" />
-    <ClInclude Include="C:\onlyoffice\core\Common\3dParty\apple\librevenge\inc\librevenge\librevenge.h" />
-    <ClInclude Include="C:\onlyoffice\core\Common\3dParty\apple\librevenge\src\lib\librevenge_internal.h" />
-    <ClInclude Include="C:\onlyoffice\core\OfficeUtils\src\zlib-1.2.11\contrib\minizip\mztools.h" />
-    <ClInclude Include="C:\onlyoffice\core\OfficeUtils\src\zlib-1.2.11\contrib\minizip\unzip.h" />
-    <ClInclude Include="C:\onlyoffice\core\OfficeUtils\src\zlib-1.2.11\contrib\minizip\zip.h" />
-    <ClInclude Include="C:\onlyoffice\core\OfficeUtils\src\zlib_addon.h" />
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include=".\IWorkFile_resource.rc" />

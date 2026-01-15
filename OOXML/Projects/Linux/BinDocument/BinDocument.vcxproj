@@ -40,7 +40,7 @@
   </ImportGroup>
   <PropertyGroup Label="UserMacros" />
   <PropertyGroup>
-    <OutDir Condition="'$(Configuration)|$(Platform)'=='Release|x64'">$(SolutionDir)build\lib\win_64</OutDir>
+    <OutDir Condition="'$(Configuration)|$(Platform)'=='Release|x64'">$(SolutionDir)build\lib\win_64\</OutDir>
     <IntDir Condition="'$(Configuration)|$(Platform)'=='Release|x64'">core_build\win_64\release\obj\</IntDir>
     <TargetName Condition="'$(Configuration)|$(Platform)'=='Release|x64'">BinDocument</TargetName>
     <IgnoreImportLibrary Condition="'$(Configuration)|$(Platform)'=='Release|x64'">true</IgnoreImportLibrary>
@@ -48,7 +48,7 @@
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
     <ClCompile>
       <AdditionalIncludeDirectories>GeneratedFiles\$(ConfigurationName);GeneratedFiles;.;..\..\..\..\Common\3dParty\boost\build\win_64\include;..\..\..\..\MsBinaryFile\XlsFile\Format;../../../../MsBinaryFile/Common/common_xls;..\..\..\XlsbFormat;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
-      <AdditionalOptions>-Zc:rvalueCast -Zc:inline -Zc:strictStrings -Zc:throwingNew -Zc:referenceBinding -Zc:__cplusplus /Zc:strictStrings- /utf-8 /bigobj /Zc:strictStrings- -w34100 -w34189 -w44996 -w44456 -w44457 -w44458 %(AdditionalOptions)</AdditionalOptions>
+      <AdditionalOptions>-Zc:rvalueCast -Zc:inline  -Zc:throwingNew -Zc:referenceBinding -Zc:__cplusplus /Zc:strictStrings- /utf-8 /bigobj /Zc:strictStrings- -w34100 -w34189 -w44996 -w44456 -w44457 -w44458 %(AdditionalOptions)</AdditionalOptions>
       <AssemblerListingLocation>core_build\win_64\release\obj\</AssemblerListingLocation>
       <BrowseInformation>false</BrowseInformation>
       <DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
@@ -127,91 +127,6 @@
     <ClCompile Include="..\..\..\Binary\Document\BinReader\webSettingsWriter.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="..\..\..\Binary\Document\BinWriter\BinEquationWriter.h" />
-    <ClInclude Include="..\..\..\Binary\Document\BinWriter\BinReaderWriterDefines.h" />
-    <ClInclude Include="..\..\..\Binary\Draw\BinReaderWriterDefines.h" />
-    <ClInclude Include="..\..\..\Binary\Sheets\Common\BinReaderWriterDefines.h" />
-    <ClInclude Include="..\..\..\Binary\Sheets\Writer\BinaryCommonReader.h" />
-    <ClInclude Include="..\..\..\Binary\Document\BinReader\BinaryReaderD.h" />
-    <ClInclude Include="..\..\..\Binary\Sheets\Writer\BinaryReaderS.h" />
-    <ClInclude Include="..\..\..\Binary\Draw\BinaryReaderV.h" />
-    <ClInclude Include="..\..\..\Binary\Document\BinWriter\BinaryWriterD.h" />
-    <ClInclude Include="..\..\..\Binary\Sheets\Reader\BinaryWriterS.h" />
-    <ClInclude Include="..\..\..\Binary\Draw\BinaryWriterV.h" />
-    <ClInclude Include="..\..\..\Binary\Sheets\Reader\CSVReader.h" />
-    <ClInclude Include="..\..\..\Binary\Sheets\Writer\CSVWriter.h" />
-    <ClInclude Include="..\..\..\Binary\Sheets\Reader\CellFormatController\CellFormatController.h" />
-    <ClInclude Include="..\..\..\Binary\Sheets\Reader\ChartFromToBinary.h" />
-    <ClInclude Include="..\..\..\Binary\Document\BinReader\ChartWriter.h" />
-    <ClInclude Include="..\..\..\Binary\Document\DocWrapper\ChartWriter.h" />
-    <ClInclude Include="..\..\..\Binary\Document\BinReader\CommentsWriter.h" />
-    <ClInclude Include="..\..\..\Binary\Sheets\Common\Common.h" />
-    <ClInclude Include="..\..\..\Binary\Sheets\Reader\CommonWriter.h" />
-    <ClInclude Include="..\..\..\..\OfficeCryptReader\source\CryptTransform.h" />
-    <ClInclude Include="..\..\..\Binary\Sheets\Reader\CellFormatController\CurrencyReader.h" />
-    <ClInclude Include="..\..\..\Binary\Document\BinReader\CustomXmlWriter.h" />
-    <ClInclude Include="..\..\..\Binary\Sheets\Reader\CellFormatController\DateReader.h" />
-    <ClInclude Include="..\..\..\Binary\Document\BinReader\DefaultThemeWriter.h" />
-    <ClInclude Include="..\..\..\Binary\Sheets\Reader\CellFormatController\DigitReader.h" />
-    <ClInclude Include="..\..\..\Binary\Document\BinReader\DocumentRelsWriter.h" />
-    <ClInclude Include="..\..\..\Binary\Document\BinReader\DocumentWriter.h" />
-    <ClInclude Include="..\..\..\Binary\Document\DocWrapper\DocxSerializer.h" />
-    <ClInclude Include="..\..\..\..\OfficeCryptReader\source\ECMACryptFile.h" />
-    <ClInclude Include="..\..\..\..\Common\FileDownloader\FileDownloader.h" />
-    <ClInclude Include="..\..\..\Binary\Document\BinReader\FileWriter.h" />
-    <ClInclude Include="..\..\..\Binary\Document\DocWrapper\FontProcessor.h" />
-    <ClInclude Include="..\..\..\Binary\Document\BinReader\HeaderFooterWriter.h" />
-    <ClInclude Include="..\..\..\Binary\Sheets\Reader\CellFormatController\LocalInfo.h" />
-    <ClInclude Include="..\..\..\Binary\Document\BinReader\MediaWriter.h" />
-    <ClInclude Include="..\..\..\Binary\Document\BinReader\NumberingWriter.h" />
-    <ClInclude Include="..\..\..\Binary\Document\BinReader\ReaderClasses.h" />
-    <ClInclude Include="..\..\..\Binary\Document\BinReader\SettingWriter.h" />
-    <ClInclude Include="..\..\..\Binary\Document\BinReader\StylesWriter.h" />
-    <ClInclude Include="..\..\..\Binary\Document\DocWrapper\VsdxSerializer.h" />
-    <ClInclude Include="..\..\..\Binary\Sheets\Reader\XMLReader\XLSXTableController.h" />
-    <ClInclude Include="..\..\..\Binary\Sheets\Reader\XMLReader\XML2TableConverter.h" />
-    <ClInclude Include="..\..\..\Binary\Sheets\Reader\XMLReader\XMLConverter2.h" />
-    <ClInclude Include="..\..\..\Binary\Sheets\Reader\XMLReader\XMLMap.h" />
-    <ClInclude Include="..\..\..\Binary\Sheets\Reader\XMLReader\XMLReader.h" />
-    <ClInclude Include="..\..\..\Binary\Document\DocWrapper\XlsxSerializer.h" />
-    <ClInclude Include="..\..\..\Binary\Sheets\Reader\XMLReader\columnNameController.h" />
-    <ClInclude Include="..\..\..\Binary\Document\BinReader\fontTableWriter.h" />
-    <CustomBuild Include="precompiled.h">
-      <Command Condition="'$(Configuration)|$(Platform)'=='Release|x64'">echo /*-------------------------------------------------------------------- &gt;precompiled.h.cpp
-if errorlevel 1 goto VCEnd
-echo * Precompiled header source file used by Visual Studio.NET to generate&gt;&gt;precompiled.h.cpp
-if errorlevel 1 goto VCEnd
-echo * the .pch file.&gt;&gt;precompiled.h.cpp
-if errorlevel 1 goto VCEnd
-echo *&gt;&gt;precompiled.h.cpp
-if errorlevel 1 goto VCEnd
-echo * Due to issues with the dependencies checker within the IDE, it&gt;&gt;precompiled.h.cpp
-if errorlevel 1 goto VCEnd
-echo * sometimes fails to recompile the PCH file, if we force the IDE to&gt;&gt;precompiled.h.cpp
-if errorlevel 1 goto VCEnd
-echo * create the PCH file directly from the header file.&gt;&gt;precompiled.h.cpp
-if errorlevel 1 goto VCEnd
-echo *&gt;&gt;precompiled.h.cpp
-if errorlevel 1 goto VCEnd
-echo * This file is auto-generated by qmake since no PRECOMPILED_SOURCE was&gt;&gt;precompiled.h.cpp
-if errorlevel 1 goto VCEnd
-echo * specified, and is used as the common stdafx.cpp. The file is only&gt;&gt;precompiled.h.cpp
-if errorlevel 1 goto VCEnd
-echo * generated when creating .vcxproj project files, and is not used for&gt;&gt;precompiled.h.cpp
-if errorlevel 1 goto VCEnd
-echo * command line compilations by nmake.&gt;&gt;precompiled.h.cpp
-if errorlevel 1 goto VCEnd
-echo *&gt;&gt;precompiled.h.cpp
-if errorlevel 1 goto VCEnd
-echo * WARNING: All changes made in this file will be lost.&gt;&gt;precompiled.h.cpp
-if errorlevel 1 goto VCEnd
-echo --------------------------------------------------------------------*/&gt;&gt;precompiled.h.cpp
-if errorlevel 1 goto VCEnd
-echo #include "precompiled.h"&gt;&gt;precompiled.h.cpp</Command>
-      <Message Condition="'$(Configuration)|$(Platform)'=='Release|x64'">Generating precompiled header source file 'precompiled.h.cpp' ...</Message>
-      <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">precompiled.h.cpp;%(Outputs)</Outputs>
-    </CustomBuild>
-    <ClInclude Include="..\..\..\Binary\Document\BinReader\webSettingsWriter.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="precompiled.h.cpp">

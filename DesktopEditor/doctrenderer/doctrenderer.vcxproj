@@ -40,7 +40,7 @@
   </ImportGroup>
   <PropertyGroup Label="UserMacros" />
   <PropertyGroup>
-    <OutDir Condition="'$(Configuration)|$(Platform)'=='Release|x64'">$(SolutionDir)build\bin\win_64</OutDir>
+    <OutDir Condition="'$(Configuration)|$(Platform)'=='Release|x64'">$(SolutionDir)build\bin\win_64\</OutDir>
     <IntDir Condition="'$(Configuration)|$(Platform)'=='Release|x64'">core_build\win_64\release\obj\</IntDir>
     <TargetName Condition="'$(Configuration)|$(Platform)'=='Release|x64'">doctrenderer</TargetName>
     <IgnoreImportLibrary Condition="'$(Configuration)|$(Platform)'=='Release|x64'">true</IgnoreImportLibrary>
@@ -49,7 +49,7 @@
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
     <ClCompile>
       <AdditionalIncludeDirectories>GeneratedFiles\$(ConfigurationName);GeneratedFiles;.;addon;js_internal;..\..\Common\3dParty\v8_89\v8;..\..\Common\3dParty\v8_89\v8\include;js_internal\v8\inspector;..\..\Common\3dParty\boost\build\win_64\include;..\..\Common\3dParty\openssl\build\win_64\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
-      <AdditionalOptions>-Zc:rvalueCast -Zc:inline -Zc:strictStrings -Zc:throwingNew -Zc:referenceBinding -Zc:__cplusplus /Zc:strictStrings- /utf-8 /Zc:strictStrings- -w34100 -w34189 -w44996 -w44456 -w44457 -w44458 %(AdditionalOptions)</AdditionalOptions>
+      <AdditionalOptions>-Zc:rvalueCast -Zc:inline  -Zc:throwingNew -Zc:referenceBinding -Zc:__cplusplus /Zc:strictStrings- /utf-8 /Zc:strictStrings- -w34100 -w34189 -w44996 -w44456 -w44457 -w44458 %(AdditionalOptions)</AdditionalOptions>
       <AssemblerListingLocation>core_build\win_64\release\obj\</AssemblerListingLocation>
       <BrowseInformation>false</BrowseInformation>
       <DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
@@ -81,7 +81,7 @@
       <SubSystem>Windows</SubSystem>
       <SuppressStartupBanner>true</SuppressStartupBanner>
       <Version>2.5</Version>
-      <ImportLibrary>$(SolutionDir)build\lib\win_64\$(TargetName).lib</ImportLibrary>
+      <ImportLibrary>$(SolutionDir)build\lib\win_64\\$(TargetName).lib</ImportLibrary>
     </Link>
     <Midl>
       <DefaultCharType>Unsigned</DefaultCharType>
@@ -138,42 +138,6 @@
     <ClCompile Include="js_internal\v8\inspector\websocket_server.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include=".\embed\Default.h" />
-    <ClInclude Include=".\embed\DrawingFileEmbed.h" />
-    <ClInclude Include=".\embed\GraphicsEmbed.h" />
-    <ClInclude Include=".\embed\HashEmbed.h" />
-    <ClInclude Include=".\embed\MemoryStreamEmbed.h" />
-    <ClInclude Include=".\embed\NativeBuilderDocumentEmbed.h" />
-    <ClInclude Include=".\embed\NativeBuilderEmbed.h" />
-    <ClInclude Include=".\embed\NativeControlEmbed.h" />
-    <ClInclude Include=".\embed\PointerEmbed.h" />
-    <ClInclude Include=".\embed\TextMeasurerEmbed.h" />
-    <ClInclude Include=".\embed\ZipEmbed.h" />
-    <ClInclude Include=".\config.h" />
-    <ClInclude Include=".\docbuilder.h" />
-    <ClInclude Include=".\docbuilder_p.h" />
-    <ClInclude Include=".\doctrenderer.h" />
-    <ClInclude Include=".\drawingfile.h" />
-    <ClInclude Include=".\editors.h" />
-    <ClInclude Include=".\graphics.h" />
-    <ClInclude Include=".\hash.h" />
-    <ClInclude Include=".\js_internal\v8\inspector\inspector.h" />
-    <ClInclude Include=".\js_internal\v8\inspector\inspector_pool.h" />
-    <ClInclude Include=".\js_internal\js_base.h" />
-    <ClInclude Include=".\js_internal\js_base_p.h" />
-    <ClInclude Include=".\js_internal\js_embed.h" />
-    <ClInclude Include=".\js_internal\js_logger.h" />
-    <ClInclude Include=".\json\json.h" />
-    <ClInclude Include=".\json\json_p.h" />
-    <ClInclude Include=".\json\json_values.h" />
-    <ClInclude Include=".\nativecontrol.h" />
-    <ClInclude Include=".\json\serialization.h" />
-    <ClInclude Include=".\server.h" />
-    <ClInclude Include=".\js_internal\v8\inspector\utils.h" />
-    <ClInclude Include=".\js_internal\v8\v8_base.h" />
-    <ClInclude Include=".\js_internal\v8\inspector\v8_inspector_channel.h" />
-    <ClInclude Include=".\js_internal\v8\inspector\v8_inspector_client.h" />
-    <ClInclude Include=".\js_internal\v8\inspector\websocket_server.h" />
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include=".\doctrenderer_resource.rc" />

@@ -40,7 +40,7 @@
   </ImportGroup>
   <PropertyGroup Label="UserMacros" />
   <PropertyGroup>
-    <OutDir Condition="'$(Configuration)|$(Platform)'=='Release|x64'">$(SolutionDir)build\bin\win_64</OutDir>
+    <OutDir Condition="'$(Configuration)|$(Platform)'=='Release|x64'">$(SolutionDir)build\bin\win_64\</OutDir>
     <IntDir Condition="'$(Configuration)|$(Platform)'=='Release|x64'">core_build\win_64\release\obj\</IntDir>
     <TargetName Condition="'$(Configuration)|$(Platform)'=='Release|x64'">DjVuFile</TargetName>
     <IgnoreImportLibrary Condition="'$(Configuration)|$(Platform)'=='Release|x64'">true</IgnoreImportLibrary>
@@ -49,7 +49,7 @@
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
     <ClCompile>
       <AdditionalIncludeDirectories>GeneratedFiles\$(ConfigurationName);GeneratedFiles;.;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
-      <AdditionalOptions>-Zc:rvalueCast -Zc:inline -Zc:strictStrings -Zc:throwingNew -Zc:referenceBinding -Zc:__cplusplus /Zc:strictStrings- /utf-8 /Zc:strictStrings- -w34100 -w34189 -w44996 -w44456 -w44457 -w44458 %(AdditionalOptions)</AdditionalOptions>
+      <AdditionalOptions>-Zc:rvalueCast -Zc:inline  -Zc:throwingNew -Zc:referenceBinding -Zc:__cplusplus /Zc:strictStrings- /utf-8 /Zc:strictStrings- -w34100 -w34189 -w44996 -w44456 -w44457 -w44458 %(AdditionalOptions)</AdditionalOptions>
       <AssemblerListingLocation>core_build\win_64\release\obj\</AssemblerListingLocation>
       <BrowseInformation>false</BrowseInformation>
       <DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
@@ -80,7 +80,7 @@
       <SubSystem>Windows</SubSystem>
       <SuppressStartupBanner>true</SuppressStartupBanner>
       <Version>2.5</Version>
-      <ImportLibrary>$(SolutionDir)build\lib\win_64\$(TargetName).lib</ImportLibrary>
+      <ImportLibrary>$(SolutionDir)build\lib\win_64\\$(TargetName).lib</ImportLibrary>
     </Link>
     <Midl>
       <DefaultCharType>Unsigned</DefaultCharType>
@@ -151,58 +151,6 @@
     <ClCompile Include="libdjvu\debug.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="libdjvu\Arrays.h" />
-    <ClInclude Include="libdjvu\BSByteStream.h" />
-    <ClInclude Include="libdjvu\ByteStream.h" />
-    <ClInclude Include="libdjvu\DataPool.h" />
-    <ClInclude Include="libdjvu\DjVmDir.h" />
-    <ClInclude Include="libdjvu\DjVmDir0.h" />
-    <ClInclude Include="libdjvu\DjVmDoc.h" />
-    <ClInclude Include="libdjvu\DjVmNav.h" />
-    <ClInclude Include="DjVu.h" />
-    <ClInclude Include="libdjvu\DjVuAnno.h" />
-    <ClInclude Include="libdjvu\DjVuDocEditor.h" />
-    <ClInclude Include="libdjvu\DjVuDocument.h" />
-    <ClInclude Include="libdjvu\DjVuDumpHelper.h" />
-    <ClInclude Include="libdjvu\DjVuErrorList.h" />
-    <ClInclude Include="libdjvu\DjVuFile.h" />
-    <ClInclude Include="libdjvu\DjVuFileCache.h" />
-    <ClInclude Include="DjVuFileImplementation.h" />
-    <ClInclude Include="libdjvu\DjVuGlobal.h" />
-    <ClInclude Include="libdjvu\DjVuImage.h" />
-    <ClInclude Include="libdjvu\DjVuInfo.h" />
-    <ClInclude Include="libdjvu\DjVuMessage.h" />
-    <ClInclude Include="libdjvu\DjVuMessageLite.h" />
-    <ClInclude Include="libdjvu\DjVuNavDir.h" />
-    <ClInclude Include="libdjvu\DjVuPalette.h" />
-    <ClInclude Include="libdjvu\DjVuPort.h" />
-    <ClInclude Include="libdjvu\DjVuText.h" />
-    <ClInclude Include="libdjvu\DjVuToPS.h" />
-    <ClInclude Include="libdjvu\GBitmap.h" />
-    <ClInclude Include="libdjvu\GContainer.h" />
-    <ClInclude Include="libdjvu\GException.h" />
-    <ClInclude Include="libdjvu\GIFFManager.h" />
-    <ClInclude Include="libdjvu\GMapAreas.h" />
-    <ClInclude Include="libdjvu\GOS.h" />
-    <ClInclude Include="libdjvu\GPixmap.h" />
-    <ClInclude Include="libdjvu\GRect.h" />
-    <ClInclude Include="libdjvu\GScaler.h" />
-    <ClInclude Include="libdjvu\GSmartPointer.h" />
-    <ClInclude Include="libdjvu\GString.h" />
-    <ClInclude Include="libdjvu\GThreads.h" />
-    <ClInclude Include="libdjvu\GURL.h" />
-    <ClInclude Include="libdjvu\IFFByteStream.h" />
-    <ClInclude Include="libdjvu\IW44Image.h" />
-    <ClInclude Include="libdjvu\JB2Image.h" />
-    <ClInclude Include="libdjvu\JPEGDecoder.h" />
-    <ClInclude Include="libdjvu\MMRDecoder.h" />
-    <ClInclude Include="libdjvu\MMX.h" />
-    <ClInclude Include="libdjvu\UnicodeByteStream.h" />
-    <ClInclude Include="libdjvu\XMLParser.h" />
-    <ClInclude Include="libdjvu\XMLTags.h" />
-    <ClInclude Include="libdjvu\ZPCodec.h" />
-    <ClInclude Include="libdjvu\atomic.h" />
-    <ClInclude Include="libdjvu\debug.h" />
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include=".\DjVuFile_resource.rc" />

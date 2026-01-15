@@ -40,7 +40,7 @@
   </ImportGroup>
   <PropertyGroup Label="UserMacros" />
   <PropertyGroup>
-    <OutDir Condition="'$(Configuration)|$(Platform)'=='Release|x64'">$(SolutionDir)build\lib\win_64</OutDir>
+    <OutDir Condition="'$(Configuration)|$(Platform)'=='Release|x64'">$(SolutionDir)build\lib\win_64\</OutDir>
     <IntDir Condition="'$(Configuration)|$(Platform)'=='Release|x64'">core_build\win_64\release\obj\</IntDir>
     <TargetName Condition="'$(Configuration)|$(Platform)'=='Release|x64'">CompoundFileLib</TargetName>
     <IgnoreImportLibrary Condition="'$(Configuration)|$(Platform)'=='Release|x64'">true</IgnoreImportLibrary>
@@ -48,7 +48,7 @@
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
     <ClCompile>
       <AdditionalIncludeDirectories>GeneratedFiles\$(ConfigurationName);GeneratedFiles;.;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
-      <AdditionalOptions>-Zc:rvalueCast -Zc:inline -Zc:strictStrings -Zc:throwingNew -Zc:referenceBinding -Zc:__cplusplus /Zc:strictStrings- /utf-8 /bigobj /Zc:strictStrings- -w34100 -w34189 -w44996 -w44456 -w44457 -w44458 %(AdditionalOptions)</AdditionalOptions>
+      <AdditionalOptions>-Zc:rvalueCast -Zc:inline  -Zc:throwingNew -Zc:referenceBinding -Zc:__cplusplus /Zc:strictStrings- /utf-8 /bigobj /Zc:strictStrings- -w34100 -w34189 -w44996 -w44456 -w44457 -w44458 %(AdditionalOptions)</AdditionalOptions>
       <AssemblerListingLocation>core_build\win_64\release\obj\</AssemblerListingLocation>
       <BrowseInformation>false</BrowseInformation>
       <DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
@@ -93,31 +93,6 @@
     <ClCompile Include="streamview.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="RBTree\action.h" />
-    <ClInclude Include="cfexception.h" />
-    <ClInclude Include="cfitem.h" />
-    <ClInclude Include="cfstorage.h" />
-    <ClInclude Include="cfstream.h" />
-    <ClInclude Include="compoundfile.h" />
-    <ClInclude Include="compoundfile_impl.h" />
-    <ClInclude Include="directoryentry.h" />
-    <ClInclude Include="event.h" />
-    <ClInclude Include="Stream\fstream_utils.h" />
-    <ClInclude Include="Stream\fstream_wrapper.h" />
-    <ClInclude Include="guid.h" />
-    <ClInclude Include="header.h" />
-    <ClInclude Include="idirectoryentry.h" />
-    <ClInclude Include="RBTree\irbnode.h" />
-    <ClInclude Include="RBTree\rbtree.h" />
-    <ClInclude Include="RBTree\rbtreeexception.h" />
-    <ClInclude Include="sector.h" />
-    <ClInclude Include="sectorcollection.h" />
-    <ClInclude Include="slist.h" />
-    <ClInclude Include="Stream\stream.h" />
-    <ClInclude Include="Stream\stream_utils.h" />
-    <ClInclude Include="streamrw.h" />
-    <ClInclude Include="streamview.h" />
-    <ClInclude Include="svector.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <Import Project="$(QtMsBuild)\qt.targets" Condition="Exists('$(QtMsBuild)\qt.targets')" />

@@ -82,7 +82,7 @@
     dosdate : the new date at the MSDos format (4 bytes)
     tmu_date : the SAME new date at the tm_unz format */
 void change_file_date(filename,dosdate,tmu_date)
-    const char *filename;
+    const char *filename;   
     uLong dosdate;
     tm_unz tmu_date;
 {

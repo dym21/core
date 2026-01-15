@@ -40,7 +40,7 @@
   </ImportGroup>
   <PropertyGroup Label="UserMacros" />
   <PropertyGroup>
-    <OutDir Condition="'$(Configuration)|$(Platform)'=='Release|x64'">$(SolutionDir)build\bin\win_64</OutDir>
+    <OutDir Condition="'$(Configuration)|$(Platform)'=='Release|x64'">$(SolutionDir)build\bin\win_64\</OutDir>
     <IntDir Condition="'$(Configuration)|$(Platform)'=='Release|x64'">core_build\win_64\release\obj\</IntDir>
     <TargetName Condition="'$(Configuration)|$(Platform)'=='Release|x64'">kernel</TargetName>
     <IgnoreImportLibrary Condition="'$(Configuration)|$(Platform)'=='Release|x64'">true</IgnoreImportLibrary>
@@ -49,7 +49,7 @@
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
     <ClCompile>
       <AdditionalIncludeDirectories>GeneratedFiles\$(ConfigurationName);GeneratedFiles;.;..\OfficeUtils\src\zlib-1.2.11\contrib\minizip;..\OfficeUtils\src\zlib-1.2.11;..\OfficeUtils\src;..\DesktopEditor\xml\libxml2\include;..\DesktopEditor\xml\libxml2\include\libxml;..\DesktopEditor\xml\build\qt;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
-      <AdditionalOptions>-Zc:rvalueCast -Zc:inline -Zc:strictStrings -Zc:throwingNew -Zc:referenceBinding -Zc:__cplusplus /Zc:strictStrings- /utf-8 /Zc:strictStrings- -w34100 -w34189 -w44996 -w44456 -w44457 -w44458 %(AdditionalOptions)</AdditionalOptions>
+      <AdditionalOptions>-Zc:rvalueCast -Zc:inline  -Zc:throwingNew -Zc:referenceBinding -Zc:__cplusplus /Zc:strictStrings- /utf-8 /Zc:strictStrings- -w34100 -w34189 -w44996 -w44456 -w44457 -w44458 %(AdditionalOptions)</AdditionalOptions>
       <AssemblerListingLocation>core_build\win_64\release\obj\</AssemblerListingLocation>
       <BrowseInformation>false</BrowseInformation>
       <DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
@@ -80,7 +80,7 @@
       <SubSystem>Windows</SubSystem>
       <SuppressStartupBanner>true</SuppressStartupBanner>
       <Version>2.5</Version>
-      <ImportLibrary>$(SolutionDir)build\lib\win_64\$(TargetName).lib</ImportLibrary>
+      <ImportLibrary>$(SolutionDir)build\lib\win_64\\$(TargetName).lib</ImportLibrary>
     </Link>
     <Midl>
       <DefaultCharType>Unsigned</DefaultCharType>
@@ -141,37 +141,6 @@
     <ClCompile Include="..\OfficeUtils\src\zlib-1.2.11\zutil.c" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="..\DesktopEditor\common\Base64.h" />
-    <ClInclude Include="..\DesktopEditor\graphics\BaseThread.h" />
-    <ClInclude Include="..\DesktopEditor\graphics\BaseThreadMonitor.h" />
-    <ClInclude Include="..\DesktopEditor\common\ByteBuilder.h" />
-    <ClInclude Include="..\DesktopEditor\common\Directory.h" />
-    <ClInclude Include="..\DesktopEditor\common\File.h" />
-    <ClInclude Include="C:\onlyoffice\core\OfficeUtils\src\OfficeUtils.h" />
-    <ClInclude Include="C:\onlyoffice\core\OfficeUtils\src\OfficeUtilsCommon.h" />
-    <ClInclude Include="..\DesktopEditor\common\Path.h" />
-    <ClInclude Include="..\DesktopEditor\common\ProcessEnv.h" />
-    <ClInclude Include="..\DesktopEditor\common\StreamWriter.h" />
-    <ClInclude Include="..\DesktopEditor\common\StringBuilder.h" />
-    <ClInclude Include="..\DesktopEditor\common\StringExt.h" />
-    <ClInclude Include="..\DesktopEditor\common\StringUTF32.h" />
-    <ClInclude Include="..\DesktopEditor\common\SystemUtils.h" />
-    <ClInclude Include="..\DesktopEditor\graphics\TemporaryCS.h" />
-    <ClInclude Include="..\DesktopEditor\graphics\Timer.h" />
-    <ClInclude Include="C:\onlyoffice\core\OfficeUtils\src\ZipBuffer.h" />
-    <ClInclude Include="C:\onlyoffice\core\OfficeUtils\src\ZipFolder.h" />
-    <ClInclude Include="C:\onlyoffice\core\OfficeUtils\src\ZipUtilsCP.h" />
-    <ClInclude Include="C:\onlyoffice\core\OfficeUtils\src\zlib-1.2.11\contrib\minizip\crypt.h" />
-    <ClInclude Include="C:\onlyoffice\core\OfficeUtils\src\zlib-1.2.11\contrib\minizip\ioapi.h" />
-    <ClInclude Include="C:\onlyoffice\core\OfficeUtils\src\zlib-1.2.11\contrib\minizip\ioapibuf.h" />
-    <ClInclude Include="kernel_config.h" />
-    <ClInclude Include="C:\onlyoffice\core\OfficeUtils\src\zlib-1.2.11\contrib\minizip\mztools.h" />
-    <ClInclude Include="C:\onlyoffice\core\OfficeUtils\src\zlib-1.2.11\contrib\minizip\unzip.h" />
-    <ClInclude Include="C:\onlyoffice\core\DesktopEditor\xml\src\xmllight_private.h" />
-    <ClInclude Include="C:\onlyoffice\core\DesktopEditor\xml\include\xmlutils.h" />
-    <ClInclude Include="C:\onlyoffice\core\DesktopEditor\xml\include\xmlwriter.h" />
-    <ClInclude Include="C:\onlyoffice\core\OfficeUtils\src\zlib-1.2.11\contrib\minizip\zip.h" />
-    <ClInclude Include="C:\onlyoffice\core\OfficeUtils\src\zlib_addon.h" />
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include=".\kernel_resource.rc" />

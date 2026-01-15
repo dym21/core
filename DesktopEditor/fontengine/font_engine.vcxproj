@@ -43,7 +43,7 @@
     <_ProjectFileVersion>18.0.11312.151</_ProjectFileVersion>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
-    <OutDir>$(SolutionDir)build\lib\win_64</OutDir>
+    <OutDir>$(SolutionDir)build\lib\win_64\</OutDir>
     <IntDir>.\Release\</IntDir>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
@@ -116,13 +116,6 @@
     <ClCompile Include="GlyphString.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="..\common\Directory.h" />
-    <ClInclude Include="..\common\File.h" />
-    <ClInclude Include="ApplicationFonts.h" />
-    <ClInclude Include="FontFile.h" />
-    <ClInclude Include="FontManager.h" />
-    <ClInclude Include="FontPath.h" />
-    <ClInclude Include="GlyphString.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

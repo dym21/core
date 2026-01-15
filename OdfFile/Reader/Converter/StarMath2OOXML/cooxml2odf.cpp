@@ -25,9 +25,8 @@ namespace StarMath
 			EndOdf();
 			return;
 		}
-		else
-			NodeDefinition(pNode);
-		m_wsSemantic = m_pXmlWrite->GetXmlString();
+        NodeDefinition(pNode);
+        m_wsSemantic = m_pXmlWrite->GetXmlString();
 		m_pXmlWrite->WriteNodeBegin(L"annotation",true);
 		m_pXmlWrite->WriteAttribute(L"encoding",L"StarMath 5.0");
 		m_pXmlWrite->WriteNodeEnd(L"w",true,false);

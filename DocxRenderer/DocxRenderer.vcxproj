@@ -40,7 +40,7 @@
   </ImportGroup>
   <PropertyGroup Label="UserMacros" />
   <PropertyGroup>
-    <OutDir Condition="'$(Configuration)|$(Platform)'=='Release|x64'">$(SolutionDir)build\bin\win_64</OutDir>
+    <OutDir Condition="'$(Configuration)|$(Platform)'=='Release|x64'">$(SolutionDir)build\bin\win_64\</OutDir>
     <IntDir Condition="'$(Configuration)|$(Platform)'=='Release|x64'">core_build\win_64\release\obj\</IntDir>
     <TargetName Condition="'$(Configuration)|$(Platform)'=='Release|x64'">DocxRenderer</TargetName>
     <IgnoreImportLibrary Condition="'$(Configuration)|$(Platform)'=='Release|x64'">true</IgnoreImportLibrary>
@@ -49,7 +49,7 @@
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
     <ClCompile>
       <AdditionalIncludeDirectories>GeneratedFiles\$(ConfigurationName);GeneratedFiles;.;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
-      <AdditionalOptions>-Zc:rvalueCast -Zc:inline -Zc:strictStrings -Zc:throwingNew -Zc:referenceBinding -Zc:__cplusplus /Zc:strictStrings- /utf-8 /Zc:strictStrings- -w34100 -w34189 -w44996 -w44456 -w44457 -w44458 %(AdditionalOptions)</AdditionalOptions>
+      <AdditionalOptions>-Zc:rvalueCast -Zc:inline  -Zc:throwingNew -Zc:referenceBinding -Zc:__cplusplus /Zc:strictStrings- /utf-8 /Zc:strictStrings- -w34100 -w34189 -w44996 -w44456 -w44457 -w44458 %(AdditionalOptions)</AdditionalOptions>
       <AssemblerListingLocation>core_build\win_64\release\obj\</AssemblerListingLocation>
       <BrowseInformation>false</BrowseInformation>
       <DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
@@ -80,7 +80,7 @@
       <SubSystem>Windows</SubSystem>
       <SuppressStartupBanner>true</SuppressStartupBanner>
       <Version>2.5</Version>
-      <ImportLibrary>$(SolutionDir)build\lib\win_64\$(TargetName).lib</ImportLibrary>
+      <ImportLibrary>$(SolutionDir)build\lib\win_64\\$(TargetName).lib</ImportLibrary>
     </Link>
     <Midl>
       <DefaultCharType>Unsigned</DefaultCharType>
@@ -111,29 +111,6 @@
     <ClCompile Include="src\resources\resources.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="src\logic\elements\BaseItem.h" />
-    <ClInclude Include="src\resources\ColorTable.h" />
-    <ClInclude Include="src\resources\Constants.h" />
-    <ClInclude Include="src\logic\elements\ContText.h" />
-    <ClInclude Include="src\logic\Document.h" />
-    <ClInclude Include="DocxRenderer.h" />
-    <ClInclude Include="src\logic\managers\ExternalImageStorage.h" />
-    <ClInclude Include="src\logic\managers\FontManager.h" />
-    <ClInclude Include="src\logic\styles\FontStyle.h" />
-    <ClInclude Include="src\logic\managers\FontStyleManager.h" />
-    <ClInclude Include="src\resources\ImageInfo.h" />
-    <ClInclude Include="src\logic\managers\ImageManager.h" />
-    <ClInclude Include="src\resources\LinesTable.h" />
-    <ClInclude Include="src\logic\Page.h" />
-    <ClInclude Include="src\logic\elements\Paragraph.h" />
-    <ClInclude Include="src\logic\styles\ParagraphStyle.h" />
-    <ClInclude Include="src\logic\managers\ParagraphStyleManager.h" />
-    <ClInclude Include="src\logic\elements\Shape.h" />
-    <ClInclude Include="src\logic\elements\Table.h" />
-    <ClInclude Include="src\logic\elements\TextLine.h" />
-    <ClInclude Include="src\resources\VectorGraphics.h" />
-    <ClInclude Include="src\resources\resources.h" />
-    <ClInclude Include="src\resources\utils.h" />
   </ItemGroup>
   <ItemGroup>
     <None Include="readme.md" />

@@ -40,7 +40,7 @@
   </ImportGroup>
   <PropertyGroup Label="UserMacros" />
   <PropertyGroup>
-    <OutDir Condition="'$(Configuration)|$(Platform)'=='Release|x64'">$(SolutionDir)build\bin\win_64</OutDir>
+    <OutDir Condition="'$(Configuration)|$(Platform)'=='Release|x64'">$(SolutionDir)build\bin\win_64\</OutDir>
     <IntDir Condition="'$(Configuration)|$(Platform)'=='Release|x64'">core_build\win_64\release\obj\</IntDir>
     <TargetName Condition="'$(Configuration)|$(Platform)'=='Release|x64'">PdfFile</TargetName>
     <IgnoreImportLibrary Condition="'$(Configuration)|$(Platform)'=='Release|x64'">true</IgnoreImportLibrary>
@@ -49,7 +49,7 @@
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
     <ClCompile>
       <AdditionalIncludeDirectories>GeneratedFiles\$(ConfigurationName);GeneratedFiles;.;lib\goo;lib\fofi;lib\splash;lib;..\DesktopEditor\raster\Jp2\openjpeg\openjpeg-2.4.0\src\lib\openjp2;..\DesktopEditor\raster\Jp2\openjpeg;..\Common\3dParty\brotli\brotli\c\include;..\DesktopEditor\freetype-2.10.4\include;..\DesktopEditor\freetype-2.10.4\include\freetype;..\OfficeUtils\src\zlib-1.2.11;..\OfficeUtils\src;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
-      <AdditionalOptions>-Zc:rvalueCast -Zc:inline -Zc:strictStrings -Zc:throwingNew -Zc:referenceBinding -Zc:__cplusplus /Zc:strictStrings- /utf-8 /Zc:strictStrings- -w34100 -w34189 -w44996 -w44456 -w44457 -w44458 %(AdditionalOptions)</AdditionalOptions>
+      <AdditionalOptions>-Zc:rvalueCast -Zc:inline  -Zc:throwingNew -Zc:referenceBinding -Zc:__cplusplus /Zc:strictStrings- /utf-8 /Zc:strictStrings- -w34100 -w34189 -w44996 -w44456 -w44457 -w44458 %(AdditionalOptions)</AdditionalOptions>
       <AssemblerListingLocation>core_build\win_64\release\obj\</AssemblerListingLocation>
       <BrowseInformation>false</BrowseInformation>
       <DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
@@ -80,7 +80,7 @@
       <SubSystem>Windows</SubSystem>
       <SuppressStartupBanner>true</SuppressStartupBanner>
       <Version>2.5</Version>
-      <ImportLibrary>$(SolutionDir)build\lib\win_64\$(TargetName).lib</ImportLibrary>
+      <ImportLibrary>$(SolutionDir)build\lib\win_64\\$(TargetName).lib</ImportLibrary>
     </Link>
     <Midl>
       <DefaultCharType>Unsigned</DefaultCharType>
@@ -308,201 +308,6 @@
     <ClCompile Include="..\OfficeUtils\src\zlib-1.2.11\zutil.c" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="SrcWriter\AcroForm.h" />
-    <ClInclude Include="lib\xpdf\AcroForm.h" />
-    <ClInclude Include="SrcReader\Adaptors.h" />
-    <ClInclude Include="lib\xpdf\Annot.h" />
-    <ClInclude Include="SrcWriter\Annotation.h" />
-    <ClInclude Include="lib\xpdf\Array.h" />
-    <ClInclude Include="Resources\BaseFonts.h" />
-    <ClInclude Include="lib\xpdf\BuiltinFont.h" />
-    <ClInclude Include="lib\xpdf\BuiltinFontTables.h" />
-    <ClInclude Include="lib\xpdf\CMap.h" />
-    <ClInclude Include="SrcWriter\Catalog.h" />
-    <ClInclude Include="lib\xpdf\Catalog.h" />
-    <ClInclude Include="lib\xpdf\CharCodeToUnicode.h" />
-    <ClInclude Include="lib\xpdf\CharTypes.h" />
-    <ClInclude Include="lib\xpdf\CompactFontTables.h" />
-    <ClInclude Include="SrcWriter\Consts.h" />
-    <ClInclude Include="lib\xpdf\Decrypt.h" />
-    <ClInclude Include="SrcWriter\Destination.h" />
-    <ClInclude Include="lib\xpdf\Dict.h" />
-    <ClInclude Include="lib\xpdf\DisplayState.h" />
-    <ClInclude Include="SrcWriter\Document.h" />
-    <ClInclude Include="SrcWriter\Encodings.h" />
-    <ClInclude Include="SrcWriter\Encrypt.h" />
-    <ClInclude Include="SrcWriter\EncryptDictionary.h" />
-    <ClInclude Include="lib\xpdf\Error.h" />
-    <ClInclude Include="lib\xpdf\ErrorCodes.h" />
-    <ClInclude Include="SrcWriter\Field.h" />
-    <ClInclude Include="lib\goo\FixedPoint.h" />
-    <ClInclude Include="lib\fofi\FoFiBase.h" />
-    <ClInclude Include="lib\fofi\FoFiEncodings.h" />
-    <ClInclude Include="lib\fofi\FoFiIdentifier.h" />
-    <ClInclude Include="lib\fofi\FoFiTrueType.h" />
-    <ClInclude Include="lib\fofi\FoFiType1.h" />
-    <ClInclude Include="lib\fofi\FoFiType1C.h" />
-    <ClInclude Include="SrcWriter\Font.h" />
-    <ClInclude Include="SrcWriter\Font14.h" />
-    <ClInclude Include="SrcWriter\FontCidTT.h" />
-    <ClInclude Include="lib\xpdf\FontEncodingTables.h" />
-    <ClInclude Include="SrcWriter\FontTT.h" />
-    <ClInclude Include="SrcWriter\FontTTWriter.h" />
-    <ClInclude Include="Resources\Fontd050000l.h" />
-    <ClInclude Include="Resources\Fontn019003l.h" />
-    <ClInclude Include="Resources\Fontn019004l.h" />
-    <ClInclude Include="Resources\Fontn019023l.h" />
-    <ClInclude Include="Resources\Fontn019024l.h" />
-    <ClInclude Include="Resources\Fontn021003l.h" />
-    <ClInclude Include="Resources\Fontn021004l.h" />
-    <ClInclude Include="Resources\Fontn021023l.h" />
-    <ClInclude Include="Resources\Fontn021024l.h" />
-    <ClInclude Include="Resources\Fontn022003l.h" />
-    <ClInclude Include="Resources\Fontn022004l.h" />
-    <ClInclude Include="Resources\Fontn022023l.h" />
-    <ClInclude Include="Resources\Fontn022024l.h" />
-    <ClInclude Include="Resources\Fonts050000l.h" />
-    <ClInclude Include="lib\xpdf\Function.h" />
-    <ClInclude Include="lib\goo\GHash.h" />
-    <ClInclude Include="lib\goo\GList.h" />
-    <ClInclude Include="lib\goo\GMutex.h" />
-    <ClInclude Include="SrcWriter\GState.h" />
-    <ClInclude Include="lib\goo\GString.h" />
-    <ClInclude Include="lib\xpdf\Gfx.h" />
-    <ClInclude Include="SrcReader\GfxClip.h" />
-    <ClInclude Include="lib\xpdf\GfxFont.h" />
-    <ClInclude Include="lib\xpdf\GfxState.h" />
-    <ClInclude Include="lib\xpdf\GlobalParams.h" />
-    <ClInclude Include="lib\xpdf\HTMLGen.h" />
-    <ClInclude Include="SrcWriter\ICCProfile.h" />
-    <ClInclude Include="SrcWriter\Image.h" />
-    <ClInclude Include="lib\xpdf\ImageOutputDev.h" />
-    <ClInclude Include="SrcWriter\Info.h" />
-    <ClInclude Include="lib\xpdf\JArithmeticDecoder.h" />
-    <ClInclude Include="lib\xpdf\JBIG2Stream.h" />
-    <ClInclude Include="lib\xpdf\JPXStream.h" />
-    <ClInclude Include="SrcReader\JPXStream2.h" />
-    <ClInclude Include="lib\xpdf\Lexer.h" />
-    <ClInclude Include="lib\xpdf\Link.h" />
-    <ClInclude Include="SrcReader\MemoryUtils.h" />
-    <ClInclude Include="SrcWriter\Metadata.h" />
-    <ClInclude Include="lib\xpdf\NameToCharCode.h" />
-    <ClInclude Include="lib\xpdf\NameToUnicodeTable.h" />
-    <ClInclude Include="lib\xpdf\Object.h" />
-    <ClInclude Include="SrcWriter\Objects.h" />
-    <ClInclude Include="OnlineOfficeBinToPdf.h" />
-    <ClInclude Include="lib\xpdf\OptionalContent.h" />
-    <ClInclude Include="SrcWriter\Outline.h" />
-    <ClInclude Include="lib\xpdf\Outline.h" />
-    <ClInclude Include="lib\xpdf\OutputDev.h" />
-    <ClInclude Include="lib\xpdf\PDF417Barcode.h" />
-    <ClInclude Include="lib\xpdf\PDFCore.h" />
-    <ClInclude Include="lib\xpdf\PDFDoc.h" />
-    <ClInclude Include="lib\xpdf\PDFDocEncoding.h" />
-    <ClInclude Include="lib\xpdf\PSOutputDev.h" />
-    <ClInclude Include="lib\xpdf\PSTokenizer.h" />
-    <ClInclude Include="lib\xpdf\Page.h" />
-    <ClInclude Include="SrcWriter\Pages.h" />
-    <ClInclude Include="lib\xpdf\Parser.h" />
-    <ClInclude Include="SrcWriter\Pattern.h" />
-    <ClInclude Include="SrcReader\PdfAnnot.h" />
-    <ClInclude Include="PdfEditor.h" />
-    <ClInclude Include="PdfFile.h" />
-    <ClInclude Include="PdfReader.h" />
-    <ClInclude Include="PdfWriter.h" />
-    <ClInclude Include="lib\xpdf\PreScanOutputDev.h" />
-    <ClInclude Include="SrcWriter\RedactOutputDev.h" />
-    <ClInclude Include="SrcReader\RendererOutputDev.h" />
-    <ClInclude Include="SrcWriter\ResourcesDictionary.h" />
-    <ClInclude Include="lib\xpdf\SecurityHandler.h" />
-    <ClInclude Include="SrcWriter\Shading.h" />
-    <ClInclude Include="lib\xpdf\ShadingImage.h" />
-    <ClInclude Include="lib\splash\Splash.h" />
-    <ClInclude Include="lib\splash\SplashBitmap.h" />
-    <ClInclude Include="lib\splash\SplashClip.h" />
-    <ClInclude Include="lib\splash\SplashErrorCodes.h" />
-    <ClInclude Include="lib\splash\SplashFTFont.h" />
-    <ClInclude Include="lib\splash\SplashFTFontEngine.h" />
-    <ClInclude Include="lib\splash\SplashFTFontFile.h" />
-    <ClInclude Include="lib\splash\SplashFont.h" />
-    <ClInclude Include="lib\splash\SplashFontEngine.h" />
-    <ClInclude Include="lib\splash\SplashFontFile.h" />
-    <ClInclude Include="lib\splash\SplashFontFileID.h" />
-    <ClInclude Include="lib\splash\SplashGlyphBitmap.h" />
-    <ClInclude Include="lib\splash\SplashMath.h" />
-    <ClInclude Include="lib\xpdf\SplashOutputDev.h" />
-    <ClInclude Include="lib\splash\SplashPath.h" />
-    <ClInclude Include="lib\splash\SplashPattern.h" />
-    <ClInclude Include="lib\splash\SplashScreen.h" />
-    <ClInclude Include="lib\splash\SplashState.h" />
-    <ClInclude Include="lib\splash\SplashTypes.h" />
-    <ClInclude Include="lib\splash\SplashXPath.h" />
-    <ClInclude Include="lib\splash\SplashXPathScanner.h" />
-    <ClInclude Include="SrcWriter\States.h" />
-    <ClInclude Include="lib\xpdf\Stream-CCITT.h" />
-    <ClInclude Include="lib\xpdf\Stream.h" />
-    <ClInclude Include="SrcWriter\Streams.h" />
-    <ClInclude Include="lib\xpdf\TextOutputDev.h" />
-    <ClInclude Include="lib\xpdf\TextString.h" />
-    <ClInclude Include="lib\xpdf\TileCache.h" />
-    <ClInclude Include="lib\xpdf\TileCompositor.h" />
-    <ClInclude Include="lib\xpdf\TileMap.h" />
-    <ClInclude Include="lib\goo\Trace.h" />
-    <ClInclude Include="SrcWriter\Types.h" />
-    <ClInclude Include="lib\xpdf\UTF8.h" />
-    <ClInclude Include="lib\xpdf\UnicodeMap.h" />
-    <ClInclude Include="lib\xpdf\UnicodeMapTables.h" />
-    <ClInclude Include="lib\xpdf\UnicodeRemapping.h" />
-    <ClInclude Include="lib\xpdf\UnicodeTypeTable.h" />
-    <ClInclude Include="SrcWriter\Utils.h" />
-    <ClInclude Include="lib\xpdf\WebFont.h" />
-    <ClInclude Include="lib\xpdf\XFAScanner.h" />
-    <ClInclude Include="lib\xpdf\XRef.h" />
-    <ClInclude Include="lib\xpdf\Zoox.h" />
-    <ClInclude Include="lib\aconf.h" />
-    <ClInclude Include="C:\onlyoffice\core\DesktopEditor\raster\Jp2\openjpeg\openjpeg-2.4.0\src\lib\openjp2\bio.h" />
-    <ClInclude Include="C:\onlyoffice\core\DesktopEditor\raster\Jp2\openjpeg\openjpeg-2.4.0\src\lib\openjp2\cidx_manager.h" />
-    <ClInclude Include="C:\onlyoffice\core\DesktopEditor\raster\Jp2\openjpeg\openjpeg-2.4.0\src\lib\openjp2\cio.h" />
-    <ClInclude Include="Resources\CMapMemory\cmap_memory.h" />
-    <ClInclude Include="lib\xpdf\config.h" />
-    <ClInclude Include="C:\onlyoffice\core\DesktopEditor\raster\Jp2\openjpeg\openjpeg-2.4.0\src\lib\openjp2\dwt.h" />
-    <ClInclude Include="C:\onlyoffice\core\DesktopEditor\raster\Jp2\openjpeg\openjpeg-2.4.0\src\lib\openjp2\event.h" />
-    <ClInclude Include="C:\onlyoffice\core\DesktopEditor\raster\Jp2\openjpeg\openjpeg-2.4.0\src\lib\openjp2\function_list.h" />
-    <ClInclude Include="lib\goo\gfile.h" />
-    <ClInclude Include="lib\goo\gmem.h" />
-    <ClInclude Include="lib\goo\gmempp.h" />
-    <ClInclude Include="lib\goo\gtypes.h" />
-    <ClInclude Include="C:\onlyoffice\core\DesktopEditor\raster\Jp2\openjpeg\openjpeg-2.4.0\src\lib\openjp2\image.h" />
-    <ClInclude Include="C:\onlyoffice\core\DesktopEditor\raster\Jp2\openjpeg\openjpeg-2.4.0\src\lib\openjp2\indexbox_manager.h" />
-    <ClInclude Include="C:\onlyoffice\core\DesktopEditor\raster\Jp2\openjpeg\openjpeg-2.4.0\src\lib\openjp2\invert.h" />
-    <ClInclude Include="C:\onlyoffice\core\DesktopEditor\raster\Jp2\openjpeg\openjpeg-2.4.0\src\lib\openjp2\j2k.h" />
-    <ClInclude Include="C:\onlyoffice\core\DesktopEditor\raster\Jp2\openjpeg\openjpeg-2.4.0\src\lib\openjp2\jp2.h" />
-    <ClInclude Include="C:\onlyoffice\core\DesktopEditor\raster\Jp2\openjpeg\openjpeg-2.4.0\src\lib\openjp2\mct.h" />
-    <ClInclude Include="C:\onlyoffice\core\DesktopEditor\raster\Jp2\openjpeg\openjpeg-2.4.0\src\lib\openjp2\mqc.h" />
-    <ClInclude Include="C:\onlyoffice\core\DesktopEditor\raster\Jp2\openjpeg\openjpeg-2.4.0\src\lib\openjp2\mqc_inl.h" />
-    <ClInclude Include="C:\onlyoffice\core\DesktopEditor\raster\Jp2\openjpeg\openjpeg-2.4.0\src\lib\openjp2\openjpeg.h" />
-    <ClInclude Include="C:\onlyoffice\core\DesktopEditor\raster\Jp2\openjpeg\opj_apps_config.h" />
-    <ClInclude Include="C:\onlyoffice\core\DesktopEditor\raster\Jp2\openjpeg\opj_bgraframe.h" />
-    <ClInclude Include="C:\onlyoffice\core\DesktopEditor\raster\Jp2\openjpeg\openjpeg-2.4.0\src\lib\openjp2\opj_clock.h" />
-    <ClInclude Include="C:\onlyoffice\core\DesktopEditor\raster\Jp2\openjpeg\openjpeg-2.4.0\src\lib\openjp2\opj_codec.h" />
-    <ClInclude Include="C:\onlyoffice\core\DesktopEditor\raster\Jp2\openjpeg\openjpeg-2.4.0\src\lib\openjp2\opj_common.h" />
-    <ClInclude Include="C:\onlyoffice\core\DesktopEditor\raster\Jp2\openjpeg\opj_config.h" />
-    <ClInclude Include="C:\onlyoffice\core\DesktopEditor\raster\Jp2\openjpeg\opj_config_private.h" />
-    <ClInclude Include="C:\onlyoffice\core\DesktopEditor\raster\Jp2\openjpeg\openjpeg-2.4.0\src\lib\openjp2\opj_includes.h" />
-    <ClInclude Include="C:\onlyoffice\core\DesktopEditor\raster\Jp2\openjpeg\openjpeg-2.4.0\src\lib\openjp2\opj_intmath.h" />
-    <ClInclude Include="C:\onlyoffice\core\DesktopEditor\raster\Jp2\openjpeg\openjpeg-2.4.0\src\lib\openjp2\opj_inttypes.h" />
-    <ClInclude Include="C:\onlyoffice\core\DesktopEditor\raster\Jp2\openjpeg\openjpeg-2.4.0\src\lib\openjp2\opj_malloc.h" />
-    <ClInclude Include="C:\onlyoffice\core\DesktopEditor\raster\Jp2\openjpeg\openjpeg-2.4.0\src\lib\openjp2\opj_stdint.h" />
-    <ClInclude Include="lib\goo\parseargs.h" />
-    <ClInclude Include="C:\onlyoffice\core\DesktopEditor\raster\Jp2\openjpeg\openjpeg-2.4.0\src\lib\openjp2\pi.h" />
-    <ClInclude Include="C:\onlyoffice\core\DesktopEditor\raster\Jp2\openjpeg\openjpeg-2.4.0\src\lib\openjp2\sparse_array.h" />
-    <ClInclude Include="C:\onlyoffice\core\DesktopEditor\raster\Jp2\openjpeg\openjpeg-2.4.0\src\lib\openjp2\t1.h" />
-    <ClInclude Include="C:\onlyoffice\core\DesktopEditor\raster\Jp2\openjpeg\openjpeg-2.4.0\src\lib\openjp2\t1_luts.h" />
-    <ClInclude Include="C:\onlyoffice\core\DesktopEditor\raster\Jp2\openjpeg\openjpeg-2.4.0\src\lib\openjp2\t2.h" />
-    <ClInclude Include="C:\onlyoffice\core\DesktopEditor\raster\Jp2\openjpeg\openjpeg-2.4.0\src\lib\openjp2\tcd.h" />
-    <ClInclude Include="C:\onlyoffice\core\DesktopEditor\raster\Jp2\openjpeg\openjpeg-2.4.0\src\lib\openjp2\tgt.h" />
-    <ClInclude Include="C:\onlyoffice\core\DesktopEditor\raster\Jp2\openjpeg\openjpeg-2.4.0\src\lib\openjp2\thread.h" />
-    <ClInclude Include="C:\onlyoffice\core\DesktopEditor\raster\Jp2\openjpeg\openjpeg-2.4.0\src\lib\openjp2\tls_keys.h" />
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include=".\PdfFile_resource.rc" />

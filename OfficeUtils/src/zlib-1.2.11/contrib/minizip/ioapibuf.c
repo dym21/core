@@ -20,7 +20,7 @@ voidpf ZCALLBACK open_buffer_func (voidpf opaque, const char* filename, int mode
             if (hFile->bGrow)
             {
                 hFile->nSize  = 0xffff;
-                hFile->buffer = malloc(hFile->nSize);
+                hFile->buffer = (unsigned char*)malloc(hFile->nSize);
             }
             hFile->nLimit = 0;
         }
@@ -61,7 +61,7 @@ uLong  ZCALLBACK write_buffer_func(voidpf opaque, voidpf stream, const void* buf
             if (hFile->bGrow)
             {
                 uLong nNewSize = hFile->nSize + (size < 0xffff ? 0xffff : size);
-                unsigned char* NewBuffer = malloc(nNewSize);
+                unsigned char* NewBuffer = (unsigned char*)malloc(nNewSize);
                 memcpy(NewBuffer, hFile->buffer, hFile->nSize);
                 free(hFile->buffer);
                 hFile->buffer = NewBuffer;
